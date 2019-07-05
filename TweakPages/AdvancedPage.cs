@@ -42,14 +42,14 @@ namespace TweakUtility.TweakPages
         {
             get
             {
-                using (RegistryKey subKey = Program.LocalMachine.OpenSubKey(@"SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\System"))
+                using (RegistryKey subKey = Program.LocalMachine.OpenSubKey(@"LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"))
                 {
                     return (int)subKey.GetValue("VerboseStatus", RegistryValueKind.DWord) == 1;
                 }
             }
             set
             {
-                using (RegistryKey subKey = Program.LocalMachine.OpenSubKey(@"SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\System", true))
+                using (RegistryKey subKey = Program.LocalMachine.OpenSubKey(@"LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon")
                 {
                     subKey.SetValue("VerboseStatus", value ? 1 : 0, RegistryValueKind.DWord);
                 }
