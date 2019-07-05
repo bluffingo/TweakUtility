@@ -31,8 +31,8 @@ namespace TweakUtility
             this.button1 = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView = new System.Windows.Forms.TreeView();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.startupLabel = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -46,7 +46,7 @@ namespace TweakUtility
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
+            this.button1.Text = "Apply";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // splitContainer1
@@ -78,16 +78,6 @@ namespace TweakUtility
             this.treeView.TabIndex = 0;
             this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TreeView_AfterSelect);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 314);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(533, 49);
-            this.panel1.TabIndex = 2;
-            // 
             // startupLabel
             // 
             this.startupLabel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -98,6 +88,16 @@ namespace TweakUtility
             this.startupLabel.TabIndex = 0;
             this.startupLabel.Text = "Navigate to a page to get started!";
             this.startupLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 314);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(533, 49);
+            this.panel1.TabIndex = 2;
             // 
             // MainForm
             // 
