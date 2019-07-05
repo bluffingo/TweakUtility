@@ -17,6 +17,7 @@ namespace TweakUtility.TweakPages
 
         [DisplayName("Disable Notification Center")]
         [Description("Disables the Notification Center/Action Center. Only effect in Windows 10. Defaults to false.")]
+        [OperatingSystemSupported(OperatingSystemVersion.Windows10)]
         public bool DisableNotificationCenter
         {
             get

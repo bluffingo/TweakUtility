@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -64,7 +65,35 @@ namespace TweakUtility
             {
                 splitContainer1.Panel2.Controls.Clear();
 
-                Control control = tweakPage.CustomView == null ? new PropertyGrid() { SelectedObject = tweakPage } : (Control)tweakPage.CustomView;
+                Control control;
+
+                if (tweakPage.CustomView == null)
+                {
+                    foreach (PropertyDescriptor descriptor in TypeDescriptor.GetProperties(tweakPage))
+                    {
+                        var supportedAttribute = (OperatingSystemSupportedAttribute)descriptor.Attributes[typeof(OperatingSystemSupportedAttribute)];
+
+                        if (supportedAttribute == null)
+                        {
+                            continue;
+                        }
+
+                        bool supported = Program.IsSupported(supportedAttribute.Mininum, supportedAttribute.Maximum);
+
+                        var browsableAttribute = (BrowsableAttribute)descriptor.Attributes[typeof(BrowsableAttribute)];
+                        FieldInfo isBrowsable = browsableAttribute.GetType().GetField("browsable", BindingFlags.NonPublic | BindingFlags.Instance);
+                        isBrowsable.SetValue(browsableAttribute, supported);
+                    }
+
+                    control = new PropertyGrid()
+                    {
+                        SelectedObject = tweakPage
+                    };
+                }
+                else
+                {
+                    control = (Control)tweakPage.CustomView;
+                }
 
                 splitContainer1.Panel2.Controls.Add(control);
                 control.Dock = DockStyle.Fill;

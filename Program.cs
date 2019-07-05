@@ -1,8 +1,6 @@
 using Microsoft.Win32;
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TweakUtility
@@ -28,12 +26,47 @@ namespace TweakUtility
 
         private static RegistryView GetRegistryView()
         {
-            if (System.Environment.Is64BitOperatingSystem)
+            if (Environment.Is64BitOperatingSystem)
             {
                 return RegistryView.Registry64;
             }
 
             return RegistryView.Registry32;
+        }
+
+        public static bool IsSupported(this OperatingSystemVersion mininum, OperatingSystemVersion? maximum = null)
+        {
+            Version mininumV = OperatingSystemVersions.GetVersion(mininum);
+            Version maximumV = null;
+
+            if (maximum.HasValue && maximum.Value != OperatingSystemVersion.None)
+            {
+                maximumV = OperatingSystemVersions.GetVersion(maximum.Value);
+            }
+
+            return IsSupported(mininumV, maximumV);
+        }
+
+        public static bool IsSupported(this Version mininum, Version maximum = null)
+        {
+            if (mininum is null)
+            {
+                throw new ArgumentNullException(nameof(mininum));
+            }
+
+            Version current = OperatingSystemVersions.GetCurrentVersion();
+
+            if (current < mininum)
+            {
+                return false;
+            }
+
+            if (maximum != null && maximum < current)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
