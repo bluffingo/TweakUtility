@@ -45,7 +45,9 @@ namespace TweakUtility
         Windows7,
         Windows8,
         Windows81,
-        WindowsTechnical,
+        WindowsTechnical, //Builds 9833 to 9883 of Windows 10 from 2014.
         Windows10
     }
 }
+
+//WARNING: post-9883 builds of Windows Technical Preview and everything before build 10240 aren't supported for the moment.
