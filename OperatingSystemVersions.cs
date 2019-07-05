@@ -15,6 +15,7 @@ namespace TweakUtility
             new Version(6, 1),
             new Version(6, 2),
             new Version(6, 3),
+            new Version(6, 4),
             new Version(10, 0)
         };
 
@@ -44,6 +45,7 @@ namespace TweakUtility
         Windows7,
         Windows8,
         Windows81,
+        WindowsTechnical,
         Windows10
     }
 }
