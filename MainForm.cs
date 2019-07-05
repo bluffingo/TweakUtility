@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -17,9 +18,12 @@ namespace TweakUtility
         public List<TweakPage> Pages = new List<TweakPage>()
         {
             new CustomizationPage(),
+            new InternetExplorerPage(),
             new AdvancedPage(),
             new UncategorizedPage()
         };
+
+        public PropertyGrid CurrentPropertyGrid => (PropertyGrid)splitContainer.Panel2.Controls.Find("propertyGrid", false)[0];
 
         public MainForm()
         {
@@ -63,7 +67,7 @@ namespace TweakUtility
         {
             if (e.Node.Tag is TweakPage tweakPage)
             {
-                splitContainer1.Panel2.Controls.Clear();
+                splitContainer.Panel2.Controls.Clear();
 
                 Control control;
 
@@ -87,7 +91,8 @@ namespace TweakUtility
 
                     control = new PropertyGrid()
                     {
-                        SelectedObject = tweakPage
+                        SelectedObject = tweakPage,
+                        Name = "propertyGrid"
                     };
                 }
                 else
@@ -95,9 +100,26 @@ namespace TweakUtility
                     control = (Control)tweakPage.CustomView;
                 }
 
-                splitContainer1.Panel2.Controls.Add(control);
+                splitContainer.Panel2.Controls.Add(control);
                 control.Dock = DockStyle.Fill;
             }
+        }
+
+        private void AboutLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => Process.Start(new ProcessStartInfo("https://github.com/Craftplacer/TweakUtility") { UseShellExecute = true });
+
+        private void RevertButton_Click(object sender, EventArgs e)
+        {
+            var descriptor = CurrentPropertyGrid.SelectedGridItem.PropertyDescriptor;
+            var attribute = (DefaultValueAttribute)descriptor.Attributes[typeof(DefaultValueAttribute)];
+
+            if (attribute == null)
+            {
+                return;
+            }
+
+            descriptor.SetValue(CurrentPropertyGrid.SelectedObject, attribute.Value);
+
+            CurrentPropertyGrid.SelectedGridItem.Select();
         }
     }
 }
