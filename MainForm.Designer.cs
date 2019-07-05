@@ -31,8 +31,8 @@ namespace TweakUtility
             this.button1 = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView = new System.Windows.Forms.TreeView();
-            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.startupLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -63,7 +63,7 @@ namespace TweakUtility
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.propertyGrid1);
+            this.splitContainer1.Panel2.Controls.Add(this.startupLabel);
             this.splitContainer1.Size = new System.Drawing.Size(509, 296);
             this.splitContainer1.SplitterDistance = 169;
             this.splitContainer1.TabIndex = 1;
@@ -78,15 +78,6 @@ namespace TweakUtility
             this.treeView.TabIndex = 0;
             this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TreeView_AfterSelect);
             // 
-            // propertyGrid1
-            // 
-            this.propertyGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.propertyGrid1.Location = new System.Drawing.Point(0, 0);
-            this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.Size = new System.Drawing.Size(336, 296);
-            this.propertyGrid1.TabIndex = 0;
-            this.propertyGrid1.ToolbarVisible = false;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
@@ -96,6 +87,17 @@ namespace TweakUtility
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(533, 49);
             this.panel1.TabIndex = 2;
+            // 
+            // startupLabel
+            // 
+            this.startupLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.startupLabel.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.startupLabel.Location = new System.Drawing.Point(0, 0);
+            this.startupLabel.Name = "startupLabel";
+            this.startupLabel.Size = new System.Drawing.Size(336, 296);
+            this.startupLabel.TabIndex = 0;
+            this.startupLabel.Text = "Navigate to a page to get started!";
+            this.startupLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 
@@ -123,8 +125,8 @@ namespace TweakUtility
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TreeView treeView;
-        private System.Windows.Forms.PropertyGrid propertyGrid1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label startupLabel;
     }
 }
 
