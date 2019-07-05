@@ -22,19 +22,14 @@ namespace TweakUtility.TweakPages
         {
             get
             {
-                using (RegistryKey subKey = Program.LocalMachine.OpenSubKey(@"Software\Policies\Microsoft\Windows\Explorer"))
+                using (RegistryKey subKey = Program.LocalMachine.CreateSubKey(@"Software\Policies\Microsoft\Windows\Explorer"))
                 {
-                    if (subKey == null)
-                    {
-                        return false;
-                    }
-
-                    return (int)subKey.GetValue("DisableNotificationCenter", RegistryValueKind.DWord) == 1;
+                    return (int)subKey.GetValue("DisableNotificationCenter", 0) == 1;
                 }
             }
             set
             {
-                using (RegistryKey subKey = Program.LocalMachine.OpenSubKey(@"Software\Policies\Microsoft\Windows\Explorer", true))
+                using (RegistryKey subKey = Program.LocalMachine.CreateSubKey(@"Software\Policies\Microsoft\Windows\Explorer"))
                 {
                     subKey.SetValue("DisableNotificationCenter", value ? 1 : 0, RegistryValueKind.DWord);
                 }
