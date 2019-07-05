@@ -28,7 +28,7 @@ namespace TweakUtility
                 using (var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem"))
                 {
                     string[] v1 = ((string)searcher.Get().Cast<ManagementObject>().FirstOrDefault().Properties["Version"].Value).Split('.');
-                    _currentVersion = new Version(int.Parse(v1[0]), int.Parse(v1[1]));
+                    _currentVersion = new Version(int.Parse(v1[0]), int.Parse(v1[1]), int.Parse(v1[2]));
                 }
             }
 
