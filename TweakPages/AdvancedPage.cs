@@ -49,7 +49,7 @@ namespace TweakUtility.TweakPages
             }
             set
             {
-                using (RegistryKey subKey = Program.LocalMachine.OpenSubKey(@"LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon")
+                using (RegistryKey subKey = Program.LocalMachine.OpenSubKey(@"LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon", true))
                 {
                     subKey.SetValue("VerboseStatus", value ? 1 : 0, RegistryValueKind.DWord);
                 }
