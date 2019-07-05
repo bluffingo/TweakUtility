@@ -51,3 +51,4 @@ namespace TweakUtility
 }
 
 //WARNING: post-9883 builds of Windows Technical Preview and everything before build 10240 aren't supported for the moment.
+//To-do: Add a Windows build check to improve support with betas.
