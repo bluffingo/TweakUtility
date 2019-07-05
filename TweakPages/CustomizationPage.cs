@@ -16,7 +16,7 @@ namespace TweakUtility.TweakPages
         }
 
         [DisplayName("Disable Notification Center")]
-        [Description("Disables the Notification Center/Action Center. Only effect in Windows 10. Defaults to false.")]
+        [Description("Disables the Notification Center/Action Center. Defaults to false.")]
         [OperatingSystemSupported(OperatingSystemVersion.Windows10)]
         public bool DisableNotificationCenter
         {
@@ -24,6 +24,11 @@ namespace TweakUtility.TweakPages
             {
                 using (RegistryKey subKey = Program.LocalMachine.OpenSubKey(@"Software\Policies\Microsoft\Windows\Explorer"))
                 {
+                    if (subKey == null)
+                    {
+                        return false;
+                    }
+
                     return (int)subKey.GetValue("DisableNotificationCenter", RegistryValueKind.DWord) == 1;
                 }
             }
