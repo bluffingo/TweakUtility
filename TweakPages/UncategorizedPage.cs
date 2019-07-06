@@ -18,7 +18,6 @@ namespace TweakUtility.TweakPages
         }
 
         [DisplayName("Cleanup program")]
-        [Description("Defaults to \"%SystemRoot%\\System32\\cleanmgr.exe /D %c\".")]
         [DefaultValue(@"%SystemRoot%\System32\cleanmgr.exe /D %c")]
         [Editor(typeof(FileNameEditor), typeof(UITypeEditor))]
         public string CleanupProgram
@@ -40,7 +39,6 @@ namespace TweakUtility.TweakPages
         }
 
         [DisplayName("Defragmentation program")]
-        [Description("Defaults to \"%systemroot%\\system32\\dfrgui.exe\".")]
         [DefaultValue(@"%systemroot%\system32\dfrgui.exe")]
         [Editor(typeof(FileNameEditor), typeof(UITypeEditor))]
         public string DefragmentationProgram

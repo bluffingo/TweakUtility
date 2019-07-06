@@ -1,7 +1,10 @@
 using Microsoft.Win32;
 
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+
+using TweakUtility.TweakPages;
 
 namespace TweakUtility
 {
@@ -9,6 +12,14 @@ namespace TweakUtility
     {
         public static RegistryKey LocalMachine;
         public static RegistryKey CurrentUser;
+
+        public static List<TweakPage> Pages = new List<TweakPage>()
+        {
+            new CustomizationPage(),
+            new InternetExplorerPage(),
+            new AdvancedPage(),
+            new UncategorizedPage()
+        };
 
         /// <summary>
         /// The main entry point for the application.
@@ -21,6 +32,12 @@ namespace TweakUtility
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            using (var splash = new SplashForm())
+            {
+                Application.Run(splash);
+            }
+
             Application.Run(new MainForm());
         }
 

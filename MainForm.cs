@@ -15,26 +15,16 @@ namespace TweakUtility
 {
     public partial class MainForm : Form
     {
-        public List<TweakPage> Pages = new List<TweakPage>()
-        {
-            new CustomizationPage(),
-            new InternetExplorerPage(),
-            new AdvancedPage(),
-            new UncategorizedPage()
-        };
-
-        public PropertyGrid CurrentPropertyGrid => (PropertyGrid)splitContainer.Panel2.Controls.Find("propertyGrid", false)[0];
+        public PropertyGrid CurrentPropertyGrid => (PropertyGrid)splitContainer.Panel2.Controls.Find("content", false)[0];
 
         public MainForm()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //propertyGrid1.
-
-            foreach (TweakPage page in Pages)
+            foreach (TweakPage page in Program.Pages)
             {
                 AddPage(page);
             }
@@ -67,41 +57,59 @@ namespace TweakUtility
         {
             if (e.Node.Tag is TweakPage tweakPage)
             {
-                splitContainer.Panel2.Controls.Clear();
+                ///#region Compatibility Check
+                ///
+                ///foreach (PropertyDescriptor descriptor in TypeDescriptor.GetProperties(tweakPage))
+                ///{
+                ///    OperatingSystemSupportedAttribute supportedAttribute = (OperatingSystemSupportedAttribute)descriptor.Attributes[typeof(OperatingSystemSupportedAttribute)];
+                ///
+                ///    if (supportedAttribute != null)
+                ///    {
+                ///        bool supported = Program.IsSupported(supportedAttribute.Mininum, supportedAttribute.Maximum);
+                ///
+                ///        BrowsableAttribute browsableAttribute = (BrowsableAttribute)descriptor.Attributes[typeof(BrowsableAttribute)];
+                ///        var field = browsableAttribute.GetType().GetField("browsable", BindingFlags.NonPublic | BindingFlags.Instance);
+                ///        field.SetValue(browsableAttribute, supported);
+                ///    }
+                ///}
+                ///
+                ///#endregion Compatibility Check
 
                 Control control;
 
                 if (tweakPage.CustomView == null)
                 {
-                    foreach (PropertyDescriptor descriptor in TypeDescriptor.GetProperties(tweakPage))
-                    {
-                        var supportedAttribute = (OperatingSystemSupportedAttribute)descriptor.Attributes[typeof(OperatingSystemSupportedAttribute)];
-
-                        if (supportedAttribute == null)
-                        {
-                            continue;
-                        }
-
-                        bool supported = Program.IsSupported(supportedAttribute.Mininum, supportedAttribute.Maximum);
-
-                        var browsableAttribute = (BrowsableAttribute)descriptor.Attributes[typeof(BrowsableAttribute)];
-                        FieldInfo isBrowsable = browsableAttribute.GetType().GetField("browsable", BindingFlags.NonPublic | BindingFlags.Instance);
-                        isBrowsable.SetValue(browsableAttribute, supported);
-                    }
-
-                    control = new PropertyGrid()
+                    var propertyGrid = new PropertyGrid()
                     {
                         SelectedObject = tweakPage,
-                        Name = "propertyGrid"
+                        Name = "content"
                     };
+
+                    propertyGrid.SelectedGridItemChanged += (s, e2) =>
+                    {
+                        if (e2.NewSelection.GridItemType == GridItemType.Property)
+                        {
+                            PropertyDescriptor descriptor = e2.NewSelection.PropertyDescriptor;
+                            revertButton.Enabled = descriptor.CanResetValue(null);
+                        }
+                        else
+                        {
+                            revertButton.Enabled = false;
+                        }
+                    };
+
+                    control = propertyGrid;
                 }
                 else
                 {
-                    control = (Control)tweakPage.CustomView;
+                    control = tweakPage.CustomView;
                 }
 
+                splitContainer.Panel2.Controls.Clear();
                 splitContainer.Panel2.Controls.Add(control);
                 control.Dock = DockStyle.Fill;
+
+                revertButton.Enabled = false;
             }
         }
 
@@ -109,17 +117,8 @@ namespace TweakUtility
 
         private void RevertButton_Click(object sender, EventArgs e)
         {
-            var descriptor = CurrentPropertyGrid.SelectedGridItem.PropertyDescriptor;
-            var attribute = (DefaultValueAttribute)descriptor.Attributes[typeof(DefaultValueAttribute)];
-
-            if (attribute == null)
-            {
-                return;
-            }
-
-            descriptor.SetValue(CurrentPropertyGrid.SelectedObject, attribute.Value);
-
-            CurrentPropertyGrid.SelectedGridItem.Select();
+            PropertyDescriptor descriptor = CurrentPropertyGrid.SelectedGridItem.PropertyDescriptor;
+            descriptor.ResetValue(descriptor);
         }
     }
 }

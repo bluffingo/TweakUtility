@@ -23,7 +23,7 @@ namespace TweakUtility.TweakPages
             [DisplayName("Blank page")]
             [DefaultValue("res://mshtml.dll/blank.htm")]
             [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
-            public string DisableNotificationCenter
+            public string BlankPage
             {
                 get
                 {

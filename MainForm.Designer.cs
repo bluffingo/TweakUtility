@@ -32,17 +32,18 @@ namespace TweakUtility
             this.treeView = new System.Windows.Forms.TreeView();
             this.startupLabel = new System.Windows.Forms.Label();
             this.bottomPanel = new System.Windows.Forms.Panel();
-            this.revertButton = new System.Windows.Forms.Button();
             this.aboutLabel = new System.Windows.Forms.LinkLabel();
+            this.revertButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             this.bottomPanel.SuspendLayout();
+            this.SuspendLayout();
             // 
             // splitContainer
-            //
-            this.splitContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            // 
+            this.splitContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer.Location = new System.Drawing.Point(12, 12);
@@ -91,16 +92,6 @@ namespace TweakUtility
             this.bottomPanel.Size = new System.Drawing.Size(533, 49);
             this.bottomPanel.TabIndex = 2;
             // 
-            // revertButton
-            // 
-            this.revertButton.Location = new System.Drawing.Point(446, 12);
-            this.revertButton.Name = "revertButton";
-            this.revertButton.Size = new System.Drawing.Size(75, 23);
-            this.revertButton.TabIndex = 1;
-            this.revertButton.Text = "&Revert";
-            this.revertButton.UseVisualStyleBackColor = true;
-            this.revertButton.Click += new System.EventHandler(this.RevertButton_Click);
-            // 
             // aboutLabel
             // 
             this.aboutLabel.AutoSize = true;
@@ -116,6 +107,17 @@ namespace TweakUtility
             this.aboutLabel.Text = "Tweak Utility";
             this.aboutLabel.UseCompatibleTextRendering = true;
             this.aboutLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.AboutLabel_LinkClicked);
+            // 
+            // revertButton
+            // 
+            this.revertButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.revertButton.Location = new System.Drawing.Point(446, 12);
+            this.revertButton.Name = "revertButton";
+            this.revertButton.Size = new System.Drawing.Size(75, 23);
+            this.revertButton.TabIndex = 1;
+            this.revertButton.Text = "&Revert";
+            this.revertButton.UseVisualStyleBackColor = true;
+            this.revertButton.Click += new System.EventHandler(this.RevertButton_Click);
             // 
             // MainForm
             // 
