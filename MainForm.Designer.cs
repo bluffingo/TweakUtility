@@ -127,6 +127,7 @@ namespace TweakUtility
             this.ClientSize = new System.Drawing.Size(533, 363);
             this.Controls.Add(this.bottomPanel);
             this.Controls.Add(this.splitContainer);
+            this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "Tweak Utility";
