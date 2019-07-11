@@ -14,6 +14,15 @@ namespace TweakUtility.TweakPages
         {
         }
 
+        [DisplayName("User Agent")]
+        [DefaultValue("Mozilla/4.0 (compatible; MSIE 8.0; Win32)")]
+        [OperatingSystemSupported(OperatingSystemVersion.WindowsXP, OperatingSystemVersion.WindowsXP)]
+        public string UserAgent
+        {
+            get => RegistryHelper.GetValue<string>(@"HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\User Agent");
+            set => RegistryHelper.SetValue(@"HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\User Agent", value);
+        }
+
         public class TabsPage : TweakPage
         {
             public TabsPage() : base("Tabs")
