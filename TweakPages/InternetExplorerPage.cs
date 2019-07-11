@@ -25,20 +25,8 @@ namespace TweakUtility.TweakPages
             [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
             public string BlankPage
             {
-                get
-                {
-                    using (RegistryKey subKey = Program.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Internet Explorer\AboutURLs"))
-                    {
-                        return (string)subKey.GetValue("blank", "res://mshtml.dll/blank.htm");
-                    }
-                }
-                set
-                {
-                    using (RegistryKey subKey = Program.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Internet Explorer\AboutURLs"))
-                    {
-                        subKey.SetValue("blank", value, RegistryValueKind.String);
-                    }
-                }
+                get => RegistryHelper.GetValue<string>(@"HKLC\SOFTWARE\Microsoft\Internet Explorer\AboutURLs\blank");
+                set => RegistryHelper.SetValue(@"HKLC\SOFTWARE\Microsoft\Internet Explorer\AboutURLs\blank", value);
             }
         }
     }
