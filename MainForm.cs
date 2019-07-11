@@ -17,10 +17,7 @@ namespace TweakUtility
     {
         public PropertyGrid CurrentPropertyGrid => (PropertyGrid)splitContainer.Panel2.Controls.Find("content", false)[0];
 
-        public MainForm()
-        {
-            this.InitializeComponent();
-        }
+        public MainForm() => this.InitializeComponent();
 
         private void MainForm_Load(object sender, EventArgs e)
         {

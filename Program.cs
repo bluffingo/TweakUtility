@@ -41,15 +41,7 @@ namespace TweakUtility
             Application.Run(new MainForm());
         }
 
-        private static RegistryView GetRegistryView()
-        {
-            if (Environment.Is64BitOperatingSystem)
-            {
-                return RegistryView.Registry64;
-            }
-
-            return RegistryView.Registry32;
-        }
+        private static RegistryView GetRegistryView() => Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32;
 
         public static bool IsSupported(this OperatingSystemVersion mininum, OperatingSystemVersion? maximum = null)
         {

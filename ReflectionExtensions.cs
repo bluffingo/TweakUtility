@@ -9,10 +9,7 @@ namespace TweakUtility
 {
     public static class ReflectionExtensions
     {
-        public static T GetAttribute<T>(this PropertyDescriptor descriptor) where T : Attribute
-        {
-            return (T)descriptor.Attributes[typeof(T)];
-        }
+        public static T GetAttribute<T>(this PropertyDescriptor descriptor) where T : Attribute => (T)descriptor.Attributes[typeof(T)];
 
         public static object GetHiddenValue(this Attribute attribute, string fieldName) => attribute.GetType().GetField(fieldName, BindingFlags.NonPublic | BindingFlags.Instance).GetValue(attribute);
 
