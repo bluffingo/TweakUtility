@@ -45,7 +45,7 @@ namespace TweakUtility
         Windows7,
         Windows8,
         Windows81,
-        WindowsTechnical, //Builds 9833 to 9883 of Windows 10 from 2014.
+        WindowsTech, //Builds 9833 to 9883 of Windows 10 from 2014.
         Windows10
     }
 }
