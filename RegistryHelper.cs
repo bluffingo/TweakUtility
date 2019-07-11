@@ -15,7 +15,14 @@ namespace TweakUtility
 
             using (RegistryKey subKey = info.Item1)
             {
-                return (T)subKey.GetValue(info.Item2, null);
+                var value = subKey.GetValue(info.Item2, null);
+
+                if (value == null)
+                {
+                    throw new Exception("Not found");
+                }
+
+                return (T)value;
             }
         }
 
@@ -47,7 +54,7 @@ namespace TweakUtility
 
             string joinedPath = string.Join("\\", split);
 
-            return new string[3] { hive, joinedPath, name };
+            return new string[3] { hive, joinedPath, string.IsNullOrWhiteSpace(name) ? null : name };
         }
 
         private static Tuple<RegistryKey, string> ProcessPathAdvanced(string path)
