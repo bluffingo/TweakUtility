@@ -1,11 +1,4 @@
-﻿using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.ComponentModel;
 
 namespace TweakUtility.TweakPages
 {
@@ -16,25 +9,30 @@ namespace TweakUtility.TweakPages
         }
 
         [DisplayName("Disable Notification Center")]
-        [Description("Disables the Notification Center/Action Center.")]
         [DefaultValue(false)]
         [OperatingSystemSupported(OperatingSystemVersion.Windows10)]
         public bool DisableNotificationCenter
         {
-            get
-            {
-                using (RegistryKey subKey = Program.LocalMachine.CreateSubKey(@"Software\Policies\Microsoft\Windows\Explorer"))
-                {
-                    return (int)subKey.GetValue("DisableNotificationCenter", 0) == 1;
-                }
-            }
-            set
-            {
-                using (RegistryKey subKey = Program.LocalMachine.CreateSubKey(@"Software\Policies\Microsoft\Windows\Explorer"))
-                {
-                    subKey.SetValue("DisableNotificationCenter", value ? 1 : 0, RegistryValueKind.DWord);
-                }
-            }
+            get => RegistryHelper.GetValue<int>(@"HKLM\Software\Policies\Microsoft\Windows\Explorer\DisableNotificationCenter") == 1;
+            set => RegistryHelper.SetValue(@"HKLM\Software\Policies\Microsoft\Windows\Explorer\DisableNotificationCenter", value ? 1 : 0);
+        }
+
+        [DisplayName("Apps use light theme")]
+        [DefaultValue(false)]
+        [OperatingSystemSupported(OperatingSystemVersion.Windows10)]
+        public bool AppsUseLightTheme
+        {
+            get => RegistryHelper.GetValue<int>(@"HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize\AppsUseLightTheme") == 1;
+            set => RegistryHelper.SetValue(@"HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize\AppsUseLightTheme", value ? 1 : 0);
+        }
+
+        [DisplayName("System uses light theme")]
+        [DefaultValue(false)]
+        [OperatingSystemSupported(OperatingSystemVersion.Windows10)]
+        public bool SystemUsesLightTheme
+        {
+            get => RegistryHelper.GetValue<int>(@"HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize\SystemUsesLightTheme") == 1;
+            set => RegistryHelper.SetValue(@"HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize\SystemUsesLightTheme", value ? 1 : 0);
         }
     }
 }

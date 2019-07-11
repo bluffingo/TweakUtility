@@ -34,8 +34,8 @@ namespace TweakUtility.TweakPages
             [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
             public string BlankPage
             {
-                get => RegistryHelper.GetValue<string>(@"HKLC\SOFTWARE\Microsoft\Internet Explorer\AboutURLs\blank");
-                set => RegistryHelper.SetValue(@"HKLC\SOFTWARE\Microsoft\Internet Explorer\AboutURLs\blank", value);
+                get => RegistryHelper.GetValue<string>(@"HKLM\SOFTWARE\Microsoft\Internet Explorer\AboutURLs\blank");
+                set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Microsoft\Internet Explorer\AboutURLs\blank", value);
             }
         }
     }

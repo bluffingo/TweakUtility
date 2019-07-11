@@ -22,20 +22,8 @@ namespace TweakUtility.TweakPages
         [Editor(typeof(FileNameEditor), typeof(UITypeEditor))]
         public string CleanupProgram
         {
-            get
-            {
-                using (RegistryKey subKey = Program.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\cleanuppath"))
-                {
-                    return (string)subKey.GetValue(null, RegistryValueKind.ExpandString);
-                }
-            }
-            set
-            {
-                using (RegistryKey subKey = Program.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\cleanuppath", true))
-                {
-                    subKey.SetValue(null, value, RegistryValueKind.ExpandString);
-                }
-            }
+            get => RegistryHelper.GetValue<string>(@"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\cleanuppath\ ");
+            set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\cleanuppath\ ", value, RegistryValueKind.ExpandString);
         }
 
         [DisplayName("Defragmentation program")]
@@ -43,20 +31,8 @@ namespace TweakUtility.TweakPages
         [Editor(typeof(FileNameEditor), typeof(UITypeEditor))]
         public string DefragmentationProgram
         {
-            get
-            {
-                using (RegistryKey subKey = Program.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\DefragPath"))
-                {
-                    return (string)subKey.GetValue(null, RegistryValueKind.ExpandString);
-                }
-            }
-            set
-            {
-                using (RegistryKey subKey = Program.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\DefragPath", true))
-                {
-                    subKey.SetValue(null, value, RegistryValueKind.ExpandString);
-                }
-            }
+            get => RegistryHelper.GetValue<string>(@"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\DefragPath\ ");
+            set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\DefragPath\ ", value, RegistryValueKind.ExpandString);
         }
     }
 
@@ -68,40 +44,14 @@ namespace TweakUtility.TweakPages
 
         public int VolumeDownTransitionTime
         {
-            get
-            {
-                using (RegistryKey subKey = Program.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\"))
-                {
-                    return (int)subKey.GetValue("VolumeDownTransitionTime", RegistryValueKind.DWord);
-                }
-            }
-
-            set
-            {
-                using (RegistryKey subKey = Program.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\", true))
-                {
-                    subKey.SetValue("VolumeDownTransitionTime", value, RegistryValueKind.DWord);
-                }
-            }
+            get => RegistryHelper.GetValue<int>(@"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\VolumeDownTransitionTime");
+            set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\VolumeDownTransitionTime", value);
         }
 
         public int VolumeUpTransitionTime
         {
-            get
-            {
-                using (RegistryKey subKey = Program.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\"))
-                {
-                    return (int)subKey.GetValue("VolumeUpTransitionTime", RegistryValueKind.DWord);
-                }
-            }
-
-            set
-            {
-                using (RegistryKey subKey = Program.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\", true))
-                {
-                    subKey.SetValue("VolumeUpTransitionTime", value, RegistryValueKind.DWord);
-                }
-            }
+            get => RegistryHelper.GetValue<int>(@"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\VolumeUpTransitionTime");
+            set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\VolumeUpTransitionTime", value);
         }
     }
 }

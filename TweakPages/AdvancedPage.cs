@@ -1,11 +1,4 @@
-﻿using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.ComponentModel;
 
 namespace TweakUtility.TweakPages
 {
@@ -19,20 +12,8 @@ namespace TweakUtility.TweakPages
         [DefaultValue(false)]
         public bool VerboseMessages
         {
-            get
-            {
-                using (RegistryKey subKey = Program.LocalMachine.CreateSubKey(@"SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\System"))
-                {
-                    return (int)subKey.GetValue("VerboseStatus", RegistryValueKind.DWord) == 1;
-                }
-            }
-            set
-            {
-                using (RegistryKey subKey = Program.LocalMachine.CreateSubKey(@"SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\System"))
-                {
-                    subKey.SetValue("VerboseStatus", value ? 1 : 0, RegistryValueKind.DWord);
-                }
-            }
+            get => RegistryHelper.GetValue<int>(@"HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\System\VerboseStatus") == 1;
+            set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\System\VerboseStatus", value ? 1 : 0);
         }
 
         [DisplayName("Windows System File Checker")]
@@ -40,20 +21,8 @@ namespace TweakUtility.TweakPages
         [DefaultValue(WindowsSFCMode.Enabled)]
         public WindowsSFCMode WindowsSFC
         {
-            get
-            {
-                using (RegistryKey subKey = Program.LocalMachine.CreateSubKey(@"Software\Microsoft\Windows NT\CurrentVersion\Winlogon"))
-                {
-                    return (WindowsSFCMode)subKey.GetValue("SFCDisable", RegistryValueKind.DWord);
-                }
-            }
-            set
-            {
-                using (RegistryKey subKey = Program.LocalMachine.CreateSubKey(@"Software\Microsoft\Windows NT\CurrentVersion\Winlogon"))
-                {
-                    subKey.SetValue("SFCDisable", (int)value, RegistryValueKind.DWord);
-                }
-            }
+            get => (WindowsSFCMode)RegistryHelper.GetValue<int>(@"HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SFCDisable");
+            set => RegistryHelper.SetValue(@"HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SFCDisable", (int)value);
         }
 
         public enum WindowsSFCMode
