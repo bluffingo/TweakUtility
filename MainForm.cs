@@ -95,6 +95,72 @@ namespace TweakUtility
                         }
                     };
 
+                    propertyGrid.PropertyValueChanged += (s, e2) =>
+                    {
+                        RefreshRequiredAttribute attribute = e2.ChangedItem.PropertyDescriptor.GetAttribute<RefreshRequiredAttribute>();
+
+                        if (attribute == null)
+                        {
+                            return;
+                        }
+
+                        if (attribute.Type == RestartType.ExplorerRestart)
+                        {
+                            DialogResult result = MessageBox.Show(
+                                    "This option requires you to restart Windows Explorer.\nWould you like to do that now?",
+                                    "Tweak Utility",
+                                    MessageBoxButtons.YesNo,
+                                    MessageBoxIcon.Question);
+
+                            if (result == DialogResult.Yes)
+                            {
+                                foreach (Process p in Process.GetProcesses())
+                                {
+                                    try
+                                    {
+                                        if (p.MainModule.FileName.ToLower().EndsWith(":\\windows\\explorer.exe"))
+                                        {
+                                            p.Kill();
+                                        }
+                                    }
+                                    catch
+                                    {
+                                    }
+                                }
+                                Process.Start(new ProcessStartInfo("explorer.exe")
+                                {
+                                    UseShellExecute = true
+                                });
+                            }
+                        }
+                        else if (attribute.Type == RestartType.SystemRestart)
+                        {
+                            DialogResult result = MessageBox.Show(
+                                    "This option requires you to restart your system.\nWould you like to do that now?",
+                                    "Tweak Utility",
+                                    MessageBoxButtons.YesNo,
+                                    MessageBoxIcon.Question);
+
+                            if (result == DialogResult.Yes)
+                            {
+                                NativeMethods.ExitWindowsEx(NativeMethods.ExitWindows.Reboot, NativeMethods.ShutdownReason.MinorReconfig);
+                            }
+                        }
+                        else if (attribute.Type == RestartType.Logoff)
+                        {
+                            DialogResult result = MessageBox.Show(
+                                    "This option requires you to logoff.\nWould you like to do that now?",
+                                    "Tweak Utility",
+                                    MessageBoxButtons.YesNo,
+                                    MessageBoxIcon.Question);
+
+                            if (result == DialogResult.Yes)
+                            {
+                                NativeMethods.ExitWindowsEx(NativeMethods.ExitWindows.LogOff, NativeMethods.ShutdownReason.MinorReconfig);
+                            }
+                        }
+                    };
+
                     control = propertyGrid;
                 }
                 else
