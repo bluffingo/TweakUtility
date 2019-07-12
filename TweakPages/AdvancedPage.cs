@@ -8,6 +8,24 @@ namespace TweakUtility.TweakPages
         {
         }
 
+        [DisplayName("Owner")]
+        [Category("Registration")]
+        [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
+        public string RegisteredOwner
+        {
+            get => RegistryHelper.GetValue<string>(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\RegisteredOwner");
+            set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\RegisteredOwner", value);
+        }
+
+        [DisplayName("Organization")]
+        [Category("Registration")]
+        [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
+        public string RegisteredOrganization
+        {
+            get => RegistryHelper.GetValue<string>(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\RegisteredOrganization");
+            set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\RegisteredOrganization", value);
+        }
+
         [DisplayName("Verbose Messages")]
         [DefaultValue(false)]
         public bool VerboseMessages

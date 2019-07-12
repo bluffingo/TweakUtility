@@ -105,6 +105,7 @@
     <Compile Include="TweakPages\AdvancedPage.cs" />
     <Compile Include="TweakPages\CustomizationPage.cs" />
     <Compile Include="TweakPages\InternetExplorerPage.cs" />
+    <Compile Include="TweakPages\SnippingToolPage.cs" />
     <Compile Include="TweakPages\TweakPages.cs" />
     <Compile Include="TweakPages\UncategorizedPage.cs" />
     <EmbeddedResource Include="MainForm.resx">

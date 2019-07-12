@@ -2,6 +2,7 @@ using Microsoft.Win32;
 
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 using TweakUtility.TweakPages;
@@ -17,6 +18,7 @@ namespace TweakUtility
         {
             new CustomizationPage(),
             new InternetExplorerPage(),
+            new SnippingToolPage(),
             new AdvancedPage(),
             new UncategorizedPage()
         };
@@ -76,6 +78,14 @@ namespace TweakUtility
             }
 
             return true;
+        }
+
+        public static int ToBgrInt(this Color color) => (0 << 24) + (color.B << 16) + (color.G << 8) + color.R;
+
+        public static System.Drawing.Color ToBgrColor(this int bgrColor)
+        {
+            byte[] bytes = BitConverter.GetBytes(bgrColor);
+            return System.Drawing.Color.FromArgb(bytes[0], bytes[1], bytes[2]);
         }
     }
 }
