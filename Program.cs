@@ -2,6 +2,7 @@ using Microsoft.Win32;
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -41,6 +42,32 @@ namespace TweakUtility
             }
 
             Application.Run(new MainForm());
+        }
+
+        public static void RestartExplorer()
+        {
+            try
+            {
+                IntPtr handle = NativeMethods.FindWindow("Shell_TrayWnd", null);
+                NativeMethods.PostMessage(handle, NativeMethods.WM_USER + 436, (IntPtr)0, (IntPtr)0);
+
+                while (true)
+                {
+                    handle = NativeMethods.FindWindow("Shell_TrayWnd", null);
+
+                    if (handle.ToInt32() == 0)
+                    {
+                        break;
+                    }
+                }
+            }
+            finally
+            {
+                Process.Start(new ProcessStartInfo("explorer.exe")
+                {
+                    UseShellExecute = true
+                });
+            }
         }
 
         private static RegistryView GetRegistryView() => Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32;

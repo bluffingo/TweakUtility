@@ -114,23 +114,7 @@ namespace TweakUtility
 
                             if (result == DialogResult.Yes)
                             {
-                                foreach (Process p in Process.GetProcesses())
-                                {
-                                    try
-                                    {
-                                        if (p.MainModule.FileName.ToLower().EndsWith(":\\windows\\explorer.exe"))
-                                        {
-                                            p.Kill();
-                                        }
-                                    }
-                                    catch
-                                    {
-                                    }
-                                }
-                                Process.Start(new ProcessStartInfo("explorer.exe")
-                                {
-                                    UseShellExecute = true
-                                });
+                                Program.RestartExplorer();
                             }
                         }
                         else if (attribute.Type == RestartType.SystemRestart)

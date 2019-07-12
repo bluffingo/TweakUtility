@@ -9,6 +9,14 @@ namespace TweakUtility
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool ExitWindowsEx(ExitWindows uFlags, ShutdownReason dwReason);
 
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern bool PostMessage(IntPtr hWnd, [MarshalAs(UnmanagedType.U4)] uint Msg, IntPtr wParam, IntPtr lParam);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+        public const int WM_USER = 0x0400; //http://msdn.microsoft.com/en-us/library/windows/desktop/ms644931(v=vs.85).aspx5).aspx
+
         [Flags]
         public enum ExitWindows : uint
         {
