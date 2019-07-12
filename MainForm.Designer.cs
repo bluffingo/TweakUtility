@@ -28,6 +28,7 @@ namespace TweakUtility
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.treeView = new System.Windows.Forms.TreeView();
             this.startupLabel = new System.Windows.Forms.Label();
@@ -129,6 +130,7 @@ namespace TweakUtility
             this.Controls.Add(this.bottomPanel);
             this.Controls.Add(this.splitContainer);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "Tweak Utility";
