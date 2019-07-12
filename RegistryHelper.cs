@@ -15,7 +15,7 @@ namespace TweakUtility
 
             using (RegistryKey subKey = info.Item1)
             {
-                var value = subKey.GetValue(info.Item2, null);
+                object value = subKey.GetValue(info.Item2, null);
 
                 if (value == null)
                 {
