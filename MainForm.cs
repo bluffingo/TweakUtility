@@ -1,13 +1,6 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TweakUtility.TweakPages;
 
@@ -15,7 +8,9 @@ namespace TweakUtility
 {
     public partial class MainForm : Form
     {
-        public PropertyGrid CurrentPropertyGrid => (PropertyGrid)splitContainer.Panel2.Controls.Find("content", false)[0];
+        public Control CurrentPageView => splitContainer.Panel2.Controls.Find("content", false)[0];
+
+        public TweakPage CurrentTweakPage => treeView.SelectedNode.Tag is TweakPage tweakPage ? tweakPage : null;
 
         public MainForm() => this.InitializeComponent();
 
@@ -164,8 +159,16 @@ namespace TweakUtility
 
         private void RevertButton_Click(object sender, EventArgs e)
         {
-            PropertyDescriptor descriptor = CurrentPropertyGrid.SelectedGridItem.PropertyDescriptor;
-            descriptor.ResetValue(descriptor);
+            if (CurrentPageView is PropertyGrid propertyGrid)
+            {
+                PropertyDescriptor descriptor = propertyGrid.SelectedGridItem.PropertyDescriptor;
+
+                if (descriptor.CanResetValue(CurrentTweakPage))
+                {
+                    descriptor.ResetValue(CurrentTweakPage);
+                    propertyGrid.SelectedGridItem.Select();
+                }
+            }
         }
     }
 }
