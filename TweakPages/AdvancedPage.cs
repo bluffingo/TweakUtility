@@ -4,9 +4,7 @@ namespace TweakUtility.TweakPages
 {
     public class AdvancedPage : TweakPage
     {
-        public AdvancedPage() : base("Advanced")
-        {
-        }
+        public AdvancedPage() : base("Advanced") => this.CustomView = new TweakPageView(this);
 
         [DisplayName("Owner")]
         [Category("Registration")]

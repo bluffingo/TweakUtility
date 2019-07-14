@@ -1,5 +1,4 @@
 using Microsoft.Win32;
-
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -8,7 +7,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-
 using TweakUtility.Forms;
 using TweakUtility.TweakPages;
 
@@ -16,22 +14,11 @@ namespace TweakUtility
 {
     internal static class Program
     {
-        public static RegistryKey LocalMachine;
-        public static RegistryKey CurrentUser;
+        public static RegistryKey LocalMachine { get; private set; }
+        public static RegistryKey CurrentUser { get; private set; }
+        public static List<TweakPage> Pages { get; private set; }
         public static Config Config { get; private set; }
 
-        public static List<TweakPage> Pages = new List<TweakPage>()
-        {
-            new CustomizationPage(),
-            new InternetExplorerPage(),
-            new SnippingToolPage(),
-            new AdvancedPage(),
-            new UncategorizedPage()
-        };
-
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         private static void Main()
         {
@@ -43,12 +30,50 @@ namespace TweakUtility
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            Pages = new List<TweakPage>()
+            {
+                new CustomizationPage(),
+                new InternetExplorerPage(),
+                new SnippingToolPage(),
+                new AdvancedPage(),
+                new UncategorizedPage()
+            };
+
+            if (IsSupported(OperatingSystemVersion.Windows10))
+            {
+                Pages.Add(new Windows10Page());
+            }
+
             using (var splash = new SplashForm())
             {
                 Application.Run(splash);
             }
 
             Application.Run(new MainForm());
+        }
+
+        public static void ApplyTheme(this Control control)
+        {
+            if (!Config.DarkMode)
+            {
+                //No need to mess with the UI if the user prefers eye cancer
+                return;
+            }
+
+            control.BackColor = Color.FromArgb(21, 21, 21);
+            control.ForeColor = Color.White;
+
+            if (control is Button button)
+            {
+                button.FlatStyle = FlatStyle.Flat;
+                button.BackColor = Color.FromArgb(55, 55, 55);
+                button.FlatAppearance.BorderColor = Color.FromArgb(25, 25, 25);
+            }
+
+            foreach (Control subControl in control.Controls)
+            {
+                ApplyTheme(subControl);
+            }
         }
 
         private static void LoadConfig()

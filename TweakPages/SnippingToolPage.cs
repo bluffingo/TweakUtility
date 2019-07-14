@@ -9,9 +9,7 @@ namespace TweakUtility.TweakPages
 {
     public class SnippingToolPage : TweakPage
     {
-        public SnippingToolPage() : base("Snipping Tool")
-        {
-        }
+        public SnippingToolPage() : base("Snipping Tool") => this.CustomView = new TweakPageView(this);
 
         [Category("Custom Pen")]
         [DisplayName("Color")]

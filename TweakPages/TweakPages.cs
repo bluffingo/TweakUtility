@@ -10,10 +10,9 @@ namespace TweakUtility.TweakPages
 {
     public class TweakPage
     {
-        public TweakPage(string name, UserControl customView = null, params TweakPage[] subPages)
+        public TweakPage(string name, params TweakPage[] subPages)
         {
             this.Name = name ?? throw new ArgumentNullException(nameof(name));
-            this.CustomView = customView;
             SubPages = subPages?.ToList();
         }
 

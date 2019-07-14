@@ -10,9 +10,7 @@ namespace TweakUtility.TweakPages
 {
     public class InternetExplorerPage : TweakPage
     {
-        public InternetExplorerPage() : base("Internet Explorer", subPages: new TabsPage())
-        {
-        }
+        public InternetExplorerPage() : base("Internet Explorer", subPages: new TabsPage()) => this.CustomView = new TweakPageView(this);
 
         [DisplayName("User Agent")]
         [DefaultValue("Mozilla/4.0 (compatible; MSIE 8.0; Win32)")]

@@ -13,9 +13,7 @@ namespace TweakUtility.TweakPages
 {
     internal class UncategorizedPage : TweakPage
     {
-        public UncategorizedPage() : base("Uncategorized", subPages: new AudioTransitions())
-        {
-        }
+        public UncategorizedPage() : base("Uncategorized", subPages: new AudioTransitions()) => this.CustomView = new TweakPageView(this);
 
         [DisplayName("Cleanup program")]
         [DefaultValue(@"%SystemRoot%\System32\cleanmgr.exe /D %c")]

@@ -4,9 +4,7 @@ namespace TweakUtility.TweakPages
 {
     internal class CustomizationPage : TweakPage
     {
-        public CustomizationPage() : base("Customization")
-        {
-        }
+        public CustomizationPage() : base("Customization") => this.CustomView = new TweakPageView(this);
 
         [DisplayName("Disable Notification Center")]
         [DefaultValue(false)]
@@ -18,10 +16,10 @@ namespace TweakUtility.TweakPages
             set => RegistryHelper.SetValue(@"HKLM\Software\Policies\Microsoft\Windows\Explorer\DisableNotificationCenter", value ? 1 : 0);
         }
 
-        [DisplayName("Apps use light theme")]
+        [DisplayName("Applications use light theme")]
         [DefaultValue(false)]
         [OperatingSystemSupported(OperatingSystemVersion.Windows10)]
-        public bool AppsUseLightTheme
+        public static bool AppsUseLightTheme
         {
             get => RegistryHelper.GetValue<int>(@"HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize\AppsUseLightTheme") == 1;
             set => RegistryHelper.SetValue(@"HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize\AppsUseLightTheme", value ? 1 : 0);
