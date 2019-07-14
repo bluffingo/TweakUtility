@@ -1,9 +1,12 @@
 using Microsoft.Win32;
 
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 using TweakUtility.Forms;
@@ -15,6 +18,7 @@ namespace TweakUtility
     {
         public static RegistryKey LocalMachine;
         public static RegistryKey CurrentUser;
+        public static Config Config { get; private set; }
 
         public static List<TweakPage> Pages = new List<TweakPage>()
         {
@@ -34,6 +38,8 @@ namespace TweakUtility
             LocalMachine = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, GetRegistryView());
             CurrentUser = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, GetRegistryView());
 
+            LoadConfig();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -43,6 +49,24 @@ namespace TweakUtility
             }
 
             Application.Run(new MainForm());
+        }
+
+        private static void LoadConfig()
+        {
+            if (!File.Exists("config.json"))
+            {
+                Config = new Config();
+                SaveConfig();
+            }
+
+            string json = File.ReadAllText("config.json");
+            Config = JsonConvert.DeserializeObject<Config>(json);
+        }
+
+        public static void SaveConfig()
+        {
+            string json = JsonConvert.SerializeObject(Config);
+            File.WriteAllText("config.json", json);
         }
 
         public static void RestartExplorer()
