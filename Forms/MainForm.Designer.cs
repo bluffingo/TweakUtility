@@ -1,4 +1,4 @@
-namespace TweakUtility
+namespace TweakUtility.Forms
 {
     partial class MainForm
     {
@@ -35,6 +35,7 @@ namespace TweakUtility
             this.bottomPanel = new System.Windows.Forms.Panel();
             this.aboutLabel = new System.Windows.Forms.LinkLabel();
             this.revertButton = new System.Windows.Forms.Button();
+            this.settingsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -86,6 +87,7 @@ namespace TweakUtility
             // bottomPanel
             // 
             this.bottomPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.bottomPanel.Controls.Add(this.settingsButton);
             this.bottomPanel.Controls.Add(this.aboutLabel);
             this.bottomPanel.Controls.Add(this.revertButton);
             this.bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -121,6 +123,17 @@ namespace TweakUtility
             this.revertButton.UseVisualStyleBackColor = true;
             this.revertButton.Click += new System.EventHandler(this.RevertButton_Click);
             // 
+            // settingsButton
+            // 
+            this.settingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.settingsButton.Location = new System.Drawing.Point(365, 12);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(75, 23);
+            this.settingsButton.TabIndex = 3;
+            this.settingsButton.Text = "&Settings";
+            this.settingsButton.UseVisualStyleBackColor = true;
+            this.settingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -130,6 +143,7 @@ namespace TweakUtility
             this.Controls.Add(this.bottomPanel);
             this.Controls.Add(this.splitContainer);
             this.DoubleBuffered = true;
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
@@ -152,6 +166,7 @@ namespace TweakUtility
         private System.Windows.Forms.Label startupLabel;
         private System.Windows.Forms.LinkLabel aboutLabel;
         private System.Windows.Forms.Button revertButton;
+        private System.Windows.Forms.Button settingsButton;
     }
 }
 

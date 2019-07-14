@@ -4,17 +4,34 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Windows.Forms;
 
 namespace TweakUtility
 {
+    /// <summary>
+    /// Hacking our way into .NET Framework!
+    /// </summary>
     public static class ReflectionExtensions
     {
         public static T GetAttribute<T>(this PropertyDescriptor descriptor) where T : Attribute => (T)descriptor.Attributes[typeof(T)];
 
-        public static object GetHiddenValue(this Attribute attribute, string fieldName) => attribute.GetType().GetField(fieldName, BindingFlags.NonPublic | BindingFlags.Instance).GetValue(attribute);
+        public static T GetAttribute<T>(this PropertyInfo propertyInfo) where T : Attribute
+        {
+            object[] attributes = propertyInfo.GetCustomAttributes(typeof(T), false);
 
-        public static T GetHiddenValue<T>(this Attribute attribute, string fieldName) => (T)GetHiddenValue(attribute, fieldName);
+            return attributes.Length == 0 ? null : (T)attributes[0];
+        }
 
-        public static void SetHiddenValue(this Attribute attribute, string fieldName, object value) => attribute.GetType().GetField(fieldName, BindingFlags.NonPublic | BindingFlags.Instance).SetValue(attribute, value);
+        public static T GetAttribute<T>(this object instance) where T : Attribute => (T)instance.GetType().GetCustomAttributes(false).FirstOrDefault(a => a.GetType() == typeof(T));
+
+        public static object GetPropertyGridView(this PropertyGrid propertyGrid) => propertyGrid.GetField<object>("gridView");
+
+        public static T GetField<T>(this object instance, string fieldName) => (T)instance.GetType().GetField(fieldName, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public).GetValue(instance);
+
+        public static T GetProperty<T>(this object instance, string propertyName) => (T)instance.GetType().GetProperty(propertyName, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public).GetValue(instance, null);
+
+        public static GridItemCollection GetAllGridEntryCollection(this object propertyGridView) => propertyGridView.GetField<GridItemCollection>("allGridEntries");
+
+        public static GridItemCollection GetItems(this PropertyGrid propertyGrid) => propertyGrid.GetPropertyGridView().GetAllGridEntryCollection();
     }
 }

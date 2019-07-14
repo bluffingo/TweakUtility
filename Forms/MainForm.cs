@@ -1,10 +1,11 @@
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Reflection;
 using System.Windows.Forms;
 using TweakUtility.TweakPages;
 
-namespace TweakUtility
+namespace TweakUtility.Forms
 {
     public partial class MainForm : Form
     {
@@ -20,6 +21,8 @@ namespace TweakUtility
             {
                 AddPage(page);
             }
+
+            this.ApplyTheme();
         }
 
         public void AddPage(TweakPage page, TreeNode parent = null)
@@ -49,24 +52,6 @@ namespace TweakUtility
         {
             if (e.Node.Tag is TweakPage tweakPage)
             {
-                ///#region Compatibility Check
-                ///
-                ///foreach (PropertyDescriptor descriptor in TypeDescriptor.GetProperties(tweakPage))
-                ///{
-                ///    OperatingSystemSupportedAttribute supportedAttribute = (OperatingSystemSupportedAttribute)descriptor.Attributes[typeof(OperatingSystemSupportedAttribute)];
-                ///
-                ///    if (supportedAttribute != null)
-                ///    {
-                ///        bool supported = Program.IsSupported(supportedAttribute.Mininum, supportedAttribute.Maximum);
-                ///
-                ///        BrowsableAttribute browsableAttribute = (BrowsableAttribute)descriptor.Attributes[typeof(BrowsableAttribute)];
-                ///        var field = browsableAttribute.GetType().GetField("browsable", BindingFlags.NonPublic | BindingFlags.Instance);
-                ///        field.SetValue(browsableAttribute, supported);
-                ///    }
-                ///}
-                ///
-                ///#endregion Compatibility Check
-
                 Control control;
 
                 if (tweakPage.CustomView == null)
@@ -74,8 +59,11 @@ namespace TweakUtility
                     var propertyGrid = new PropertyGrid()
                     {
                         SelectedObject = tweakPage,
-                        Name = "content"
+                        Name = "content",
+                        ToolbarVisible = false,
                     };
+
+                    control = propertyGrid;
 
                     propertyGrid.SelectedGridItemChanged += (s, e2) =>
                     {
@@ -128,7 +116,7 @@ namespace TweakUtility
                         else if (attribute.Type == RestartType.Logoff)
                         {
                             DialogResult result = MessageBox.Show(
-                                    "This option requires you to logoff.\nWould you like to do that now?",
+                                    "This option requires you to log off.\nWould you like to do that now?",
                                     "Tweak Utility",
                                     MessageBoxButtons.YesNo,
                                     MessageBoxIcon.Question);
@@ -139,8 +127,6 @@ namespace TweakUtility
                             }
                         }
                     };
-
-                    control = propertyGrid;
                 }
                 else
                 {
@@ -149,6 +135,7 @@ namespace TweakUtility
 
                 splitContainer.Panel2.Controls.Clear();
                 splitContainer.Panel2.Controls.Add(control);
+
                 control.Dock = DockStyle.Fill;
 
                 revertButton.Enabled = false;
@@ -167,6 +154,48 @@ namespace TweakUtility
                 {
                     descriptor.ResetValue(CurrentTweakPage);
                     propertyGrid.SelectedGridItem.Select();
+                }
+            }
+        }
+
+        private void SettingsButton_Click(object sender, EventArgs e)
+        {
+            using (var form = new SettingsForm())
+            {
+                form.ShowDialog();
+            }
+        }
+
+        /// <summary>
+        /// magical function
+        /// </summary>
+        /// <param name="tweakPage"></param>
+        public void Select(TweakPage tweakPage)
+        {
+            bool Find(TreeNode node, TweakPage page)
+            {
+                if (node.Tag is TweakPage tagPage && tagPage == page)
+                {
+                    treeView.SelectedNode = node;
+                    return true;
+                }
+
+                foreach (TreeNode subNode in node.Nodes)
+                {
+                    if (Find(subNode, page))
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
+            foreach (TreeNode node in treeView.Nodes)
+            {
+                if (Find(node, tweakPage))
+                {
+                    break;
                 }
             }
         }

@@ -84,10 +84,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="NativeMethods.cs" />
@@ -98,10 +98,12 @@
     <Compile Include="ReflectionExtensions.cs" />
     <Compile Include="RefreshRequiredAttribute.cs" />
     <Compile Include="RegistryHelper.cs" />
-    <Compile Include="SplashForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SplashForm.Designer.cs">
+    <Compile Include="Forms\SplashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SplashForm.Designer.cs">
       <DependentUpon>SplashForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TweakPages\AdvancedPage.cs" />
@@ -110,7 +112,7 @@
     <Compile Include="TweakPages\SnippingToolPage.cs" />
     <Compile Include="TweakPages\TweakPages.cs" />
     <Compile Include="TweakPages\UncategorizedPage.cs" />
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -123,7 +125,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SplashForm.resx">
+    <EmbeddedResource Include="Forms\SplashForm.resx">
       <DependentUpon>SplashForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />

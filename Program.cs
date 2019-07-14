@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
+using TweakUtility.Forms;
 using TweakUtility.TweakPages;
 
 namespace TweakUtility
@@ -71,6 +72,8 @@ namespace TweakUtility
         }
 
         private static RegistryView GetRegistryView() => Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32;
+
+        public static bool IsSupported(this OperatingSystemSupportedAttribute attribute) => IsSupported(attribute.Mininum, attribute.Maximum);
 
         public static bool IsSupported(this OperatingSystemVersion mininum, OperatingSystemVersion? maximum = null)
         {
