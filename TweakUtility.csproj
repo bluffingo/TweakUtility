@@ -112,6 +112,12 @@
     <Compile Include="TweakPages\SnippingToolPage.cs" />
     <Compile Include="TweakPages\TweakPages.cs" />
     <Compile Include="TweakPages\UncategorizedPage.cs" />
+    <Compile Include="TweakPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TweakPageView.Designer.cs">
+      <DependentUpon>TweakPageView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -127,6 +133,9 @@
     </Compile>
     <EmbeddedResource Include="Forms\SplashForm.resx">
       <DependentUpon>SplashForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TweakPageView.resx">
+      <DependentUpon>TweakPageView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
