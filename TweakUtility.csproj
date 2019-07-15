@@ -103,7 +103,6 @@
     <Compile Include="ReflectionExtensions.cs" />
     <Compile Include="RefreshRequiredAttribute.cs" />
     <Compile Include="RegistryHelper.cs" />
-    <Compile Include="RuntimeAttribute.cs" />
     <Compile Include="Forms\SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
