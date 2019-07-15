@@ -12,11 +12,12 @@ such as Longhorn 4074, The 3 Windows 8 Previews, etc.
 The obscure Windows operating systems based on XP/2003's codebase should not be included.
 This means that any of the Embeddeds (including POSready), Fundemental for Legacy PCs and Home Server 
 should not be implemented, As even if they have a different "build" number and System, WinVer still says it's 2600.
+This also applies for Windows 7 (or Server 2008 R2)'s  MultiPoint Server 2010, Embedded 7, Home Server 2011 and Thin PC.
 
 This should be only official Microsoft versions, Do not bloat this list with Custom Versions that uses
 custom "build" numbers, such as Windows 2007 by Glosswired, or any other mods.
 
-Written by PF94, July 14th 2019
+Written and updated by PF94, July 15th 2019,
 */
 
 namespace TweakUtility
