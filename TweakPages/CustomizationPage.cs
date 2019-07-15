@@ -20,13 +20,13 @@ namespace TweakUtility.TweakPages
 
         [DisplayName("Apps use light theme")]
         [DefaultValue(false)]
-        [OperatingSystemSupported(OperatingSystemVersion.Windows10)]
+        [OperatingSystemSupported(OperatingSystemVersion.Windows10)] //also works with Windows 10 RTM and november update, no need to make it 1607+ only.
         public bool AppsUseLightTheme
         {
             get => RegistryHelper.GetValue<int>(@"HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize\AppsUseLightTheme") == 1;
             set => RegistryHelper.SetValue(@"HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize\AppsUseLightTheme", value ? 1 : 0);
         }
-
+        
         [DisplayName("System uses light theme")]
         [DefaultValue(false)]
         [OperatingSystemSupported(OperatingSystemVersion.Windows10)]
