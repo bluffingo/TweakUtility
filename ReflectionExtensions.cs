@@ -24,6 +24,8 @@ namespace TweakUtility
 
         public static T GetAttribute<T>(this object instance) where T : Attribute => (T)instance.GetType().GetCustomAttributes(false).FirstOrDefault(a => a.GetType() == typeof(T));
 
+        public static T GetAttribute<T>(this Enum @enum) where T : Attribute => (T)@enum.GetType().GetMember(@enum.ToString())[0].GetCustomAttributes(false).FirstOrDefault(a => a.GetType() == typeof(T));
+
         public static object GetPropertyGridView(this PropertyGrid propertyGrid) => propertyGrid.GetField<object>("gridView");
 
         public static T GetField<T>(this object instance, string fieldName) => (T)instance.GetType().GetField(fieldName, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public).GetValue(instance);
