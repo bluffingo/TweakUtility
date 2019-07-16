@@ -65,128 +65,140 @@ namespace TweakUtility
                         continue;
                     }
 
-                    //Use display name as label, if not available use property name as fallback.
-                    string displayName = property.GetAttribute<DisplayNameAttribute>()?.DisplayName ?? property.Name;
-
-                    if (property.PropertyType == typeof(bool))
+                    try
                     {
-                        var checkBox = new CheckBox()
-                        {
-                            Text = displayName,
-                            AutoSize = true
-                        };
+                        //Use display name as label, if not available use property name as fallback.
+                        string displayName = property.GetAttribute<DisplayNameAttribute>()?.DisplayName ?? property.Name;
 
-                        try
+                        if (property.PropertyType == typeof(bool))
                         {
-                            checkBox.Checked = (bool)property.GetValue(TweakPage, null);
-                            checkBox.Enabled = property.CanWrite;
-                        }
-                        catch
-                        {
-                            checkBox.Enabled = false;
-                            checkBox.CheckState = CheckState.Indeterminate;
-                        }
-
-                        checkBox.CheckedChanged += (s, e2) =>
-                        {
-                            property.SetValue(TweakPage, checkBox.Checked, null);
-                        };
-
-                        panel.Controls.Add(checkBox);
-                    }
-                    else if (property.PropertyType == typeof(string))
-                    {
-                        var parent = new LabeledControl()
-                        {
-                            Text = displayName,
-                            AutoSize = true
-                        };
-
-                        var textBox = new TextBox();
-
-                        try
-                        {
-                            textBox.Text = (string)property.GetValue(TweakPage, null);
-                            textBox.Enabled = property.CanWrite;
-                        }
-                        catch
-                        {
-                            textBox.Enabled = false;
-                        }
-
-                        textBox.TextChanged += (s, e2) =>
-                        {
-                            property.SetValue(TweakPage, textBox.Text, null);
-                        };
-
-                        parent.Child = textBox;
-
-                        panel.Controls.Add(parent);
-                    }
-                    else if (property.PropertyType.BaseType == typeof(Enum))
-                    {
-                        var parent = new LabeledControl()
-                        {
-                            Text = displayName,
-                            AutoSize = true
-                        };
-
-                        var comboBox = new ComboBox()
-                        {
-                            DropDownStyle = ComboBoxStyle.DropDownList,
-                            DrawMode = DrawMode.OwnerDrawVariable
-                        };
-
-                        comboBox.DrawItem += (s, e2) =>
-                        {
-                            //Can't render empty items.
-                            if (e2.Index < 0)
+                            var checkBox = new CheckBox()
                             {
-                                return;
+                                Text = displayName,
+                                AutoSize = true
+                            };
+
+                            try
+                            {
+                                checkBox.Checked = (bool)property.GetValue(TweakPage, null);
+                                checkBox.Enabled = property.CanWrite;
+                            }
+                            catch
+                            {
+                                checkBox.Enabled = false;
+                                checkBox.CheckState = CheckState.Indeterminate;
                             }
 
-                            e2.DrawBackground();
-
-                            //Use display name as label, if not available use property name as fallback.
-                            var item = (Enum)comboBox.Items[e2.Index];
-                            string valueDisplayName = item.GetAttribute<DescriptionAttribute>()?.Description ?? item.ToString();
-
-                            e2.Graphics.DrawString(valueDisplayName, comboBox.Font, new SolidBrush(e2.ForeColor), e2.Bounds.X, e2.Bounds.Y);
-                        };
-
-                        try
-                        {
-                            foreach (Enum value in Enum.GetValues(property.PropertyType))
+                            checkBox.CheckedChanged += (s, e2) =>
                             {
-                                comboBox.Items.Add(value);
+                                property.SetValue(TweakPage, checkBox.Checked, null);
+                            };
+
+                            panel.Controls.Add(checkBox);
+                        }
+                        else if (property.PropertyType == typeof(string))
+                        {
+                            var parent = new LabeledControl()
+                            {
+                                Text = displayName,
+                                AutoSize = true
+                            };
+
+                            var textBox = new TextBox();
+
+                            try
+                            {
+                                textBox.Text = (string)property.GetValue(TweakPage, null);
+                                textBox.Enabled = property.CanWrite;
+                            }
+                            catch
+                            {
+                                textBox.Enabled = false;
                             }
 
-                            comboBox.SelectedValue = property.GetValue(TweakPage, null);
+                            textBox.TextChanged += (s, e2) =>
+                            {
+                                property.SetValue(TweakPage, textBox.Text, null);
+                            };
 
-                            comboBox.Enabled = property.CanWrite;
+                            parent.Child = textBox;
+
+                            panel.Controls.Add(parent);
                         }
-                        catch
+                        else if (property.PropertyType.BaseType == typeof(Enum))
                         {
-                            comboBox.Enabled = false;
+                            var parent = new LabeledControl()
+                            {
+                                Text = displayName,
+                                AutoSize = true
+                            };
+
+                            var comboBox = new ComboBox()
+                            {
+                                DropDownStyle = ComboBoxStyle.DropDownList,
+                                DrawMode = DrawMode.OwnerDrawVariable
+                            };
+
+                            comboBox.DrawItem += (s, e2) =>
+                            {
+                                //Can't render empty items.
+                                if (e2.Index < 0)
+                                {
+                                    return;
+                                }
+
+                                e2.DrawBackground();
+
+                                //Use display name as label, if not available use property name as fallback.
+                                var item = (Enum)comboBox.Items[e2.Index];
+                                string valueDisplayName = item.GetAttribute<DescriptionAttribute>()?.Description ?? item.ToString();
+
+                                e2.Graphics.DrawString(valueDisplayName, comboBox.Font, new SolidBrush(e2.ForeColor), e2.Bounds.X, e2.Bounds.Y);
+                            };
+
+                            try
+                            {
+                                foreach (Enum value in Enum.GetValues(property.PropertyType))
+                                {
+                                    comboBox.Items.Add(value);
+                                }
+
+                                comboBox.SelectedValue = property.GetValue(TweakPage, null);
+
+                                comboBox.Enabled = property.CanWrite;
+                            }
+                            catch
+                            {
+                                comboBox.Enabled = false;
+                            }
+
+                            comboBox.SelectedValueChanged += (s, e2) =>
+                            {
+                                property.SetValue(TweakPage, comboBox.SelectedValue, null);
+                            };
+
+                            parent.Child = comboBox;
+
+                            panel.Controls.Add(parent);
                         }
-
-                        comboBox.SelectedValueChanged += (s, e2) =>
+                        else
                         {
-                            property.SetValue(TweakPage, comboBox.SelectedValue, null);
-                        };
-
-                        parent.Child = comboBox;
-
-                        panel.Controls.Add(parent);
+                            //Display a fallback message to let the user know,
+                            //so they can bully the developers of t.... fuck
+                            panel.Controls.Add(new Label()
+                            {
+                                AutoSize = true,
+                                Text = $"Unsupported property type {property.PropertyType.ToString()} on property {property.Name}",
+                                ForeColor = Color.Red
+                            });
+                        }
                     }
-                    else
+                    catch
                     {
-                        //Display a fallback message to let the user know,
-                        //so they can bully the developers of t.... fuck
                         panel.Controls.Add(new Label()
                         {
                             AutoSize = true,
-                            Text = $"Unsupported property type {property.PropertyType.ToString()} on property {property.Name}",
+                            Text = $"Error displaying property {property.Name}",
                             ForeColor = Color.Red
                         });
                     }
