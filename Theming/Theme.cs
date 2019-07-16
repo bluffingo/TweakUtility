@@ -69,6 +69,14 @@ namespace TweakUtility.Theming
             TextForeground = Color.Black
         };
 
+        public static Theme System = new Theme()
+        {
+            ApplicationBackground = SystemColors.Control,
+            ButtonBackground = Color.Transparent,
+            LinkForeground = Color.FromArgb(0, 102, 204),
+            TextForeground = Color.Black
+        };
+
         public Color ApplicationBackground;
         public Color ButtonBackground;
         public Color TextForeground;
@@ -86,6 +94,9 @@ namespace TweakUtility.Theming
             {
                 control.BackColor = SidebarBackground;
             }
+            else if (control is Button)
+            {
+            }
             else
             {
                 control.BackColor = ApplicationBackground;
@@ -95,12 +106,12 @@ namespace TweakUtility.Theming
             {
                 linkLabel.LinkColor = LinkForeground;
             }
-            else
+            else if (control is Label label && label.ForeColor == SystemColors.ControlText)
             {
                 control.ForeColor = TextForeground;
             }
 
-            if (control is Button button)
+            if (control is Button button && ButtonBackground != Color.Transparent)
             {
                 button.FlatStyle = FlatStyle.Flat;
                 button.BackColor = ButtonBackground;

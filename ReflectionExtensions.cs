@@ -15,9 +15,32 @@ namespace TweakUtility
     {
         public static T GetAttribute<T>(this PropertyDescriptor descriptor) where T : Attribute => (T)descriptor.Attributes[typeof(T)];
 
+        public static T GetAttributeReflection<T>(this object info) where T : Attribute
+        {
+            if (info is PropertyInfo propertyInfo)
+            {
+                return propertyInfo.GetAttribute<T>();
+            }
+            else if (info is MethodInfo methodInfo)
+            {
+                return methodInfo.GetAttribute<T>();
+            }
+            else
+            {
+                throw new ArgumentException("not supported", nameof(info));
+            }
+        }
+
         public static T GetAttribute<T>(this PropertyInfo propertyInfo) where T : Attribute
         {
             object[] attributes = propertyInfo.GetCustomAttributes(typeof(T), false);
+
+            return attributes.Length == 0 ? null : (T)attributes[0];
+        }
+
+        public static T GetAttribute<T>(this MethodInfo methodInfo) where T : Attribute
+        {
+            object[] attributes = methodInfo.GetCustomAttributes(typeof(T), false);
 
             return attributes.Length == 0 ? null : (T)attributes[0];
         }

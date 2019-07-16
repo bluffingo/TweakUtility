@@ -12,6 +12,6 @@ namespace TweakUtility
         }
 
         [DisplayName("Current theme")]
-        public Theme CurrentTheme { get; set; } = Theme.Plex;
+        public Theme CurrentTheme { get; set; } = Theme.System;
     }
 }
