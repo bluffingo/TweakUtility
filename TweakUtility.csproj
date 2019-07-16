@@ -84,17 +84,34 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Controls\ColorButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\LabeledControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\LabeledControl.Designer.cs">
+      <DependentUpon>LabeledControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SplashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SplashForm.Designer.cs">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="NativeMethods.cs" />
     <Compile Include="OperatingSystemSupportedAttribute.cs" />
     <Compile Include="OperatingSystemVersions.cs" />
@@ -106,15 +123,7 @@
     <Compile Include="Forms\SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SettingsForm.Designer.cs">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\SplashForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\SplashForm.Designer.cs">
-      <DependentUpon>SplashForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Theming\Theme.cs" />
     <Compile Include="TweakPages\AdvancedPage.cs" />
     <Compile Include="TweakPages\CustomizationPage.cs" />
     <Compile Include="TweakPages\InternetExplorerPage.cs" />
@@ -122,14 +131,20 @@
     <Compile Include="TweakPages\TweakPages.cs" />
     <Compile Include="TweakPages\UncategorizedPage.cs" />
     <Compile Include="TweakPages\Windows10Page.cs" />
-    <Compile Include="TweakPageView.cs">
+    <Compile Include="Controls\TweakPageView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TweakPageView.Designer.cs">
+    <Compile Include="Controls\TweakPageView.Designer.cs">
       <DependentUpon>TweakPageView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SplashForm.resx">
+      <DependentUpon>SplashForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -141,13 +156,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Forms\SettingsForm.resx">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SplashForm.resx">
-      <DependentUpon>SplashForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TweakPageView.resx">
+    <EmbeddedResource Include="Controls\TweakPageView.resx">
       <DependentUpon>TweakPageView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
@@ -172,9 +181,6 @@
     <None Include="Resources\TweakUtility.png" />
     <Content Include="Resources\TweakUtility.ico" />
     <Content Include="Resources\TweakUtility.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Theming\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

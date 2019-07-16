@@ -22,7 +22,7 @@ namespace TweakUtility.Forms
                 AddPage(page);
             }
 
-            this.ApplyTheme();
+            Program.Config.CurrentTheme.Apply(this);
         }
 
         public void AddPage(TweakPage page, TreeNode parent = null)

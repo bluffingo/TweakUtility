@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
+﻿using System.ComponentModel;
+
+using TweakUtility.Theming;
 using TweakUtility.TweakPages;
 
 namespace TweakUtility
@@ -13,20 +11,7 @@ namespace TweakUtility
         {
         }
 
-        [DisplayName("Enforce dark mode")]
-        public bool EnforceDarkMode { get; set; }
-
-        public bool DarkMode
-        {
-            get
-            {
-                if (EnforceDarkMode)
-                {
-                    return true;
-                }
-
-                return !CustomizationPage.AppsUseLightTheme;
-            }
-        }
+        [DisplayName("Current theme")]
+        public Theme CurrentTheme { get; set; } = Theme.Plex;
     }
 }
