@@ -23,26 +23,26 @@ namespace TweakUtility.Attributes
     /// <summary>
     /// Collection of supported operating systems.
     /// </summary>
-    /// <remarks>Operating systems in this list have to be identifiable with their version, this does NOT mean you can add custom builds with the same version. Also listed versions in this list have to be compatible with this application (.NET Framework 4)</remarks>
+    /// <remarks>Operating systems in this list have to be identifiable with their version, this does NOT mean you can add custom builds with the same version. Also, listed versions in this list have to be compatible with this application (.NET Framework 4)</remarks>
     public enum OperatingSystemVersion
     {
-        /// <summary>
-        /// No operating system specified
-        /// </summary>
+        //NameOfOperatingSystem
         None,
 
         WindowsXP,
         Windows2003,
+        WindowsLonghorn4074,
         WindowsVista,
+        Windows7m3,
+        Windows7Beta,
         Windows7,
+        Windows8Developer,
+        Windows8Consumer,
+        Windows8Release,
         Windows8,
         Windows81,
-
-        /// <summary>
-        /// Builds 9833 to 9883 of Windows 10 from 2014.
-        /// </summary>
-        WindowsTech,
-
+        Windows10Tech, //Builds 9833 to 9883 of Windows 10 from 2014.
+        Windows10Beta10074,
         Windows10
     }
 }

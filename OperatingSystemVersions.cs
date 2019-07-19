@@ -69,28 +69,6 @@ namespace TweakUtility
             return _currentVersion;
         }
 
-        public enum OperatingSystemVersion
-        {
-            //NameOfOperatingSystem
-            None,
-
-            WindowsXP,
-            Windows2003,
-            WindowsLonghorn4074,
-            WindowsVista,
-            Windows7m3,
-            Windows7beta,
-            Windows7,
-            Windows8Developer,
-            Windows8Consumer,
-            Windows8Release,
-            Windows8,
-            Windows81,
-            Windows10Tech, //Builds 9833 to 9883 of Windows 10 from 2014.
-            Windows10Beta10074,
-            Windows10
-        }
-
         /// <summary>
         /// Checks if the current operating system version matches the <see cref="OperatingSystemSupportedAttribute"/>
         /// </summary>
