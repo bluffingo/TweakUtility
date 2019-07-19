@@ -17,12 +17,19 @@ namespace TweakUtility
             {
                 object value = subKey.GetValue(info.Item2, null);
 
-                if (value == null)
-                {
-                    throw new Exception("Not found");
-                }
-
                 return (T)value;
+            }
+        }
+
+        public static T GetValue<T>(string path, T @default)
+        {
+            try
+            {
+                return GetValue<T>(path);
+            }
+            catch (NullReferenceException)
+            {
+                return @default;
             }
         }
 

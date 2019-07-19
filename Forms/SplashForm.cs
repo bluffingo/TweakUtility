@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace TweakUtility
+namespace TweakUtility.Forms
 {
     public partial class SplashForm : Form
     {

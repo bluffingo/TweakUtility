@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel;
-/* TweakUtility - IMPORTANT NOTES
-Please use vanilla versions for default values. Do not use customized/bootleg versions of Windows operating systems to get
-the most-authentic default values.
-Written by PF94, July 15th 2019,
-*/
+
+using TweakUtility.Attributes;
+
+/// TweakUtility - IMPORTANT NOTES
+/// Please use vanilla versions for default values.Do not use customized/bootleg versions of Windows operating systems to get
+/// the most-authentic default values.
+/// Written by PF94, July 15th 2019
 
 namespace TweakUtility.TweakPages
 {
@@ -32,10 +34,9 @@ namespace TweakUtility.TweakPages
         }
 
         [DisplayName("Verbose Messages")]
-        [DefaultValue(false)]
         public bool VerboseMessages
         {
-            get => RegistryHelper.GetValue<int>(@"HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\System\VerboseStatus") == 1;
+            get => RegistryHelper.GetValue<int>(@"HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\System\VerboseStatus", 0) == 1;
             set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\System\VerboseStatus", value ? 1 : 0);
         }
 

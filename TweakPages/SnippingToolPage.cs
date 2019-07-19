@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using TweakUtility.Attributes;
 
 namespace TweakUtility.TweakPages
 {

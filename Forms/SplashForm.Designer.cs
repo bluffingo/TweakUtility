@@ -1,4 +1,4 @@
-﻿namespace TweakUtility
+﻿namespace TweakUtility.Forms
 {
     partial class SplashForm
     {
