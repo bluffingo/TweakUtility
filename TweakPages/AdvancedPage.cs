@@ -1,10 +1,13 @@
 ﻿using System.ComponentModel;
+using TweakUtility.Attributes;
 
 namespace TweakUtility.TweakPages
 {
     public class AdvancedPage : TweakPage
     {
-        public AdvancedPage() : base("Advanced") => this.CustomView = new TweakPageView(this);
+        public AdvancedPage() : base("Advanced")
+        {
+        }
 
         [DisplayName("Owner")]
         [Category("Registration")]

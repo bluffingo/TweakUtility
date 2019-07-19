@@ -4,12 +4,15 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using TweakUtility.Attributes;
 
 namespace TweakUtility.TweakPages
 {
     public class SnippingToolPage : TweakPage
     {
-        public SnippingToolPage() : base("Snipping Tool") => this.CustomView = new TweakPageView(this);
+        public SnippingToolPage() : base("Snipping Tool")
+        {
+        }
 
         [Category("Custom Pen")]
         [DisplayName("Color")]

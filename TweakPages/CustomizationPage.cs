@@ -1,10 +1,13 @@
 ﻿using System.ComponentModel;
+using TweakUtility.Attributes;
 
 namespace TweakUtility.TweakPages
 {
     internal class CustomizationPage : TweakPage
     {
-        public CustomizationPage() : base("Customization") => this.CustomView = new TweakPageView(this);
+        public CustomizationPage() : base("Customization")
+        {
+        }
 
         [DisplayName("Applications use light theme")]
         [DefaultValue(false)]

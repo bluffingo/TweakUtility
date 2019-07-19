@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 
+using TweakUtility.Attributes;
 using TweakUtility.Controls;
 using TweakUtility.Forms;
 using TweakUtility.TweakPages;
@@ -32,8 +33,9 @@ namespace TweakUtility
                 return;
             }
 
+            //Hide incompatible entries
             var supportedAttribute = option.GetAttributeReflection<OperatingSystemSupportedAttribute>();
-            if (supportedAttribute != null && !Program.IsSupported(supportedAttribute.Mininum, supportedAttribute.Maximum))
+            if (supportedAttribute != null && !supportedAttribute.IsSupported())
             {
                 return;
             }
@@ -47,13 +49,17 @@ namespace TweakUtility
                 {
                     displayName = displayName ?? method.Name;
 
-                    var button = new Button()
+                    var button = new CommandControl()
                     {
                         Text = displayName,
                         AutoSize = true
                     };
 
-                    button.Click += (s, e2) => method.Invoke(TweakPage, null);
+                    button.Click += (s, e2) =>
+                    {
+                        method.Invoke(this.TweakPage, null);
+                        CheckRefresh(method);
+                    };
 
                     panel.Controls.Add(button);
 
@@ -86,9 +92,44 @@ namespace TweakUtility
                         checkBox.CheckedChanged += (s, e2) =>
                         {
                             property.SetValue(tweakPage, checkBox.Checked, null);
+                            CheckRefresh(property);
                         };
 
                         panel.Controls.Add(checkBox);
+                    }
+                    else if (property.PropertyType == typeof(int))
+                    {
+                        var parent = new LabeledControl()
+                        {
+                            Text = displayName,
+                            AutoSize = true
+                        };
+
+                        var upDown = new NumericUpDown()
+                        {
+                            Minimum = int.MinValue,
+                            Maximum = int.MaxValue
+                        };
+
+                        try
+                        {
+                            upDown.Value = (int)property.GetValue(tweakPage, null);
+                            upDown.Enabled = property.CanWrite;
+                        }
+                        catch
+                        {
+                            upDown.Enabled = false;
+                        }
+
+                        upDown.TextChanged += (s, e2) =>
+                        {
+                            property.SetValue(tweakPage, (int)upDown.Value, null);
+                            CheckRefresh(property);
+                        };
+
+                        parent.Child = upDown;
+
+                        panel.Controls.Add(parent);
                     }
                     else if (property.PropertyType == typeof(string))
                     {
@@ -113,6 +154,7 @@ namespace TweakUtility
                         textBox.TextChanged += (s, e2) =>
                         {
                             property.SetValue(tweakPage, textBox.Text, null);
+                            CheckRefresh(property);
                         };
 
                         parent.Child = textBox;
@@ -169,6 +211,7 @@ namespace TweakUtility
                         comboBox.SelectedValueChanged += (s, e2) =>
                         {
                             property.SetValue(tweakPage, comboBox.SelectedValue, null);
+                            CheckRefresh(property);
                         };
 
                         parent.Child = comboBox;
@@ -177,7 +220,7 @@ namespace TweakUtility
                     }
                     else if (property.PropertyType == typeof(Color))
                     {
-                        var colorButton = new ColorButton()
+                        var colorButton = new ColorField()
                         {
                             Text = displayName,
                             AutoSize = true
@@ -196,6 +239,7 @@ namespace TweakUtility
                         colorButton.ColorChanged += (s, e2) =>
                         {
                             property.SetValue(tweakPage, colorButton.Color, null);
+                            CheckRefresh(property);
                         };
 
                         panel.Controls.Add(colorButton);
@@ -221,6 +265,56 @@ namespace TweakUtility
                     Text = $"Error displaying option {displayName}",
                     ForeColor = Color.Red
                 });
+            }
+        }
+
+        private void CheckRefresh(object info)
+        {
+            var attribute = info.GetAttributeReflection<RefreshRequiredAttribute>();
+
+            if (attribute == null)
+            {
+                return;
+            }
+
+            if (attribute.Type == RestartType.ExplorerRestart)
+            {
+                DialogResult result = MessageBox.Show(
+                        "This option requires you to restart Windows Explorer.\nWould you like to do that now?",
+                        "Tweak Utility",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    Program.RestartExplorer();
+                }
+            }
+            else if (attribute.Type == RestartType.SystemRestart)
+            {
+                DialogResult result = MessageBox.Show(
+                        "This option requires you to restart your system.\nWould you like to do that now?",
+                        "Tweak Utility",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    NativeMethods.ExitWindowsEx(NativeMethods.ExitWindows.Reboot, NativeMethods.ShutdownReason.MinorReconfig);
+                }
+            }
+            else if (attribute.Type == RestartType.Logoff)
+            {
+                DialogResult result = MessageBox.Show(
+                        "This option requires you to log off.\nWould you like to do that now?",
+                        "Tweak Utility",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    NativeMethods.ExitWindowsEx(NativeMethods.ExitWindows.LogOff, NativeMethods.ShutdownReason.MinorReconfig);
+                }
             }
         }
 
@@ -252,7 +346,12 @@ namespace TweakUtility
             {
                 string category = method.GetAttribute<CategoryAttribute>()?.Category;
 
-                if (categories.ContainsKey(category))
+                if (category == null)
+                {
+                    category = "";
+                }
+
+                if (!categories.ContainsKey(category))
                 {
                     categories[category] = new List<object>();
                 }
@@ -283,7 +382,7 @@ namespace TweakUtility
                             AutoSize = true,
                             Padding = new Padding(0, 0, 0, 8),
                             Margin = new Padding(0),
-                            ForeColor = Color.FromArgb(0, 51, 153)
+                            ForeColor = Program.Config.CurrentTheme.CategoryForeground
                         });
                     }
 
@@ -304,7 +403,15 @@ namespace TweakUtility
             }
 
             //Header
-            panel.Controls.Add(GetHeader("Related Tweak Pages", 8, 4, true));
+            panel.Controls.Add(new Label()
+            {
+                Text = "Related Tweak Pages",
+                Font = new Font(this.Font.FontFamily, 11, GraphicsUnit.Point),
+                AutoSize = true,
+                Padding = new Padding(0, 0, 0, 8),
+                Margin = new Padding(0),
+                ForeColor = Program.Config.CurrentTheme.CategoryForeground
+            });
 
             //Links
             foreach (TweakPage subPage in TweakPage.SubPages)
@@ -327,16 +434,7 @@ namespace TweakUtility
             }
         }
 
-        private Label GetHeader(string title, int fontSize, int spacing = 8, bool bold = false) => new Label()
-        {
-            Text = title,
-            Font = new Font(this.Font.FontFamily, fontSize, bold ? FontStyle.Bold : FontStyle.Regular, GraphicsUnit.Point),
-            AutoSize = true,
-            Padding = new Padding(0, 0, 0, spacing),
-            Margin = new Padding(0),
-        };
-
-        private List<MethodInfo> GetMethods(TweakPage tweakPage) => tweakPage.GetType().GetMethods(BindingFlags.Public | BindingFlags.Static).Where(m =>
+        private List<MethodInfo> GetMethods(TweakPage tweakPage) => tweakPage.GetType().GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance).Where(m =>
         {
             //Only include methods that explicitly want to be included
             BrowsableAttribute a = m.GetAttribute<BrowsableAttribute>();
@@ -354,8 +452,15 @@ namespace TweakUtility
                 WrapContents = true
             };
 
-            var header = GetHeader(TweakPage.Name, 14);
-            panel.Controls.Add(header);
+            panel.Controls.Add(new Label()
+            {
+                Text = TweakPage.Name,
+                Font = new Font(this.Font.FontFamily, 14, FontStyle.Regular, GraphicsUnit.Point),
+                AutoSize = true,
+                Padding = new Padding(0, 0, 0, 8),
+                Margin = new Padding(0),
+                ForeColor = Program.Config.CurrentTheme.TitleForeground
+            });
 
             AddOptions(TweakPage, panel);
 

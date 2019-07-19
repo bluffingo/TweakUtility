@@ -5,12 +5,15 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using TweakUtility.Attributes;
 
 namespace TweakUtility.TweakPages
 {
     public class InternetExplorerPage : TweakPage
     {
-        public InternetExplorerPage() : base("Internet Explorer", subPages: new TabsPage()) => this.CustomView = new TweakPageView(this);
+        public InternetExplorerPage() : base("Internet Explorer", subPages: new TabsPage())
+        {
+        }
 
         [DisplayName("User Agent")]
         [DefaultValue("Mozilla/4.0 (compatible; MSIE 8.0; Win32)")]

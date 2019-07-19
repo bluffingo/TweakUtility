@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TweakUtility.TweakPages
@@ -17,7 +15,7 @@ namespace TweakUtility.TweakPages
         }
 
         [Browsable(false)]
-        public List<TweakPage> SubPages = new List<TweakPage>();
+        public List<TweakPage> SubPages { get; } = new List<TweakPage>();
 
         [Browsable(false)]
         public UserControl CustomView { get; set; }

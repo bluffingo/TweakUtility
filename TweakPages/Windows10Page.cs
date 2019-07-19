@@ -1,10 +1,13 @@
 ﻿using System.ComponentModel;
+using TweakUtility.Attributes;
 
 namespace TweakUtility.TweakPages
 {
     public class Windows10Page : TweakPage
     {
-        public Windows10Page() : base("Windows 10") => this.CustomView = new TweakPageView(this);
+        public Windows10Page() : base("Windows 10")
+        {
+        }
 
         [DisplayName("Disable Notification Center")]
         [DefaultValue(false)]

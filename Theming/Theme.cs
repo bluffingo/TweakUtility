@@ -74,7 +74,9 @@ namespace TweakUtility.Theming
             ApplicationBackground = SystemColors.Control,
             ButtonBackground = Color.Transparent,
             LinkForeground = Color.FromArgb(0, 102, 204),
-            TextForeground = Color.Black
+            TextForeground = Color.Black,
+            TitleForeground = Color.FromArgb(0, 51, 153),
+            CategoryForeground = Color.FromArgb(0, 51, 153),
         };
 
         public Color ApplicationBackground;
@@ -82,6 +84,8 @@ namespace TweakUtility.Theming
         public Color TextForeground;
         public Color LinkForeground;
         public Color SidebarBackground;
+        public Color TitleForeground;
+        public Color CategoryForeground;
 
         public void Apply(Control control)
         {

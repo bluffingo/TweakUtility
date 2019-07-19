@@ -71,7 +71,7 @@ namespace TweakUtility.Forms
             this.treeView.Location = new System.Drawing.Point(0, 0);
             this.treeView.Name = "treeView";
             this.treeView.Size = new System.Drawing.Size(197, 342);
-            this.treeView.TabIndex = 0;
+            this.treeView.TabIndex = 1;
             this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TreeView_AfterSelect);
             // 
             // startupLabel
@@ -81,7 +81,7 @@ namespace TweakUtility.Forms
             this.startupLabel.Location = new System.Drawing.Point(0, 0);
             this.startupLabel.Name = "startupLabel";
             this.startupLabel.Size = new System.Drawing.Size(392, 342);
-            this.startupLabel.TabIndex = 0;
+            this.startupLabel.TabIndex = 1;
             this.startupLabel.Text = "Navigate to a page to get started!";
             this.startupLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -115,6 +115,7 @@ namespace TweakUtility.Forms
             // revertButton
             // 
             this.revertButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.revertButton.Enabled = false;
             this.revertButton.Location = new System.Drawing.Point(520, 14);
             this.revertButton.Name = "revertButton";
             this.revertButton.Size = new System.Drawing.Size(87, 27);
@@ -161,12 +162,12 @@ namespace TweakUtility.Forms
 
         #endregion
         private System.Windows.Forms.SplitContainer splitContainer;
-        private System.Windows.Forms.TreeView treeView;
         private System.Windows.Forms.Panel bottomPanel;
-        private System.Windows.Forms.Label startupLabel;
         private System.Windows.Forms.LinkLabel aboutLabel;
         private System.Windows.Forms.Button revertButton;
         private System.Windows.Forms.Button settingsButton;
+        private System.Windows.Forms.TreeView treeView;
+        private System.Windows.Forms.Label startupLabel;
     }
 }
 

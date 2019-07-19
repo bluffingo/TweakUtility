@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Management;
 
+using TweakUtility.Attributes;
+
 namespace TweakUtility
 {
     public static class OperatingSystemVersions
@@ -19,7 +21,15 @@ namespace TweakUtility
             new Version(10, 0)
         };
 
-        public static Version GetVersion(OperatingSystemVersion version) => _versions[(int)version - 1];
+        public static Version GetVersion(OperatingSystemVersion version)
+        {
+            if (version == OperatingSystemVersion.None)
+            {
+                return null;
+            }
+
+            return _versions[(int)version - 1];
+        }
 
         public static Version GetCurrentVersion()
         {
@@ -34,21 +44,49 @@ namespace TweakUtility
 
             return _currentVersion;
         }
-    }
 
-    public enum OperatingSystemVersion
-    {
-        None,
-        WindowsXP,
-        Windows2003,
-        WindowsVista,
-        Windows7,
-        Windows8,
-        Windows81,
-        WindowsTech, //Builds 9833 to 9883 of Windows 10 from 2014.
-        Windows10
+        /// <summary>
+        /// Checks if the current operating system version matches the <see cref="OperatingSystemSupportedAttribute"/>
+        /// </summary>
+        /// <param name="mininum">The minimum supported operating system version.</param>
+        /// <param name="maximum">The maximum supported operating system version.</param>
+        /// <returns></returns>
+        public static bool IsSupported(this OperatingSystemSupportedAttribute attribute)
+        {
+            if (attribute == null)
+            {
+                throw new ArgumentNullException(nameof(attribute));
+            }
+
+            return IsSupported(attribute.Mininum, attribute.Maximum);
+        }
+
+        /// <summary>
+        /// Checks if the current operating system version matches the <paramref name="mininum"/> and <paramref name="maximum"/> version.
+        /// </summary>
+        /// <param name="mininum">The minimum supported operating system version.</param>
+        /// <param name="maximum">The maximum supported operating system version.</param>
+        /// <returns></returns>
+        public static bool IsSupported(this Version mininum, Version maximum = null)
+        {
+            if (mininum is null)
+            {
+                throw new ArgumentNullException(nameof(mininum));
+            }
+
+            Version current = GetCurrentVersion();
+
+            if (current < mininum)
+            {
+                return false;
+            } //Check if current version is older than the minimum
+
+            if (maximum != null && maximum < current)
+            {
+                return false;
+            } //Check if there's a maximum version and if the current version is too new.
+
+            return true;
+        }
     }
 }
-
-//WARNING: post-9883 builds of Windows Technical Preview and everything before build 10240 aren't supported for the moment.
-//To-do: Add a Windows build check to improve support with betas.

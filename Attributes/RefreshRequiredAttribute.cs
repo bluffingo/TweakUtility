@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TweakUtility
+namespace TweakUtility.Attributes
 {
     public class RefreshRequiredAttribute : Attribute
     {

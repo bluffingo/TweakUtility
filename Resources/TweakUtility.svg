@@ -133,25 +133,25 @@
     </filter>
     <linearGradient
        id="g"
-       x1="19.6"
-       x2="29.5"
-       y1="268.1"
-       y2="277.1"
+       x1="20"
+       x2="30"
+       y1="268"
+       y2="277"
        gradientTransform="matrix(.92839 0 0 .88727 -2.3 28.4)"
        gradientUnits="userSpaceOnUse"
        xlink:href="#d" />
     <linearGradient
        id="h"
-       x1="3.4"
-       x2="48.9"
-       y1="248.1"
-       y2="293.6"
+       x1="3"
+       x2="49"
+       y1="248"
+       y2="294"
        gradientTransform="matrix(.91784 0 0 .88815 -2.6 29)"
        gradientUnits="userSpaceOnUse"
        xlink:href="#e" />
     <linearGradient
        id="i"
-       x1="31.9"
+       x1="32"
        x2="57"
        y1="238.8"
        y2="264.6"
@@ -160,7 +160,7 @@
        xlink:href="#b" />
     <linearGradient
        id="j"
-       x1="31.9"
+       x1="32"
        x2="57"
        y1="238.8"
        y2="264.6"

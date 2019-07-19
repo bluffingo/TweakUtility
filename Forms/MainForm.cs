@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Reflection;
 using System.Windows.Forms;
+using TweakUtility.Attributes;
 using TweakUtility.TweakPages;
 
 namespace TweakUtility.Forms
@@ -50,95 +51,25 @@ namespace TweakUtility.Forms
 
         private void TreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            //TODO: If TweakPageView hits completion, deprecate PropertyGrid and make it optional with a property.
+
             if (e.Node.Tag is TweakPage tweakPage)
             {
                 Control control;
 
                 if (tweakPage.CustomView == null)
                 {
-                    var propertyGrid = new PropertyGrid()
-                    {
-                        SelectedObject = tweakPage,
-                        Name = "content",
-                        ToolbarVisible = false,
-                    };
-
-                    control = propertyGrid;
-
-                    propertyGrid.SelectedGridItemChanged += (s, e2) =>
-                    {
-                        if (e2.NewSelection.GridItemType == GridItemType.Property)
-                        {
-                            PropertyDescriptor descriptor = e2.NewSelection.PropertyDescriptor;
-                            revertButton.Enabled = descriptor.CanResetValue(null);
-                        }
-                        else
-                        {
-                            revertButton.Enabled = false;
-                        }
-                    };
-
-                    propertyGrid.PropertyValueChanged += (s, e2) =>
-                    {
-                        RefreshRequiredAttribute attribute = e2.ChangedItem.PropertyDescriptor.GetAttribute<RefreshRequiredAttribute>();
-
-                        if (attribute == null)
-                        {
-                            return;
-                        }
-
-                        if (attribute.Type == RestartType.ExplorerRestart)
-                        {
-                            DialogResult result = MessageBox.Show(
-                                    "This option requires you to restart Windows Explorer.\nWould you like to do that now?",
-                                    "Tweak Utility",
-                                    MessageBoxButtons.YesNo,
-                                    MessageBoxIcon.Question);
-
-                            if (result == DialogResult.Yes)
-                            {
-                                Program.RestartExplorer();
-                            }
-                        }
-                        else if (attribute.Type == RestartType.SystemRestart)
-                        {
-                            DialogResult result = MessageBox.Show(
-                                    "This option requires you to restart your system.\nWould you like to do that now?",
-                                    "Tweak Utility",
-                                    MessageBoxButtons.YesNo,
-                                    MessageBoxIcon.Question);
-
-                            if (result == DialogResult.Yes)
-                            {
-                                NativeMethods.ExitWindowsEx(NativeMethods.ExitWindows.Reboot, NativeMethods.ShutdownReason.MinorReconfig);
-                            }
-                        }
-                        else if (attribute.Type == RestartType.Logoff)
-                        {
-                            DialogResult result = MessageBox.Show(
-                                    "This option requires you to log off.\nWould you like to do that now?",
-                                    "Tweak Utility",
-                                    MessageBoxButtons.YesNo,
-                                    MessageBoxIcon.Question);
-
-                            if (result == DialogResult.Yes)
-                            {
-                                NativeMethods.ExitWindowsEx(NativeMethods.ExitWindows.LogOff, NativeMethods.ShutdownReason.MinorReconfig);
-                            }
-                        }
-                    };
+                    control = new TweakPageView(tweakPage);
                 }
                 else
                 {
                     control = tweakPage.CustomView;
                 }
 
-                splitContainer.Panel2.Controls.Clear();
-                splitContainer.Panel2.Controls.Add(control);
-
                 control.Dock = DockStyle.Fill;
 
-                revertButton.Enabled = false;
+                splitContainer.Panel2.Controls.Clear();
+                splitContainer.Panel2.Controls.Add(control);
             }
         }
 

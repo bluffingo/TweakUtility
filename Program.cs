@@ -10,6 +10,7 @@ using TweakUtility.Forms;
 using TweakUtility.TweakPages;
 
 using Newtonsoft.Json;
+using TweakUtility.Attributes;
 
 namespace TweakUtility
 {
@@ -47,6 +48,11 @@ namespace TweakUtility
                 new AdvancedPage(),
                 new UncategorizedPage()
             };
+
+            if (Debugger.IsAttached)
+            {
+                Pages.Add(new DebugPage());
+            }
 
             using (var splash = new SplashForm())
             {
@@ -89,41 +95,6 @@ namespace TweakUtility
         /// Finds a suitable registry view for this system architecture
         /// </summary>
         private static RegistryView GetRegistryView() => Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32;
-
-        public static bool IsSupported(this OperatingSystemVersion mininum, OperatingSystemVersion? maximum = null)
-        {
-            Version mininumV = OperatingSystemVersions.GetVersion(mininum);
-            Version maximumV = null;
-
-            if (maximum.HasValue && maximum.Value != OperatingSystemVersion.None)
-            {
-                maximumV = OperatingSystemVersions.GetVersion(maximum.Value);
-            }
-
-            return IsSupported(mininumV, maximumV);
-        }
-
-        public static bool IsSupported(this Version mininum, Version maximum = null)
-        {
-            if (mininum is null)
-            {
-                throw new ArgumentNullException(nameof(mininum));
-            }
-
-            Version current = OperatingSystemVersions.GetCurrentVersion();
-
-            if (current < mininum)
-            {
-                return false;
-            }
-
-            if (maximum != null && maximum < current)
-            {
-                return false;
-            }
-
-            return true;
-        }
 
         public static int ToBgrInt(this Color color) => (0 << 24) + (color.B << 16) + (color.G << 8) + color.R;
 
