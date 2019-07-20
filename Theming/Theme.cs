@@ -77,6 +77,8 @@ namespace TweakUtility.Theming
             TextForeground = Color.Black,
             TitleForeground = Color.FromArgb(0, 51, 153),
             CategoryForeground = Color.FromArgb(0, 51, 153),
+            TitleSize = 14,
+            CategorySize = 11,
         };
 
         public Color ApplicationBackground;
@@ -86,6 +88,8 @@ namespace TweakUtility.Theming
         public Color SidebarBackground;
         public Color TitleForeground;
         public Color CategoryForeground;
+        public int TitleSize;
+        public int CategorySize;
 
         public void Apply(Control control)
         {

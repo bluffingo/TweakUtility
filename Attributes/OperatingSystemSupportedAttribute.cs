@@ -26,7 +26,6 @@ namespace TweakUtility.Attributes
     /// <remarks>Operating systems in this list have to be identifiable with their version, this does NOT mean you can add custom builds with the same version. Also, listed versions in this list have to be compatible with this application (.NET Framework 4)</remarks>
     public enum OperatingSystemVersion
     {
-        //NameOfOperatingSystem
         None,
 
         WindowsXP,

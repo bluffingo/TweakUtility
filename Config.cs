@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Newtonsoft.Json;
+using System.ComponentModel;
 
 using TweakUtility.Theming;
 using TweakUtility.TweakPages;
@@ -12,6 +13,7 @@ namespace TweakUtility
         }
 
         [DisplayName("Current theme")]
+        [JsonIgnore]
         public Theme CurrentTheme { get; set; } = Theme.System;
     }
 }

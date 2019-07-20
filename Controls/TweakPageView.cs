@@ -378,7 +378,7 @@ namespace TweakUtility
                         panel.Controls.Add(new Label()
                         {
                             Text = category,
-                            Font = new Font(this.Font.FontFamily, 11, GraphicsUnit.Point),
+                            Font = new Font(this.Font.FontFamily, Program.Config.CurrentTheme.CategorySize, GraphicsUnit.Point),
                             AutoSize = true,
                             Padding = new Padding(0, 0, 0, 8),
                             Margin = new Padding(0),
@@ -449,13 +449,13 @@ namespace TweakUtility
             {
                 AutoScroll = true,
                 FlowDirection = FlowDirection.TopDown,
-                WrapContents = true
+                Dock = DockStyle.Fill
             };
 
             panel.Controls.Add(new Label()
             {
                 Text = TweakPage.Name,
-                Font = new Font(this.Font.FontFamily, 14, FontStyle.Regular, GraphicsUnit.Point),
+                Font = new Font(this.Font.FontFamily, Program.Config.CurrentTheme.TitleSize, FontStyle.Regular, GraphicsUnit.Point),
                 AutoSize = true,
                 Padding = new Padding(0, 0, 0, 8),
                 Margin = new Padding(0),
@@ -467,7 +467,6 @@ namespace TweakUtility
             AddSubPages(TweakPage, panel);
 
             this.Controls.Add(panel);
-            panel.Dock = DockStyle.Fill;
         }
     }
 }

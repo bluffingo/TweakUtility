@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -6,7 +7,9 @@ namespace TweakUtility.Controls
 {
     public partial class LabeledControl : Control
     {
-        private SolidBrush textBrush;
+        private static readonly Dictionary<int, int> spacings = new Dictionary<int, int>();
+
+        private const int spacing = 4;
 
         private static readonly StringFormat stringFormat = new StringFormat()
         {
@@ -14,9 +17,14 @@ namespace TweakUtility.Controls
             LineAlignment = StringAlignment.Center
         };
 
-        private int stringWidth = 0;
-
         private Control _child;
+        private SolidBrush textBrush;
+
+        public LabeledControl()
+        {
+            InitializeComponent();
+            textBrush = new SolidBrush(this.ForeColor);
+        }
 
         public Control Child
         {
@@ -35,27 +43,34 @@ namespace TweakUtility.Controls
             }
         }
 
-        public LabeledControl()
-        {
-            InitializeComponent();
-            textBrush = new SolidBrush(this.ForeColor);
+        public override Size MinimumSize => new Size(Width, Child.GetPreferredSize(Size.Empty).Height);
 
-            //making sure the control is displayed properly
+        /// <summary>
+        /// Retrieves the width of the control, generally the width of the parent while respecting margin and padding properties.
+        /// </summary>
+        public new int Width => this.Parent.Width - this.Parent.Margin.Horizontal - this.Parent.Padding.Horizontal;
+
+        protected override void InitLayout()
+        {
+            base.InitLayout();
+            OnTextChanged(EventArgs.Empty);
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+            var point = new Point(e.ClipRectangle.X + this.Padding.Left, e.ClipRectangle.Y + this.Padding.Top);
+            var size = new Size(e.ClipRectangle.Width - this.Padding.Right, e.ClipRectangle.Height - this.Padding.Bottom);
+
+            var area = new Rectangle(point.X, point.Y, size.Width + 50, this.Height);
+            e.Graphics.DrawString(Text, this.Font, textBrush, area, stringFormat);
         }
 
         protected override void OnSizeChanged(EventArgs e)
         {
             base.OnSizeChanged(e);
-            this.Width = this.Parent.Width;
-            Child.Width = this.Width - stringWidth - 10;
-        }
-
-        public override Size GetPreferredSize(Size proposedSize)
-        {
-            var size = Child.GetPreferredSize(proposedSize);
-            var modifiedSize = new Size(this.Parent.Width - stringWidth, size.Height);
-
-            return modifiedSize;
+            OnTextChanged(EventArgs.Empty);
         }
 
         protected override void OnTextChanged(EventArgs e)
@@ -69,30 +84,18 @@ namespace TweakUtility.Controls
 
             using (Graphics graphics = this.CreateGraphics())
             {
-                this.Child.Left = stringWidth = (int)graphics.MeasureString(this.Text, this.Font).Width + 10;
+                int getSize() => (int)graphics.MeasureString(this.Text, this.Font).Width + spacing;
+
+                int parent = this.Parent.GetHashCode();
+
+                if (!spacings.ContainsKey(parent) || spacings[parent] < getSize())
+                {
+                    spacings[parent] = getSize();
+                }
+
+                this.Child.Left = spacings[parent];
+                this.Child.Width = Width - Child.Left - Padding.Right;
             }
         }
-
-        protected override void InitLayout()
-        {
-            base.InitLayout();
-            OnTextChanged(EventArgs.Empty);
-        }
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            base.OnPaint(e);
-
-            var point = GetStringPoint(e.ClipRectangle.Location);
-            var size = GetStringSize(e.ClipRectangle.Size);
-            var area = new Rectangle(point.X, point.Y, size.Width + 50, this.Height);
-            e.Graphics.DrawString(Text, this.Font, textBrush, area, stringFormat);
-        }
-
-        private Point GetStringPoint(Point point) => new Point(point.X + this.Padding.Left, point.Y + this.Padding.Top);
-
-        private Size GetStringSize(Size size) => new Size(size.Width - this.Padding.Right, size.Height - this.Padding.Bottom);
-
-        private Rectangle GetStringArea(Rectangle rectangle) => new Rectangle(GetStringPoint(rectangle.Location), GetStringSize(rectangle.Size));
     }
 }

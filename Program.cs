@@ -23,6 +23,12 @@ namespace TweakUtility
 
         public static List<TweakPage> Pages { get; private set; }
 
+        public static readonly StringFormat stringFormat = new StringFormat()
+        {
+            Alignment = StringAlignment.Near,
+            LineAlignment = StringAlignment.Center
+        };
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -95,14 +101,6 @@ namespace TweakUtility
         /// Finds a suitable registry view for this system architecture
         /// </summary>
         private static RegistryView GetRegistryView() => Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32;
-
-        public static int ToBgrInt(this Color color) => (0 << 24) + (color.B << 16) + (color.G << 8) + color.R;
-
-        public static Color ToBgrColor(this int bgrColor)
-        {
-            byte[] bytes = BitConverter.GetBytes(bgrColor);
-            return Color.FromArgb(bytes[0], bytes[1], bytes[2]);
-        }
 
         /// <summary>
         /// Loads the configuration of TweakUtility

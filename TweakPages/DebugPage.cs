@@ -14,9 +14,6 @@ namespace TweakUtility.TweakPages
         public bool Boolean { get; set; }
 
         [Browsable(true)]
-        public void Function()
-        {
-            MessageBox.Show("Hello world!");
-        }
+        public void Function() => MessageBox.Show("Hello world!");
     }
 }

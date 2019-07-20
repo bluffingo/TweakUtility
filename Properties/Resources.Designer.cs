@@ -63,9 +63,29 @@ namespace TweakUtility.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap go {
+        internal static System.Drawing.Bitmap go10 {
             get {
-                object obj = ResourceManager.GetObject("go", resourceCulture);
+                object obj = ResourceManager.GetObject("go10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap go7 {
+            get {
+                object obj = ResourceManager.GetObject("go7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap goXP {
+            get {
+                object obj = ResourceManager.GetObject("goXP", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

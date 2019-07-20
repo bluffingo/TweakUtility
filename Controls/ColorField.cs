@@ -8,12 +8,7 @@ namespace TweakUtility.Controls
     {
         private const int PreviewSize = 16;
         private const int TextSpacing = 4;
-
-        private readonly StringFormat stringFormat = new StringFormat()
-        {
-            Alignment = StringAlignment.Near,
-            LineAlignment = StringAlignment.Center
-        };
+        
 
         public ColorField()
         {
@@ -88,7 +83,7 @@ namespace TweakUtility.Controls
 
             //HACK: Optimization can be done to reduce initializations of SolidBrush.
             //      (only create new instance of SolidBrush on color change)
-            e.Graphics.DrawString(this.Text, this.Font, new SolidBrush(this.ForeColor), textRectangle, stringFormat);
+            e.Graphics.DrawString(this.Text, this.Font, new SolidBrush(this.ForeColor), textRectangle, Program.stringFormat);
         }
     }
 }
