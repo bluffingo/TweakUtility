@@ -54,6 +54,8 @@ namespace TweakUtility
         {
             var split = path.Split('\\').ToList();
 
+            Debug.Assert(split[0] == "Computer", $"Please remove the Windows 10 REGEDIT prefix. ({path})");
+
             string hive = split[0]; split.RemoveAt(0);
 
             int nameIndex = split.Count - 1;
