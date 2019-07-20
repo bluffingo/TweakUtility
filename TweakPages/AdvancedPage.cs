@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-
+using System.Diagnostics;
 using TweakUtility.Attributes;
 
 /// TweakUtility - IMPORTANT NOTES
@@ -11,7 +11,7 @@ namespace TweakUtility.TweakPages
 {
     public class AdvancedPage : TweakPage
     {
-        public AdvancedPage() : base("Advanced")
+        public AdvancedPage() : base("Advanced", new OEMInformation())
         {
         }
 
@@ -62,6 +62,58 @@ namespace TweakUtility.TweakPages
 
             [Description("Enabled without prompts")]
             EnabledNoPrompt = 4
+        }
+
+        public class OEMInformation : TweakPage
+        {
+            public OEMInformation() : base("OEM Information")
+            {
+            }
+
+            public string Logo
+            {
+                get => RegistryHelper.GetValue<string>(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\Logo");
+                set => RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\Logo", value);
+            }
+
+            public string Manufacturer
+            {
+                get => RegistryHelper.GetValue<string>(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\Manufacturer");
+                set => RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\Manufacturer", value);
+            }
+
+            public string Model
+            {
+                get => RegistryHelper.GetValue<string>(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\Model");
+                set => RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\Model", value);
+            }
+
+            [DisplayName("Support hours")]
+            public string SupportHours
+            {
+                get => RegistryHelper.GetValue<string>(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\SupportHours");
+                set => RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\SupportHours", value);
+            }
+
+            [DisplayName("Support phone number")]
+            public string SupportPhone
+            {
+                get => RegistryHelper.GetValue<string>(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\SupportPhone ");
+                set => RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\SupportPhone ", value);
+            }
+
+            [DisplayName("Support URL")]
+            public string SupportURL
+            {
+                get => RegistryHelper.GetValue<string>(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\SupportURL ");
+                set => RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\SupportURL ", value);
+            }
+
+            [Browsable(true)]
+            public void Preview() => Process.Start(new ProcessStartInfo("control.exe", "system")
+            {
+                UseShellExecute = true
+            });
         }
     }
 }
