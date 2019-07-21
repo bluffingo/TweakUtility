@@ -19,7 +19,6 @@ namespace TweakUtility.TweakPages
 
         [DisplayName("Cleanup program")]
         [DefaultValue(@"%SystemRoot%\System32\cleanmgr.exe /D %c")]
-        [Editor(typeof(FileNameEditor), typeof(UITypeEditor))]
         public string CleanupProgram
         {
             get => RegistryHelper.GetValue<string>(@"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\cleanuppath\ ");
@@ -28,11 +27,19 @@ namespace TweakUtility.TweakPages
 
         [DisplayName("Defragmentation program")]
         [DefaultValue(@"%systemroot%\system32\dfrgui.exe")]
-        [Editor(typeof(FileNameEditor), typeof(UITypeEditor))]
         public string DefragmentationProgram
         {
             get => RegistryHelper.GetValue<string>(@"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\DefragPath\ ");
             set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\DefragPath\ ", value, RegistryValueKind.ExpandString);
+        }
+
+        [Category("Remote Desktop")]
+        [DisplayName("Listening port")]
+        [DefaultValue(3389)]
+        public int RDPPortNumber
+        {
+            get => RegistryHelper.GetValue<int>(@"HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\PortNumber");
+            set => RegistryHelper.SetValue(@"HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\PortNumber", value);
         }
     }
 

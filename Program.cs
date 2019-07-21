@@ -1,16 +1,17 @@
 using Microsoft.Win32;
 
+using Newtonsoft.Json;
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Web;
 using System.Windows.Forms;
+
 using TweakUtility.Forms;
 using TweakUtility.TweakPages;
-
-using Newtonsoft.Json;
-using TweakUtility.Attributes;
 
 namespace TweakUtility
 {
@@ -35,6 +36,10 @@ namespace TweakUtility
         [STAThread]
         private static void Main()
         {
+#if !DEBUG
+            try
+            {
+#endif
             LocalMachine = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, GetRegistryView());
             CurrentUser = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, GetRegistryView());
 
@@ -47,18 +52,17 @@ namespace TweakUtility
             //Application.SetCompatibleTextRenderingDefault(), since TweakPageView
             //would already initialize and cause Windows Forms to error out
             Pages = new List<TweakPage>()
-            {
-                new CustomizationPage(),
-                new InternetExplorerPage(),
-                new SnippingToolPage(),
-                new AdvancedPage(),
-                new UncategorizedPage()
-            };
+                {
+                    new CustomizationPage(),
+                    new InternetExplorerPage(),
+                    new SnippingToolPage(),
+                    new AdvancedPage(),
+                    new UncategorizedPage()
+                };
 
-            if (Debugger.IsAttached)
-            {
-                Pages.Add(new DebugPage());
-            }
+#if DEBUG
+            Pages.Add(new DebugPage());
+#endif
 
             using (var splash = new SplashForm())
             {
@@ -66,7 +70,38 @@ namespace TweakUtility
             }
 
             Application.Run(new MainForm());
+#if !DEBUG
+            }
+            catch (Exception ex)
+            {
+                SendCrashReport(ex);
+                throw;
+            }
+#endif
         }
+
+        /// <summary>
+        /// Opens GitHub, preset with exception details.
+        /// </summary>
+        public static void SendCrashReport(Exception ex)
+        {
+            string title = HttpUtility.UrlEncode(ex.Message);
+            string body = $"***Please make sure this report doesn't contain any personal details accidentally picked up by this program.***\n\n"
+                + $"**Message**\n{ex.Message}\n\n"
+                + $"**Source**\n{ex.Source}\n\n"
+                + $"**Stack Trace**\n```{ex.StackTrace}```\n\n";
+
+            body = HttpUtility.UrlEncode(body);
+
+            string url = $"https://github.com/Craftplacer/TweakUtility/issues/new?labels=crash+report&title={title}&body={body}";
+
+            OpenURL(url);
+        }
+
+        /// <summary>
+        /// Opens an URL
+        /// </summary>
+        public static void OpenURL(string url) => Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
 
         /// <summary>
         /// Finds a running Windows Explorer instance and causes it restart.
@@ -103,7 +138,7 @@ namespace TweakUtility
         private static RegistryView GetRegistryView() => Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32;
 
         /// <summary>
-        /// Loads the configuration of TweakUtility
+        /// Loads the configuration of Tweak Utility
         /// </summary>
         /// <remarks>Creates a new one if it doesn't exist yet.</remarks>
         private static void LoadConfig()
@@ -118,6 +153,9 @@ namespace TweakUtility
             Config = JsonConvert.DeserializeObject<Config>(json);
         }
 
+        /// <summary>
+        /// Saves the configuration of Tweak Utility
+        /// </summary>
         public static void SaveConfig()
         {
             string json = JsonConvert.SerializeObject(Config);

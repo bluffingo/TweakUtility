@@ -50,11 +50,31 @@ namespace TweakUtility
             }
         }
 
+        public static void DeleteValue(string path, bool throwOnMissingValue = true)
+        {
+            Tuple<RegistryKey, string> info = ProcessPathAdvanced(path);
+
+            using (RegistryKey subKey = info.Item1)
+            {
+                subKey.DeleteValue(info.Item2, throwOnMissingValue);
+            }
+        }
+
+        public static void DeleteKey(string path, bool throwOnMissingKey = true)
+        {
+            Tuple<RegistryKey, string> info = ProcessPathAdvanced(path);
+
+            using (RegistryKey subKey = info.Item1)
+            {
+                subKey.DeleteSubKeyTree(info.Item2, throwOnMissingKey);
+            }
+        }
+
         private static string[] ProcessPath(string path)
         {
             var split = path.Split('\\').ToList();
 
-            Debug.Assert(split[0] == "Computer", $"Please remove the Windows 10 REGEDIT prefix. ({path})");
+            Debug.Assert(split[0] != "Computer", $"Please remove the Windows 10 REGEDIT prefix. ({path})");
 
             string hive = split[0]; split.RemoveAt(0);
 

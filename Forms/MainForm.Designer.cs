@@ -31,11 +31,11 @@ namespace TweakUtility.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.treeView = new System.Windows.Forms.TreeView();
-            this.startupLabel = new System.Windows.Forms.Label();
             this.bottomPanel = new System.Windows.Forms.Panel();
             this.aboutLabel = new System.Windows.Forms.LinkLabel();
             this.revertButton = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
+            this.startupLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -48,7 +48,7 @@ namespace TweakUtility.Forms
             this.splitContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer.Location = new System.Drawing.Point(14, 14);
+            this.splitContainer.Location = new System.Drawing.Point(11, 11);
             this.splitContainer.Name = "splitContainer";
             // 
             // splitContainer.Panel1
@@ -57,10 +57,10 @@ namespace TweakUtility.Forms
             // 
             // splitContainer.Panel2
             // 
+            this.splitContainer.Panel2.BackColor = System.Drawing.SystemColors.Window;
             this.splitContainer.Panel2.Controls.Add(this.startupLabel);
-            this.splitContainer.Size = new System.Drawing.Size(594, 342);
-            this.splitContainer.SplitterDistance = 197;
-            this.splitContainer.SplitterWidth = 5;
+            this.splitContainer.Size = new System.Drawing.Size(599, 350);
+            this.splitContainer.SplitterDistance = 198;
             this.splitContainer.TabIndex = 1;
             // 
             // treeView
@@ -70,20 +70,9 @@ namespace TweakUtility.Forms
             this.treeView.HideSelection = false;
             this.treeView.Location = new System.Drawing.Point(0, 0);
             this.treeView.Name = "treeView";
-            this.treeView.Size = new System.Drawing.Size(197, 342);
+            this.treeView.Size = new System.Drawing.Size(198, 350);
             this.treeView.TabIndex = 1;
             this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TreeView_AfterSelect);
-            // 
-            // startupLabel
-            // 
-            this.startupLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.startupLabel.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.startupLabel.Location = new System.Drawing.Point(0, 0);
-            this.startupLabel.Name = "startupLabel";
-            this.startupLabel.Size = new System.Drawing.Size(392, 342);
-            this.startupLabel.TabIndex = 1;
-            this.startupLabel.Text = "Navigate to a page to get started!";
-            this.startupLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // bottomPanel
             // 
@@ -91,9 +80,9 @@ namespace TweakUtility.Forms
             this.bottomPanel.Controls.Add(this.aboutLabel);
             this.bottomPanel.Controls.Add(this.revertButton);
             this.bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bottomPanel.Location = new System.Drawing.Point(0, 362);
+            this.bottomPanel.Location = new System.Drawing.Point(0, 374);
             this.bottomPanel.Name = "bottomPanel";
-            this.bottomPanel.Size = new System.Drawing.Size(622, 57);
+            this.bottomPanel.Size = new System.Drawing.Size(622, 45);
             this.bottomPanel.TabIndex = 2;
             // 
             // aboutLabel
@@ -103,7 +92,7 @@ namespace TweakUtility.Forms
             this.aboutLabel.LinkArea = new System.Windows.Forms.LinkArea(0, 28);
             this.aboutLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.aboutLabel.LinkColor = System.Drawing.SystemColors.GrayText;
-            this.aboutLabel.Location = new System.Drawing.Point(14, 21);
+            this.aboutLabel.Location = new System.Drawing.Point(14, 17);
             this.aboutLabel.Name = "aboutLabel";
             this.aboutLabel.Size = new System.Drawing.Size(66, 17);
             this.aboutLabel.TabIndex = 2;
@@ -116,9 +105,9 @@ namespace TweakUtility.Forms
             // 
             this.revertButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.revertButton.Enabled = false;
-            this.revertButton.Location = new System.Drawing.Point(520, 14);
+            this.revertButton.Location = new System.Drawing.Point(535, 10);
             this.revertButton.Name = "revertButton";
-            this.revertButton.Size = new System.Drawing.Size(87, 27);
+            this.revertButton.Size = new System.Drawing.Size(75, 23);
             this.revertButton.TabIndex = 1;
             this.revertButton.Text = "&Revert";
             this.revertButton.UseVisualStyleBackColor = true;
@@ -134,6 +123,17 @@ namespace TweakUtility.Forms
             this.settingsButton.Text = "&Settings";
             this.settingsButton.UseVisualStyleBackColor = true;
             this.settingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
+            // 
+            // startupLabel
+            // 
+            this.startupLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.startupLabel.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.startupLabel.Location = new System.Drawing.Point(0, 0);
+            this.startupLabel.Name = "startupLabel";
+            this.startupLabel.Size = new System.Drawing.Size(397, 350);
+            this.startupLabel.TabIndex = 2;
+            this.startupLabel.Text = "Navigate to a page to get started!";
+            this.startupLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 

@@ -1,5 +1,7 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Windows.Forms;
 using TweakUtility.Attributes;
 
 /// TweakUtility - IMPORTANT NOTES
@@ -47,6 +49,25 @@ namespace TweakUtility.TweakPages
         {
             get => (WindowsSFCMode)RegistryHelper.GetValue<int>(@"HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SFCDisable");
             set => RegistryHelper.SetValue(@"HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SFCDisable", (int)value);
+        }
+
+        [Browsable(true)]
+        [DisplayName("Delete OneDrive trails")]
+        public void DeleteOneDriveTrails()
+        {
+            string message = "OneDrive trails have been deleted.";
+
+            Environment.SetEnvironmentVariable("OneDrive", "", EnvironmentVariableTarget.User);
+            RegistryHelper.DeleteValue(@"HKCU\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run\OneDriveSetup", false);
+
+            if (RegistryHelper.GetValue(@"HKCU\SOFTWARE\Microsoft\OneDrive\UserInitiatedUninstall", 0) == 1)
+            {
+                message += "\nDid you know, that OneDrive stored that *you* uninstalled it?";
+            }
+
+            RegistryHelper.DeleteKey(@"HKCU\SOFTWARE\Microsoft\OneDrive", false);
+
+            MessageBox.Show(message, "Tweak Utility", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public enum WindowsSFCMode

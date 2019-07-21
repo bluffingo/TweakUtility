@@ -27,5 +27,15 @@ namespace TweakUtility.TweakPages
             get => RegistryHelper.GetValue<int>(@"HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize\SystemUsesLightTheme") == 1;
             set => RegistryHelper.SetValue(@"HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize\SystemUsesLightTheme", value ? 1 : 0);
         }
+
+        public enum WallpaperStyle
+        {
+            Tile = 0,
+
+            Stretch = 2,
+            Fit = 6,
+            Fill = 10,
+            Span = 22,
+        }
     }
 }

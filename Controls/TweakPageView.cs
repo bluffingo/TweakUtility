@@ -380,7 +380,7 @@ namespace TweakUtility
                             Text = category,
                             Font = new Font(this.Font.FontFamily, Program.Config.CurrentTheme.CategorySize, GraphicsUnit.Point),
                             AutoSize = true,
-                            Padding = new Padding(0, 0, 0, 8),
+                            Padding = Constants.DESIGN_CATEGOTY_PADDING,
                             Margin = new Padding(0),
                             ForeColor = Program.Config.CurrentTheme.CategoryForeground
                         });
@@ -406,9 +406,9 @@ namespace TweakUtility
             panel.Controls.Add(new Label()
             {
                 Text = "Related Tweak Pages",
-                Font = new Font(this.Font.FontFamily, 11, GraphicsUnit.Point),
+                Font = new Font(this.Font.FontFamily, Program.Config.CurrentTheme.CategorySize, GraphicsUnit.Point),
                 AutoSize = true,
-                Padding = new Padding(0, 0, 0, 8),
+                Padding = Constants.DESIGN_CATEGOTY_PADDING,
                 Margin = new Padding(0),
                 ForeColor = Program.Config.CurrentTheme.CategoryForeground
             });
@@ -416,13 +416,13 @@ namespace TweakUtility
             //Links
             foreach (TweakPage subPage in TweakPage.SubPages)
             {
-                var label = new LinkLabel()
+                var label = new CommandControl()
                 {
                     Text = subPage.Name,
                     AutoSize = true
                 };
 
-                label.LinkClicked += (s, e) =>
+                label.Click += (s, e) =>
                 {
                     if (ParentForm is MainForm form)
                     {
@@ -448,9 +448,13 @@ namespace TweakUtility
             var panel = new FlowLayoutPanel()
             {
                 AutoScroll = true,
+                WrapContents = false, //We don't intend controls to flow over to the right.
                 FlowDirection = FlowDirection.TopDown,
-                Dock = DockStyle.Fill
+                Dock = DockStyle.Fill,
+                Padding = new Padding(0, 0, SystemInformation.VerticalScrollBarWidth, 0)
             };
+
+            panel.HorizontalScroll.Enabled = false;
 
             panel.Controls.Add(new Label()
             {

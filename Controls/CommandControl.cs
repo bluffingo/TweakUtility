@@ -46,6 +46,8 @@ namespace TweakUtility.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            base.OnPaint(e);
+
             int frame = this.Enabled ? state : 3;
 
             Image icon = GetIcon(frame);
@@ -60,12 +62,11 @@ namespace TweakUtility.Controls
 
             var rect = new RectangleF(
                 Padding.Left + icon.Width + Spacing,
-                Padding.Top,
+                Padding.Top + 4,
                 this.Width - Padding.Right,
-                this.Height - Padding.Bottom);
+                this.Height - Padding.Bottom - 4);
 
             e.Graphics.DrawString(this.Text, font, SystemBrushes.ControlText, rect, Program.stringFormat);
-            base.OnPaint(e);
         }
 
         private Image GetIcon(int frame)

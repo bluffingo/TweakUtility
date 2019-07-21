@@ -51,8 +51,6 @@ namespace TweakUtility.Forms
 
         private void TreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            //TODO: If TweakPageView hits completion, deprecate PropertyGrid and make it optional with a property.
-
             if (e.Node.Tag is TweakPage tweakPage)
             {
                 Control control;
@@ -73,7 +71,13 @@ namespace TweakUtility.Forms
             }
         }
 
-        private void AboutLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => Process.Start(new ProcessStartInfo("https://github.com/Craftplacer/TweakUtility") { UseShellExecute = true });
+        private void AboutLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            using (var aboutForm = new AboutForm())
+            {
+                aboutForm.ShowDialog();
+            }
+        }
 
         private void RevertButton_Click(object sender, EventArgs e)
         {
