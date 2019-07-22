@@ -33,7 +33,19 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.94.0")]
-[assembly: AssemblyFileVersion("1.0.94.0")]
+[assembly: AssemblyVersion("1.0.95.0")]
+[assembly: AssemblyFileVersion("1.0.95.0")]
 [assembly: NeutralResourcesLanguage("en-US")]
 
+/* READ ME (ORIGINALLY WRITTEN IN https://www.reddit.com/r/Cloudsoftware/comments/cg57et/tweakutillity_1094_has_been_released/)
+Please remember that:
+
+1.0.x are Alpha Builds of TweakUtility
+
+1.1.x are Beta Builds of TweakUtility
+
+1.9.x are Release Candidate builds of TweakUtility.
+
+2.x.x are Release Builds of TweakUtility
+    
+*/
