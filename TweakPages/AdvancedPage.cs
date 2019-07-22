@@ -42,6 +42,7 @@ namespace TweakUtility.TweakPages
             set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\System\VerboseStatus", value ? 1 : 0);
         }
 
+
         [DisplayName("Windows System File Checker")]
         [OperatingSystemSupported(OperatingSystemVersion.WindowsXP, OperatingSystemVersion.WindowsVista)]
         [DefaultValue(WindowsSFCMode.Enabled)]
