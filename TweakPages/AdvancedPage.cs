@@ -43,7 +43,7 @@ namespace TweakUtility.TweakPages
         }
 
         [DisplayName("Windows System File Checker")]
-        [OperatingSystemSupported(OperatingSystemVersion.WindowsXP, OperatingSystemVersion.WindowsXP)]
+        [OperatingSystemSupported(OperatingSystemVersion.WindowsXP, OperatingSystemVersion.WindowsVista)]
         [DefaultValue(WindowsSFCMode.Enabled)]
         public WindowsSFCMode WindowsSFC
         {
@@ -53,6 +53,7 @@ namespace TweakUtility.TweakPages
 
         [Browsable(true)]
         [DisplayName("Delete OneDrive trails")]
+        [OperatingSystemSupported(OperatingSystemVersion.Windows10)]
         public void DeleteOneDriveTrails()
         {
             string message = "OneDrive trails have been deleted.";
