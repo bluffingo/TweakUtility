@@ -2,7 +2,7 @@
 
 namespace TweakUtility.Attributes
 {
-    [AttributeUsage(AttributeTargets.Property)]
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Class | AttributeTargets.Method)]
     public sealed class OperatingSystemSupportedAttribute : Attribute
     {
         public OperatingSystemSupportedAttribute(OperatingSystemVersion mininum, OperatingSystemVersion maximum = OperatingSystemVersion.None)

@@ -3,6 +3,7 @@ using TweakUtility.Attributes;
 
 namespace TweakUtility.TweakPages
 {
+    [OperatingSystemSupported(OperatingSystemVersion.Windows10)]
     public class Windows10Page : TweakPage
     {
         public Windows10Page() : base("Windows 10")
@@ -11,7 +12,6 @@ namespace TweakUtility.TweakPages
 
         [DisplayName("Disable Notification Center")]
         [DefaultValue(false)]
-        [OperatingSystemSupported(OperatingSystemVersion.Windows10)]
         [RefreshRequired(RestartType.ExplorerRestart)]
         public bool DisableNotificationCenter
         {
