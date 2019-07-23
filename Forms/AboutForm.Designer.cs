@@ -37,6 +37,7 @@
             this.githubLabel = new System.Windows.Forms.LinkLabel();
             this.debugLabel = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.copyrightLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             // 
             this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.okButton.Location = new System.Drawing.Point(348, 141);
+            this.okButton.Location = new System.Drawing.Point(348, 156);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 0;
@@ -54,10 +55,10 @@
             // titleLabel
             // 
             this.titleLabel.AutoSize = true;
-            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(66, 13);
+            this.titleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 14F);
+            this.titleLabel.Location = new System.Drawing.Point(66, 15);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(118, 25);
+            this.titleLabel.Size = new System.Drawing.Size(122, 25);
             this.titleLabel.TabIndex = 1;
             this.titleLabel.Text = "Tweak Utility";
             // 
@@ -74,10 +75,10 @@
             // versionLabel
             // 
             this.versionLabel.AutoSize = true;
-            this.versionLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.versionLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
             this.versionLabel.Location = new System.Drawing.Point(67, 38);
             this.versionLabel.Name = "versionLabel";
-            this.versionLabel.Size = new System.Drawing.Size(126, 19);
+            this.versionLabel.Size = new System.Drawing.Size(132, 19);
             this.versionLabel.TabIndex = 3;
             this.versionLabel.Text = "Application Version";
             // 
@@ -96,7 +97,7 @@
             // feedbackButton
             // 
             this.feedbackButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.feedbackButton.Location = new System.Drawing.Point(12, 141);
+            this.feedbackButton.Location = new System.Drawing.Point(12, 156);
             this.feedbackButton.Name = "feedbackButton";
             this.feedbackButton.Size = new System.Drawing.Size(75, 23);
             this.feedbackButton.TabIndex = 5;
@@ -140,12 +141,24 @@
             this.toolTip.ReshowDelay = 0;
             this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
+            // copyrightLabel
+            // 
+            this.copyrightLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.copyrightLabel.Location = new System.Drawing.Point(12, 131);
+            this.copyrightLabel.Name = "copyrightLabel";
+            this.copyrightLabel.Size = new System.Drawing.Size(411, 18);
+            this.copyrightLabel.TabIndex = 9;
+            this.copyrightLabel.Text = "All icons used (except the application icon), belong to their rightful owners.";
+            this.copyrightLabel.UseCompatibleTextRendering = true;
+            // 
             // AboutForm
             // 
             this.AcceptButton = this.okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 176);
+            this.ClientSize = new System.Drawing.Size(434, 191);
+            this.Controls.Add(this.copyrightLabel);
             this.Controls.Add(this.debugLabel);
             this.Controls.Add(this.githubLabel);
             this.Controls.Add(this.feedbackButton);
@@ -172,6 +185,8 @@
 
         #endregion
 
+        //https://www.youtube.com/watch?v=9ULDCUvgkSQ is not a good concept, Do not try to add new styles for remaking a old Operating System.
+
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.PictureBox iconPictureBox;
@@ -181,5 +196,6 @@
         private System.Windows.Forms.LinkLabel githubLabel;
         private System.Windows.Forms.Label debugLabel;
         private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.Label copyrightLabel;
     }
 }

@@ -10,6 +10,7 @@ namespace TweakUtility.TweakPages
     {
         public SnippingToolPage() : base("Snipping Tool")
         {
+            this.Icon = Properties.Resources.snippingTool;
         }
 
         [DisplayName("Hide instructions")]

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using TweakUtility.Attributes;
 using TweakUtility.Controls;
 using TweakUtility.Forms;
+using TweakUtility.Theming;
 using TweakUtility.TweakPages;
 
 namespace TweakUtility
@@ -19,6 +20,7 @@ namespace TweakUtility
         {
             this.TweakPage = tweakPage;
 
+            this.Padding = new Padding(10);
             InitializeComponent();
         }
 
@@ -378,11 +380,11 @@ namespace TweakUtility
                         panel.Controls.Add(new Label()
                         {
                             Text = category,
-                            Font = new Font(this.Font.FontFamily, Program.Config.CurrentTheme.CategorySize, GraphicsUnit.Point),
+                            Font = Theme.CategoryFont,
                             AutoSize = true,
                             Padding = Constants.DESIGN_CATEGOTY_PADDING,
                             Margin = new Padding(0),
-                            ForeColor = Program.Config.CurrentTheme.CategoryForeground
+                            ForeColor = Theme.CategoryForeground
                         });
                     }
 
@@ -406,11 +408,11 @@ namespace TweakUtility
             panel.Controls.Add(new Label()
             {
                 Text = "Related Tweak Pages",
-                Font = new Font(this.Font.FontFamily, Program.Config.CurrentTheme.CategorySize, GraphicsUnit.Point),
+                Font = Theme.CategoryFont,
                 AutoSize = true,
                 Padding = Constants.DESIGN_CATEGOTY_PADDING,
                 Margin = new Padding(0),
-                ForeColor = Program.Config.CurrentTheme.CategoryForeground
+                ForeColor = Theme.CategoryForeground
             });
 
             //Links
@@ -459,11 +461,11 @@ namespace TweakUtility
             panel.Controls.Add(new Label()
             {
                 Text = TweakPage.Name,
-                Font = new Font(this.Font.FontFamily, Program.Config.CurrentTheme.TitleSize, FontStyle.Regular, GraphicsUnit.Point),
+                Font = Theme.TitleFont,
                 AutoSize = true,
                 Padding = new Padding(0, 0, 0, 8),
                 Margin = new Padding(0),
-                ForeColor = Program.Config.CurrentTheme.TitleForeground
+                ForeColor = Theme.TitleForeground
             });
 
             AddOptions(TweakPage, panel);

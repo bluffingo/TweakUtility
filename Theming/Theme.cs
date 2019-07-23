@@ -4,126 +4,134 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using TweakUtility.Attributes;
+using TweakUtility.Forms;
+using static TweakUtility.OperatingSystemVersions;
 
 namespace TweakUtility.Theming
 {
-    public struct Theme
+    public static class Theme
     {
-        //github desktop succ
-        public static Theme Dark = new Theme()
+        // *crab rave literally in background* removing themes -Craftplacer
+        // i'd prob keep plex as a easter egg. :P -PF94
+
+        public static Color ApplicationBackground
         {
-            ApplicationBackground = Color.FromArgb(21, 21, 21),
-            ButtonBackground = Color.FromArgb(42, 42, 42),
-            LinkForeground = Color.LightBlue,
-            TextForeground = Color.White,
-            SidebarBackground = Color.FromArgb(42, 42, 42),
-        };
+            get
+            {
+                if (IsSupported(OperatingSystemVersion.WindowsVista))
+                {
+                    return SystemColors.Window; //basically white on aero, no plans for aero transparency (like CustomizerGod) at the moment.
+                }
+                return SystemColors.Control;
+            }
+        }
 
-        public static Theme Windows10Dark = new Theme()
+        public static Color BottomPanelBackground => SystemColors.Control;
+
+        public static Color LinkForeground
         {
-            ApplicationBackground = Color.Black,
-            ButtonBackground = Color.FromArgb(51, 51, 51),
-            LinkForeground = Color.FromArgb(0, 120, 215),
-            TextForeground = Color.White,
-            SidebarBackground = Color.FromArgb(31, 31, 31)
-        };
+            get
+            {
+                if (IsSupported(OperatingSystemVersion.WindowsVista))
+                {
+                    return Color.FromArgb(0, 102, 204);
+                }
 
-        public static Theme Windows10Light = new Theme()
+                return Color.Blue;
+            }
+        }
+
+        public static Color SidebarBackground;
+
+        public static Color TitleForeground
         {
-            ApplicationBackground = Color.White,
-            ButtonBackground = Color.FromArgb(204, 204, 204),
-            LinkForeground = Color.FromArgb(0, 120, 215),
-            TextForeground = Color.Black
-        };
+            get
+            {
+                if (IsSupported(OperatingSystemVersion.WindowsVista))
+                {
+                    return Color.FromArgb(0, 51, 153);
+                }
+                return Color.Red;
+            }
+        }
 
-        public static Theme Windows6Light = new Theme()
+        public static Color CategoryForeground
         {
-            ApplicationBackground = Color.White,
-            ButtonBackground = Color.FromArgb(204, 204, 204),
-            LinkForeground = Color.FromArgb(0, 120, 215),
-            TextForeground = Color.Black
-        };
+            get
+            {
+                if (IsSupported(OperatingSystemVersion.WindowsVista))
+                {
+                    return Color.FromArgb(0, 51, 153);
+                }
+                return Color.Red;
+            }
+        }
 
-        public static Theme ZuneSlate = new Theme()
+        public static Color SplitColor;
+
+        public static FontFamily TitleFontFamily
         {
-            ApplicationBackground = Color.FromArgb(38, 22, 0),
-            ButtonBackground = Color.FromArgb(77, 62, 42),
-            LinkForeground = Color.FromArgb(171, 118, 32),
-            TextForeground = Color.White
-        };
+            get
+            {
+                if (IsSupported(OperatingSystemVersion.WindowsVista))
+                {
+                    return FontFamily.Families.First(f => f.Name == "Segoe UI");
+                }
+                return FontFamily.Families.First(f => f.Name == "Franklin Gothic Medium");
+            }
+        }
 
-        public static Theme Luna = new Theme()
+        public static Font TitleFont => new Font(TitleFontFamily, TitleSize, GraphicsUnit.Point);
+
+        public static Font CategoryFont => new Font(CategoryFontFamily, CategorySize, GraphicsUnit.Point);
+
+        //what should be the new build number? 1.0.94 was already released, 1.0.95 then. after build 95, it's build 98,
+        //because WINDOWS 98 yes
+        public static FontFamily CategoryFontFamily
         {
-            ApplicationBackground = Color.FromArgb(38, 22, 0),
-            ButtonBackground = Color.FromArgb(77, 62, 42),
-            LinkForeground = Color.FromArgb(171, 118, 32),
-            TextForeground = Color.Black
-            //TODO: find the actual Luna colors
-        };
+            get
+            {
+                if (IsSupported(OperatingSystemVersion.WindowsVista))
+                {
+                    return FontFamily.Families.First(f => f.Name == "Segoe UI");
+                }
 
-        public static Theme Plex = new Theme()
-        {
-            ApplicationBackground = Color.FromArgb(216, 230, 245),
-            ButtonBackground = Color.FromArgb(191, 211, 255),
-            LinkForeground = Color.FromArgb(131, 182, 234),
-            TextForeground = Color.Black
-        };
+                ///"Tahoma is used as the system's default font.
+                ///Tahoma should be used at 8, 9 or 11 point sizes."
+                ///
+                /// - Windows XP Visual Guidelines (http://interface.free.fr/Archives/GUI_Xp.pdf)
+                return FontFamily.Families.First(f => f.Name == "Tahoma");
+            }
+        }
 
-        public static Theme System = new Theme()
-        {
-            ApplicationBackground = SystemColors.Control,
-            ButtonBackground = Color.Transparent,
-            LinkForeground = Color.FromArgb(0, 102, 204),
-            TextForeground = Color.Black,
-            TitleForeground = Color.FromArgb(0, 51, 153),
-            CategoryForeground = Color.FromArgb(0, 51, 153),
-            TitleSize = 14,
-            CategorySize = 11,
-        };
+        public static int TitleSize => 14;
+        //call the bricks icon rtb or returntoblockland, alright? what, the icon reminds me of RTB,yeah I know but we aren't going to use that hopfall,
+        //The icon does not remind me of Roblox at all.
+        public static int CategorySize => 11;
 
-        public Color ApplicationBackground;
-        public Color ButtonBackground;
-        public Color TextForeground;
-        public Color LinkForeground;
-        public Color SidebarBackground;
-        public Color TitleForeground;
-        public Color CategoryForeground;
-        public int TitleSize;
-        public int CategorySize;
-
-        public void Apply(Control control)
+        public static void Apply(Control control)
         {
             if (control == null)
             {
                 throw new ArgumentNullException(nameof(control));
             }
 
-            if (control is TreeView treeView)
+            if (control is Form form)
             {
-                control.BackColor = SidebarBackground;
-            }
-            else if (control is Button)
-            {
-            }
-            else
-            {
-                control.BackColor = ApplicationBackground;
+                form.BackColor = ApplicationBackground;
             }
 
+            if (control is MainForm mainForm)
+            {
+                mainForm.bottomPanel.BackColor = BottomPanelBackground;
+                mainForm.treeView.BackColor = SidebarBackground;
+            }
+
+            // are we going to do #2 later? yeah why not
             if (control is LinkLabel linkLabel)
             {
                 linkLabel.LinkColor = LinkForeground;
-            }
-            else if (control is Label label && label.ForeColor == SystemColors.ControlText)
-            {
-                control.ForeColor = TextForeground;
-            }
-
-            if (control is Button button && ButtonBackground != Color.Transparent)
-            {
-                button.FlatStyle = FlatStyle.Flat;
-                button.BackColor = ButtonBackground;
-                button.FlatAppearance.BorderColor = ButtonBackground;
             }
 
             foreach (Control subControl in control.Controls)

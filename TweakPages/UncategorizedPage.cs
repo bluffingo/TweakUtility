@@ -15,6 +15,7 @@ namespace TweakUtility.TweakPages
     {
         public UncategorizedPage() : base("Uncategorized", subPages: new AudioTransitions())
         {
+            this.Icon = Properties.Resources.folder;
         }
 
         [DisplayName("Cleanup program")]
@@ -47,6 +48,7 @@ namespace TweakUtility.TweakPages
     {
         public AudioTransitions() : base("Audio Transitions")
         {
+            this.Icon = Properties.Resources.sound_low;
         }
 
         public int VolumeDownTransitionTime

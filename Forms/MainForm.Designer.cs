@@ -28,14 +28,16 @@ namespace TweakUtility.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.treeView = new System.Windows.Forms.TreeView();
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
+            this.startupLabel = new System.Windows.Forms.Label();
             this.bottomPanel = new System.Windows.Forms.Panel();
             this.aboutLabel = new System.Windows.Forms.LinkLabel();
             this.revertButton = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
-            this.startupLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -54,25 +56,51 @@ namespace TweakUtility.Forms
             // splitContainer.Panel1
             // 
             this.splitContainer.Panel1.Controls.Add(this.treeView);
+            this.splitContainer.Panel1.Padding = new System.Windows.Forms.Padding(1);
+            this.splitContainer.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.SplitContainer_BorderPaint);
             // 
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.BackColor = System.Drawing.SystemColors.Window;
             this.splitContainer.Panel2.Controls.Add(this.startupLabel);
+            this.splitContainer.Panel2.Padding = new System.Windows.Forms.Padding(1);
+            this.splitContainer.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.SplitContainer_BorderPaint);
             this.splitContainer.Size = new System.Drawing.Size(599, 350);
             this.splitContainer.SplitterDistance = 198;
             this.splitContainer.TabIndex = 1;
             // 
             // treeView
             // 
+            this.treeView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.treeView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView.FullRowSelect = true;
             this.treeView.HideSelection = false;
-            this.treeView.Location = new System.Drawing.Point(0, 0);
+            this.treeView.ImageIndex = 0;
+            this.treeView.ImageList = this.imageList;
+            this.treeView.Location = new System.Drawing.Point(1, 1);
             this.treeView.Name = "treeView";
-            this.treeView.Size = new System.Drawing.Size(198, 350);
-            this.treeView.TabIndex = 1;
+            this.treeView.SelectedImageIndex = 0;
+            this.treeView.ShowRootLines = false;
+            this.treeView.Size = new System.Drawing.Size(196, 348);
+            this.treeView.TabIndex = 2;
             this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TreeView_AfterSelect);
+            // 
+            // imageList
+            // 
+            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
+            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList.Images.SetKeyName(0, "folder.png");
+            // 
+            // startupLabel
+            // 
+            this.startupLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.startupLabel.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.startupLabel.Location = new System.Drawing.Point(1, 1);
+            this.startupLabel.Name = "startupLabel";
+            this.startupLabel.Size = new System.Drawing.Size(395, 348);
+            this.startupLabel.TabIndex = 3;
+            this.startupLabel.Text = "Navigate to a page to get started!";
+            this.startupLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // bottomPanel
             // 
@@ -122,18 +150,6 @@ namespace TweakUtility.Forms
             this.settingsButton.TabIndex = 3;
             this.settingsButton.Text = "&Settings";
             this.settingsButton.UseVisualStyleBackColor = true;
-            this.settingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
-            // 
-            // startupLabel
-            // 
-            this.startupLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.startupLabel.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.startupLabel.Location = new System.Drawing.Point(0, 0);
-            this.startupLabel.Name = "startupLabel";
-            this.startupLabel.Size = new System.Drawing.Size(397, 350);
-            this.startupLabel.TabIndex = 2;
-            this.startupLabel.Text = "Navigate to a page to get started!";
-            this.startupLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 
@@ -162,12 +178,13 @@ namespace TweakUtility.Forms
 
         #endregion
         private System.Windows.Forms.SplitContainer splitContainer;
-        private System.Windows.Forms.Panel bottomPanel;
         private System.Windows.Forms.LinkLabel aboutLabel;
         private System.Windows.Forms.Button revertButton;
         private System.Windows.Forms.Button settingsButton;
-        private System.Windows.Forms.TreeView treeView;
+        public System.Windows.Forms.Panel bottomPanel;
+        public System.Windows.Forms.TreeView treeView;
         private System.Windows.Forms.Label startupLabel;
+        private System.Windows.Forms.ImageList imageList;
     }
 }
 

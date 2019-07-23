@@ -8,6 +8,7 @@ namespace TweakUtility.TweakPages
     {
         public Windows10Page() : base("Windows 10")
         {
+            this.Icon = Properties.Resources.windows10;
         }
 
         [DisplayName("Disable Notification Center")]
@@ -15,7 +16,7 @@ namespace TweakUtility.TweakPages
         [RefreshRequired(RestartType.ExplorerRestart)]
         public bool DisableNotificationCenter
         {
-            get => RegistryHelper.GetValue<int>(@"HKLM\Software\Policies\Microsoft\Windows\Explorer\DisableNotificationCenter", 0) == 1;
+            get => RegistryHelper.GetValue(@"HKLM\Software\Policies\Microsoft\Windows\Explorer\DisableNotificationCenter", 0) == 1;
             set => RegistryHelper.SetValue(@"HKLM\Software\Policies\Microsoft\Windows\Explorer\DisableNotificationCenter", value ? 1 : 0);
         }
     }

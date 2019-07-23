@@ -9,6 +9,7 @@ namespace TweakUtility.TweakPages
     {
         public PaintDotNetPage(string name, params TweakPage[] subPages) : base("paint.net")
         {
+            this.Icon = Properties.Resources.paintDotNet;
         }
     }
 }

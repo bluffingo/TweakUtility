@@ -1,7 +1,5 @@
 using Microsoft.Win32;
 
-using Newtonsoft.Json;
-
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -19,8 +17,6 @@ namespace TweakUtility
     {
         public static RegistryKey LocalMachine;
         public static RegistryKey CurrentUser;
-
-        public static Config Config { get; private set; }
 
         public static List<TweakPage> Pages { get; private set; }
 
@@ -43,8 +39,6 @@ namespace TweakUtility
             LocalMachine = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, GetRegistryView());
             CurrentUser = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, GetRegistryView());
 
-            LoadConfig();
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -52,13 +46,13 @@ namespace TweakUtility
             //Application.SetCompatibleTextRenderingDefault(), since TweakPageView
             //would already initialize and cause Windows Forms to error out
             Pages = new List<TweakPage>()
-                {
-                    new CustomizationPage(),
-                    new InternetExplorerPage(),
-                    new SnippingToolPage(),
-                    new AdvancedPage(),
-                    new UncategorizedPage()
-                };
+            {
+                new CustomizationPage(),
+                new InternetExplorerPage(),
+                new SnippingToolPage(),
+                new AdvancedPage(),
+                new UncategorizedPage()
+            };
 
 #if DEBUG
             Pages.Add(new DebugPage());
@@ -81,7 +75,7 @@ namespace TweakUtility
         }
 
         /// <summary>
-        /// Opens GitHub, preset with exception details.
+        /// Opens the GitHub Issues page of TweakUtility, preset with exception details.
         /// </summary>
         public static void SendCrashReport(Exception ex)
         {
@@ -136,30 +130,5 @@ namespace TweakUtility
         /// Finds a suitable registry view for this system architecture
         /// </summary>
         private static RegistryView GetRegistryView() => Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32;
-
-        /// <summary>
-        /// Loads the configuration of Tweak Utility
-        /// </summary>
-        /// <remarks>Creates a new one if it doesn't exist yet.</remarks>
-        private static void LoadConfig()
-        {
-            if (!File.Exists("config.json"))
-            {
-                Config = new Config();
-                SaveConfig();
-            }
-
-            string json = File.ReadAllText("config.json");
-            Config = JsonConvert.DeserializeObject<Config>(json);
-        }
-
-        /// <summary>
-        /// Saves the configuration of Tweak Utility
-        /// </summary>
-        public static void SaveConfig()
-        {
-            string json = JsonConvert.SerializeObject(Config);
-            File.WriteAllText("config.json", json);
-        }
     }
 }

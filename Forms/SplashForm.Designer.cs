@@ -41,7 +41,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(66, 12);
+            this.titleLabel.Location = new System.Drawing.Point(66, 15);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(122, 25);
             this.titleLabel.TabIndex = 0;
@@ -56,7 +56,7 @@
             this.statusLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusLabel.Location = new System.Drawing.Point(67, 37);
             this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(271, 23);
+            this.statusLabel.Size = new System.Drawing.Size(355, 23);
             this.statusLabel.TabIndex = 1;
             this.statusLabel.Text = "Please wait...";
             this.statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -75,7 +75,7 @@
             // 
             // SplashForm
             // 
-            this.ClientSize = new System.Drawing.Size(350, 72);
+            this.ClientSize = new System.Drawing.Size(434, 73);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.statusLabel);

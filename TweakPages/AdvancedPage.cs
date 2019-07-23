@@ -13,8 +13,9 @@ namespace TweakUtility.TweakPages
 {
     public class AdvancedPage : TweakPage
     {
-        public AdvancedPage() : base("Advanced", new OEMInformation())
+        public AdvancedPage() : base("Advanced", new OEMInformation(), new DiskCleanupPage())
         {
+            this.Icon = Properties.Resources.cog;
         }
 
         [DisplayName("Owner")]
@@ -64,6 +65,7 @@ namespace TweakUtility.TweakPages
             if (RegistryHelper.GetValue(@"HKCU\SOFTWARE\Microsoft\OneDrive\UserInitiatedUninstall", 0) == 1)
             {
                 message += "\nDid you know, that OneDrive stored that *you* uninstalled it?";
+                //No, Because i didn't uninstall the trails. :)
             }
 
             RegistryHelper.DeleteKey(@"HKCU\SOFTWARE\Microsoft\OneDrive", false);

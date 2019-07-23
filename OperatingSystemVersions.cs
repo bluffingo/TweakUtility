@@ -84,7 +84,7 @@ namespace TweakUtility
             return IsSupported(attribute.Mininum, attribute.Maximum);
         }
 
-        public static bool IsSupported(this OperatingSystemVersion mininum, OperatingSystemVersion maximum = OperatingSystemVersion.None) => IsSupported(GetVersion(mininum), GetVersion(maximum));
+        public static bool IsSupported(OperatingSystemVersion mininum, OperatingSystemVersion maximum = OperatingSystemVersion.None) => IsSupported(GetVersion(mininum), GetVersion(maximum));
 
         /// <summary>
         /// Checks if the current operating system version matches the <paramref name="mininum"/> and <paramref name="maximum"/> version.

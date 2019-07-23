@@ -1,9 +1,9 @@
 using System;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Reflection;
+using System.Drawing;
 using System.Windows.Forms;
 using TweakUtility.Attributes;
+using TweakUtility.Theming;
 using TweakUtility.TweakPages;
 
 namespace TweakUtility.Forms
@@ -20,10 +20,16 @@ namespace TweakUtility.Forms
         {
             foreach (TweakPage page in Program.Pages)
             {
+                var attribute = page.GetAttribute<OperatingSystemSupportedAttribute>();
+                if (attribute != null && !attribute.IsSupported())
+                {
+                    continue;
+                }
+
                 AddPage(page);
             }
 
-            Program.Config.CurrentTheme.Apply(this);
+            Theme.Apply(this);
         }
 
         public void AddPage(TweakPage page, TreeNode parent = null)
@@ -33,6 +39,15 @@ namespace TweakUtility.Forms
                 Text = page.Name,
                 Tag = page
             };
+
+            if (page.Icon != null)
+            {
+                string id = page.GetType().Name;
+                imageList.Images.Add(id, page.Icon);
+                tn.ImageKey = id;
+                tn.StateImageKey = id;
+                tn.SelectedImageKey = id;
+            }
 
             foreach (TweakPage subPage in page.SubPages)
             {
@@ -53,16 +68,7 @@ namespace TweakUtility.Forms
         {
             if (e.Node.Tag is TweakPage tweakPage)
             {
-                Control control;
-
-                if (tweakPage.CustomView == null)
-                {
-                    control = new TweakPageView(tweakPage);
-                }
-                else
-                {
-                    control = tweakPage.CustomView;
-                }
+                Control control = tweakPage.CustomView ?? new TweakPageView(tweakPage);
 
                 control.Dock = DockStyle.Fill;
 
@@ -90,14 +96,6 @@ namespace TweakUtility.Forms
                     descriptor.ResetValue(CurrentTweakPage);
                     propertyGrid.SelectedGridItem.Select();
                 }
-            }
-        }
-
-        private void SettingsButton_Click(object sender, EventArgs e)
-        {
-            using (var form = new SettingsForm())
-            {
-                form.ShowDialog();
             }
         }
 
@@ -134,5 +132,8 @@ namespace TweakUtility.Forms
                 }
             }
         }
+
+        //i did this shit (live share) on a live share session of botrappa a while back :P -PF94
+        private void SplitContainer_BorderPaint(object sender, PaintEventArgs e) => e.Graphics.FillRectangle(SystemBrushes.ControlDark, new Rectangle(Point.Empty, ((SplitterPanel)sender).Size));
     }
 }

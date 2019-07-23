@@ -1,21 +1,16 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Text;
 
 namespace TweakUtility
 {
     public static class NativeMethods
     {
-        [DllImport("user32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool ExitWindowsEx(ExitWindows uFlags, ShutdownReason dwReason);
+        public const int RT_GROUP_ICON = 14;
 
-        [DllImport("user32.dll", SetLastError = true)]
-        public static extern bool PostMessage(IntPtr hWnd, [MarshalAs(UnmanagedType.U4)] uint Msg, IntPtr wParam, IntPtr lParam);
+        public const int RT_ICON = 0x00000003;
 
-        [DllImport("user32.dll", SetLastError = true)]
-        public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
-
-        public const int WM_USER = 0x0400; //http://msdn.microsoft.com/en-us/library/windows/desktop/ms644931(v=vs.85).aspx5).aspx
+        public const int WM_USER = 0x0400;
 
         [Flags]
         public enum ExitWindows : uint
@@ -75,6 +70,67 @@ namespace TweakUtility
 
             FlagUserDefined = 0x40000000,
             FlagPlanned = 0x80000000
+        }
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr CreateIconFromResourceEx(byte[] pbIconBits, uint cbIconBits, bool fIcon, uint dwVersion, int cxDesired, int cyDesired, uint uFlags);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool ExitWindowsEx(ExitWindows uFlags, ShutdownReason dwReason);
+
+        [DllImport("kernel32.dll")]
+        public static extern IntPtr FindResource(IntPtr hModule, int lpName, int lpType);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+        [DllImport("kernel32.dll")]
+        public static extern int FreeLibrary(IntPtr hLibModule);
+
+        [DllImport("Shell32.dll", EntryPoint = "ExtractIconExW", CharSet = CharSet.Unicode, ExactSpelling = true, CallingConvention = CallingConvention.StdCall)]
+        public static extern int ExtractIconEx(string sFile, int iIndex, out IntPtr piLargeVersion, out IntPtr piSmallVersion, int amountIcons);
+
+        [DllImport("kernel32", SetLastError = true, CharSet = CharSet.Ansi)]
+        public static extern IntPtr LoadLibrary([MarshalAs(UnmanagedType.LPStr)]string lpFileName);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        public static extern IntPtr LoadLibraryEx(string lpFileName, IntPtr hReservedNull, LoadLibraryFlags dwFlags);
+
+        //http://msdn.microsoft.com/en-us/library/windows/desktop/ms644931(v=vs.85).aspx5).aspx
+        [DllImport("kernel32.dll", SetLastError = true)]
+        public static extern IntPtr LoadResource(IntPtr hModule, IntPtr hResInfo);
+
+        [DllImport("kernel32.dll")]
+        public static extern IntPtr LockResource(IntPtr hResData);
+
+        [DllImport("user32.dll")]
+        public static extern int LookupIconIdFromDirectoryEx(byte[] presbits, bool fIcon, int cxDesired, int cyDesired, uint Flags);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern bool PostMessage(IntPtr hWnd, [MarshalAs(UnmanagedType.U4)] uint Msg, IntPtr wParam, IntPtr lParam);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        public static extern uint SizeofResource(IntPtr hModule, IntPtr hResInfo);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern int LoadString(IntPtr hInstance, int ID, StringBuilder lpBuffer, int nBufferMax);
+
+        [Flags]
+        public enum LoadLibraryFlags : uint
+        {
+            None = 0,
+            DONT_RESOLVE_DLL_REFERENCES = 0x00000001,
+            LOAD_IGNORE_CODE_AUTHZ_LEVEL = 0x00000010,
+            LOAD_LIBRARY_AS_DATAFILE = 0x00000002,
+            LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE = 0x00000040,
+            LOAD_LIBRARY_AS_IMAGE_RESOURCE = 0x00000020,
+            LOAD_LIBRARY_SEARCH_APPLICATION_DIR = 0x00000200,
+            LOAD_LIBRARY_SEARCH_DEFAULT_DIRS = 0x00001000,
+            LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR = 0x00000100,
+            LOAD_LIBRARY_SEARCH_SYSTEM32 = 0x00000800,
+            LOAD_LIBRARY_SEARCH_USER_DIRS = 0x00000400,
+            LOAD_WITH_ALTERED_SEARCH_PATH = 0x00000008
         }
     }
 }

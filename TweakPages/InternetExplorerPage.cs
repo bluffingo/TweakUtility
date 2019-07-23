@@ -13,11 +13,18 @@ namespace TweakUtility.TweakPages
     {
         public InternetExplorerPage() : base("Internet Explorer", subPages: new TabsPage())
         {
+            this.Icon = Properties.Resources.iexplore;
         }
 
         [DisplayName("User Agent")]
         [DefaultValue("Mozilla/4.0 (compatible; MSIE 8.0; Win32)")]
-        [OperatingSystemSupported(OperatingSystemVersion.WindowsXP, OperatingSystemVersion.WindowsXP)]
+        /*
+        >is IE11 user
+        >defaults user agent with tweakutility
+        >every site detects browser as if it's IE8
+        >sites look fucked and out of date
+        */
+        [OperatingSystemSupported(OperatingSystemVersion.WindowsXP, OperatingSystemVersion.WindowsVista)]
         public string UserAgent
         {
             get => RegistryHelper.GetValue<string>(@"HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\User Agent");
@@ -28,6 +35,7 @@ namespace TweakUtility.TweakPages
         {
             public TabsPage() : base("Tabs")
             {
+                this.Icon = Properties.Resources.iexplore_page;
             }
 
             [DisplayName("Blank page")]

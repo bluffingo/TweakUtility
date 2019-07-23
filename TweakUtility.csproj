@@ -78,9 +78,6 @@
     <StartupObject>TweakUtility.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
@@ -91,9 +88,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controls\ColorField.cs">
       <SubType>Component</SubType>
@@ -119,9 +116,6 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SettingsForm.Designer.cs">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\SplashForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,13 +137,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="RegistryHelper.cs" />
-    <Compile Include="Forms\SettingsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Theming\Theme.cs" />
     <Compile Include="TweakPages\AdvancedPage.cs" />
     <Compile Include="TweakPages\CustomizationPage.cs" />
     <Compile Include="TweakPages\DebugPage.cs" />
+    <Compile Include="TweakPages\DiskCleanupPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TweakPages\DiskCleanupPage.Designer.cs">
+      <DependentUpon>DiskCleanupPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="TweakPages\InternetExplorerPage.cs" />
     <Compile Include="TweakPages\PaintDotNetPage.cs" />
     <Compile Include="TweakPages\SnippingToolPage.cs" />
@@ -168,9 +165,6 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SettingsForm.resx">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SplashForm.resx">
       <DependentUpon>SplashForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,8 +176,10 @@
     <EmbeddedResource Include="Controls\TweakPageView.resx">
       <DependentUpon>TweakPageView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TweakPages\DiskCleanupPage.resx">
+      <DependentUpon>DiskCleanupPage.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.manifest" />
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -201,10 +197,18 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\windows10.png" />
     <None Include="Resources\TweakUtility.png" />
     <None Include="Resources\go.png" />
     <None Include="Resources\go7.png" />
+    <None Include="Resources\folder.png" />
+    <None Include="Resources\cog.png" />
     <Content Include="Resources\go10.png" />
+    <None Include="Resources\sound_low.png" />
+    <None Include="Resources\iexplore.png" />
+    <None Include="Resources\snippingTool.png" />
+    <None Include="Resources\iexplore_page.png" />
+    <None Include="Resources\paintDotNet.png" />
     <Content Include="Resources\TweakUtility.ico" />
     <Content Include="Resources\TweakUtility.svg" />
   </ItemGroup>
