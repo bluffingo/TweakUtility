@@ -39,7 +39,6 @@ namespace TweakUtility
             new Version(5, 2),
             new Version(6, 0, 4074),
             new Version(6, 0),
-            new Version(6, 1, 6801),
             new Version(6, 1, 7000),
             new Version(6, 1),
             new Version(6, 2, 8102),

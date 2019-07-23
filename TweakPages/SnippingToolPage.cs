@@ -1,20 +1,34 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Drawing;
-
+using System.IO;
 using TweakUtility.Attributes;
 using TweakUtility.Helpers;
 
 namespace TweakUtility.TweakPages
 {
+    [OperatingSystemSupported(OperatingSystemVersion.WindowsVista)]
     public class SnippingToolPage : TweakPage
     {
         public SnippingToolPage() : base("Snipping Tool")
         {
-            this.Icon = Properties.Resources.snippingTool;
+            try
+            {
+                ///HACK: This adds incompatibility with custom drive letters,
+                ///      please look into a different solution, if possible.
+                ///
+                ///      - Craftplacer
+                var path = @"C:\Windows\System32\SnippingTool.exe";
+
+                this.Icon = NativeHelpers.GetIconFromGroup(path, 0);
+            }
+            catch
+            {
+                this.Icon = Properties.Resources.snippingTool;
+            }
         }
 
         [DisplayName("Hide instructions")]
-        [OperatingSystemSupported(OperatingSystemVersion.WindowsVista)]
         public bool HideInstructions
         {
             get => RegistryHelper.GetValue<int>(@"HKCU\SOFTWARE\Microsoft\Windows\TabletPC\Snipping Tool\DisplaySnipInstructions") == 0;
@@ -23,7 +37,6 @@ namespace TweakUtility.TweakPages
 
         [Category("Custom Pen")]
         [DisplayName("Tip")]
-        [OperatingSystemSupported(OperatingSystemVersion.WindowsVista)]
         public CustomPenTip Tip
         {
             get => (CustomPenTip)RegistryHelper.GetValue<int>(@"HKCU\SOFTWARE\Microsoft\Windows\TabletPC\Snipping Tool\CustomPenTip");
@@ -32,7 +45,6 @@ namespace TweakUtility.TweakPages
 
         [Category("Custom Pen")]
         [DisplayName("Color")]
-        [OperatingSystemSupported(OperatingSystemVersion.WindowsVista)]
         public Color Color
         {
             get => RegistryHelper.GetValue<int>(@"HKCU\SOFTWARE\Microsoft\Windows\TabletPC\Snipping Tool\CustomPenColor").ToBgrColor();

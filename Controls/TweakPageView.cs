@@ -20,7 +20,6 @@ namespace TweakUtility
         {
             this.TweakPage = tweakPage;
 
-            this.Padding = new Padding(10);
             InitializeComponent();
         }
 
@@ -201,7 +200,7 @@ namespace TweakUtility
                                 comboBox.Items.Add(value);
                             }
 
-                            comboBox.SelectedValue = property.GetValue(tweakPage, null);
+                            comboBox.SelectedItem = property.GetValue(tweakPage, null);
 
                             comboBox.Enabled = property.CanWrite;
                         }
@@ -212,7 +211,7 @@ namespace TweakUtility
 
                         comboBox.SelectedValueChanged += (s, e2) =>
                         {
-                            property.SetValue(tweakPage, comboBox.SelectedValue, null);
+                            property.SetValue(tweakPage, comboBox.SelectedItem, null);
                             CheckRefresh(property);
                         };
 
@@ -453,7 +452,7 @@ namespace TweakUtility
                 WrapContents = false, //We don't intend controls to flow over to the right.
                 FlowDirection = FlowDirection.TopDown,
                 Dock = DockStyle.Fill,
-                Padding = new Padding(0, 0, SystemInformation.VerticalScrollBarWidth, 0)
+                Padding = new Padding(SystemInformation.VerticalScrollBarWidth)
             };
 
             panel.HorizontalScroll.Enabled = false;

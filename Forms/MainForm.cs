@@ -18,6 +18,8 @@ namespace TweakUtility.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            imageList.Images.Add("default", Program.FolderIcon);
+
             foreach (TweakPage page in Program.Pages)
             {
                 var attribute = page.GetAttribute<OperatingSystemSupportedAttribute>();
@@ -43,7 +45,16 @@ namespace TweakUtility.Forms
             if (page.Icon != null)
             {
                 string id = page.GetType().Name;
-                imageList.Images.Add(id, page.Icon);
+
+                if (page.Icon is Icon icon)
+                {
+                    imageList.Images.Add(id, icon);
+                }
+                else if (page.Icon is Image image)
+                {
+                    imageList.Images.Add(id, image);
+                }
+
                 tn.ImageKey = id;
                 tn.StateImageKey = id;
                 tn.SelectedImageKey = id;

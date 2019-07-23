@@ -69,55 +69,17 @@ namespace TweakUtility.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap windows10
-        {
-            get
-            {
-                object obj = ResourceManager.GetObject("windows10", resourceCulture);
+        internal static System.Drawing.Bitmap diskCleanup {
+            get {
+                object obj = ResourceManager.GetObject("diskCleanup", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap iexplore_page
-        {
-            get
-            {
-                object obj = ResourceManager.GetObject("iexplore_page", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap paintDotNet
-        {
-            get
-            {
-                object obj = ResourceManager.GetObject("paintDotNet", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap snippingTool
-        {
-            get
-            {
-                object obj = ResourceManager.GetObject("snippingTool", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-
+        
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -171,9 +133,29 @@ namespace TweakUtility.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sound_low {
+        internal static System.Drawing.Bitmap iexplore_page {
             get {
-                object obj = ResourceManager.GetObject("sound_low", resourceCulture);
+                object obj = ResourceManager.GetObject("iexplore_page", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap paintDotNet {
+            get {
+                object obj = ResourceManager.GetObject("paintDotNet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap snippingTool {
+            get {
+                object obj = ResourceManager.GetObject("snippingTool", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -184,6 +166,26 @@ namespace TweakUtility.Properties {
         internal static System.Drawing.Bitmap TweakUtility {
             get {
                 object obj = ResourceManager.GetObject("TweakUtility", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap volume {
+            get {
+                object obj = ResourceManager.GetObject("volume", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap windows10 {
+            get {
+                object obj = ResourceManager.GetObject("windows10", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

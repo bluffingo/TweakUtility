@@ -7,6 +7,9 @@ namespace TweakUtility.Controls
 {
     public partial class LabeledControl : Control
     {
+        /// <summary>
+        /// Stores information about which is the largest spacing on each parent to keep layout consistency over a parent.
+        /// </summary>
         private static readonly Dictionary<int, int> spacings = new Dictionary<int, int>();
 
         private const int spacing = 4;

@@ -13,9 +13,8 @@ namespace TweakUtility.TweakPages
 {
     internal class UncategorizedPage : TweakPage
     {
-        public UncategorizedPage() : base("Uncategorized", subPages: new AudioTransitions())
+        public UncategorizedPage() : base("Uncategorized")
         {
-            this.Icon = Properties.Resources.folder;
         }
 
         [DisplayName("Cleanup program")]
@@ -41,26 +40,6 @@ namespace TweakUtility.TweakPages
         {
             get => RegistryHelper.GetValue<int>(@"HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\PortNumber");
             set => RegistryHelper.SetValue(@"HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\PortNumber", value);
-        }
-    }
-
-    public class AudioTransitions : TweakPage
-    {
-        public AudioTransitions() : base("Audio Transitions")
-        {
-            this.Icon = Properties.Resources.sound_low;
-        }
-
-        public int VolumeDownTransitionTime
-        {
-            get => RegistryHelper.GetValue<int>(@"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\VolumeDownTransitionTime");
-            set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\VolumeDownTransitionTime", value);
-        }
-
-        public int VolumeUpTransitionTime
-        {
-            get => RegistryHelper.GetValue<int>(@"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\VolumeUpTransitionTime");
-            set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\VolumeUpTransitionTime", value);
         }
     }
 }

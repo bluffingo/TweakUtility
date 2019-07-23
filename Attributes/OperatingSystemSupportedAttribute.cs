@@ -32,7 +32,6 @@ namespace TweakUtility.Attributes
         Windows2003,
         WindowsLonghorn4074,
         WindowsVista,
-        Windows7m3,
         Windows7Beta,
         Windows7,
         Windows8Developer,

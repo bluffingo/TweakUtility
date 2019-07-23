@@ -18,7 +18,9 @@ namespace TweakUtility
         public static RegistryKey LocalMachine;
         public static RegistryKey CurrentUser;
 
-        public static List<TweakPage> Pages { get; private set; }
+        public static Icon FolderIcon;
+
+        public static List<TweakPage> Pages { get; private set; } = new List<TweakPage>();
 
         public static readonly StringFormat stringFormat = new StringFormat()
         {
@@ -41,22 +43,6 @@ namespace TweakUtility
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            //Pages has to be initialized after
-            //Application.SetCompatibleTextRenderingDefault(), since TweakPageView
-            //would already initialize and cause Windows Forms to error out
-            Pages = new List<TweakPage>()
-            {
-                new CustomizationPage(),
-                new InternetExplorerPage(),
-                new SnippingToolPage(),
-                new AdvancedPage(),
-                new UncategorizedPage()
-            };
-
-#if DEBUG
-            Pages.Add(new DebugPage());
-#endif
 
             using (var splash = new SplashForm())
             {

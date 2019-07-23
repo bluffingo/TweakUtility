@@ -31,6 +31,6 @@ namespace TweakUtility.TweakPages
         /// [12:09 AM] Craftplacer: roblox never existed to us
         /// [12:09 AM] PF94: i used to, but now i give robux to some guy who wants to rejoin this "Soccer" group
         [Browsable(false)]
-        public Image Icon { get; set; }
+        public object Icon { get; set; }
     }
 }

@@ -38,7 +38,7 @@ namespace TweakUtility.Theming
                     return Color.FromArgb(0, 102, 204);
                 }
 
-                return Color.Blue;
+                return Color.Black;
             }
         }
 
@@ -52,7 +52,7 @@ namespace TweakUtility.Theming
                 {
                     return Color.FromArgb(0, 51, 153);
                 }
-                return Color.Red;
+                return Color.Black;
             }
         }
 
@@ -64,7 +64,7 @@ namespace TweakUtility.Theming
                 {
                     return Color.FromArgb(0, 51, 153);
                 }
-                return Color.Red;
+                return Color.Black;
             }
         }
 
@@ -86,7 +86,7 @@ namespace TweakUtility.Theming
 
         public static Font CategoryFont => new Font(CategoryFontFamily, CategorySize, GraphicsUnit.Point);
 
-        //what should be the new build number? 1.0.94 was already released, 1.0.95 then. after build 95, it's build 98,
+        //what should be the new build number? 1.0.94 was already released, 1.0.95 (edit: that turned up to be 1.0.96) then. after build 95, it's build 98,
         //because WINDOWS 98 yes
         public static FontFamily CategoryFontFamily
         {
@@ -106,6 +106,7 @@ namespace TweakUtility.Theming
         }
 
         public static int TitleSize => 14;
+
         //call the bricks icon rtb or returntoblockland, alright? what, the icon reminds me of RTB,yeah I know but we aren't going to use that hopfall,
         //The icon does not remind me of Roblox at all.
         public static int CategorySize => 11;

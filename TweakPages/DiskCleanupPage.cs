@@ -1,15 +1,13 @@
-﻿using System;
+﻿using Microsoft.Win32;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using Microsoft.Win32;
 using System.IO;
-using static TweakUtility.NativeMethods;
-using System.Runtime.InteropServices;
+using System.Windows.Forms;
+
+using static TweakUtility.Helpers.NativeHelpers;
 
 namespace TweakUtility.TweakPages
 {
@@ -52,11 +50,14 @@ namespace TweakUtility.TweakPages
                 };
 
                 Icon icon = handler.Icon;
-                if (icon != null)
+
+                if (icon == null)
                 {
-                    imageList.Images.Add(handler.KeyName, icon);
-                    item.ImageKey = handler.KeyName;
+                    icon = GetIconFromGroup(@"%SystemRoot%\System32\shell32.dll", 0);
                 }
+
+                imageList.Images.Add(handler.KeyName, icon);
+                item.ImageKey = handler.KeyName;
 
                 listView.Items.Add(item);
             }
@@ -70,7 +71,11 @@ namespace TweakUtility.TweakPages
     /// </remarks>
     public class DiskCleanupPage : TweakPage
     {
-        public DiskCleanupPage() : base("Disk Cleanup") => this.CustomView = new DiskCleanupPageView();
+        public DiskCleanupPage() : base("Disk Cleanup")
+        {
+            this.CustomView = new DiskCleanupPageView();
+            this.Icon = Properties.Resources.diskCleanup;
+        }
     }
 
     public class DiskCleanupHandler : IDisposable
@@ -156,27 +161,5 @@ namespace TweakUtility.TweakPages
         }
 
         public void Dispose() => _key.Dispose();
-
-        private Icon GetIconFromGroup(string file, int id)
-        {
-            ExtractIconEx(file, id, out _, out IntPtr small, 1);
-            try
-            {
-                return Icon.FromHandle(small);
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
-        public static string ExtractStringFromDLL(string file, int number)
-        {
-            IntPtr lib = LoadLibraryEx(file, IntPtr.Zero, LoadLibraryFlags.LOAD_LIBRARY_AS_DATAFILE | LoadLibraryFlags.LOAD_LIBRARY_AS_IMAGE_RESOURCE);
-            var result = new StringBuilder(2048);
-            LoadString(lib, number, result, result.Capacity);
-            FreeLibrary(lib);
-            return result.ToString();
-        }
     }
 }

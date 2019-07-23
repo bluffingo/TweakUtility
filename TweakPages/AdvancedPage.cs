@@ -43,7 +43,6 @@ namespace TweakUtility.TweakPages
             set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\System\VerboseStatus", value ? 1 : 0);
         }
 
-
         [DisplayName("Windows System File Checker")]
         [OperatingSystemSupported(OperatingSystemVersion.WindowsXP, OperatingSystemVersion.WindowsVista)]
         [DefaultValue(WindowsSFCMode.Enabled)]
@@ -58,11 +57,10 @@ namespace TweakUtility.TweakPages
         [OperatingSystemSupported(OperatingSystemVersion.Windows10)]
         public void DeleteOneDriveTrails()
         {
-            string message = "OneDrive trails have been deleted.";
-
             Environment.SetEnvironmentVariable("OneDrive", "", EnvironmentVariableTarget.User);
             RegistryHelper.DeleteValue(@"HKCU\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run\OneDriveSetup", false);
 
+            string message = "OneDrive trails have been deleted.";
             if (RegistryHelper.GetValue(@"HKCU\SOFTWARE\Microsoft\OneDrive\UserInitiatedUninstall", 0) == 1)
             {
                 message += "\nDid you know, that OneDrive stored that *you* uninstalled it?";

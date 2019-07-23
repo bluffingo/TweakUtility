@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using TweakUtility.Helpers;
+using TweakUtility.TweakPages;
 
 namespace TweakUtility.Forms
 {
@@ -12,41 +15,27 @@ namespace TweakUtility.Forms
             SetStatus("Retrieving OS Version...");
             _ = OperatingSystemVersions.GetCurrentVersion();
 
-            ///SetStatus("Processing attributes...");
-            ///foreach (TweakPage tweakPage in Program.Pages)
-            ///{
-            ///    ProcessPage(tweakPage);
-            ///}
+            SetStatus("Retrieving folder icon...");
+            Program.FolderIcon = NativeHelpers.GetIconFromGroup(@"%SystemRoot%\System32\shell32.dll", -4);
+
+            SetStatus("Initializing pages...");
+            Program.Pages.AddRange(new List<TweakPage>()
+            {
+                new CustomizationPage(),
+                new InternetExplorerPage(),
+                new SnippingToolPage(),
+                new AdvancedPage(),
+                new Windows10Page(),
+                new UncategorizedPage()
+            });
+
+#if DEBUG
+            SetStatus("Unlocking debug page...");
+            Program.Pages.Add(new DebugPage());
+#endif
 
             this.Close();
         }
-
-        ///public void ProcessPage(TweakPage tweakPage)
-        ///{
-        ///    foreach (PropertyDescriptor descriptor in TypeDescriptor.GetProperties(tweakPage))
-        ///    {
-        ///        Debug.WriteLine($"Processing attributes... ({tweakPage.GetType().Name}/{descriptor.Name})");
-        ///        SetStatus($"Processing attributes... ({tweakPage.GetType().Name}/{descriptor.Name})");
-        ///
-        ///        #region Description Info Append
-        ///
-        ///        DefaultValueAttribute defaultValueAttribute = descriptor.GetAttribute<DefaultValueAttribute>();
-        ///
-        ///        if (defaultValueAttribute != null)
-        ///        {
-        ///            object defaultValue = defaultValueAttribute.GetHiddenValue("value");
-        ///
-        ///            DescriptionAttribute descriptionAttribute = descriptor.GetAttribute<DescriptionAttribute>();
-        ///
-        ///            if (descriptionAttribute != null)
-        ///            {
-        ///                descriptionAttribute.SetHiddenValue("description", $"{descriptionAttribute.GetHiddenValue<string>("description")}\nDefaults to {defaultValue.ToString()}");
-        ///            }
-        ///        }
-        ///
-        ///        #endregion Description Info Append
-        ///    }
-        ///}
 
         public void SetStatus(string status)
         {

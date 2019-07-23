@@ -124,6 +124,8 @@
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Helpers\Extensions.cs" />
+    <Compile Include="Helpers\Helpers.cs" />
+    <Compile Include="Helpers\NativeHelpers.cs" />
     <Compile Include="Helpers\NativeMethods.cs" />
     <Compile Include="Attributes\OperatingSystemSupportedAttribute.cs" />
     <Compile Include="OperatingSystemVersions.cs" />
@@ -197,14 +199,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\volume.png" />
     <None Include="Resources\windows10.png" />
     <None Include="Resources\TweakUtility.png" />
     <None Include="Resources\go.png" />
     <None Include="Resources\go7.png" />
     <None Include="Resources\folder.png" />
     <None Include="Resources\cog.png" />
+    <None Include="Resources\diskCleanup.png" />
     <Content Include="Resources\go10.png" />
-    <None Include="Resources\sound_low.png" />
     <None Include="Resources\iexplore.png" />
     <None Include="Resources\snippingTool.png" />
     <None Include="Resources\iexplore_page.png" />
