@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -6,14 +7,14 @@ namespace TweakUtility
 {
     public static class NativeMethods
     {
-        public const int RT_GROUP_ICON = 14;
+        internal const int RT_GROUP_ICON = 14;
 
-        public const int RT_ICON = 0x00000003;
+        internal const int RT_ICON = 0x00000003;
 
-        public const int WM_USER = 0x0400;
+        internal const int WM_USER = 0x0400;
 
         [Flags]
-        public enum ExitWindows : uint
+        internal enum ExitWindows : uint
         {
             // ONE of the following five:
             LogOff = 0x00,
@@ -30,7 +31,24 @@ namespace TweakUtility
         }
 
         [Flags]
-        public enum ShutdownReason : uint
+        internal enum LoadLibraryFlags : uint
+        {
+            None = 0,
+            DONT_RESOLVE_DLL_REFERENCES = 0x00000001,
+            LOAD_IGNORE_CODE_AUTHZ_LEVEL = 0x00000010,
+            LOAD_LIBRARY_AS_DATAFILE = 0x00000002,
+            LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE = 0x00000040,
+            LOAD_LIBRARY_AS_IMAGE_RESOURCE = 0x00000020,
+            LOAD_LIBRARY_SEARCH_APPLICATION_DIR = 0x00000200,
+            LOAD_LIBRARY_SEARCH_DEFAULT_DIRS = 0x00001000,
+            LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR = 0x00000100,
+            LOAD_LIBRARY_SEARCH_SYSTEM32 = 0x00000800,
+            LOAD_LIBRARY_SEARCH_USER_DIRS = 0x00000400,
+            LOAD_WITH_ALTERED_SEARCH_PATH = 0x00000008
+        }
+
+        [Flags]
+        internal enum ShutdownReason : uint
         {
             MajorApplication = 0x00040000,
             MajorHardware = 0x00010000,
@@ -73,64 +91,71 @@ namespace TweakUtility
         }
 
         [DllImport("user32.dll")]
-        public static extern IntPtr CreateIconFromResourceEx(byte[] pbIconBits, uint cbIconBits, bool fIcon, uint dwVersion, int cxDesired, int cyDesired, uint uFlags);
+        internal static extern IntPtr CreateIconFromResourceEx(byte[] pbIconBits, uint cbIconBits, bool fIcon, uint dwVersion, int cxDesired, int cyDesired, uint uFlags);
+
+        [DllImport("gdi32.dll", EntryPoint = "DeleteObject", CharSet = CharSet.Unicode, ExactSpelling = true, CallingConvention = CallingConvention.StdCall)]
+        internal static extern bool DeleteObject(IntPtr hBitmap);
 
         [DllImport("user32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool ExitWindowsEx(ExitWindows uFlags, ShutdownReason dwReason);
-
-        [DllImport("kernel32.dll")]
-        public static extern IntPtr FindResource(IntPtr hModule, int lpName, int lpType);
-
-        [DllImport("user32.dll", SetLastError = true)]
-        public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
-
-        [DllImport("kernel32.dll")]
-        public static extern int FreeLibrary(IntPtr hLibModule);
+        internal static extern bool ExitWindowsEx(ExitWindows uFlags, ShutdownReason dwReason);
 
         [DllImport("Shell32.dll", EntryPoint = "ExtractIconExW", CharSet = CharSet.Unicode, ExactSpelling = true, CallingConvention = CallingConvention.StdCall)]
-        public static extern int ExtractIconEx(string sFile, int iIndex, out IntPtr piLargeVersion, out IntPtr piSmallVersion, int amountIcons);
+        internal static extern int ExtractIconEx(string sFile, int iIndex, out IntPtr piLargeVersion, out IntPtr piSmallVersion, int amountIcons);
+
+        [DllImport("kernel32.dll")]
+        internal static extern IntPtr FindResource(IntPtr hModule, int lpName, int lpType);
+
+        [DllImport("kernel32.dll")]
+        internal static extern IntPtr FindResource(IntPtr hModule, int lpID, string lpType);
+
+        [DllImport("kernel32.dll")]
+        internal static extern IntPtr FindResourceEx(IntPtr hModule, IntPtr lpType, IntPtr lpName, ushort wLanguage);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        internal static extern IntPtr FindWindow([MarshalAs(UnmanagedType.LPWStr)] string lpClassName, string lpWindowName);
+
+        [DllImport("kernel32.dll")]
+        internal static extern int FreeLibrary(IntPtr hLibModule);
+
+        [DllImport("User32.dll")]
+        internal static extern IntPtr LoadBitmap(IntPtr hInstance, int uID);
+
+        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        internal static extern IntPtr LoadImage(IntPtr hinst, string lpszName, uint uType, int cxDesired, int cyDesired, uint fuLoad);
+
+        [DllImport("User32.dll")]
+        internal static extern IntPtr LoadImage(IntPtr hInstance, int uID, uint type, int width, int height, int load);
 
         [DllImport("kernel32", SetLastError = true, CharSet = CharSet.Ansi)]
-        public static extern IntPtr LoadLibrary([MarshalAs(UnmanagedType.LPStr)]string lpFileName);
+        internal static extern IntPtr LoadLibrary([MarshalAs(UnmanagedType.LPStr)]string lpFileName);
 
         [DllImport("kernel32.dll", SetLastError = true)]
-        public static extern IntPtr LoadLibraryEx(string lpFileName, IntPtr hReservedNull, LoadLibraryFlags dwFlags);
+        internal static extern IntPtr LoadLibraryEx(string lpFileName, IntPtr hReservedNull, LoadLibraryFlags dwFlags);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        internal static extern IntPtr LoadLibraryEx(string lpFileName, IntPtr hReservedNull, uint dwFlags);
 
         //http://msdn.microsoft.com/en-us/library/windows/desktop/ms644931(v=vs.85).aspx5).aspx
         [DllImport("kernel32.dll", SetLastError = true)]
-        public static extern IntPtr LoadResource(IntPtr hModule, IntPtr hResInfo);
-
-        [DllImport("kernel32.dll")]
-        public static extern IntPtr LockResource(IntPtr hResData);
-
-        [DllImport("user32.dll")]
-        public static extern int LookupIconIdFromDirectoryEx(byte[] presbits, bool fIcon, int cxDesired, int cyDesired, uint Flags);
-
-        [DllImport("user32.dll", SetLastError = true)]
-        public static extern bool PostMessage(IntPtr hWnd, [MarshalAs(UnmanagedType.U4)] uint Msg, IntPtr wParam, IntPtr lParam);
-
-        [DllImport("kernel32.dll", SetLastError = true)]
-        public static extern uint SizeofResource(IntPtr hModule, IntPtr hResInfo);
+        internal static extern IntPtr LoadResource(IntPtr hModule, IntPtr hResInfo);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        public static extern int LoadString(IntPtr hInstance, int ID, StringBuilder lpBuffer, int nBufferMax);
+        internal static extern int LoadString(IntPtr hInstance, int ID, StringBuilder lpBuffer, int nBufferMax);
 
-        [Flags]
-        public enum LoadLibraryFlags : uint
-        {
-            None = 0,
-            DONT_RESOLVE_DLL_REFERENCES = 0x00000001,
-            LOAD_IGNORE_CODE_AUTHZ_LEVEL = 0x00000010,
-            LOAD_LIBRARY_AS_DATAFILE = 0x00000002,
-            LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE = 0x00000040,
-            LOAD_LIBRARY_AS_IMAGE_RESOURCE = 0x00000020,
-            LOAD_LIBRARY_SEARCH_APPLICATION_DIR = 0x00000200,
-            LOAD_LIBRARY_SEARCH_DEFAULT_DIRS = 0x00001000,
-            LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR = 0x00000100,
-            LOAD_LIBRARY_SEARCH_SYSTEM32 = 0x00000800,
-            LOAD_LIBRARY_SEARCH_USER_DIRS = 0x00000400,
-            LOAD_WITH_ALTERED_SEARCH_PATH = 0x00000008
-        }
+        [DllImport("kernel32.dll")]
+        internal static extern IntPtr LockResource(IntPtr hResData);
+
+        [DllImport("user32.dll")]
+        internal static extern int LookupIconIdFromDirectoryEx(byte[] presbits, bool fIcon, int cxDesired, int cyDesired, uint Flags);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        internal static extern bool PostMessage(IntPtr hWnd, [MarshalAs(UnmanagedType.U4)] uint Msg, IntPtr wParam, IntPtr lParam);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        internal static extern uint SizeofResource(IntPtr hModule, IntPtr hResInfo);
+
+        [DllImport("shell32.dll", CharSet = CharSet.Unicode)]
+        public static extern int SHGetKnownFolderPath([MarshalAs(UnmanagedType.LPStruct)] Guid rfid, uint dwFlags, IntPtr hToken, out string pszPath);
     }
 }

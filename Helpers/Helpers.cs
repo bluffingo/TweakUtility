@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 
 namespace TweakUtility.Helpers
 {
@@ -23,7 +20,7 @@ namespace TweakUtility.Helpers
                 return fullpath;
             }
 
-            string[] paths = Environment.GetEnvironmentVariable("PATH").Split(';');
+            string[] paths = (Environment.GetEnvironmentVariable("PATH") + @";C:\Windows\sysnative\").Split(';');
             foreach (string variablePath in paths)
             {
                 string combined = Path.Combine(variablePath, path);
@@ -33,7 +30,7 @@ namespace TweakUtility.Helpers
                 }
             }
 
-            throw new Exception("Couldn't resolve path");
+            return null;
         }
     }
 }

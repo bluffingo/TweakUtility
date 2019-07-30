@@ -1,4 +1,5 @@
 ﻿using System;
+using static TweakUtility.OperatingSystemVersions;
 
 namespace TweakUtility.Attributes
 {
@@ -12,13 +13,15 @@ namespace TweakUtility.Attributes
                 throw new ArgumentOutOfRangeException(nameof(mininum));
             }
 
-            this.Mininum = OperatingSystemVersions.GetVersion(mininum);
-            this.Maximum = OperatingSystemVersions.GetVersion(maximum);
+            this.Mininum = GetVersion(mininum);
+            this.Maximum = GetVersion(maximum);
         }
 
         public Version Mininum { get; }
         public Version Maximum { get; }
-    }
+
+        public bool IsSupported => OperatingSystemVersions.IsSupported(Mininum, Maximum);
+}
 
     /// <summary>
     /// Collection of supported operating systems.

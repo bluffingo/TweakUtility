@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -12,7 +11,7 @@ namespace TweakUtility.TweakPages
         public TweakPage(string name, params TweakPage[] subPages)
         {
             this.Name = name ?? throw new ArgumentNullException(nameof(name));
-            SubPages = subPages?.ToList();
+            this.SubPages = subPages?.ToList();
         }
 
         [Browsable(false)]

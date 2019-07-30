@@ -1,6 +1,5 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -9,6 +8,38 @@ namespace TweakUtility
 {
     public static class RegistryHelper
     {
+        public static bool GetBoolValue(string path)
+        {
+            Tuple<RegistryKey, string> info = ProcessPathAdvanced(path);
+
+            using (RegistryKey subKey = info.Item1)
+            {
+                object value = subKey.GetValue(info.Item2, null);
+
+                if (value is int integer)
+                {
+                    return integer == 1;
+                }
+                else if (value is byte[] array)
+                {
+                    return array[0] == 0x01;
+                }
+                else
+                {
+                    Debug.WriteLine("defaulting to false, in getboolvalue, please look into");
+                    return false;
+                }
+            }
+        }
+
+        public static string GetEncodedStringValue(string path, Encoding encoding)
+        {
+            byte[] a = GetValue<byte[]>(path);
+            return encoding.GetString(a, 0, a.Length - (encoding == Encoding.Unicode ? 2 : 0));
+        }
+
+        public static void SetEncodedStringValue(string path, string value, Encoding encoding) => SetValue(path, encoding.GetBytes(value));
+
         public static T GetValue<T>(string path)
         {
             Tuple<RegistryKey, string> info = ProcessPathAdvanced(path);
@@ -67,6 +98,33 @@ namespace TweakUtility
             using (RegistryKey subKey = info.Item1)
             {
                 subKey.DeleteSubKeyTree(info.Item2, throwOnMissingKey);
+            }
+        }
+
+        public static RegistryKey GetKey(string path, bool writable = true)
+        {
+            Tuple<RegistryKey, string> info = ProcessPathAdvanced(path);
+
+            using (RegistryKey subKey = info.Item1)
+            {
+                return subKey.OpenSubKey(info.Item2, writable);
+            }
+        }
+
+        public static bool KeyExists(string path)
+        {
+            var info = ProcessPath(path);
+
+            using (RegistryKey subKey = GetHive(info[0]).OpenSubKey(info[1], false))
+            {
+                if (subKey == null)
+                {
+                    return false;
+                }
+
+                var names = subKey.GetSubKeyNames();
+
+                return names.Contains(info[2]);
             }
         }
 

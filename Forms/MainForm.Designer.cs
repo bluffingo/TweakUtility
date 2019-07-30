@@ -77,10 +77,12 @@ namespace TweakUtility.Forms
             this.treeView.HideSelection = false;
             this.treeView.ImageIndex = 0;
             this.treeView.ImageList = this.imageList;
+            this.treeView.Indent = 12;
+            this.treeView.ItemHeight = 24;
             this.treeView.Location = new System.Drawing.Point(1, 1);
             this.treeView.Name = "treeView";
             this.treeView.SelectedImageIndex = 0;
-            this.treeView.ShowRootLines = false;
+            this.treeView.ShowLines = false;
             this.treeView.Size = new System.Drawing.Size(196, 348);
             this.treeView.TabIndex = 2;
             this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TreeView_AfterSelect);
@@ -165,6 +167,7 @@ namespace TweakUtility.Forms
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "Tweak Utility";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.splitContainer.Panel1.ResumeLayout(false);
             this.splitContainer.Panel2.ResumeLayout(false);

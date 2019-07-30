@@ -2,9 +2,12 @@
 
 namespace TweakUtility.Attributes
 {
-    public class RefreshRequiredAttribute : Attribute
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Property)]
+    public sealed class RefreshRequiredAttribute : Attribute
     {
         public RefreshRequiredAttribute(RestartType type = RestartType.None) => this.Type = type;
+
+        public string Argument { get; set; }
 
         public RestartType Type { get; set; }
     }
@@ -30,5 +33,15 @@ namespace TweakUtility.Attributes
         /// Requires the user to be logged off, to apply the changes.
         /// </summary>
         Logoff,
+
+        /// <summary>
+        /// Requires a process to be restarted, to apply the changes.
+        /// </summary>
+        ProcessRestart,
+
+        /// <summary>
+        /// Notifies the user has to reload the thing related to the option. As there isn't a known method to reload.
+        /// </summary>
+        Unknown,
     }
 }

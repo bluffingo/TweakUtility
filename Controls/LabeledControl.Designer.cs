@@ -17,6 +17,9 @@
             {
                 components.Dispose();
             }
+
+            textBrush.Dispose();
+
             base.Dispose(disposing);
         }
 

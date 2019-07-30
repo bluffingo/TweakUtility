@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -14,13 +15,14 @@ using TweakUtility.TweakPages;
 
 namespace TweakUtility
 {
+    //TODO: Fix categories, (control order, non-categorized @ top)
     public partial class TweakPageView : UserControl
     {
         public TweakPageView(TweakPage tweakPage)
         {
             this.TweakPage = tweakPage;
 
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         public TweakPage TweakPage { get; }
@@ -28,15 +30,15 @@ namespace TweakUtility
         private void AddOption(object option, TweakPage tweakPage, Control panel)
         {
             //Skip property if explicitly set to hide.
-            var browsableAttribute = option.GetAttributeReflection<BrowsableAttribute>();
+            BrowsableAttribute browsableAttribute = option.GetAttributeReflection<BrowsableAttribute>();
             if (browsableAttribute != null && !browsableAttribute.Browsable)
             {
                 return;
             }
 
             //Hide incompatible entries
-            var supportedAttribute = option.GetAttributeReflection<OperatingSystemSupportedAttribute>();
-            if (supportedAttribute != null && !supportedAttribute.IsSupported())
+            OperatingSystemSupportedAttribute supportedAttribute = option.GetAttributeReflection<OperatingSystemSupportedAttribute>();
+            if (supportedAttribute != null && !supportedAttribute.IsSupported)
             {
                 return;
             }
@@ -59,7 +61,7 @@ namespace TweakUtility
                     button.Click += (s, e2) =>
                     {
                         method.Invoke(this.TweakPage, null);
-                        CheckRefresh(method);
+                        this.CheckRefresh(method);
                     };
 
                     panel.Controls.Add(button);
@@ -93,7 +95,7 @@ namespace TweakUtility
                         checkBox.CheckedChanged += (s, e2) =>
                         {
                             property.SetValue(tweakPage, checkBox.Checked, null);
-                            CheckRefresh(property);
+                            this.CheckRefresh(property);
                         };
 
                         panel.Controls.Add(checkBox);
@@ -125,7 +127,7 @@ namespace TweakUtility
                         upDown.TextChanged += (s, e2) =>
                         {
                             property.SetValue(tweakPage, (int)upDown.Value, null);
-                            CheckRefresh(property);
+                            this.CheckRefresh(property);
                         };
 
                         parent.Child = upDown;
@@ -155,7 +157,7 @@ namespace TweakUtility
                         textBox.TextChanged += (s, e2) =>
                         {
                             property.SetValue(tweakPage, textBox.Text, null);
-                            CheckRefresh(property);
+                            this.CheckRefresh(property);
                         };
 
                         parent.Child = textBox;
@@ -212,7 +214,7 @@ namespace TweakUtility
                         comboBox.SelectedValueChanged += (s, e2) =>
                         {
                             property.SetValue(tweakPage, comboBox.SelectedItem, null);
-                            CheckRefresh(property);
+                            this.CheckRefresh(property);
                         };
 
                         parent.Child = comboBox;
@@ -240,7 +242,7 @@ namespace TweakUtility
                         colorButton.ColorChanged += (s, e2) =>
                         {
                             property.SetValue(tweakPage, colorButton.Color, null);
-                            CheckRefresh(property);
+                            this.CheckRefresh(property);
                         };
 
                         panel.Controls.Add(colorButton);
@@ -271,7 +273,7 @@ namespace TweakUtility
 
         private void CheckRefresh(object info)
         {
-            var attribute = info.GetAttributeReflection<RefreshRequiredAttribute>();
+            RefreshRequiredAttribute attribute = info.GetAttributeReflection<RefreshRequiredAttribute>();
 
             if (attribute == null)
             {
@@ -280,11 +282,7 @@ namespace TweakUtility
 
             if (attribute.Type == RestartType.ExplorerRestart)
             {
-                DialogResult result = MessageBox.Show(
-                        "This option requires you to restart Windows Explorer.\nWould you like to do that now?",
-                        "Tweak Utility",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show(Properties.Resources.Reload_ExplorerRestart, Properties.Resources.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
@@ -293,11 +291,7 @@ namespace TweakUtility
             }
             else if (attribute.Type == RestartType.SystemRestart)
             {
-                DialogResult result = MessageBox.Show(
-                        "This option requires you to restart your system.\nWould you like to do that now?",
-                        "Tweak Utility",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show(Properties.Resources.Reload_SystemRestart, Properties.Resources.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
@@ -306,23 +300,23 @@ namespace TweakUtility
             }
             else if (attribute.Type == RestartType.Logoff)
             {
-                DialogResult result = MessageBox.Show(
-                        "This option requires you to log off.\nWould you like to do that now?",
-                        "Tweak Utility",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show(Properties.Resources.Reload_LogOff, Properties.Resources.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
                     NativeMethods.ExitWindowsEx(NativeMethods.ExitWindows.LogOff, NativeMethods.ShutdownReason.MinorReconfig);
                 }
             }
+            else if (attribute.Type == RestartType.Unknown)
+            {
+                MessageBox.Show(Properties.Resources.Reload_Unknown, Properties.Resources.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void AddOptions(TweakPage tweakPage, Control panel)
         {
-            var properties = GetProperties(tweakPage);
-            var methods = GetMethods(tweakPage);
+            List<PropertyInfo> properties = this.GetProperties(tweakPage);
+            List<MethodInfo> methods = this.GetMethods(tweakPage);
 
             var categories = new Dictionary<string, List<object>>();
 
@@ -389,7 +383,7 @@ namespace TweakUtility
 
                     foreach (object option in categories[category])
                     {
-                        AddOption(option, tweakPage, panel);
+                        this.AddOption(option, tweakPage, panel);
                     }
                 }
             }
@@ -415,7 +409,7 @@ namespace TweakUtility
             });
 
             //Links
-            foreach (TweakPage subPage in TweakPage.SubPages)
+            foreach (TweakPage subPage in this.TweakPage.SubPages)
             {
                 var label = new CommandControl()
                 {
@@ -425,7 +419,7 @@ namespace TweakUtility
 
                 label.Click += (s, e) =>
                 {
-                    if (ParentForm is MainForm form)
+                    if (this.ParentForm is MainForm form)
                     {
                         form.Select(subPage);
                     }
@@ -459,7 +453,7 @@ namespace TweakUtility
 
             panel.Controls.Add(new Label()
             {
-                Text = TweakPage.Name,
+                Text = this.TweakPage.Name,
                 Font = Theme.TitleFont,
                 AutoSize = true,
                 Padding = new Padding(0, 0, 0, 8),
@@ -467,9 +461,9 @@ namespace TweakUtility
                 ForeColor = Theme.TitleForeground
             });
 
-            AddOptions(TweakPage, panel);
+            this.AddOptions(this.TweakPage, panel);
 
-            AddSubPages(TweakPage, panel);
+            this.AddSubPages(this.TweakPage, panel);
 
             this.Controls.Add(panel);
         }

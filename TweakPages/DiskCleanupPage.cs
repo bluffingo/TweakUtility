@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using Microsoft.VisualBasic;
+using Microsoft.Win32;
 
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,6 @@ using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-
 using static TweakUtility.Helpers.NativeHelpers;
 
 namespace TweakUtility.TweakPages
@@ -21,7 +21,7 @@ namespace TweakUtility.TweakPages
         {
             propertyGrid.CommandsVisibleIfAvailable = false;
 
-            Handlers.Clear();
+            this.Handlers.Clear();
 
             using (RegistryKey key = Program.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\"))
             {
@@ -35,35 +35,83 @@ namespace TweakUtility.TweakPages
                         continue;
                     }
 
-                    Handlers.Add(new DiskCleanupHandler(subKey));
+                    this.Handlers.Add(new DiskCleanupHandler(subKey));
                 }
             }
 
             listView.Items.Clear();
             imageList.Images.Clear();
 
-            foreach (DiskCleanupHandler handler in Handlers)
+            foreach (DiskCleanupHandler handler in this.Handlers)
             {
-                var item = new ListViewItem(handler.GetDisplayName())
-                {
-                    Tag = handler
-                };
-
-                Icon icon = handler.Icon;
-
-                if (icon == null)
-                {
-                    icon = GetIconFromGroup(@"%SystemRoot%\System32\shell32.dll", 0);
-                }
-
-                imageList.Images.Add(handler.KeyName, icon);
-                item.ImageKey = handler.KeyName;
-
-                listView.Items.Add(item);
+                this.AddHandler(handler);
             }
         }
 
+        private void AddHandler(DiskCleanupHandler handler)
+        {
+            var item = new ListViewItem(handler.DisplayName)
+            {
+                Tag = handler
+            };
+
+            Icon icon = handler.Icon;
+
+            if (icon == null)
+            {
+                icon = ExtractIcon(@"%SystemRoot%\System32\shell32.dll", 0);
+            }
+
+            imageList.Images.Add(handler.KeyName, icon);
+            item.ImageKey = handler.KeyName;
+
+            listView.Items.Add(item);
+        }
+
         private void ListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e) => propertyGrid.SelectedObject = e.Item?.Tag;
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            string name = Interaction.InputBox("Enter the name of the new item:");
+
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                return;
+            }
+
+            using (RegistryKey key = Program.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\"))
+            {
+                RegistryKey subKey = key.CreateSubKey(name);
+                subKey.SetValue(null, "{C0E13E61-0CC6-11d1-BBB6-0060978B2AE6}");
+
+                var handler = new DiskCleanupHandler(subKey);
+                this.Handlers.Add(handler);
+                this.AddHandler(handler);
+            }
+        }
+
+        private void RemoveButton_Click(object sender, EventArgs e)
+        {
+            if (listView.SelectedItems.Count == 0)
+            {
+                return;
+            }
+
+            ListViewItem item = listView.SelectedItems[0];
+
+            if (item.Tag is DiskCleanupHandler handler)
+            {
+                using (RegistryKey key = Program.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\"))
+                {
+                    key.DeleteSubKeyTree(Path.GetFileName(handler.KeyName));
+                }
+
+                this.Handlers.Remove(handler);
+                listView.Items.Remove(item);
+            }
+        }
+
+        private void RefreshButton_Click(object sender, EventArgs e) => this.DiskCleanupPageView_Load(sender, e);
     }
 
     /// <remarks>
@@ -74,68 +122,71 @@ namespace TweakUtility.TweakPages
         public DiskCleanupPage() : base("Disk Cleanup")
         {
             this.CustomView = new DiskCleanupPageView();
-            this.Icon = Properties.Resources.diskCleanup;
+            this.Icon = ExtractIcon(@"%systemroot%\System32\cleanmgr.exe", -0);
         }
     }
 
-    public class DiskCleanupHandler : IDisposable
+    public sealed class DiskCleanupHandler : IDisposable
     {
-        public DiskCleanupHandler(RegistryKey key) => _key = key;
+        public DiskCleanupHandler(RegistryKey key) => this.Key = key;
 
-        private readonly RegistryKey _key;
+        public RegistryKey Key { get; }
 
         public string[] Folder
         {
-            get => ((string)_key.GetValue("Folder", "", RegistryValueOptions.DoNotExpandEnvironmentNames)).Split(new[] { '|', ':' });
-            set => _key.SetValue("Folder", string.Join("|", value), RegistryValueKind.String);
+            get => ((string)this.Key.GetValue("Folder", "", RegistryValueOptions.DoNotExpandEnvironmentNames)).Split(new[] { '|', ':' });
+            set => this.Key.SetValue("Folder", string.Join("|", value), RegistryValueKind.String);
         }
 
         [DisplayName("File list")]
         public string[] FileList
         {
-            get => ((string)_key.GetValue("FileList", "", RegistryValueOptions.DoNotExpandEnvironmentNames)).Split(new[] { '|', ':' });
-            set => _key.SetValue("FileList", string.Join("|", value), RegistryValueKind.String);
+            get => ((string)this.Key.GetValue("FileList", "", RegistryValueOptions.DoNotExpandEnvironmentNames)).Split(new[] { '|', ':' });
+            set => this.Key.SetValue("FileList", string.Join("|", value), RegistryValueKind.String);
         }
 
         [DisplayName("Icon path")]
         public string IconPath
         {
-            get => (string)_key.GetValue("IconPath", "", RegistryValueOptions.DoNotExpandEnvironmentNames);
-            set => _key.GetValue("IconPath", value);
+            get => (string)this.Key.GetValue("IconPath", "", RegistryValueOptions.DoNotExpandEnvironmentNames);
+            set => this.Key.GetValue("IconPath", value);
         }
 
         [Browsable(false)]
-        public string KeyName => _key.Name;
+        public string KeyName => this.Key.Name;
 
         public string Display
         {
-            get => _key.GetValue("Display", null) is string displayName ? displayName : null;
-            set => _key.SetValue("Display", value, RegistryValueKind.String);
+            get => this.Key.GetValue("Display", null) is string displayName ? displayName : null;
+            set => this.Key.SetValue("Display", value, RegistryValueKind.String);
         }
 
-        public string GetDisplayName()
+        public string DisplayName
         {
-            if (Display == null)
+            get
             {
-                return Path.GetFileName(_key.Name);
-            }
-
-            if (Display[0] == '@')
-            {
-                //Split DLL path and resource id
-                string[] split = Display.Substring(1).Split(',');
-
-                var id = int.Parse(split[1]);
-
-                if (id < 0)
+                if (this.Display == null)
                 {
-                    id *= -1;
+                    return Path.GetFileName(this.Key.Name);
                 }
 
-                return ExtractStringFromDLL(split[0], id);
-            }
+                if (this.Display[0] == '@')
+                {
+                    //Split DLL path and resource id
+                    string[] split = this.Display.Substring(1).Split(',');
 
-            return Display;
+                    int id = int.Parse(split[1]);
+
+                    if (id < 0)
+                    {
+                        id *= -1;
+                    }
+
+                    return ExtractString(split[0], id);
+                }
+
+                return this.Display;
+            }
         }
 
         [DisplayName("Icon preview")]
@@ -143,23 +194,27 @@ namespace TweakUtility.TweakPages
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(IconPath))
+                if (string.IsNullOrEmpty(this.IconPath))
                 {
                     return null;
                 }
 
-                string[] split = IconPath.Split(',');
+                string[] split = this.IconPath.Split(',');
 
                 if (split.Length == 1)
                 {
                     return new Icon(split[0]);
                 }
 
-                var icon = GetIconFromGroup(Environment.ExpandEnvironmentVariables(split[0]), int.Parse(split[1]));
+                Icon icon = ExtractIcon(Environment.ExpandEnvironmentVariables(split[0]), int.Parse(split[1]));
                 return icon;
             }
         }
 
-        public void Dispose() => _key.Dispose();
+        public void Dispose()
+        {
+            this.Key.Dispose();
+            GC.SuppressFinalize(this);
+        }
     }
 }

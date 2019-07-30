@@ -1,6 +1,6 @@
-using System.Resources;
+using System;
 using System.Reflection;
-using System.Runtime.CompilerServices;
+using System.Resources;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
@@ -34,9 +34,8 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.98.*")]
-[assembly: AssemblyFileVersion("1.0.98.*")]
+[assembly: AssemblyFileVersion("1.0.98")]
 [assembly: NeutralResourcesLanguage("en-US")]
-
 /* READ ME (ORIGINALLY WRITTEN IN https://www.reddit.com/r/Cloudsoftware/comments/cg57et/tweakutillity_1094_has_been_released/)
 Please remember that:
 
@@ -47,5 +46,6 @@ Please remember that:
 1.9.x are Release Candidate builds of TweakUtility.
 
 2.x.x are Release Builds of TweakUtility
-    
+
 */
+[assembly: CLSCompliant(false)]

@@ -3,7 +3,6 @@ using System.Linq;
 using System.Management;
 
 using TweakUtility.Attributes;
-using TweakUtility.Helpers;
 
 /// ---TweakUtility - Operating System Version Check (IMPORTANT NOTES)---
 /// WARNING: Beta support is experimental at the moment.
@@ -53,36 +52,22 @@ namespace TweakUtility
 
         public static Version GetVersion(OperatingSystemVersion version) => version == OperatingSystemVersion.None ? null : _versions[(int)version - 1];
 
-        public static Version GetCurrentVersion()
+        public static Version CurrentVersion
         {
-            if (_currentVersion == null)
+            get
             {
-                using (var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem"))
+                if (_currentVersion == null)
                 {
-                    string[] v = ((string)searcher.Get().Cast<ManagementObject>().FirstOrDefault().Properties["Version"].Value).Split('.');
-                    _currentVersion = new Version(int.Parse(v[0]), int.Parse(v[1]), int.Parse(v[2]));
+                    using (var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem"))
+                    {
+                        string[] v = ((string)searcher.Get().Cast<ManagementObject>().FirstOrDefault().Properties["Version"].Value).Split('.');
+                        _currentVersion = new Version(int.Parse(v[0]), int.Parse(v[1]), int.Parse(v[2]));
+                    }
                 }
+
+                return _currentVersion;
             }
-
-            return _currentVersion;
         }
-
-        /// <summary>
-        /// Checks if the current operating system version matches the <see cref="OperatingSystemSupportedAttribute"/>
-        /// </summary>
-        /// <param name="mininum">The minimum supported operating system version.</param>
-        /// <param name="maximum">The maximum supported operating system version.</param>
-        /// <returns></returns>
-        public static bool IsSupported(this OperatingSystemSupportedAttribute attribute)
-        {
-            if (attribute == null)
-            {
-                throw new ArgumentNullException(nameof(attribute));
-            }
-
-            return IsSupported(attribute.Mininum, attribute.Maximum);
-        }
-
         public static bool IsSupported(OperatingSystemVersion mininum, OperatingSystemVersion maximum = OperatingSystemVersion.None) => IsSupported(GetVersion(mininum), GetVersion(maximum));
 
         /// <summary>
@@ -98,14 +83,12 @@ namespace TweakUtility
                 throw new ArgumentNullException(nameof(mininum));
             }
 
-            Version current = GetCurrentVersion();
-
-            if (current < mininum)
+            if (CurrentVersion < mininum)
             {
                 return false;
             } //Check if current version is older than the minimum
 
-            if (maximum != null && maximum < current)
+            if (maximum != null && maximum < CurrentVersion)
             {
                 return false;
             } //Check if there's a maximum version and if the current version is too new.

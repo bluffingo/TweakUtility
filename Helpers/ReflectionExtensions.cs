@@ -43,15 +43,43 @@ namespace TweakUtility
             return attributes.Length == 0 ? null : (T)attributes[0];
         }
 
-        public static T GetAttribute<T>(this object instance) where T : Attribute => (T)instance.GetType().GetCustomAttributes(false).FirstOrDefault(a => a.GetType() == typeof(T));
+        public static T GetAttribute<T>(this Type type) where T : Attribute => (T)type.GetCustomAttributes(false).FirstOrDefault(a => a.GetType() == typeof(T));
+
+        public static T GetAttribute<T>(this object instance) where T : Attribute => instance.GetType().GetAttribute<T>();
 
         public static T GetAttribute<T>(this Enum @enum) where T : Attribute => (T)@enum.GetType().GetMember(@enum.ToString())[0].GetCustomAttributes(false).FirstOrDefault(a => a.GetType() == typeof(T));
 
         public static object GetPropertyGridView(this PropertyGrid propertyGrid) => propertyGrid.GetField<object>("gridView");
 
-        public static T GetField<T>(this object instance, string fieldName) => (T)instance.GetType().GetField(fieldName, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public).GetValue(instance);
+        public static T GetField<T>(this object instance, string fieldName)
+        {
+            if (instance is null)
+            {
+                throw new ArgumentNullException(nameof(instance));
+            }
 
-        public static T GetProperty<T>(this object instance, string propertyName) => (T)instance.GetType().GetProperty(propertyName, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public).GetValue(instance, null);
+            if (string.IsNullOrWhiteSpace(fieldName))
+            {
+                throw new ArgumentException("message", nameof(fieldName));
+            }
+
+            return (T)instance.GetType().GetField(fieldName, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public).GetValue(instance);
+        }
+
+        public static T GetProperty<T>(this object instance, string propertyName)
+        {
+            if (instance is null)
+            {
+                throw new ArgumentNullException(nameof(instance));
+            }
+
+            if (string.IsNullOrWhiteSpace(propertyName))
+            {
+                throw new ArgumentException("message", nameof(propertyName));
+            }
+
+            return (T)instance.GetType().GetProperty(propertyName, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public).GetValue(instance, null);
+        }
 
         public static GridItemCollection GetAllGridEntryCollection(this object propertyGridView) => propertyGridView.GetField<GridItemCollection>("allGridEntries");
 

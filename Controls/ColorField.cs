@@ -7,8 +7,7 @@ namespace TweakUtility.Controls
     public class ColorField : Control
     {
         private const int PreviewSize = 16;
-        private const int TextSpacing = 4;
-        
+        private const int TextSpacing = PreviewSize / 4;
 
         public ColorField()
         {
@@ -46,8 +45,8 @@ namespace TweakUtility.Controls
                     SizeF requiredSize = graphics.MeasureString(this.Text, this.Font);
 
                     var modifiedSize = new Size(
-                        (int)requiredSize.Width + PreviewSize + Padding.Left + Padding.Right + TextSpacing,
-                        Math.Max((int)requiredSize.Height, PreviewSize) + Padding.Top + Padding.Bottom
+                        (int)requiredSize.Width + PreviewSize + this.Padding.Left + this.Padding.Right + TextSpacing,
+                        Math.Max((int)requiredSize.Height, PreviewSize) + this.Padding.Top + this.Padding.Bottom
                         );
 
                     return modifiedSize;
@@ -57,29 +56,29 @@ namespace TweakUtility.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            OnPaintPreview(e);
-            OnPaintText(e);
+            this.OnPaintPreview(e);
+            this.OnPaintText(e);
         }
 
         public void OnPaintPreview(PaintEventArgs e)
         {
             var previewRectangle = new Rectangle(
-                e.ClipRectangle.X + Padding.Left,
-                e.ClipRectangle.Y + Padding.Top + (e.ClipRectangle.Height / 2) - (PreviewSize / 2),
+                e.ClipRectangle.X + this.Padding.Left,
+                e.ClipRectangle.Y + this.Padding.Top + (e.ClipRectangle.Height / 2) - (PreviewSize / 2),
                 PreviewSize,
                 PreviewSize);
 
-            e.Graphics.FillRectangle(new SolidBrush(Color), previewRectangle);
+            e.Graphics.FillRectangle(new SolidBrush(this.Color), previewRectangle);
             e.Graphics.DrawRectangle(SystemPens.ControlText, previewRectangle);
         }
 
         public void OnPaintText(PaintEventArgs e)
         {
             var textRectangle = new Rectangle(
-                e.ClipRectangle.X + Padding.Left + PreviewSize + TextSpacing,
-                e.ClipRectangle.Y + Padding.Top,
-                this.Width - Padding.Left - Padding.Right - PreviewSize - TextSpacing + 5, //adding 5 to prevent the renderer to think that the space is too small
-                this.Height - Padding.Top - Padding.Bottom);
+                e.ClipRectangle.X + this.Padding.Left + PreviewSize + TextSpacing,
+                e.ClipRectangle.Y + this.Padding.Top,
+                this.Width - this.Padding.Left - this.Padding.Right - PreviewSize - TextSpacing + 5, //adding 5 to prevent the renderer to think that the space is too small
+                this.Height - this.Padding.Top - this.Padding.Bottom);
 
             //HACK: Optimization can be done to reduce initializations of SolidBrush.
             //      (only create new instance of SolidBrush on color change)

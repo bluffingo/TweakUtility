@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
-using System.IO;
 using System.Web;
 using System.Windows.Forms;
 
@@ -20,7 +19,7 @@ namespace TweakUtility
 
         public static Icon FolderIcon;
 
-        public static List<TweakPage> Pages { get; private set; } = new List<TweakPage>();
+        public static List<TweakPage> Pages { get; } = new List<TweakPage>();
 
         public static readonly StringFormat stringFormat = new StringFormat()
         {
@@ -66,7 +65,7 @@ namespace TweakUtility
         public static void SendCrashReport(Exception ex)
         {
             string title = HttpUtility.UrlEncode(ex.Message);
-            string body = $"***Please make sure this report doesn't contain any personal details accidentally picked up by this program.***\n\n"
+            string body = $"***Please make sure this report doesn't contain any personal details accidentally picked up by this program. (That said we aren't reliable if you dox yourself.)***\n\n"
                 + $"**Message**\n{ex.Message}\n\n"
                 + $"**Source**\n{ex.Source}\n\n"
                 + $"**Stack Trace**\n```{ex.StackTrace}```\n\n";

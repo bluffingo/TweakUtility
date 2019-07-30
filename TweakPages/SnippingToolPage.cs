@@ -1,7 +1,5 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Drawing;
-using System.IO;
 using TweakUtility.Attributes;
 using TweakUtility.Helpers;
 
@@ -12,19 +10,11 @@ namespace TweakUtility.TweakPages
     {
         public SnippingToolPage() : base("Snipping Tool")
         {
-            try
-            {
-                ///HACK: This adds incompatibility with custom drive letters,
-                ///      please look into a different solution, if possible.
-                ///
-                ///      - Craftplacer
-                var path = @"C:\Windows\System32\SnippingTool.exe";
+            this.Icon = NativeHelpers.ExtractIcon(@"%SystemRoot%\sysnative\SnippingTool.exe", 0);
 
-                this.Icon = NativeHelpers.GetIconFromGroup(path, 0);
-            }
-            catch
+            if (this.Icon == null)
             {
-                this.Icon = Properties.Resources.snippingTool;
+                this.Icon = NativeHelpers.ExtractIcon(@"%SystemRoot%\system32\SnippingTool.exe", 0);
             }
         }
 

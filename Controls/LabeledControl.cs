@@ -21,11 +21,11 @@ namespace TweakUtility.Controls
         };
 
         private Control _child;
-        private SolidBrush textBrush;
+        private readonly SolidBrush textBrush;
 
         public LabeledControl()
         {
-            InitializeComponent();
+            this.InitializeComponent();
             textBrush = new SolidBrush(this.ForeColor);
         }
 
@@ -46,7 +46,7 @@ namespace TweakUtility.Controls
             }
         }
 
-        public override Size MinimumSize => new Size(Width, Child.GetPreferredSize(Size.Empty).Height);
+        public override Size MinimumSize => new Size(this.Width, this.Child.GetPreferredSize(Size.Empty).Height);
 
         /// <summary>
         /// Retrieves the width of the control, generally the width of the parent while respecting margin and padding properties.
@@ -56,7 +56,7 @@ namespace TweakUtility.Controls
         protected override void InitLayout()
         {
             base.InitLayout();
-            OnTextChanged(EventArgs.Empty);
+            this.OnTextChanged(EventArgs.Empty);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -67,13 +67,13 @@ namespace TweakUtility.Controls
             var size = new Size(e.ClipRectangle.Width - this.Padding.Right, e.ClipRectangle.Height - this.Padding.Bottom);
 
             var area = new Rectangle(point.X, point.Y, size.Width + 50, this.Height);
-            e.Graphics.DrawString(Text, this.Font, textBrush, area, stringFormat);
+            e.Graphics.DrawString(this.Text, this.Font, textBrush, area, stringFormat);
         }
 
         protected override void OnSizeChanged(EventArgs e)
         {
             base.OnSizeChanged(e);
-            OnTextChanged(EventArgs.Empty);
+            this.OnTextChanged(EventArgs.Empty);
         }
 
         protected override void OnTextChanged(EventArgs e)
@@ -87,7 +87,10 @@ namespace TweakUtility.Controls
 
             using (Graphics graphics = this.CreateGraphics())
             {
-                int getSize() => (int)graphics.MeasureString(this.Text, this.Font).Width + spacing;
+                int getSize()
+                {
+                    return (int)graphics.MeasureString(this.Text, this.Font).Width + spacing;
+                }
 
                 int parent = this.Parent.GetHashCode();
 
@@ -97,7 +100,7 @@ namespace TweakUtility.Controls
                 }
 
                 this.Child.Left = spacings[parent];
-                this.Child.Width = Width - Child.Left - Padding.Right;
+                this.Child.Width = this.Width - this.Child.Left - this.Padding.Right;
             }
         }
     }

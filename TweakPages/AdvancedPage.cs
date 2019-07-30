@@ -1,8 +1,7 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Diagnostics;
-using System.Windows.Forms;
 using TweakUtility.Attributes;
+using TweakUtility.Helpers;
 
 /// TweakUtility - IMPORTANT NOTES
 /// Please use vanilla versions for default values.Do not use customized/bootleg versions of Windows operating systems to get
@@ -13,10 +12,7 @@ namespace TweakUtility.TweakPages
 {
     public class AdvancedPage : TweakPage
     {
-        public AdvancedPage() : base("Advanced", new OEMInformation(), new DiskCleanupPage())
-        {
-            this.Icon = Properties.Resources.cog;
-        }
+        public AdvancedPage() : base("Advanced", new OEMInformation(), new DiskCleanupPage()) => this.Icon = NativeHelpers.ExtractIcon(@"%SystemRoot%\System32\shell32.dll", -22);
 
         [DisplayName("Owner")]
         [Category("Registration")]
@@ -52,26 +48,6 @@ namespace TweakUtility.TweakPages
             set => RegistryHelper.SetValue(@"HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SFCDisable", (int)value);
         }
 
-        [Browsable(true)]
-        [DisplayName("Delete OneDrive trails")]
-        [OperatingSystemSupported(OperatingSystemVersion.Windows10)]
-        public void DeleteOneDriveTrails()
-        {
-            Environment.SetEnvironmentVariable("OneDrive", "", EnvironmentVariableTarget.User);
-            RegistryHelper.DeleteValue(@"HKCU\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run\OneDriveSetup", false);
-
-            string message = "OneDrive trails have been deleted.";
-            if (RegistryHelper.GetValue(@"HKCU\SOFTWARE\Microsoft\OneDrive\UserInitiatedUninstall", 0) == 1)
-            {
-                message += "\nDid you know, that OneDrive stored that *you* uninstalled it?";
-                //No, Because i didn't uninstall the trails. :)
-            }
-
-            RegistryHelper.DeleteKey(@"HKCU\SOFTWARE\Microsoft\OneDrive", false);
-
-            MessageBox.Show(message, "Tweak Utility", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
         public enum WindowsSFCMode
         {
             [Description("Disabled with prompts")]
@@ -87,10 +63,18 @@ namespace TweakUtility.TweakPages
             EnabledNoPrompt = 4
         }
 
-        public class OEMInformation : TweakPage
+        private class OEMInformation : TweakPage
         {
             public OEMInformation() : base("OEM Information")
             {
+                if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+                {
+                    this.Icon = NativeHelpers.ExtractIcon(@"%SystemRoot%\System32\imageres.dll", -81);
+                }
+                else
+                {
+                    this.Icon = NativeHelpers.ExtractIcon(@"%SystemRoot%\System32\user32.dll", -104);
+                }
             }
 
             public string Logo
@@ -121,15 +105,15 @@ namespace TweakUtility.TweakPages
             [DisplayName("Support phone number")]
             public string SupportPhone
             {
-                get => RegistryHelper.GetValue<string>(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\SupportPhone ");
-                set => RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\SupportPhone ", value);
+                get => RegistryHelper.GetValue<string>(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\SupportPhone");
+                set => RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\SupportPhone", value);
             }
 
             [DisplayName("Support URL")]
             public string SupportURL
             {
-                get => RegistryHelper.GetValue<string>(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\SupportURL ");
-                set => RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\SupportURL ", value);
+                get => RegistryHelper.GetValue<string>(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\SupportURL");
+                set => RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\SupportURL", value);
             }
 
             [Browsable(true)]

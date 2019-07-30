@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
+using TweakUtility.Attributes;
 using TweakUtility.Helpers;
 using TweakUtility.TweakPages;
 
@@ -10,38 +11,72 @@ namespace TweakUtility.Forms
     {
         public SplashForm() => this.InitializeComponent();
 
+        /// <summary>
+        /// This prevents the application showing the main form if an error occurred while launching.
+        /// </summary>
+        private bool formInitiatedClose = false;
+
         private void SplashForm_Shown(object sender, EventArgs e)
         {
-            SetStatus("Retrieving OS Version...");
-            _ = OperatingSystemVersions.GetCurrentVersion();
+            this.SetStatus("Retrieving OS Version...");
+            _ = OperatingSystemVersions.CurrentVersion;
 
-            SetStatus("Retrieving folder icon...");
-            Program.FolderIcon = NativeHelpers.GetIconFromGroup(@"%SystemRoot%\System32\shell32.dll", -4);
+            this.SetStatus("Retrieving folder icon...");
+            Program.FolderIcon = NativeHelpers.ExtractIcon(@"%SystemRoot%\System32\shell32.dll", -4);
 
-            SetStatus("Initializing pages...");
-            Program.Pages.AddRange(new List<TweakPage>()
+            this.SetStatus("Initializing pages...");
+            foreach (Type pageType in new Type[] {
+                typeof(CustomizationPage),
+                typeof(InternetExplorerPage),
+                typeof(SnippingToolPage),
+                typeof(AdvancedPage),
+                typeof(Windows10Page),
+                typeof(MsnMessengerPage),
+                typeof(UncategorizedPage)
+            })
             {
-                new CustomizationPage(),
-                new InternetExplorerPage(),
-                new SnippingToolPage(),
-                new AdvancedPage(),
-                new Windows10Page(),
-                new UncategorizedPage()
-            });
+                OperatingSystemSupportedAttribute osAttribute = pageType.GetAttribute<OperatingSystemSupportedAttribute>();
+                if (osAttribute != null && !osAttribute.IsSupported)
+                {
+                    continue;
+                }
+
+                RegistryKeyRequiredAttribute keyAttribute = pageType.GetAttribute<RegistryKeyRequiredAttribute>();
+                if (keyAttribute != null && !keyAttribute.Exists)
+                {
+                    continue;
+                }
+
+                this.SetStatus($"Initializing pages... ({pageType.Name})");
+                object instance = Activator.CreateInstance(pageType);
+
+                Debug.Assert(instance is TweakPage);
+
+                Program.Pages.Add(instance as TweakPage);
+            }
 
 #if DEBUG
-            SetStatus("Unlocking debug page...");
+            this.SetStatus("Unlocking debug page...");
             Program.Pages.Add(new DebugPage());
 #endif
 
+            formInitiatedClose = true;
             this.Close();
         }
 
         public void SetStatus(string status)
         {
-            this.statusLabel.Text = status;
-            this.statusLabel.Refresh();
+            statusLabel.Text = status;
+            statusLabel.Refresh();
             Application.DoEvents();
+        }
+
+        private void SplashForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!formInitiatedClose)
+            {
+                Application.Exit();
+            }
         }
     }
 }

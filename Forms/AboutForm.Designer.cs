@@ -90,8 +90,8 @@
             this.descriptionLabel.Name = "descriptionLabel";
             this.descriptionLabel.Size = new System.Drawing.Size(411, 30);
             this.descriptionLabel.TabIndex = 4;
-            this.descriptionLabel.Text = "Tweak Utility is an application for tweaking Windows similiar to Tweak UI and Win" +
-    "aero Tweaker.";
+            this.descriptionLabel.Text = "Tweak Utility is an application for tweaking Windows, as well as other applicatio" +
+    "ns, similar to Tweak UI and Winaero Tweaker.";
             this.descriptionLabel.UseCompatibleTextRendering = true;
             // 
             // feedbackButton
@@ -130,8 +130,8 @@
             this.debugLabel.Size = new System.Drawing.Size(42, 15);
             this.debugLabel.TabIndex = 8;
             this.debugLabel.Text = "Debug";
-            this.toolTip.SetToolTip(this.debugLabel, "Debug builds are experimental and do not gurantee to be working or offer any supp" +
-        "ort.\r\nAutomated crash reports are also disabled.");
+            this.toolTip.SetToolTip(this.debugLabel, "Debug builds are experimental and do not guarantee to be working or offer any sup" +
+        "port.\r\nAutomated crash reports are also disabled.");
             this.debugLabel.Visible = false;
             // 
             // toolTip
@@ -169,6 +169,7 @@
             this.Controls.Add(this.okButton);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AboutForm";
@@ -177,6 +178,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "About Tweak Utility";
             this.Load += new System.EventHandler(this.AboutForm_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AboutForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

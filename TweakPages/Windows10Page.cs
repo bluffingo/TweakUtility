@@ -1,4 +1,8 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
+using System.Windows.Forms;
 using TweakUtility.Attributes;
 
 namespace TweakUtility.TweakPages
@@ -6,10 +10,7 @@ namespace TweakUtility.TweakPages
     [OperatingSystemSupported(OperatingSystemVersion.Windows10)]
     public class Windows10Page : TweakPage
     {
-        public Windows10Page() : base("Windows 10", new AudioTransitions())
-        {
-            this.Icon = Properties.Resources.windows10;
-        }
+        public Windows10Page() : base("Windows 10", new AudioTransitions()) => this.Icon = Properties.Resources.windows10;
 
         [DisplayName("Disable Notification Center")]
         [DefaultValue(false)]
@@ -20,19 +21,89 @@ namespace TweakUtility.TweakPages
             set => RegistryHelper.SetValue(@"HKLM\Software\Policies\Microsoft\Windows\Explorer\DisableNotificationCenter", value ? 1 : 0);
         }
 
-        public class AudioTransitions : TweakPage
+        [Browsable(true)]
+        [DisplayName("Uninstall OneDrive")]
+        [RegistryKeyRequired(@"HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\OneDriveSetup.exe\UninstallString", Hide = false)]
+        public void UninstallOneDrive()
         {
-            public AudioTransitions() : base("Audio Transitions")
+            string uninstallString = RegistryHelper.GetValue<string>(@"HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\OneDriveSetup.exe\UninstallString");
+            if (uninstallString == null)
             {
-                this.Icon = Properties.Resources.volume;
+                if (MessageBox.Show(Properties.Resources.OneDrive_Uninstall_InstallerNotFound, Properties.Resources.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                {
+                    return;
+                }
+            }
+            else
+            {
+                string uninstallPath = uninstallString.Split('/')[0];
+                uninstallPath = uninstallPath.Substring(0, uninstallPath.Length - 2);
+
+                var process = Process.Start(new ProcessStartInfo(uninstallPath, "/uninstall") { UseShellExecute = true });
+                process.WaitForExit(300000);
+
+                if (process.ExitCode != 0 &&
+                    MessageBox.Show(Properties.Resources.OneDrive_Uninstall_Warning, Properties.Resources.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                {
+                    return;
+                }
             }
 
+            bool userUninstall = RegistryHelper.GetValue(@"HKCU\SOFTWARE\Microsoft\OneDrive\UserInitiatedUninstall", 0) == 1;
+            Environment.SetEnvironmentVariable("OneDrive", "", EnvironmentVariableTarget.User);
+            RegistryHelper.DeleteKey(@"HKCU\SOFTWARE\Classes\AppID\OneDrive.EXE", false);
+            RegistryHelper.DeleteKey(@"HKCU\SOFTWARE\Classes\grvopen", false);
+            RegistryHelper.DeleteKey(@"HKCU\SOFTWARE\Classes\odopen", false);
+            RegistryHelper.DeleteKey(@"HKCU\SOFTWARE\Microsoft\OneDrive", false);
+            RegistryHelper.DeleteKey(@"HKCU\SOFTWARE\Microsoft\SkyDrive", false);
+            RegistryHelper.DeleteKey(@"HKCU\SOFTWARE\SyncEngines\Providers\OneDrive", false);
+            RegistryHelper.DeleteKey(@"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OneDriveRamps", false);
+            RegistryHelper.DeleteValue(@"HKCU\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run\OneDriveSetup", false);
+            RegistryHelper.DeleteValue(@"HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\OneDrive", false);
+
+            for (int i = 1; i < 9; i++)
+            {
+                RegistryHelper.DeleteKey($@"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\OneDrive{i}", false);
+            }
+
+            //Show MessageBox asking user to confirm setting this flag, when flag isn't set.
+            if (!userUninstall && MessageBox.Show(Properties.Resources.OneDrive_Uninstall_SetFlagMessage, Properties.Resources.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                RegistryHelper.SetValue(@"HKCU\SOFTWARE\Microsoft\OneDrive\UserInitiatedUninstall", 1);
+            }
+
+            NativeMethods.SHGetKnownFolderPath(new Guid("A52BBA46-E9E1-435F-B3D9-28DAA648C0F6"), 0, IntPtr.Zero, out string oneDrivePath);
+            if (Directory.Exists(oneDrivePath) && MessageBox.Show(Properties.Resources.OneDrive_Uninstall_DeleteFolder, Properties.Resources.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+            retry:
+                try
+                {
+                    Directory.Delete(oneDrivePath, true);
+                }
+                catch (Exception ex)
+                {
+                    if (MessageBox.Show(string.Format(Properties.Resources.OneDrive_Uninstall_DeleteFolder_Failed, ex.Message), Properties.Resources.ApplicationName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Exclamation) == DialogResult.Retry)
+                    {
+                        goto retry;
+                    }
+                }
+            }
+
+            MessageBox.Show(Properties.Resources.OneDrive_Uninstall_Success, Properties.Resources.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private class AudioTransitions : TweakPage
+        {
+            public AudioTransitions() : base("Audio Transitions") => this.Icon = Properties.Resources.volume;
+
+            [DisplayName("Transition time for turning volume down")]
             public int VolumeDownTransitionTime
             {
                 get => RegistryHelper.GetValue<int>(@"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\VolumeDownTransitionTime");
                 set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\VolumeDownTransitionTime", value);
             }
 
+            [DisplayName("Transition time for turning volume up")]
             public int VolumeUpTransitionTime
             {
                 get => RegistryHelper.GetValue<int>(@"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\VolumeUpTransitionTime");
