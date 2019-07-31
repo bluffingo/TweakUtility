@@ -6,3 +6,4 @@ A .NET Framework application for tweaking Windows with an easy UI.
 ## Contributers
 - [Craftplacer](https://github.com/Craftplacer) (owner)
 - [PF94, aka Gamerappa](https://github.com/PF94) (developer)
+- [Alien Future, aka Balázs Vámos](https://github.com/AlienFuture) (developer)
