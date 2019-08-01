@@ -63,8 +63,8 @@ namespace TweakUtility.TweakPages
         public bool ieScriptFix
         {
             //set => RegistryHelper.SetValue()
-            get => RegistryHelper.GetBoolValue(@"HKCU\SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_GPU_RENDERING\msnmsgr.exe");
-            set => RegistryHelper.SetValue(@"HKCU\SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_GPU_RENDERING\msnmsgr.exe", 1);
+            get => RegistryHelper.GetBoolValue(@"HKCU\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION\msnmsgr.exe");
+            set => RegistryHelper.SetValue(@"HKCU\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION\msnmsgr.exe", 0x00002ee1, RegistryValueKind.DWord);
         }
 
         [DisplayName("Intro shown count")]
