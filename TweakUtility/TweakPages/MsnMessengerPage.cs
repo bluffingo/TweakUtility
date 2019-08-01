@@ -59,6 +59,14 @@ namespace TweakUtility.TweakPages
             set => RegistryHelper.SetValue(@"HKCU\SOFTWARE\Microsoft\MSNMessenger\AlwaysOnTop", new byte[4] { (byte)(value ? 1 : 0), 0, 0, 0 });
         }
 
+        [DisplayName("Fix IE Script error")]
+        public bool ieScriptFix
+        {
+            //set => RegistryHelper.SetValue()
+            get => RegistryHelper.GetBoolValue(@"HKCU\SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_GPU_RENDERING\msnmsgr.exe");
+            set => RegistryHelper.SetValue(@"HKCU\SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_GPU_RENDERING\msnmsgr.exe", 1);
+        }
+
         [DisplayName("Intro shown count")]
         public int IntroShownCount
         {
