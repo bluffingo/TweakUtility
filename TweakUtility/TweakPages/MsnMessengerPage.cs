@@ -1,18 +1,24 @@
 ﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using TweakUtility.Attributes;
+using TweakUtility.Helpers;
 
 namespace TweakUtility.TweakPages
 {
     [RegistryKeyRequired(@"HKCU\SOFTWARE\Microsoft\MSNMessenger")]
-    public class MsnMessengerPage : TweakPage
+    internal class MsnMessengerPage : TweakPage
     {
-        public MsnMessengerPage() : base("MSN Messenger", GetPassportPages())
+        internal MsnMessengerPage() : base("MSN Messenger", GetPassportPages())
         {
+            this.Icon = NativeHelpers.ExtractIcon(NativeHelpers.GetApplicationPath("msnmsgr.exe"), 0);
         }
 
         private static PassportPage[] GetPassportPages()
@@ -59,6 +65,23 @@ namespace TweakUtility.TweakPages
             set => RegistryHelper.SetValue(@"HKCU\SOFTWARE\Microsoft\MSNMessenger\AlwaysOnTop", new byte[4] { (byte)(value ? 1 : 0), 0, 0, 0 });
         }
 
+        [DisplayName("Make MSN Messenger use the newest IE version")]
+        public bool IEOverwrite
+        {
+            get => RegistryHelper.KeyExists(@"HKCU\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION");
+            set
+            {
+                if (value)
+                {
+                    RegistryHelper.SetValue(@"HKCU\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION\msnmsgr.exe", 12001);
+                }
+                else
+                {
+                    RegistryHelper.DeleteKey(@"HKCU\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION");
+                }
+            }
+        }
+
         [DisplayName("Intro shown count")]
         public int IntroShownCount
         {
@@ -86,8 +109,7 @@ namespace TweakUtility.TweakPages
 
             [DisplayName("Nudge")]
             [Category("Sounds")]
-            public string BuzzSound //a early name for nudge?
-=> RegistryHelper.GetEncodedStringValue($@"HKCU\SOFTWARE\Microsoft\MSNMessenger\PerPassportSettings\{_passportId}\Sounds\MSNMSGR_Buzz\Path", Encoding.Unicode);
+            public string BuzzSound => RegistryHelper.GetEncodedStringValue($@"HKCU\SOFTWARE\Microsoft\MSNMessenger\PerPassportSettings\{_passportId}\Sounds\MSNMSGR_Buzz\Path", Encoding.Unicode);
 
             [DisplayName("Contact online")]
             [Category("Sounds")]
@@ -116,6 +138,46 @@ namespace TweakUtility.TweakPages
             [DisplayName("Voice message finished")]
             [Category("Sounds")]
             public string VoiceIMFinished => RegistryHelper.GetEncodedStringValue($@"HKCU\SOFTWARE\Microsoft\MSNMessenger\PerPassportSettings\{_passportId}\Sounds\MSNMSGR_VoiceIMFinished\Path", Encoding.Unicode);
+
+            [DisplayName("Add Live 2009 sounds")]
+            [Category("Sounds")]
+            public void EnableLiveSounds()
+            {
+                string path = new FileInfo(NativeHelpers.GetApplicationPath("msnmsgr.exe")).DirectoryName;
+                //it just doesn't work like that.
+
+                bool backupExists = File.Exists(Path.Combine(path, "newalert.wma.bak"));
+
+                if (backupExists)
+                {
+                    if (MessageBox.Show(Properties.Strings.MsnMessenger_AudioRestore, Properties.Strings.Application_Name, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        foreach (string item in Directory.GetFiles(path, "*.wma.bak"))
+                        {
+                            File.Move(item, item.Substring(0, item.Length - 4));
+                        }
+                    }
+                }
+                else
+                {
+                    if (MessageBox.Show(Properties.Strings.MsnMessenger_AudioBackup, Properties.Strings.Application_Name, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        foreach (string item in Directory.GetFiles(path, "*.wma"))
+                        {
+                            File.Move(item, item + ".bak");
+                        }
+                    }
+
+                    File.WriteAllBytes(Path.Combine(path, "newalert.wma"), Properties.Resources.newalert);
+                    File.WriteAllBytes(Path.Combine(path, "newemail.wma"), Properties.Resources.newemail);
+                    File.WriteAllBytes(Path.Combine(path, "nudge.wma"), Properties.Resources.nudge);
+                    File.WriteAllBytes(Path.Combine(path, "online.wma"), Properties.Resources.online);
+                    File.WriteAllBytes(Path.Combine(path, "outgoing.wma"), Properties.Resources.outgoing);
+                    File.WriteAllBytes(Path.Combine(path, "phone.wma"), Properties.Resources.phone);
+                    File.WriteAllBytes(Path.Combine(path, "type.wma"), Properties.Resources.type);
+                    File.WriteAllBytes(Path.Combine(path, "vimdone.wma"), Properties.Resources.vimdone);
+                }
+            }
 
             [DisplayName("Expand \"you me conversation\" area")]
             public bool ExpandConvYouMeArea

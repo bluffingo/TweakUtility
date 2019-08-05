@@ -4,10 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Web;
 using System.Windows.Forms;
 
 using TweakUtility.Forms;
+using TweakUtility.Helpers;
 using TweakUtility.TweakPages;
 
 namespace TweakUtility
@@ -48,7 +50,10 @@ namespace TweakUtility
                 Application.Run(splash);
             }
 
-            Application.Run(new MainForm());
+            using (var main = new MainForm())
+            {
+                Application.Run(main);
+            }
 #if !DEBUG
             }
             catch (Exception ex)
@@ -57,6 +62,36 @@ namespace TweakUtility
                 throw;
             }
 #endif
+        }
+
+        public static void CreateFolders()
+        {
+            void CreateFolder(string name, string display, string description, bool important = false)
+            {
+                string path = Path.GetFullPath(name);
+
+                if (Directory.Exists(path))
+                {
+                    return;
+                }
+
+                Directory.CreateDirectory(path);
+
+                new DirectoryInfo(path).Attributes |= FileAttributes.System;
+
+                string desktopPath = Path.Combine(path, "desktop.ini");
+                string text = "[.ShellClassInfo]\r\n";
+
+                if (!string.IsNullOrWhiteSpace(display)) text += $"LocalizedResourceName={display}\r\n";
+                if (!string.IsNullOrWhiteSpace(description)) text += $"ToolTip={description}\r\n";
+                if (important) text += $"ConfirmFileOp=1\r\n";
+
+                File.WriteAllText(desktopPath, text);
+                File.SetAttributes(desktopPath, File.GetAttributes(desktopPath) | FileAttributes.Hidden);
+            }
+
+            CreateFolder("extensions", Properties.Strings.Extensions, Properties.Strings.Extensions_FolderDescription);
+            CreateFolder("backups", Properties.Strings.Backups, Properties.Strings.Backups_FolderDescription, true);
         }
 
         /// <summary>
@@ -87,27 +122,11 @@ namespace TweakUtility
         /// </summary>
         public static void RestartExplorer()
         {
-            try
+            using (var rm = new RestartManagerSession())
             {
-                IntPtr handle = NativeMethods.FindWindow("Shell_TrayWnd", null);
-                NativeMethods.PostMessage(handle, NativeMethods.WM_USER + 436, (IntPtr)0, (IntPtr)0);
-
-                while (true)
-                {
-                    handle = NativeMethods.FindWindow("Shell_TrayWnd", null);
-
-                    if (handle.ToInt32() == 0)
-                    {
-                        break;
-                    }
-                }
-            }
-            finally
-            {
-                Process.Start(new ProcessStartInfo("explorer.exe")
-                {
-                    UseShellExecute = true
-                });
+                rm.RegisterProcess(Process.GetProcessesByName("explorer"));
+                rm.Shutdown(RestartManagerSession.ShutdownType.Normal);
+                rm.Restart();
             }
         }
 
@@ -115,5 +134,14 @@ namespace TweakUtility
         /// Finds a suitable registry view for this system architecture
         /// </summary>
         private static RegistryView GetRegistryView() => Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32;
+
+        public static string ProgramFilesx86()
+        {
+            if (8 == IntPtr.Size || (!String.IsNullOrEmpty(Environment.GetEnvironmentVariable("PROCESSOR_ARCHITEW6432"))))
+            {
+                return Environment.GetEnvironmentVariable("ProgramFiles(x86)");
+            }
+            return Environment.GetEnvironmentVariable("ProgramFiles");
+        }
     }
 }

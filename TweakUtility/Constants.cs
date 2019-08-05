@@ -2,10 +2,10 @@
 
 namespace TweakUtility
 {
-    public static class Constants
+    internal static class Constants
     {
-        public const int DESIGN_CATEGORY_PADDING_TOP = 11;
-        public const int DESIGN_CATEGORY_PADDING_BOTTOM = 7;
-        public static readonly Padding DESIGN_CATEGOTY_PADDING = new Padding(0, DESIGN_CATEGORY_PADDING_TOP, 0, DESIGN_CATEGORY_PADDING_BOTTOM);
+        public const int Design_Category_Padding_Top = 11;
+        public const int Design_Category_Padding_Bottom = 7;
+        public static readonly Padding Design_Category_Padding = new Padding(0, Design_Category_Padding_Top, 0, Design_Category_Padding_Bottom);
     }
 }

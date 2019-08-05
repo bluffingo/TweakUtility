@@ -1,5 +1,8 @@
 ﻿using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
+
 using TweakUtility.Attributes;
 using TweakUtility.Helpers;
 
@@ -7,7 +10,7 @@ namespace TweakUtility.TweakPages
 {
     internal class CustomizationPage : TweakPage
     {
-        public CustomizationPage() : base("Customization", new ColorsPage())
+        internal CustomizationPage() : base("Customization", new ColorsPage())
         {
             ///[4:33 AM] Craftplacer: https://files.catbox.moe/hipgjk.png
             ///[4:33 AM] Craftplacer: tech gore
@@ -41,6 +44,30 @@ namespace TweakUtility.TweakPages
         {
             get => RegistryHelper.GetValue<int>(@"HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize\SystemUsesLightTheme") == 1;
             set => RegistryHelper.SetValue(@"HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize\SystemUsesLightTheme", value ? 1 : 0);
+        }
+
+        [OperatingSystemSupported(OperatingSystemVersion.Windows8)]
+        [Browsable(true)]
+        [DisplayName("Enable Lite Theme")]
+        public void EnableLiteTheme()
+        {
+            //extract file if it doesn't exist
+            if (!File.Exists("aerolite.theme"))
+            {
+                File.WriteAllBytes("aerolite.theme", Properties.Resources.aerolite);
+                File.SetAttributes("aerolite.theme", File.GetAttributes("aerolite.theme") | FileAttributes.Hidden);
+            }
+
+            Process.Start(Path.GetFullPath("aerolite.theme"));
+        }
+
+        [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
+        [RefreshRequired(RestartType.ExplorerRestart)]
+        [DisplayName("Show seconds on taskbar")]
+        public bool ShowSeconds
+        {
+            get => RegistryHelper.GetValue(@"HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ShowSecondsInsystemClock", 0) == 1;
+            set => RegistryHelper.SetValue(@"HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ShowSecondsInsystemClock", value ? 1 : 0);
         }
 
         public enum WallpaperStyle

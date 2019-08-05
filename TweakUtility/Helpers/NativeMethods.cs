@@ -3,9 +3,9 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace TweakUtility
+namespace TweakUtility.Helpers
 {
-    public static class NativeMethods
+    internal static class NativeMethods
     {
         internal const int RT_GROUP_ICON = 14;
 
@@ -90,6 +90,9 @@ namespace TweakUtility
             FlagPlanned = 0x80000000
         }
 
+        [DllImport("shell32.dll", CharSet = CharSet.Unicode)]
+        public static extern int SHGetKnownFolderPath([MarshalAs(UnmanagedType.LPStruct)] Guid rfid, uint dwFlags, IntPtr hToken, out string pszPath);
+
         [DllImport("user32.dll")]
         internal static extern IntPtr CreateIconFromResourceEx(byte[] pbIconBits, uint cbIconBits, bool fIcon, uint dwVersion, int cxDesired, int cyDesired, uint uFlags);
 
@@ -155,7 +158,10 @@ namespace TweakUtility
         [DllImport("kernel32.dll", SetLastError = true)]
         internal static extern uint SizeofResource(IntPtr hModule, IntPtr hResInfo);
 
-        [DllImport("shell32.dll", CharSet = CharSet.Unicode)]
-        public static extern int SHGetKnownFolderPath([MarshalAs(UnmanagedType.LPStruct)] Guid rfid, uint dwFlags, IntPtr hToken, out string pszPath);
+        [DllImport("kernel32")]
+        internal static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
+
+        [DllImport("kernel32")]
+        internal static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
     }
 }

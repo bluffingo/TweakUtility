@@ -31,13 +31,15 @@ namespace TweakUtility.Forms
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
             this.treeView = new System.Windows.Forms.TreeView();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.startupLabel = new System.Windows.Forms.Label();
             this.bottomPanel = new System.Windows.Forms.Panel();
+            this.preferencesButton = new System.Windows.Forms.Button();
             this.aboutLabel = new System.Windows.Forms.LinkLabel();
-            this.revertButton = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
+            this.extensionsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -55,8 +57,8 @@ namespace TweakUtility.Forms
             // 
             // splitContainer.Panel1
             // 
+            this.splitContainer.Panel1.Controls.Add(this.searchTextBox);
             this.splitContainer.Panel1.Controls.Add(this.treeView);
-            this.splitContainer.Panel1.Padding = new System.Windows.Forms.Padding(1);
             this.splitContainer.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.SplitContainer_BorderPaint);
             // 
             // splitContainer.Panel2
@@ -68,22 +70,35 @@ namespace TweakUtility.Forms
             this.splitContainer.Size = new System.Drawing.Size(599, 350);
             this.splitContainer.SplitterDistance = 198;
             this.splitContainer.TabIndex = 1;
+            this.splitContainer.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.SplitContainer_SplitterMoved);
+            // 
+            // searchTextBox
+            // 
+            this.searchTextBox.AcceptsReturn = true;
+            this.searchTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.searchTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.searchTextBox.Location = new System.Drawing.Point(0, 0);
+            this.searchTextBox.Margin = new System.Windows.Forms.Padding(0);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(198, 23);
+            this.searchTextBox.TabIndex = 4;
+            this.searchTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchTextBox_KeyDown);
             // 
             // treeView
             // 
             this.treeView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treeView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView.FullRowSelect = true;
             this.treeView.HideSelection = false;
             this.treeView.ImageIndex = 0;
             this.treeView.ImageList = this.imageList;
             this.treeView.Indent = 12;
             this.treeView.ItemHeight = 24;
-            this.treeView.Location = new System.Drawing.Point(1, 1);
+            this.treeView.Location = new System.Drawing.Point(1, 33);
+            this.treeView.Margin = new System.Windows.Forms.Padding(3, 50, 3, 3);
             this.treeView.Name = "treeView";
             this.treeView.SelectedImageIndex = 0;
             this.treeView.ShowLines = false;
-            this.treeView.Size = new System.Drawing.Size(196, 348);
+            this.treeView.Size = new System.Drawing.Size(196, 316);
             this.treeView.TabIndex = 2;
             this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TreeView_AfterSelect);
             // 
@@ -107,41 +122,37 @@ namespace TweakUtility.Forms
             // bottomPanel
             // 
             this.bottomPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.bottomPanel.Controls.Add(this.extensionsButton);
+            this.bottomPanel.Controls.Add(this.preferencesButton);
             this.bottomPanel.Controls.Add(this.aboutLabel);
-            this.bottomPanel.Controls.Add(this.revertButton);
             this.bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.bottomPanel.Location = new System.Drawing.Point(0, 374);
             this.bottomPanel.Name = "bottomPanel";
             this.bottomPanel.Size = new System.Drawing.Size(622, 45);
             this.bottomPanel.TabIndex = 2;
             // 
+            // preferencesButton
+            // 
+            this.preferencesButton.Location = new System.Drawing.Point(93, 10);
+            this.preferencesButton.Name = "preferencesButton";
+            this.preferencesButton.Size = new System.Drawing.Size(23, 23);
+            this.preferencesButton.TabIndex = 3;
+            this.preferencesButton.UseVisualStyleBackColor = true;
+            // 
             // aboutLabel
             // 
             this.aboutLabel.AutoSize = true;
-            this.aboutLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aboutLabel.LinkArea = new System.Windows.Forms.LinkArea(0, 28);
             this.aboutLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.aboutLabel.LinkColor = System.Drawing.SystemColors.GrayText;
-            this.aboutLabel.Location = new System.Drawing.Point(14, 17);
+            this.aboutLabel.Location = new System.Drawing.Point(14, 13);
             this.aboutLabel.Name = "aboutLabel";
-            this.aboutLabel.Size = new System.Drawing.Size(66, 17);
+            this.aboutLabel.Size = new System.Drawing.Size(73, 21);
             this.aboutLabel.TabIndex = 2;
             this.aboutLabel.TabStop = true;
             this.aboutLabel.Text = "Tweak Utility";
             this.aboutLabel.UseCompatibleTextRendering = true;
             this.aboutLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.AboutLabel_LinkClicked);
-            // 
-            // revertButton
-            // 
-            this.revertButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.revertButton.Enabled = false;
-            this.revertButton.Location = new System.Drawing.Point(535, 10);
-            this.revertButton.Name = "revertButton";
-            this.revertButton.Size = new System.Drawing.Size(75, 23);
-            this.revertButton.TabIndex = 1;
-            this.revertButton.Text = "&Revert";
-            this.revertButton.UseVisualStyleBackColor = true;
-            this.revertButton.Click += new System.EventHandler(this.RevertButton_Click);
             // 
             // settingsButton
             // 
@@ -152,6 +163,15 @@ namespace TweakUtility.Forms
             this.settingsButton.TabIndex = 3;
             this.settingsButton.Text = "&Settings";
             this.settingsButton.UseVisualStyleBackColor = true;
+            // 
+            // extensionsButton
+            // 
+            this.extensionsButton.Location = new System.Drawing.Point(122, 10);
+            this.extensionsButton.Name = "extensionsButton";
+            this.extensionsButton.Size = new System.Drawing.Size(23, 23);
+            this.extensionsButton.TabIndex = 4;
+            this.extensionsButton.UseVisualStyleBackColor = true;
+            this.extensionsButton.Click += new System.EventHandler(this.ExtensionsButton_Click);
             // 
             // MainForm
             // 
@@ -169,7 +189,9 @@ namespace TweakUtility.Forms
             this.Text = "Tweak Utility";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
             this.splitContainer.Panel1.ResumeLayout(false);
+            this.splitContainer.Panel1.PerformLayout();
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
@@ -182,12 +204,14 @@ namespace TweakUtility.Forms
         #endregion
         private System.Windows.Forms.SplitContainer splitContainer;
         private System.Windows.Forms.LinkLabel aboutLabel;
-        private System.Windows.Forms.Button revertButton;
         private System.Windows.Forms.Button settingsButton;
         public System.Windows.Forms.Panel bottomPanel;
         public System.Windows.Forms.TreeView treeView;
         private System.Windows.Forms.Label startupLabel;
         private System.Windows.Forms.ImageList imageList;
+        private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.Button preferencesButton;
+        private System.Windows.Forms.Button extensionsButton;
     }
 }
 

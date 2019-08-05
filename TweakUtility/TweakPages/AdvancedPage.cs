@@ -1,22 +1,24 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
+
 using TweakUtility.Attributes;
 using TweakUtility.Helpers;
 
 /// TweakUtility - IMPORTANT NOTES
-/// Please use vanilla versions for default values.Do not use customized/bootleg versions of Windows operating systems to get
+/// Please use vanilla versions for default values. Do not use customized/bootleg versions of Windows operating systems to get
 /// the most-authentic default values.
 /// Written by PF94, July 15th 2019
 
 namespace TweakUtility.TweakPages
 {
-    public class AdvancedPage : TweakPage
+    internal class AdvancedPage : TweakPage
     {
-        public AdvancedPage() : base("Advanced", new OEMInformation(), new DiskCleanupPage()) => this.Icon = NativeHelpers.ExtractIcon(@"%SystemRoot%\System32\shell32.dll", -22);
+        internal AdvancedPage() : base("Advanced", new OEMInformation(), new DiskCleanupPage()) => this.Icon = NativeHelpers.ExtractIcon(@"%SystemRoot%\System32\shell32.dll", -22);
 
         [DisplayName("Owner")]
         [Category("Registration")]
-        [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
         public string RegisteredOwner
         {
             get => RegistryHelper.GetValue<string>(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\RegisteredOwner");
@@ -25,13 +27,29 @@ namespace TweakUtility.TweakPages
 
         [DisplayName("Organization")]
         [Category("Registration")]
-        [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
         public string RegisteredOrganization
         {
             get => RegistryHelper.GetValue<string>(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\RegisteredOrganization");
             set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\RegisteredOrganization", value);
         }
 
+        [DisplayName("Title")]
+        [Category("Legal Notice")]
+        public string LegalNoticeCaption
+        {
+            get => RegistryHelper.GetValue(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\LegalNoticeCaption", "");
+            set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\LegalNoticeCaption", value);
+        }
+
+        [DisplayName("Text")]
+        [Category("Legal Notice")]
+        public string LegalNoticeText
+        {
+            get => RegistryHelper.GetValue(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\LegalNoticeText", "");
+            set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\LegalNoticeText", value);
+        }
+
+        // I'M HAVING ATTENTION
         [DisplayName("Verbose Messages")]
         public bool VerboseMessages
         {
@@ -67,7 +85,7 @@ namespace TweakUtility.TweakPages
         {
             public OEMInformation() : base("OEM Information")
             {
-                if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+                if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista)) //i do remember that xp had oem information.
                 {
                     this.Icon = NativeHelpers.ExtractIcon(@"%SystemRoot%\System32\imageres.dll", -81);
                 }
@@ -79,22 +97,88 @@ namespace TweakUtility.TweakPages
 
             public string Logo
             {
-                get => RegistryHelper.GetValue<string>(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\Logo");
-                set => RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\Logo", value);
+                get
+                {
+                    if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+                    {
+                        return RegistryHelper.GetValue<string>(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\Logo");
+                    }
+                    else
+                    {
+                        return Environment.ExpandEnvironmentVariables(@"%SystemRoot%\system32\OEMLogo.bmp");
+                    }
+                }
+
+                set
+                {
+                    if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+                    {
+                        RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\Logo", value);
+                    }
+                    else
+                    {
+                        using (var image = Image.FromFile(value))
+                        {
+                            image.Save(@"%SystemRoot%\system32\OEMLogo.bmp");
+                        }
+                    }
+                }
             }
 
             public string Manufacturer
             {
-                get => RegistryHelper.GetValue<string>(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\Manufacturer");
-                set => RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\Manufacturer", value);
+                get
+                {
+                    if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+                    {
+                        return RegistryHelper.GetValue<string>(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\Manufacturer");
+                    }
+                    else
+                    {
+                        return NativeHelpers.IniReadValue("General", "Manufacturer", @"%SystemRoot%\System32\OEMInfo.ini");
+                    }
+                }
+
+                set
+                {
+                    if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+                    {
+                        RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\Manufacturer", value);
+                    }
+                    else
+                    {
+                        NativeHelpers.IniWriteValue("General", "Manufacturer", value, @"%SystemRoot%\System32\OEMInfo.ini");
+                    }
+                }
             }
 
             public string Model
             {
-                get => RegistryHelper.GetValue<string>(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\Model");
-                set => RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\Model", value);
+                get
+                {
+                    if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+                    {
+                        return RegistryHelper.GetValue<string>(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\Model");
+                    }
+                    else
+                    {
+                        return NativeHelpers.IniReadValue("General", "Model", @"%SystemRoot%\System32\OEMInfo.ini");
+                    }
+                }
+                set
+                {
+                    if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+                    {
+                        RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\Model", value);
+                    }
+                    else
+                    {
+                        NativeHelpers.IniWriteValue("General", "Model", value, @"%SystemRoot%\System32\OEMInfo.ini");
+                    }
+                }
             }
 
+            [OperatingSystemSupported(OperatingSystemVersion.WindowsVista)]
             [DisplayName("Support hours")]
             public string SupportHours
             {
@@ -102,6 +186,7 @@ namespace TweakUtility.TweakPages
                 set => RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\SupportHours", value);
             }
 
+            [OperatingSystemSupported(OperatingSystemVersion.WindowsVista)]
             [DisplayName("Support phone number")]
             public string SupportPhone
             {
@@ -109,6 +194,7 @@ namespace TweakUtility.TweakPages
                 set => RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\SupportPhone", value);
             }
 
+            [OperatingSystemSupported(OperatingSystemVersion.WindowsVista)]
             [DisplayName("Support URL")]
             public string SupportURL
             {
@@ -117,10 +203,17 @@ namespace TweakUtility.TweakPages
             }
 
             [Browsable(true)]
-            public void Preview() => Process.Start(new ProcessStartInfo("control.exe", "system")
+            public void Preview()
             {
-                UseShellExecute = true
-            });
+                if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+                {
+                    Process.Start("control.exe", "system");
+                }
+                else
+                {
+                    Process.Start(new ProcessStartInfo("sysdm.cpl") { UseShellExecute = true });
+                }
+            }
         }
     }
 }

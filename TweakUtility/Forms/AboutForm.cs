@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -6,9 +7,9 @@ namespace TweakUtility.Forms
 {
     internal partial class AboutForm : Form
     {
-        private string input = "";
+        private readonly List<Keys> input = new List<Keys>();
 
-        public AboutForm() => this.InitializeComponent();
+        internal AboutForm() => this.InitializeComponent();
 
         private void FeedbackButton_Click(object sender, EventArgs e) => Program.OpenURL("https://github.com/Craftplacer/TweakUtility/issues/new/choose");
 
@@ -23,17 +24,12 @@ namespace TweakUtility.Forms
         private void GithubLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => Program.OpenURL("https://github.com/Craftplacer/TweakUtility");
 
         private void AboutForm_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Up) input += 'u';
-            else if (e.KeyCode == Keys.Down) input += 'd';
-            else if (e.KeyCode == Keys.Left) input += 'l';
-            else if (e.KeyCode == Keys.Right) input += 'r';
-            else if (e.KeyCode == Keys.B) input += 'b';
-            else if (e.KeyCode == Keys.A) input += 'a';
+        {   //BELOW IS THE KONAMI CODE EASTER EGG CODE
+            input.Add(e.KeyCode);
 
-            if (input == "uuddlrlrba")
+            if (input.ToArray() == new[] { Keys.Up, Keys.Up, Keys.Down, Keys.Down, Keys.Left, Keys.Right, Keys.Left, Keys.Right, Keys.B, Keys.A })
             {
-                if (MessageBox.Show("Wanna crash?", Properties.Resources.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                if (MessageBox.Show("Wanna crash?", Properties.Strings.Application_Name, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                 {
                     throw new Exception("User triggered exception");
                 }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweakUtility", "TweakUtilit
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TweakUtility.Installer", "TweakUtility.Installer\TweakUtility.Installer.vdproj", "{27D568E1-6C4D-4FE1-9724-F903590E25C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweakUtility.SampleExtension", "TweakUtility.SampleExtension\TweakUtility.SampleExtension.csproj", "{58C54496-AC34-4423-B738-F386BF75B9F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,18 @@ Global
 		{27D568E1-6C4D-4FE1-9724-F903590E25C0}.Release|Any CPU.ActiveCfg = Release
 		{27D568E1-6C4D-4FE1-9724-F903590E25C0}.Release|x64.ActiveCfg = Release
 		{27D568E1-6C4D-4FE1-9724-F903590E25C0}.Release|x86.ActiveCfg = Release
+		{58C54496-AC34-4423-B738-F386BF75B9F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58C54496-AC34-4423-B738-F386BF75B9F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58C54496-AC34-4423-B738-F386BF75B9F5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{58C54496-AC34-4423-B738-F386BF75B9F5}.Debug|x64.Build.0 = Debug|Any CPU
+		{58C54496-AC34-4423-B738-F386BF75B9F5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{58C54496-AC34-4423-B738-F386BF75B9F5}.Debug|x86.Build.0 = Debug|Any CPU
+		{58C54496-AC34-4423-B738-F386BF75B9F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58C54496-AC34-4423-B738-F386BF75B9F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58C54496-AC34-4423-B738-F386BF75B9F5}.Release|x64.ActiveCfg = Release|Any CPU
+		{58C54496-AC34-4423-B738-F386BF75B9F5}.Release|x64.Build.0 = Release|Any CPU
+		{58C54496-AC34-4423-B738-F386BF75B9F5}.Release|x86.ActiveCfg = Release|Any CPU
+		{58C54496-AC34-4423-B738-F386BF75B9F5}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

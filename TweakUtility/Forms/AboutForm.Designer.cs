@@ -1,6 +1,6 @@
 ﻿namespace TweakUtility.Forms
 {
-    partial class AboutForm
+    internal partial class AboutForm
     {
         /// <summary>
         /// Required designer variable.
@@ -86,7 +86,7 @@
             // 
             this.descriptionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.descriptionLabel.Location = new System.Drawing.Point(12, 74);
+            this.descriptionLabel.Location = new System.Drawing.Point(12, 72);
             this.descriptionLabel.Name = "descriptionLabel";
             this.descriptionLabel.Size = new System.Drawing.Size(411, 30);
             this.descriptionLabel.TabIndex = 4;
@@ -109,7 +109,7 @@
             // 
             this.githubLabel.AutoSize = true;
             this.githubLabel.LinkArea = new System.Windows.Forms.LinkArea(30, 6);
-            this.githubLabel.Location = new System.Drawing.Point(12, 111);
+            this.githubLabel.Location = new System.Drawing.Point(12, 109);
             this.githubLabel.Name = "githubLabel";
             this.githubLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.githubLabel.Size = new System.Drawing.Size(324, 20);

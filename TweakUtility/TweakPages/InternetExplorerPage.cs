@@ -4,9 +4,9 @@ using TweakUtility.Helpers;
 
 namespace TweakUtility.TweakPages
 {
-    public class InternetExplorerPage : TweakPage
+    internal class InternetExplorerPage : TweakPage
     {
-        public InternetExplorerPage() : base("Internet Explorer") => this.Icon = NativeHelpers.ExtractIcon(@"%ProgramFiles%\Internet Explorer\iexplore.exe", -0);
+        internal InternetExplorerPage() : base("Internet Explorer") => this.Icon = NativeHelpers.ExtractIcon(NativeHelpers.GetApplicationPath("iexplore.exe"), -0);
 
         [DisplayName("Blank page")]
         [DefaultValue("res://mshtml.dll/blank.htm")]

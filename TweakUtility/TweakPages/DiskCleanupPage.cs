@@ -11,11 +11,11 @@ using static TweakUtility.Helpers.NativeHelpers;
 
 namespace TweakUtility.TweakPages
 {
-    public partial class DiskCleanupPageView : UserControl
+    internal partial class DiskCleanupPageView : UserControl
     {
         private List<DiskCleanupHandler> Handlers { get; } = new List<DiskCleanupHandler>();
 
-        public DiskCleanupPageView() => this.InitializeComponent();
+        internal DiskCleanupPageView() => this.InitializeComponent();
 
         private void DiskCleanupPageView_Load(object sender, EventArgs e)
         {
@@ -117,7 +117,7 @@ namespace TweakUtility.TweakPages
     /// <remarks>
     /// Reference: https://docs.microsoft.com/en-us/windows/win32/lwef/disk-cleanup
     /// </remarks>
-    public class DiskCleanupPage : TweakPage
+    internal class DiskCleanupPage : TweakPage
     {
         public DiskCleanupPage() : base("Disk Cleanup")
         {
@@ -126,7 +126,7 @@ namespace TweakUtility.TweakPages
         }
     }
 
-    public sealed class DiskCleanupHandler : IDisposable
+    internal sealed class DiskCleanupHandler : IDisposable
     {
         public DiskCleanupHandler(RegistryKey key) => this.Key = key;
 

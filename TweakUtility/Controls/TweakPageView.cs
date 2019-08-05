@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using TweakUtility.Attributes;
 using TweakUtility.Controls;
 using TweakUtility.Forms;
+using TweakUtility.Helpers;
 using TweakUtility.Theming;
 using TweakUtility.TweakPages;
 
@@ -27,64 +28,47 @@ namespace TweakUtility
 
         public TweakPage TweakPage { get; }
 
-        private void AddOption(object option, TweakPage tweakPage, Control panel)
+        private void AddEntry(TweakEntry entry, Control panel)
         {
-            //Skip property if explicitly set to hide.
-            BrowsableAttribute browsableAttribute = option.GetAttributeReflection<BrowsableAttribute>();
-            if (browsableAttribute != null && !browsableAttribute.Browsable)
+            if (!entry.Visible)
             {
                 return;
             }
-
-            //Hide incompatible entries
-            OperatingSystemSupportedAttribute supportedAttribute = option.GetAttributeReflection<OperatingSystemSupportedAttribute>();
-            if (supportedAttribute != null && !supportedAttribute.IsSupported)
-            {
-                return;
-            }
-
-            //Use display name as label, if not available use name as fallback.
-            string displayName = option.GetAttributeReflection<DisplayNameAttribute>()?.DisplayName;
 
             try
             {
-                if (option is MethodInfo method)
+                if (entry is TweakAction action)
                 {
-                    displayName = displayName ?? method.Name;
-
                     var button = new CommandControl()
                     {
-                        Text = displayName,
+                        Text = action.Name,
                         AutoSize = true
                     };
 
                     button.Click += (s, e2) =>
                     {
-                        method.Invoke(this.TweakPage, null);
-                        this.CheckRefresh(method);
+                        action.Invoke();
+                        this.CheckRefresh(action);
                     };
 
                     panel.Controls.Add(button);
 
                     return;
                 }
-                else if (option is PropertyInfo property)
+                else if (entry is TweakOption option)
                 {
-                    //Use display name as label, if not available use property name as fallback.
-                    displayName = displayName ?? property.Name;
-
-                    if (property.PropertyType == typeof(bool))
+                    if (option.Type == typeof(bool))
                     {
                         var checkBox = new CheckBox()
                         {
-                            Text = displayName,
+                            Text = entry.Name,
                             AutoSize = true
                         };
 
                         try
                         {
-                            checkBox.Checked = (bool)property.GetValue(tweakPage, null);
-                            checkBox.Enabled = property.CanWrite;
+                            checkBox.Checked = option.GetValue<bool>();
+                            checkBox.Enabled = option.CanWrite;
                         }
                         catch
                         {
@@ -94,17 +78,17 @@ namespace TweakUtility
 
                         checkBox.CheckedChanged += (s, e2) =>
                         {
-                            property.SetValue(tweakPage, checkBox.Checked, null);
-                            this.CheckRefresh(property);
+                            option.SetValue(checkBox.Checked);
+                            this.CheckRefresh(option);
                         };
 
                         panel.Controls.Add(checkBox);
                     }
-                    else if (property.PropertyType == typeof(int))
+                    else if (option.Type == typeof(int))
                     {
                         var parent = new LabeledControl()
                         {
-                            Text = displayName,
+                            Text = option.Name,
                             AutoSize = true
                         };
 
@@ -116,8 +100,8 @@ namespace TweakUtility
 
                         try
                         {
-                            upDown.Value = (int)property.GetValue(tweakPage, null);
-                            upDown.Enabled = property.CanWrite;
+                            upDown.Value = option.GetValue<int>();
+                            upDown.Enabled = option.CanWrite;
                         }
                         catch
                         {
@@ -126,19 +110,19 @@ namespace TweakUtility
 
                         upDown.TextChanged += (s, e2) =>
                         {
-                            property.SetValue(tweakPage, (int)upDown.Value, null);
-                            this.CheckRefresh(property);
+                            option.SetValue((int)upDown.Value);
+                            this.CheckRefresh(option);
                         };
 
                         parent.Child = upDown;
 
                         panel.Controls.Add(parent);
                     }
-                    else if (property.PropertyType == typeof(string))
+                    else if (option.Type == typeof(string))
                     {
                         var parent = new LabeledControl()
                         {
-                            Text = displayName,
+                            Text = option.Name,
                             AutoSize = true
                         };
 
@@ -146,8 +130,8 @@ namespace TweakUtility
 
                         try
                         {
-                            textBox.Text = (string)property.GetValue(tweakPage, null);
-                            textBox.Enabled = property.CanWrite;
+                            textBox.Text = option.GetValue<string>();
+                            textBox.Enabled = option.CanWrite;
                         }
                         catch
                         {
@@ -156,19 +140,19 @@ namespace TweakUtility
 
                         textBox.TextChanged += (s, e2) =>
                         {
-                            property.SetValue(tweakPage, textBox.Text, null);
-                            this.CheckRefresh(property);
+                            option.SetValue(textBox.Text);
+                            this.CheckRefresh(option);
                         };
 
                         parent.Child = textBox;
 
                         panel.Controls.Add(parent);
                     }
-                    else if (property.PropertyType.BaseType == typeof(Enum))
+                    else if (option.Type.BaseType == typeof(Enum))
                     {
                         var parent = new LabeledControl()
                         {
-                            Text = displayName,
+                            Text = option.Name,
                             AutoSize = true
                         };
 
@@ -197,14 +181,14 @@ namespace TweakUtility
 
                         try
                         {
-                            foreach (Enum value in Enum.GetValues(property.PropertyType))
+                            foreach (Enum value in Enum.GetValues(option.Type))
                             {
                                 comboBox.Items.Add(value);
                             }
 
-                            comboBox.SelectedItem = property.GetValue(tweakPage, null);
+                            comboBox.SelectedItem = option.GetValue<object>();
 
-                            comboBox.Enabled = property.CanWrite;
+                            comboBox.Enabled = option.CanWrite;
                         }
                         catch
                         {
@@ -213,25 +197,25 @@ namespace TweakUtility
 
                         comboBox.SelectedValueChanged += (s, e2) =>
                         {
-                            property.SetValue(tweakPage, comboBox.SelectedItem, null);
-                            this.CheckRefresh(property);
+                            option.SetValue(comboBox.SelectedItem);
+                            this.CheckRefresh(option);
                         };
 
                         parent.Child = comboBox;
 
                         panel.Controls.Add(parent);
                     }
-                    else if (property.PropertyType == typeof(Color))
+                    else if (option.Type == typeof(Color))
                     {
                         var colorButton = new ColorField()
                         {
-                            Text = displayName,
+                            Text = option.Name,
                             AutoSize = true
                         };
 
                         try
                         {
-                            colorButton.Color = (Color)property.GetValue(tweakPage, null);
+                            colorButton.Color = option.GetValue<Color>();
                         }
                         catch
                         {
@@ -241,8 +225,8 @@ namespace TweakUtility
 
                         colorButton.ColorChanged += (s, e2) =>
                         {
-                            property.SetValue(tweakPage, colorButton.Color, null);
-                            this.CheckRefresh(property);
+                            option.SetValue(colorButton.Color);
+                            this.CheckRefresh(option);
                         };
 
                         panel.Controls.Add(colorButton);
@@ -254,7 +238,7 @@ namespace TweakUtility
                         panel.Controls.Add(new Label()
                         {
                             AutoSize = true,
-                            Text = $"Unsupported property type {property.PropertyType.ToString()} on property {property.Name}",
+                            Text = $"Unsupported property type {option.Type.ToString()} on property {option.Name}",
                             ForeColor = Color.Red
                         });
                     }
@@ -265,15 +249,15 @@ namespace TweakUtility
                 panel.Controls.Add(new Label()
                 {
                     AutoSize = true,
-                    Text = $"Error displaying option {displayName}",
+                    Text = $"Error displaying entry {entry.Name}",
                     ForeColor = Color.Red
                 });
             }
         }
 
-        private void CheckRefresh(object info)
+        private void CheckRefresh(TweakEntry entry)
         {
-            RefreshRequiredAttribute attribute = info.GetAttributeReflection<RefreshRequiredAttribute>();
+            RefreshRequiredAttribute attribute = entry.GetAttribute<RefreshRequiredAttribute>();
 
             if (attribute == null)
             {
@@ -282,7 +266,7 @@ namespace TweakUtility
 
             if (attribute.Type == RestartType.ExplorerRestart)
             {
-                DialogResult result = MessageBox.Show(Properties.Resources.Reload_ExplorerRestart, Properties.Resources.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show(Properties.Strings.Reload_ExplorerRestart, Properties.Strings.Application_Name, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
@@ -291,7 +275,7 @@ namespace TweakUtility
             }
             else if (attribute.Type == RestartType.SystemRestart)
             {
-                DialogResult result = MessageBox.Show(Properties.Resources.Reload_SystemRestart, Properties.Resources.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show(Properties.Strings.Reload_SystemRestart, Properties.Strings.Application_Name, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
@@ -300,7 +284,7 @@ namespace TweakUtility
             }
             else if (attribute.Type == RestartType.Logoff)
             {
-                DialogResult result = MessageBox.Show(Properties.Resources.Reload_LogOff, Properties.Resources.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show(Properties.Strings.Reload_LogOff, Properties.Strings.Application_Name, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
@@ -309,20 +293,17 @@ namespace TweakUtility
             }
             else if (attribute.Type == RestartType.Unknown)
             {
-                MessageBox.Show(Properties.Resources.Reload_Unknown, Properties.Resources.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Properties.Strings.Reload_Unknown, Properties.Strings.Application_Name, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void AddOptions(TweakPage tweakPage, Control panel)
         {
-            List<PropertyInfo> properties = this.GetProperties(tweakPage);
-            List<MethodInfo> methods = this.GetMethods(tweakPage);
-
             var categories = new Dictionary<string, List<object>>();
 
-            foreach (PropertyInfo property in properties)
+            foreach (TweakEntry entry in tweakPage.Entries)
             {
-                string category = property.GetAttribute<CategoryAttribute>()?.Category;
+                string category = entry.GetAttribute<CategoryAttribute>()?.Category;
 
                 if (category == null)
                 {
@@ -334,24 +315,7 @@ namespace TweakUtility
                     categories[category] = new List<object>();
                 }
 
-                categories[category].Add(property);
-            }
-
-            foreach (MethodInfo method in methods)
-            {
-                string category = method.GetAttribute<CategoryAttribute>()?.Category;
-
-                if (category == null)
-                {
-                    category = "";
-                }
-
-                if (!categories.ContainsKey(category))
-                {
-                    categories[category] = new List<object>();
-                }
-
-                categories[category].Add(method);
+                categories[category].Add(entry);
             }
 
             if (categories.Count == 0)
@@ -375,15 +339,15 @@ namespace TweakUtility
                             Text = category,
                             Font = Theme.CategoryFont,
                             AutoSize = true,
-                            Padding = Constants.DESIGN_CATEGOTY_PADDING,
+                            Padding = Constants.Design_Category_Padding,
                             Margin = new Padding(0),
                             ForeColor = Theme.CategoryForeground
                         });
                     }
 
-                    foreach (object option in categories[category])
+                    foreach (TweakEntry entry in categories[category])
                     {
-                        this.AddOption(option, tweakPage, panel);
+                        this.AddEntry(entry, panel);
                     }
                 }
             }
@@ -403,7 +367,7 @@ namespace TweakUtility
                 Text = "Related Tweak Pages",
                 Font = Theme.CategoryFont,
                 AutoSize = true,
-                Padding = Constants.DESIGN_CATEGOTY_PADDING,
+                Padding = Constants.Design_Category_Padding,
                 Margin = new Padding(0),
                 ForeColor = Theme.CategoryForeground
             });
@@ -428,15 +392,6 @@ namespace TweakUtility
                 panel.Controls.Add(label);
             }
         }
-
-        private List<MethodInfo> GetMethods(TweakPage tweakPage) => tweakPage.GetType().GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance).Where(m =>
-        {
-            //Only include methods that explicitly want to be included
-            BrowsableAttribute a = m.GetAttribute<BrowsableAttribute>();
-            return a != null && a.Browsable;
-        }).ToList();
-
-        private List<PropertyInfo> GetProperties(TweakPage tweakPage) => tweakPage.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.Static).ToList();
 
         private void TweakPageView_Load(object sender, EventArgs e)
         {

@@ -11,6 +11,7 @@ namespace TweakUtility.Controls
         private const int Spacing = 4;
         private int currentState = 0;
         private static Bitmap bitmap;
+        private static Font underlinedFont;
 
         public CommandControl()
         {
@@ -32,6 +33,11 @@ namespace TweakUtility.Controls
             else
             {
                 bitmap = NativeHelpers.ExtractIcon(@"%SystemRoot%\system32\shell32.dll", -290).ToBitmap();
+            }
+
+            if (underlinedFont == null && !OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+            {
+                underlinedFont = new Font(this.Font, FontStyle.Underline);
             }
         }
 
@@ -73,7 +79,7 @@ namespace TweakUtility.Controls
 
             if (currentState != 0 && !OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
             {
-                font = new Font(this.Font, FontStyle.Underline);
+                font = underlinedFont;
             }
 
             var rect = new RectangleF(

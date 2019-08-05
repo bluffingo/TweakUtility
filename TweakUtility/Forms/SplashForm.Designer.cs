@@ -1,6 +1,6 @@
 ﻿namespace TweakUtility.Forms
 {
-    partial class SplashForm
+    internal partial class SplashForm
     {
         /// <summary>
         /// Required designer variable.

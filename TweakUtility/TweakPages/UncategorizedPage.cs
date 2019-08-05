@@ -1,12 +1,15 @@
 ﻿using Microsoft.Win32;
+
 using System.ComponentModel;
+
 using TweakUtility.Attributes;
+using TweakUtility.Helpers;
 
 namespace TweakUtility.TweakPages
 {
     internal class UncategorizedPage : TweakPage
     {
-        public UncategorizedPage() : base("Uncategorized")
+        internal UncategorizedPage() : base("Uncategorized")
         {
         }
 
@@ -42,6 +45,5 @@ namespace TweakUtility.TweakPages
             get => RegistryHelper.GetValue<int>(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RPEnabled", 0) == 1;
             set => RegistryHelper.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RPEnabled", value ? 1 : 0);
         }
-
     }
 }

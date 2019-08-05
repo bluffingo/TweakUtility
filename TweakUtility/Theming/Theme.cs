@@ -4,11 +4,11 @@ using System.Linq;
 using System.Windows.Forms;
 using TweakUtility.Attributes;
 using TweakUtility.Forms;
-using static TweakUtility.OperatingSystemVersions;
+using static TweakUtility.Helpers.OperatingSystemVersions;
 
 namespace TweakUtility.Theming
 {
-    public static class Theme
+    internal static class Theme
     {
         // *crab rave literally in background* removing themes -Craftplacer
         // i'd prob keep plex as a easter egg. :P -PF94

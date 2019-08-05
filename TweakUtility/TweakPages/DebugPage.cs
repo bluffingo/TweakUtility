@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace TweakUtility.TweakPages
 {
-    public class DebugPage : TweakPage
+    internal class DebugPage : TweakPage
     {
-        public DebugPage() : base("Debug")
+        internal DebugPage() : base("Debug")
         {
         }
 

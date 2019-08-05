@@ -130,9 +130,6 @@
   <data name="go7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\go7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="paintDotNet" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\paintDotNet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="windows10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\windows10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -142,56 +139,31 @@
   <data name="colors" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\colors.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ApplicationName" xml:space="preserve">
-    <value>Tweak Utility</value>
+  <data name="aerolite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\aerolite.theme;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="OneDrive_Uninstall_DeleteFolder" xml:space="preserve">
-    <value>Would you like to remove the OneDrive folder?</value>
+  <data name="newalert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\newalert.wma;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="OneDrive_Uninstall_InstallerNotFound" xml:space="preserve">
-    <value>The uninstall info for OneDrive couldn't be found.
-Therefore, OneDrive won't be automatically uninstalled, you can continue deleting directories and registry entries related to it. 
-
-Do you want to continue?</value>
+  <data name="newemail" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\newemail.wma;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="OneDrive_Uninstall_SetFlagMessage" xml:space="preserve">
-    <value>Currently, the "user initiated uninstallation" flag isn't set, possibly leading Windows into reinstalling OneDrive.
-Setting this flag will tell Windows that you want to keep OneDrive uninstalled.
-
-Would you like to switch on?</value>
+  <data name="nudge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nudge.wma;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="OneDrive_Uninstall_Success" xml:space="preserve">
-    <value>OneDrive, along with its trails, have been deleted.</value>
+  <data name="online" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\online.wma;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="OneDrive_Uninstall_Warning" xml:space="preserve">
-    <value>The OneDrive uninstaller didn't seem to run correctly.
-
-Do you want to continue?</value>
+  <data name="outgoing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\outgoing.wma;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Reload_ExplorerRestart" xml:space="preserve">
-    <value>This option requires you to restart Windows Explorer.
-
-Would you like to do that now?</value>
+  <data name="phone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\phone.wma;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Reload_LogOff" xml:space="preserve">
-    <value>This option requires you to log off.
-
-Would you like to do that now?</value>
+  <data name="type" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\type.wma;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Reload_SystemRestart" xml:space="preserve">
-    <value>This option requires you to restart your system.
-
-Would you like to do that now?</value>
-  </data>
-  <data name="Reload_Unknown" xml:space="preserve">
-    <value>This option requires you to reload the thing related to it, as there isn't a refresh implemented yet.
-
-If you know how to implement this refresh programmatically, please let us know by clicking the feedback button in the about window.</value>
-    <comment>Message telling user to reload themself, since code is missing.</comment>
-  </data>
-  <data name="OneDrive_Uninstall_DeleteFolder_Failed" xml:space="preserve">
-    <value>Failed to delete the OneDrive folder because of following error message:
-
-{0}</value>
+  <data name="vimdone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vimdone.wma;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

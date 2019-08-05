@@ -26,9 +26,9 @@ using TweakUtility.Attributes;
 ///
 /// Written and updated by PF94, July 20th 2019
 
-namespace TweakUtility
+namespace TweakUtility.Helpers
 {
-    public static class OperatingSystemVersions
+    internal static class OperatingSystemVersions
     {
         private static Version _currentVersion = null;
 
@@ -68,6 +68,7 @@ namespace TweakUtility
                 return _currentVersion;
             }
         }
+
         public static bool IsSupported(OperatingSystemVersion mininum, OperatingSystemVersion maximum = OperatingSystemVersion.None) => IsSupported(GetVersion(mininum), GetVersion(maximum));
 
         /// <summary>

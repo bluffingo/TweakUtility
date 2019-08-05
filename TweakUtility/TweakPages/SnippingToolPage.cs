@@ -6,9 +6,9 @@ using TweakUtility.Helpers;
 namespace TweakUtility.TweakPages
 {
     [OperatingSystemSupported(OperatingSystemVersion.WindowsVista)]
-    public class SnippingToolPage : TweakPage
+    internal class SnippingToolPage : TweakPage
     {
-        public SnippingToolPage() : base("Snipping Tool")
+        internal SnippingToolPage() : base("Snipping Tool")
         {
             this.Icon = NativeHelpers.ExtractIcon(@"%SystemRoot%\sysnative\SnippingTool.exe", 0);
 
