@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Web;
 using System.Windows.Forms;
+using System.Net;
 
 using TweakUtility.Forms;
 using TweakUtility.Helpers;

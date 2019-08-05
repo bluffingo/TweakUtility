@@ -1,7 +1,9 @@
 ﻿using Microsoft.Win32;
-
+using System;
 using System.ComponentModel;
-
+using System.Diagnostics;
+using System.IO;
+using System.Net;
 using TweakUtility.Attributes;
 using TweakUtility.Helpers;
 
@@ -36,6 +38,37 @@ namespace TweakUtility.TweakPages
         {
             get => RegistryHelper.GetValue<int>(@"HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\PortNumber");
             set => RegistryHelper.SetValue(@"HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\PortNumber", value);
+        }
+
+        [Category("Windows Media Player")]
+        [DisplayName("Install Deskband")]
+        public void InstallWMPDeskBand(ProgressIndicator indicator)
+        {
+            indicator.Initialize(5);
+
+            using (var client = new WebClient())
+            {
+                indicator.SetProgress(1, "Downloading 32-bit deskband...");
+                client.DownloadFile("https://raw.githubusercontent.com/Craftplacer/TweakUtility/master/Optional/wmpband/32.dll", "32.dll");
+
+                indicator.SetProgress(2, "Downloading 64-bit deskband...");
+                client.DownloadFile("https://raw.githubusercontent.com/Craftplacer/TweakUtility/master/Optional/wmpband/64.dll", "64.dll");
+
+                indicator.SetProgress(3, "Moving files...");
+                string x86 = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Windows Media Player", "wmpband.dll");
+                File.Move("32.dll", x86);
+
+                string x64 = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), "Windows Media Player", "wmpband.dll");
+                File.Move("64.dll", x64);
+
+                string regsvrPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "regsvr32.exe");
+
+                indicator.SetProgress(4, "Registering 32-bit deskband...");
+                Process.Start(regsvrPath, x86).WaitForExit();
+
+                indicator.SetProgress(5, "Registering 64-bit deskband...");
+                Process.Start(regsvrPath, x64).WaitForExit();
+            }
         }
 
         [DisplayName("Metro (Developer Preview)")]

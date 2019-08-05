@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-
+using System.Net;
 using TweakUtility.Attributes;
 using TweakUtility.Helpers;
 
@@ -54,7 +54,10 @@ namespace TweakUtility.TweakPages
             //extract file if it doesn't exist
             if (!File.Exists("aerolite.theme"))
             {
-                File.WriteAllBytes("aerolite.theme", Properties.Resources.aerolite);
+                using (var client = new WebClient())
+                {
+                    client.DownloadFile("https://raw.githubusercontent.com/Craftplacer/TweakUtility/master/Optional/wlm2009sounds/aerolite.theme", "aerolite.theme");
+                }
                 File.SetAttributes("aerolite.theme", File.GetAttributes("aerolite.theme") | FileAttributes.Hidden);
             }
 

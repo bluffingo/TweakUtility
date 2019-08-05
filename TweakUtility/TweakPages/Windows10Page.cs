@@ -52,6 +52,13 @@ namespace TweakUtility.TweakPages
             set => RegistryHelper.SetValue(@"HKLM\Software\Microsoft\Windows\CurrentVersion\ImmersiveShell\UseActionCenterExperience", value ? 0 : 1);
         }
 
+        /* [Browsable(true)]
+        [DisplayName("Remove ALL UWP Applications")]
+        public void RemoveUWP()
+        {
+            //okay
+        }*/
+
         [Browsable(true)]
         [DisplayName("Uninstall OneDrive")]
         [RegistryKeyRequired(@"HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\OneDriveSetup.exe\UninstallString")]
