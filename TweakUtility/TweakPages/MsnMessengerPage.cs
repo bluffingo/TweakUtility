@@ -1,13 +1,14 @@
-﻿using Microsoft.Win32;
-using System;
+using Microsoft.Win32;
+
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Windows.Forms;
+
 using TweakUtility.Attributes;
 using TweakUtility.Helpers;
 
@@ -168,14 +169,15 @@ namespace TweakUtility.TweakPages
                         }
                     }
 
-                    File.WriteAllBytes(Path.Combine(path, "newalert.wma"), Properties.Resources.newalert);
-                    File.WriteAllBytes(Path.Combine(path, "newemail.wma"), Properties.Resources.newemail);
-                    File.WriteAllBytes(Path.Combine(path, "nudge.wma"), Properties.Resources.nudge);
-                    File.WriteAllBytes(Path.Combine(path, "online.wma"), Properties.Resources.online);
-                    File.WriteAllBytes(Path.Combine(path, "outgoing.wma"), Properties.Resources.outgoing);
-                    File.WriteAllBytes(Path.Combine(path, "phone.wma"), Properties.Resources.phone);
-                    File.WriteAllBytes(Path.Combine(path, "type.wma"), Properties.Resources.type);
-                    File.WriteAllBytes(Path.Combine(path, "vimdone.wma"), Properties.Resources.vimdone);
+                    using (var client = new WebClient())
+                    {
+                        foreach (var fileName in new[] { "newalert.wma", "newemail.wma", "nudge.wma", "online.wma", "outgoing.wma", "phone.wma", "type.wma", "vimdone.wma" })
+                        {
+                            string url = $"https://raw.githubusercontent.com/Craftplacer/TweakUtility/master/Optional/wlm2009sounds/{fileName}";
+
+                            client.DownloadFile(url, Path.Combine(path, fileName));
+                        }
+                    }
                 }
             }
 
