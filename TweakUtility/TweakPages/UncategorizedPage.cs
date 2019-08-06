@@ -87,5 +87,14 @@ namespace TweakUtility.TweakPages
             get => RegistryHelper.GetValue<int>(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RPEnabled", 0) == 1;
             set => RegistryHelper.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RPEnabled", value ? 1 : 0);
         }
+
+        [DisplayName("Unsaved Modfiied Theme Name")]
+        [DefaultValue("Windows XP (Modified)")]
+        [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
+        public string XPthemeUnsaved
+        {
+            get => RegistryHelper.GetValue<string>(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\LastTheme");
+            set => RegistryHelper.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\LastTheme", value);
+        }
     }
 }
