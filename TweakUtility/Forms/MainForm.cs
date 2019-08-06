@@ -391,7 +391,7 @@ namespace TweakUtility.Forms
             public string t21 => "Dig up diamonds, craft those diamonds, make some armor";
 
             [DisplayName(".")]
-            public string t22 => "Get it baby, go and forge that like you so, MLG pro";
+            public string t22 => "Get it baby, go and forge that like you so, TweakUtility pro";
 
             [DisplayName(".")]
             public string t23 => "The sword's made of diamonds, so come at me bro";
