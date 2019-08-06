@@ -8,8 +8,8 @@ namespace TweakUtility.Attributes
     {
         public string Path { get; }
 
-        public RegistryKeyRequiredAttribute(string path) => Path = path ?? throw new ArgumentNullException(nameof(path));
+        public RegistryKeyRequiredAttribute(string path) => this.Path = path ?? throw new ArgumentNullException(nameof(path));
 
-        public bool Exists => RegistryHelper.KeyExists(Path);
+        public bool Exists => RegistryHelper.KeyExists(this.Path);
     }
 }

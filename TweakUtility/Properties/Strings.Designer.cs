@@ -61,6 +61,42 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About Tweak Utility.
+        /// </summary>
+        internal static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All icons used (except the application icon), belong to their rightful owners..
+        /// </summary>
+        internal static string About_Copyright {
+            get {
+                return ResourceManager.GetString("About_Copyright", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tweak Utility is an application for tweaking Windows, as well as other applications, similar to Tweak UI and Winaero Tweaker..
+        /// </summary>
+        internal static string About_Description {
+            get {
+                return ResourceManager.GetString("About_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tweak Utility is available on {0}, and licensed under GPL-3.0..
+        /// </summary>
+        internal static string About_License {
+            get {
+                return ResourceManager.GetString("About_License", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tweak Utility.
         /// </summary>
         internal static string Application_Name {
@@ -97,6 +133,122 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &amp;Apply.
+        /// </summary>
+        internal static string Button_Apply {
+            get {
+                return ResourceManager.GetString("Button_Apply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Cancel.
+        /// </summary>
+        internal static string Button_Cancel {
+            get {
+                return ResourceManager.GetString("Button_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cre&amp;ate.
+        /// </summary>
+        internal static string Button_Create {
+            get {
+                return ResourceManager.GetString("Button_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Credits.
+        /// </summary>
+        internal static string Button_Credits {
+            get {
+                return ResourceManager.GetString("Button_Credits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Delete.
+        /// </summary>
+        internal static string Button_Delete {
+            get {
+                return ResourceManager.GetString("Button_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Feedback.
+        /// </summary>
+        internal static string Button_Feedback {
+            get {
+                return ResourceManager.GetString("Button_Feedback", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;OK.
+        /// </summary>
+        internal static string Button_OK {
+            get {
+                return ResourceManager.GetString("Button_OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lead Developer
+        ///Craftplacer
+        ///
+        ///Contributer Developers
+        ///PF94, aka Gamerappa
+        ///Alien Future, aka Balázs Vámos
+        ///
+        ///Translators
+        ///Craftplacer (English, German)
+        ///veselcraft (Russian)
+        ///Alien Future (Hungarian)
+        ///
+        ///Icons
+        ///Craftplacer (application icon)
+        ///Microsoft Windows (for version specific icons, taken dynamically)
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///⭐ And you for using this application ⭐
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///.
+        /// </summary>
+        internal static string Credits {
+            get {
+                return ResourceManager.GetString("Credits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debug builds are experimental and do not guarantee to be working or offer any support.
+        ///Automated crash reports are also disabled..
+        /// </summary>
+        internal static string Debug_Disclaimer {
+            get {
+                return ResourceManager.GetString("Debug_Disclaimer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Extensions.
         /// </summary>
         internal static string Extensions {
@@ -106,11 +258,38 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Author.
+        /// </summary>
+        internal static string Extensions_Author {
+            get {
+                return ResourceManager.GetString("Extensions_Author", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        internal static string Extensions_Description {
+            get {
+                return ResourceManager.GetString("Extensions_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This folder contains extensions for Tweak Utility..
         /// </summary>
         internal static string Extensions_FolderDescription {
             get {
                 return ResourceManager.GetString("Extensions_FolderDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string Extensions_Name {
+            get {
+                return ResourceManager.GetString("Extensions_Name", resourceCulture);
             }
         }
         
@@ -142,7 +321,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Would you like to remove the OneDrive folder?.
+        ///   Looks up a localized string similar to Would you like to delete the OneDrive folder?.
         /// </summary>
         internal static string OneDrive_Uninstall_DeleteFolder {
             get {
@@ -177,7 +356,7 @@ namespace TweakUtility.Properties {
         ///   Looks up a localized string similar to Currently, the &quot;user initiated uninstallation&quot; flag isn&apos;t set, possibly leading Windows into reinstalling OneDrive.
         ///Setting this flag will tell Windows that you want to keep OneDrive uninstalled.
         ///
-        ///Would you like to switch on?.
+        ///Would you like to switch it on?.
         /// </summary>
         internal static string OneDrive_Uninstall_SetFlagMessage {
             get {
@@ -246,6 +425,15 @@ namespace TweakUtility.Properties {
         internal static string Reload_Unknown {
             get {
                 return ResourceManager.GetString("Reload_Unknown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please make sure this report doesn&apos;t contain any personal details accidentally picked up by this program. (That said we aren&apos;t reliable if you dox yourself.).
+        /// </summary>
+        internal static string Report_Disclaimer {
+            get {
+                return ResourceManager.GetString("Report_Disclaimer", resourceCulture);
             }
         }
     }

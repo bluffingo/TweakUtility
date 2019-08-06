@@ -60,28 +60,28 @@ namespace TweakUtility.Helpers
 
         public RestartManagerSession()
         {
-            SessionKey = Guid.NewGuid().ToString();
-            var errorCode = StartSession(out var sessionHandle, 0, SessionKey);
+            this.SessionKey = Guid.NewGuid().ToString();
+            var errorCode = StartSession(out var sessionHandle, 0, this.SessionKey);
 
             if (errorCode != 0)
             {
                 throw new Win32Exception(errorCode);
             }
 
-            Handle = sessionHandle;
+            this.Handle = sessionHandle;
         }
 
         public RestartManagerSession(string sessionKey)
         {
-            SessionKey = sessionKey;
-            var errorCode = JoinSession(out var sessionHandle, SessionKey);
+            this.SessionKey = sessionKey;
+            var errorCode = JoinSession(out var sessionHandle, this.SessionKey);
 
             if (errorCode != 0)
             {
                 throw new Win32Exception(errorCode);
             }
 
-            Handle = sessionHandle;
+            this.Handle = sessionHandle;
         }
 
         private IntPtr Handle { get; }
@@ -90,7 +90,7 @@ namespace TweakUtility.Helpers
         /// <inheritdoc />
         public void Dispose()
         {
-            ReleaseUnmanagedResources();
+            this.ReleaseUnmanagedResources();
             GC.SuppressFinalize(this);
         }
 
@@ -143,7 +143,7 @@ namespace TweakUtility.Helpers
 
         public void FilterProcess(Process process, FilterAction action)
         {
-            var errorCode = AddFilter(Handle, null, UniqueProcess.FromProcess(process), null, action);
+            var errorCode = AddFilter(this.Handle, null, UniqueProcess.FromProcess(process), null, action);
 
             if (errorCode != 0)
             {
@@ -153,7 +153,7 @@ namespace TweakUtility.Helpers
 
         public void FilterProcessFile(FileInfo file, FilterAction action)
         {
-            var errorCode = AddFilter(Handle, file.FullName, IntPtr.Zero, null, action);
+            var errorCode = AddFilter(this.Handle, file.FullName, IntPtr.Zero, null, action);
 
             if (errorCode != 0)
             {
@@ -163,7 +163,7 @@ namespace TweakUtility.Helpers
 
         public void FilterService(ServiceController service, FilterAction action)
         {
-            var errorCode = AddFilter(Handle, null, IntPtr.Zero, service.ServiceName, action);
+            var errorCode = AddFilter(this.Handle, null, IntPtr.Zero, service.ServiceName, action);
 
             if (errorCode != 0)
             {
@@ -173,7 +173,7 @@ namespace TweakUtility.Helpers
 
         public void RegisterProcess(params Process[] processes)
         {
-            var errorCode = RegisterResources(Handle,
+            var errorCode = RegisterResources(this.Handle,
                 0, new string[0],
                 (uint)processes.Length, processes.Select(UniqueProcess.FromProcess).ToArray(),
                 0, new string[0]);
@@ -186,7 +186,7 @@ namespace TweakUtility.Helpers
 
         public void RegisterProcessFile(params FileInfo[] files)
         {
-            var errorCode = RegisterResources(Handle,
+            var errorCode = RegisterResources(this.Handle,
                 (uint)files.Length, files.Select(f => f.FullName).ToArray(),
                 0, new UniqueProcess[0],
                 0, new string[0]);
@@ -199,7 +199,7 @@ namespace TweakUtility.Helpers
 
         public void RegisterService(params ServiceController[] services)
         {
-            var errorCode = RegisterResources(Handle,
+            var errorCode = RegisterResources(this.Handle,
                 0, new string[0],
                 0, new UniqueProcess[0],
                 (uint)services.Length, services.Select(s => s.ServiceName).ToArray());
@@ -212,7 +212,7 @@ namespace TweakUtility.Helpers
 
         public void Restart(WriteStatusCallback statusCallback)
         {
-            var errorCode = Restart(Handle, 0, statusCallback);
+            var errorCode = Restart(this.Handle, 0, statusCallback);
 
             if (errorCode != 0)
             {
@@ -222,12 +222,12 @@ namespace TweakUtility.Helpers
 
         public void Restart()
         {
-            Restart(null);
+            this.Restart(null);
         }
 
         public void Shutdown(ShutdownType shutdownType, WriteStatusCallback statusCallback)
         {
-            var errorCode = Shutdown(Handle, shutdownType, statusCallback);
+            var errorCode = Shutdown(this.Handle, shutdownType, statusCallback);
 
             if (errorCode != 0)
             {
@@ -237,14 +237,14 @@ namespace TweakUtility.Helpers
 
         public void Shutdown(ShutdownType shutdownType)
         {
-            Shutdown(shutdownType, null);
+            this.Shutdown(shutdownType, null);
         }
 
         private void ReleaseUnmanagedResources()
         {
             try
             {
-                EndSession(Handle);
+                EndSession(this.Handle);
             }
             catch (Exception)
             {
@@ -255,7 +255,7 @@ namespace TweakUtility.Helpers
         /// <inheritdoc />
         ~RestartManagerSession()
         {
-            ReleaseUnmanagedResources();
+            this.ReleaseUnmanagedResources();
         }
 
         [StructLayout(LayoutKind.Sequential)]

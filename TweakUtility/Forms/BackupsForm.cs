@@ -13,10 +13,7 @@ namespace TweakUtility.Forms
 {
     internal partial class BackupsForm : Form
     {
-        internal BackupsForm()
-        {
-            InitializeComponent();
-        }
+        internal BackupsForm() => this.InitializeComponent();
 
         private void BackupsForm_Load(object sender, EventArgs e)
         {

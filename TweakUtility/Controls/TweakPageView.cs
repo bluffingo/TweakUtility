@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
-using System.Linq;
-using System.Reflection;
 using System.Windows.Forms;
 
 using TweakUtility.Attributes;
@@ -12,7 +9,6 @@ using TweakUtility.Controls;
 using TweakUtility.Forms;
 using TweakUtility.Helpers;
 using TweakUtility.Theming;
-using TweakUtility.TweakPages;
 
 namespace TweakUtility
 {
@@ -28,6 +24,203 @@ namespace TweakUtility
 
         public TweakPage TweakPage { get; }
 
+        private void AddBooleanEntry(TweakOption option, Control panel)
+        {
+            var checkBox = new CheckBox()
+            {
+                Text = option.Name,
+                AutoSize = true,
+                Padding = new Padding(4, 0, 0, 0)
+            };
+
+            try
+            {
+                checkBox.Checked = option.GetValue<bool>();
+                checkBox.Enabled = option.CanWrite;
+            }
+            catch
+            {
+                checkBox.Enabled = false;
+                checkBox.CheckState = CheckState.Indeterminate;
+            }
+
+            checkBox.CheckedChanged += (s, e2) =>
+            {
+                option.SetValue(checkBox.Checked);
+                this.CheckRefresh(option);
+            };
+
+            panel.Controls.Add(checkBox);
+        }
+
+        private void AddIntegerEntry(TweakOption option, Control panel)
+        {
+            var parent = new LabeledControl()
+            {
+                Text = option.Name,
+                AutoSize = true
+            };
+
+            var upDown = new NumericUpDown()
+            {
+                Minimum = int.MinValue,
+                Maximum = int.MaxValue
+            };
+
+            try
+            {
+                upDown.Value = option.GetValue<int>();
+                upDown.Enabled = option.CanWrite;
+            }
+            catch
+            {
+                upDown.Enabled = false;
+            }
+
+            upDown.TextChanged += (s, e2) =>
+            {
+                option.SetValue((int)upDown.Value);
+                this.CheckRefresh(option);
+            };
+
+            parent.Child = upDown;
+
+            panel.Controls.Add(parent);
+        }
+
+        private void AddStringEntry(TweakOption option, Control panel)
+        {
+            var parent = new LabeledControl()
+            {
+                Text = option.Name,
+                AutoSize = true
+            };
+
+            var textBox = new TextBox();
+
+            try
+            {
+                textBox.Text = option.GetValue<string>();
+                textBox.Enabled = option.CanWrite;
+            }
+            catch
+            {
+                textBox.Enabled = false;
+            }
+
+            textBox.TextChanged += (s, e2) =>
+            {
+                option.SetValue(textBox.Text);
+                this.CheckRefresh(option);
+            };
+
+            parent.Child = textBox;
+
+            panel.Controls.Add(parent);
+        }
+
+        private void AddEnumEntry(TweakOption option, Control panel)
+        {
+            var parent = new LabeledControl()
+            {
+                Text = option.Name,
+                AutoSize = true
+            };
+
+            var comboBox = new ComboBox()
+            {
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                DrawMode = DrawMode.OwnerDrawVariable
+            };
+
+            comboBox.DrawItem += (s, e2) =>
+            {
+                //Can't render empty items.
+                if (e2.Index < 0)
+                {
+                    return;
+                }
+
+                e2.DrawBackground();
+
+                //Use display name as label, if not available use property name as fallback.
+                var item = (Enum)comboBox.Items[e2.Index];
+                string valueDisplayName = item.GetAttribute<DescriptionAttribute>()?.Description ?? item.ToString();
+
+                e2.Graphics.DrawString(valueDisplayName, comboBox.Font, new SolidBrush(e2.ForeColor), e2.Bounds.X, e2.Bounds.Y);
+            };
+
+            try
+            {
+                foreach (Enum value in Enum.GetValues(option.Type))
+                {
+                    comboBox.Items.Add(value);
+                }
+
+                comboBox.SelectedItem = option.GetValue<object>();
+
+                comboBox.Enabled = option.CanWrite;
+            }
+            catch
+            {
+                comboBox.Enabled = false;
+            }
+
+            comboBox.SelectedValueChanged += (s, e2) =>
+            {
+                option.SetValue(comboBox.SelectedItem);
+                this.CheckRefresh(option);
+            };
+
+            parent.Child = comboBox;
+
+            panel.Controls.Add(parent);
+        }
+
+        private void AddColorEntry(TweakOption option, Control panel)
+        {
+            var colorButton = new ColorField()
+            {
+                Text = option.Name,
+                AutoSize = true
+            };
+
+            try
+            {
+                colorButton.Color = option.GetValue<Color>();
+            }
+            catch
+            {
+                colorButton.Color = Color.Transparent;
+                colorButton.Enabled = false;
+            }
+
+            colorButton.ColorChanged += (s, e2) =>
+            {
+                option.SetValue(colorButton.Color);
+                this.CheckRefresh(option);
+            };
+
+            panel.Controls.Add(colorButton);
+        }
+
+        private void AddAction(TweakAction action, Control panel)
+        {
+            var button = new CommandControl()
+            {
+                Text = action.Name,
+                AutoSize = true
+            };
+
+            button.Click += (s, e2) =>
+            {
+                action.Invoke();
+                this.CheckRefresh(action);
+            };
+
+            panel.Controls.Add(button);
+        }
+
         private void AddEntry(TweakEntry entry, Control panel)
         {
             if (!entry.Visible)
@@ -39,197 +232,31 @@ namespace TweakUtility
             {
                 if (entry is TweakAction action)
                 {
-                    var button = new CommandControl()
-                    {
-                        Text = action.Name,
-                        AutoSize = true
-                    };
-
-                    button.Click += (s, e2) =>
-                    {
-                        action.Invoke();
-                        this.CheckRefresh(action);
-                    };
-
-                    panel.Controls.Add(button);
-
+                    this.AddAction(action, panel);
                     return;
                 }
-                else if (entry is TweakOption option)
+
+                if (entry is TweakOption option)
                 {
                     if (option.Type == typeof(bool))
                     {
-                        var checkBox = new CheckBox()
-                        {
-                            Text = entry.Name,
-                            AutoSize = true
-                        };
-
-                        try
-                        {
-                            checkBox.Checked = option.GetValue<bool>();
-                            checkBox.Enabled = option.CanWrite;
-                        }
-                        catch
-                        {
-                            checkBox.Enabled = false;
-                            checkBox.CheckState = CheckState.Indeterminate;
-                        }
-
-                        checkBox.CheckedChanged += (s, e2) =>
-                        {
-                            option.SetValue(checkBox.Checked);
-                            this.CheckRefresh(option);
-                        };
-
-                        panel.Controls.Add(checkBox);
+                        this.AddBooleanEntry(option, panel);
                     }
                     else if (option.Type == typeof(int))
                     {
-                        var parent = new LabeledControl()
-                        {
-                            Text = option.Name,
-                            AutoSize = true
-                        };
-
-                        var upDown = new NumericUpDown()
-                        {
-                            Minimum = int.MinValue,
-                            Maximum = int.MaxValue
-                        };
-
-                        try
-                        {
-                            upDown.Value = option.GetValue<int>();
-                            upDown.Enabled = option.CanWrite;
-                        }
-                        catch
-                        {
-                            upDown.Enabled = false;
-                        }
-
-                        upDown.TextChanged += (s, e2) =>
-                        {
-                            option.SetValue((int)upDown.Value);
-                            this.CheckRefresh(option);
-                        };
-
-                        parent.Child = upDown;
-
-                        panel.Controls.Add(parent);
+                        this.AddIntegerEntry(option, panel);
                     }
                     else if (option.Type == typeof(string))
                     {
-                        var parent = new LabeledControl()
-                        {
-                            Text = option.Name,
-                            AutoSize = true
-                        };
-
-                        var textBox = new TextBox();
-
-                        try
-                        {
-                            textBox.Text = option.GetValue<string>();
-                            textBox.Enabled = option.CanWrite;
-                        }
-                        catch
-                        {
-                            textBox.Enabled = false;
-                        }
-
-                        textBox.TextChanged += (s, e2) =>
-                        {
-                            option.SetValue(textBox.Text);
-                            this.CheckRefresh(option);
-                        };
-
-                        parent.Child = textBox;
-
-                        panel.Controls.Add(parent);
+                        this.AddStringEntry(option, panel);
                     }
                     else if (option.Type.BaseType == typeof(Enum))
                     {
-                        var parent = new LabeledControl()
-                        {
-                            Text = option.Name,
-                            AutoSize = true
-                        };
-
-                        var comboBox = new ComboBox()
-                        {
-                            DropDownStyle = ComboBoxStyle.DropDownList,
-                            DrawMode = DrawMode.OwnerDrawVariable
-                        };
-
-                        comboBox.DrawItem += (s, e2) =>
-                        {
-                            //Can't render empty items.
-                            if (e2.Index < 0)
-                            {
-                                return;
-                            }
-
-                            e2.DrawBackground();
-
-                            //Use display name as label, if not available use property name as fallback.
-                            var item = (Enum)comboBox.Items[e2.Index];
-                            string valueDisplayName = item.GetAttribute<DescriptionAttribute>()?.Description ?? item.ToString();
-
-                            e2.Graphics.DrawString(valueDisplayName, comboBox.Font, new SolidBrush(e2.ForeColor), e2.Bounds.X, e2.Bounds.Y);
-                        };
-
-                        try
-                        {
-                            foreach (Enum value in Enum.GetValues(option.Type))
-                            {
-                                comboBox.Items.Add(value);
-                            }
-
-                            comboBox.SelectedItem = option.GetValue<object>();
-
-                            comboBox.Enabled = option.CanWrite;
-                        }
-                        catch
-                        {
-                            comboBox.Enabled = false;
-                        }
-
-                        comboBox.SelectedValueChanged += (s, e2) =>
-                        {
-                            option.SetValue(comboBox.SelectedItem);
-                            this.CheckRefresh(option);
-                        };
-
-                        parent.Child = comboBox;
-
-                        panel.Controls.Add(parent);
+                        this.AddEnumEntry(option, panel);
                     }
                     else if (option.Type == typeof(Color))
                     {
-                        var colorButton = new ColorField()
-                        {
-                            Text = option.Name,
-                            AutoSize = true
-                        };
-
-                        try
-                        {
-                            colorButton.Color = option.GetValue<Color>();
-                        }
-                        catch
-                        {
-                            colorButton.Color = Color.Transparent;
-                            colorButton.Enabled = false;
-                        }
-
-                        colorButton.ColorChanged += (s, e2) =>
-                        {
-                            option.SetValue(colorButton.Color);
-                            this.CheckRefresh(option);
-                        };
-
-                        panel.Controls.Add(colorButton);
+                        this.AddColorEntry(option, panel);
                     }
                     else
                     {
@@ -303,19 +330,19 @@ namespace TweakUtility
 
             foreach (TweakEntry entry in tweakPage.Entries)
             {
-                string category = entry.GetAttribute<CategoryAttribute>()?.Category;
+                string categoryName = entry.GetAttribute<CategoryAttribute>()?.Category;
 
-                if (category == null)
+                if (categoryName == null)
                 {
-                    category = "";
+                    categoryName = "";
                 }
 
-                if (!categories.ContainsKey(category))
+                if (!categories.ContainsKey(categoryName))
                 {
-                    categories[category] = new List<object>();
+                    categories[categoryName] = new List<object>();
                 }
 
-                categories[category].Add(entry);
+                categories[categoryName].Add(entry);
             }
 
             if (categories.Count == 0)

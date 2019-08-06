@@ -21,7 +21,7 @@ namespace TweakUtility.Attributes
         public Version Mininum { get; }
         public Version Maximum { get; }
 
-        public bool IsSupported => OperatingSystemVersions.IsSupported(Mininum, Maximum);
+        public bool IsSupported => OperatingSystemVersions.IsSupported(this.Mininum, this.Maximum);
     }
 
     /// <summary>

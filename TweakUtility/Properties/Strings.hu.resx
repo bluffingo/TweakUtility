@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
+  <!-- TRANSLATED BY ALIEN FUTURE ALIAS BALÁZS VÁMOS -->
+  <!-- FORDÍTOTTA ALIEN FUTURE AZAZ VÁMOS BALÁZS -->
   <!-- 
     Microsoft ResX Schema 
     
@@ -118,167 +120,122 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>About Tweak Utility</value>
+    <value>A Tweak Utilityről</value>
   </data>
   <data name="About_Copyright" xml:space="preserve">
-    <value>All icons used (except the application icon), belong to their rightful owners.</value>
+    <value>Az összes használt ikon (az alkalmazásikon kivételével) a jogos tulajdonosához tartozik.</value>
   </data>
   <data name="About_Description" xml:space="preserve">
-    <value>Tweak Utility is an application for tweaking Windows, as well as other applications, similar to Tweak UI and Winaero Tweaker.</value>
+    <value>A Tweak Utility egy Windowst beállító program, hasonlít a TweakUI-hoz illetve Winareo Tweakerhez.</value>
   </data>
   <data name="About_License" xml:space="preserve">
-    <value>Tweak Utility is available on {0}, and licensed under GPL-3.0.</value>
+    <value>Tweak Utility elérhető a {0} -on GPL-3.0 licensz alatt.</value>
     <comment>{0} (link) = "GitHub"</comment>
   </data>
   <data name="Application_Name" xml:space="preserve">
     <value>Tweak Utility</value>
   </data>
   <data name="Backups" xml:space="preserve">
-    <value>Backups</value>
+    <value>Mentések</value>
   </data>
   <data name="Backups_FolderDescription" xml:space="preserve">
-    <value>This folder contains backups made by Tweak Utility. </value>
+    <value>Mappában találhatóak a biztonsági mentések, amit a Tweak Utility hozott lére. </value>
   </data>
   <data name="Backups_OpenFolder" xml:space="preserve">
-    <value>Open Backups &amp;Folder</value>
+    <value>Mentések megnyitása &amp;Mappa</value>
   </data>
   <data name="Button_Apply" xml:space="preserve">
-    <value>&amp;Apply</value>
+    <value>&amp;Alkalmaz</value>
   </data>
   <data name="Button_Cancel" xml:space="preserve">
-    <value>&amp;Cancel</value>
+    <value>&amp;Bezárás</value>
   </data>
   <data name="Button_Create" xml:space="preserve">
-    <value>Cre&amp;ate</value>
-  </data>
-  <data name="Button_Credits" xml:space="preserve">
-    <value>Credits</value>
+    <value>Létre&amp;hoz</value>
   </data>
   <data name="Button_Delete" xml:space="preserve">
-    <value>&amp;Delete</value>
+    <value>&amp;Törlés</value>
   </data>
   <data name="Button_Feedback" xml:space="preserve">
-    <value>&amp;Feedback</value>
+    <value>&amp;Visszajelzés</value>
   </data>
   <data name="Button_OK" xml:space="preserve">
     <value>&amp;OK</value>
   </data>
-  <data name="Credits" xml:space="preserve">
-    <value>Lead Developer
-Craftplacer
-
-Contributer Developers
-PF94, aka Gamerappa
-Alien Future, aka Balázs Vámos
-
-Translators
-Craftplacer (English, German)
-veselcraft (Russian)
-Alien Future (Hungarian)
-
-Icons
-Craftplacer (application icon)
-Microsoft Windows (for version specific icons, taken dynamically)
-
-
-
-
-
-
-
-
-
-
-⭐ And you for using this application ⭐
-
-
-
-
-
-
-
-
-</value>
-    <comment>THIS STRING ISN'T SUPPOSED TO BE TRANSLATED</comment>
-  </data>
   <data name="Debug_Disclaimer" xml:space="preserve">
-    <value>Debug builds are experimental and do not guarantee to be working or offer any support.
-Automated crash reports are also disabled.</value>
+    <value>Teszt változatok kisérletűek és nem garantáljuk a hibátlan működést. Automatikus hibajelentés szintén kikapcsolt.</value>
   </data>
   <data name="Extensions" xml:space="preserve">
-    <value>Extensions</value>
+    <value>Bővítmények</value>
   </data>
   <data name="Extensions_Author" xml:space="preserve">
-    <value>Author</value>
+    <value>Készítő</value>
   </data>
   <data name="Extensions_Description" xml:space="preserve">
-    <value>Description</value>
+    <value>Leírás</value>
   </data>
   <data name="Extensions_FolderDescription" xml:space="preserve">
-    <value>This folder contains extensions for Tweak Utility.</value>
+    <value>Ebben a mappában bővítmények találhatóak a Tweak Utilityhoz</value>
   </data>
   <data name="Extensions_Name" xml:space="preserve">
-    <value>Name</value>
+    <value>Név</value>
   </data>
   <data name="Extensions_OpenFolder" xml:space="preserve">
-    <value>Open Extensions &amp;Folder</value>
+    <value>Bővítmények mappájának &amp;megnyitása</value>
   </data>
   <data name="MsnMessenger_AudioBackup" xml:space="preserve">
-    <value>Would you like to backup the files before proceeding?</value>
+    <value>Szeretnél egy biztonsági mentést létrehozni a folyamat előtt?</value>
   </data>
   <data name="MsnMessenger_AudioRestore" xml:space="preserve">
-    <value>Would you like to restore the files?</value>
+    <value>Visszaszeretnéd állítani a beállításokat?</value>
   </data>
   <data name="OneDrive_Uninstall_DeleteFolder" xml:space="preserve">
-    <value>Would you like to delete the OneDrive folder?</value>
+    <value>Biztosan szeretnéd törölni a OneDrive programot?</value>
   </data>
   <data name="OneDrive_Uninstall_DeleteFolder_Failed" xml:space="preserve">
-    <value>Failed to delete the OneDrive folder because of following error message:
+    <value>Nem sikerült törölni a OneDrive programot a következő hibaüzenettel:
 
 {0}</value>
   </data>
   <data name="OneDrive_Uninstall_InstallerNotFound" xml:space="preserve">
-    <value>The uninstall info for OneDrive couldn't be found.
-Therefore, OneDrive won't be automatically uninstalled, you can continue deleting directories and registry entries related to it. 
+    <value>Törlési információ nem található OneDrivehoz.
+Ebből adódóan, OneDrive nem lesz automatikusan törölve, viszont folytathatod a hozzá kapcsolódó mappák és regisztrációs bejegyzések törlését. 
 
-Do you want to continue?</value>
+Szeretnéd folytatni??</value>
   </data>
   <data name="OneDrive_Uninstall_SetFlagMessage" xml:space="preserve">
-    <value>Currently, the "user initiated uninstallation" flag isn't set, possibly leading Windows into reinstalling OneDrive.
-Setting this flag will tell Windows that you want to keep OneDrive uninstalled.
+    <value>Jelenleg a "felhasználó által kért eltávolítás" jelző nincs beállítva, esetleg a Windows OneDrive újratelepítéséhez vezethet.
+Ezzel a jelzővel megmondhatod Windowsnak, hogy továbbra is eltávolítani szeretnéd a OneDriveot.
 
-Would you like to switch it on?</value>
+Beszeretnéd kapcsolni?</value>
   </data>
   <data name="OneDrive_Uninstall_Success" xml:space="preserve">
-    <value>OneDrive, along with its trails, have been deleted.</value>
+    <value>OneDrive és annak maradványai sikeresen eltávolítva.</value>
   </data>
   <data name="OneDrive_Uninstall_Warning" xml:space="preserve">
-    <value>The OneDrive uninstaller didn't seem to run correctly.
+    <value>Úgy tűnik OneDrive eltálvolítása nem volt hibátlan.
 
-Do you want to continue?</value>
+Folytatni szeretnéd?</value>
   </data>
   <data name="Reload_ExplorerRestart" xml:space="preserve">
-    <value>This option requires you to restart Windows Explorer.
+    <value>Ehhez a beállításhoz újra kell indítanod a Windows Intézőt.
 
-Would you like to do that now?</value>
+Szeretnéd most megtenni?</value>
   </data>
   <data name="Reload_LogOff" xml:space="preserve">
-    <value>This option requires you to log off.
+    <value>Ehhez a beállításhoz ki kell jelentkezned a Windowsból.
 
-Would you like to do that now?</value>
+Szeretnéd most megtenni?</value>
   </data>
   <data name="Reload_SystemRestart" xml:space="preserve">
-    <value>This option requires you to restart your system.
+    <value>Ehhez a beállításhoz újra kell indítanod a Windowst.
 
-Would you like to do that now?</value>
+Szeretnéd most megtenni?</value>
   </data>
   <data name="Reload_Unknown" xml:space="preserve">
-    <value>This option requires you to reload the thing related to it, as there isn't a refresh implemented yet.
+    <value>Ehhez a lehetőséghez újra kell töltenie a hozzá tartozó részeket, amíg nincs végrehajtási funkció.
 
-If you know how to implement this refresh programmatically, please let us know by clicking the feedback button in the about window.</value>
-    <comment>Message telling user to reload themself, since code is missing.</comment>
-  </data>
-  <data name="Report_Disclaimer" xml:space="preserve">
-    <value>Please make sure this report doesn't contain any personal details accidentally picked up by this program. (That said we aren't reliable if you dox yourself.)</value>
+ha tudod hogyan lehet ezt programozottan végrehajtani, kérlek kattins a visszajelzési gombra a Programról ablakban. </value>
+    <comment>Üzenet, amely arra szólítja fel a felhasználót, hogy töltse be újra a programot, mivel hiányzik a kód.</comment>
   </data>
 </root>

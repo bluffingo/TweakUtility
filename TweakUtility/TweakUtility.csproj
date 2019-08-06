@@ -130,7 +130,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\RegistryKeyRequired.cs" />
-    <Compile Include="Extension.cs" />
+    <Compile Include="Extensions\Extension.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controls\ColorField.cs">
       <SubType>Component</SubType>
@@ -144,6 +144,7 @@
     <Compile Include="Controls\LabeledControl.Designer.cs">
       <DependentUpon>LabeledControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\ExtensionLoader.cs" />
     <Compile Include="Forms\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +156,12 @@
     </Compile>
     <Compile Include="Forms\BackupsForm.Designer.cs">
       <DependentUpon>BackupsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CreditsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CreditsForm.Designer.cs">
+      <DependentUpon>CreditsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ExtensionsForm.cs">
       <SubType>Form</SubType>
@@ -198,6 +205,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Strings.de.Designer.cs">
+      <DependentUpon>Strings.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Properties\Strings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -236,6 +248,9 @@
     <EmbeddedResource Include="Forms\BackupsForm.resx">
       <DependentUpon>BackupsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CreditsForm.resx">
+      <DependentUpon>CreditsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ExtensionsForm.resx">
       <DependentUpon>ExtensionsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -256,6 +271,14 @@
     <EmbeddedResource Include="Controls\TweakPageView.resx">
       <DependentUpon>TweakPageView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Strings.es.resx" />
+    <EmbeddedResource Include="Properties\Strings.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Strings.hu.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
@@ -274,7 +297,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Resources\aerolite.theme" />
     <None Include="TweakUtility_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -284,8 +306,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\vimdone.wma" />
-    <None Include="Resources\type.wma" />
     <None Include="Resources\volume.png" />
     <None Include="Resources\windows10.png" />
     <None Include="Resources\TweakUtility.png" />
@@ -293,14 +313,6 @@
     <None Include="Resources\go7.png" />
     <None Include="Resources\colors.png" />
     <Content Include="Resources\go10.png" />
-    <None Include="Resources\newalert.wma" />
-    <None Include="Resources\newemail.wma" />
-    <Content Include="Resources\NewFile1.txt" />
-    <Content Include="Resources\NewFile2.txt" />
-    <None Include="Resources\nudge.wma" />
-    <None Include="Resources\online.wma" />
-    <None Include="Resources\outgoing.wma" />
-    <None Include="Resources\phone.wma" />
     <Content Include="Resources\TweakUtility.ico" />
     <Content Include="Resources\TweakUtility.svg" />
   </ItemGroup>
@@ -311,5 +323,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

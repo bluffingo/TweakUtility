@@ -16,9 +16,10 @@ namespace TweakUtility
 
         public void Initialize(int maximum)
         {
-            if (form != null)
+            if (form == null)
             {
                 form = new ProgressForm();
+                form.Show();
                 this.Maximum = maximum;
             }
         }

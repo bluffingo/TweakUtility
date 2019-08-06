@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
+
 using TweakUtility.Attributes;
+using TweakUtility.Extensions;
 using TweakUtility.Helpers;
 using TweakUtility.TweakPages;
 
@@ -22,12 +25,13 @@ namespace TweakUtility.Forms
             Program.CreateFolders();
 
             this.SetStatus("Retrieving OS Version...");
-            _ = OperatingSystemVersions.CurrentVersion;
+            _ = OperatingSystemVersions.CurrentVersion; //This causes the property to be called
 
-            this.SetStatus("Retrieving folder icon...");
-            Program.FolderIcon = NativeHelpers.ExtractIcon(@"%SystemRoot%\System32\shell32.dll", -4);
+            this.SetStatus("Loading extensions...");
+            Program.Loader.LoadExtensions();
 
-            InitializePages();
+            this.SetStatus("Initializing pages...");
+            this.InitializePages();
 
 #if DEBUG
             this.SetStatus("Unlocking debug page...");
@@ -55,8 +59,7 @@ namespace TweakUtility.Forms
 
         public void InitializePages()
         {
-            this.SetStatus("Initializing pages...");
-            foreach (Type pageType in new Type[] {
+            var types = new List<Type>() {
                 typeof(CustomizationPage),
                 typeof(InternetExplorerPage),
                 typeof(SnippingToolPage),
@@ -64,7 +67,14 @@ namespace TweakUtility.Forms
                 typeof(Windows10Page),
                 typeof(MsnMessengerPage),
                 typeof(UncategorizedPage)
-            })
+            };
+
+            foreach (Extension extension in Program.Loader.Extensions)
+            {
+                types.AddRange(extension.GetTweakPages());
+            }
+
+            foreach (Type pageType in types)
             {
                 OperatingSystemSupportedAttribute osAttribute = pageType.GetAttribute<OperatingSystemSupportedAttribute>();
                 if (osAttribute != null && !osAttribute.IsSupported)

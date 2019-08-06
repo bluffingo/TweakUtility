@@ -118,44 +118,42 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>About Tweak Utility</value>
+    <value>Über Tweak Utility</value>
   </data>
   <data name="About_Copyright" xml:space="preserve">
-    <value>All icons used (except the application icon), belong to their rightful owners.</value>
+    <value>Alle benutzte Symbole (außer das Tweak Utility Symbol), gehören ihren rechtmäßigen Eigentümern.</value>
   </data>
   <data name="About_Description" xml:space="preserve">
-    <value>Tweak Utility is an application for tweaking Windows, as well as other applications, similar to Tweak UI and Winaero Tweaker.</value>
+    <value>Tweak Utility ist eine Anwendung zum tweaken von Windows, sowohl auch andere Anwendungen, ähnlich wie Tweak UI und Winaero Tweaker.</value>
   </data>
   <data name="About_License" xml:space="preserve">
-    <value>Tweak Utility is available on {0}, and licensed under GPL-3.0.</value>
+    <value>Tweak Utility ist verfügbar auf {0}, und lizenziert unter der GPL-3.0.</value>
     <comment>{0} (link) = "GitHub"</comment>
   </data>
   <data name="Application_Name" xml:space="preserve">
     <value>Tweak Utility</value>
+    <comment>Google Translate is better than me. -Craftplacer</comment>
   </data>
   <data name="Backups" xml:space="preserve">
     <value>Backups</value>
   </data>
   <data name="Backups_FolderDescription" xml:space="preserve">
-    <value>This folder contains backups made by Tweak Utility. </value>
+    <value>Dieser Ordner enthält Backups erstellt von Tweak Utility.</value>
   </data>
   <data name="Backups_OpenFolder" xml:space="preserve">
-    <value>Open Backups &amp;Folder</value>
+    <value>&amp;Backups Ordner öffnen</value>
   </data>
   <data name="Button_Apply" xml:space="preserve">
-    <value>&amp;Apply</value>
+    <value>&amp;Übernehmen</value>
   </data>
   <data name="Button_Cancel" xml:space="preserve">
-    <value>&amp;Cancel</value>
+    <value>&amp;Abbrechen</value>
   </data>
   <data name="Button_Create" xml:space="preserve">
-    <value>Cre&amp;ate</value>
-  </data>
-  <data name="Button_Credits" xml:space="preserve">
-    <value>Credits</value>
+    <value>&amp;Erstellen</value>
   </data>
   <data name="Button_Delete" xml:space="preserve">
-    <value>&amp;Delete</value>
+    <value>&amp;Löschen</value>
   </data>
   <data name="Button_Feedback" xml:space="preserve">
     <value>&amp;Feedback</value>
@@ -163,122 +161,81 @@
   <data name="Button_OK" xml:space="preserve">
     <value>&amp;OK</value>
   </data>
-  <data name="Credits" xml:space="preserve">
-    <value>Lead Developer
-Craftplacer
-
-Contributer Developers
-PF94, aka Gamerappa
-Alien Future, aka Balázs Vámos
-
-Translators
-Craftplacer (English, German)
-veselcraft (Russian)
-Alien Future (Hungarian)
-
-Icons
-Craftplacer (application icon)
-Microsoft Windows (for version specific icons, taken dynamically)
-
-
-
-
-
-
-
-
-
-
-⭐ And you for using this application ⭐
-
-
-
-
-
-
-
-
-</value>
-    <comment>THIS STRING ISN'T SUPPOSED TO BE TRANSLATED</comment>
-  </data>
   <data name="Debug_Disclaimer" xml:space="preserve">
-    <value>Debug builds are experimental and do not guarantee to be working or offer any support.
-Automated crash reports are also disabled.</value>
+    <value>Debug-Builds sind experimentell und garantieren nicht, dass sie funktionieren oder Unterstützung bieten.
+Automatisierte Absturzberichte sind ebenfalls deaktiviert.</value>
   </data>
   <data name="Extensions" xml:space="preserve">
-    <value>Extensions</value>
+    <value>Erweiterungen</value>
   </data>
   <data name="Extensions_Author" xml:space="preserve">
-    <value>Author</value>
+    <value>Autor</value>
   </data>
   <data name="Extensions_Description" xml:space="preserve">
-    <value>Description</value>
+    <value>Beschreibung</value>
   </data>
   <data name="Extensions_FolderDescription" xml:space="preserve">
-    <value>This folder contains extensions for Tweak Utility.</value>
+    <value>Dieser Ordner enthält Erweiterungen erstellt von Tweak Utility.</value>
   </data>
   <data name="Extensions_Name" xml:space="preserve">
     <value>Name</value>
   </data>
   <data name="Extensions_OpenFolder" xml:space="preserve">
-    <value>Open Extensions &amp;Folder</value>
+    <value>&amp;Erweiterungen Ordner öffnen</value>
   </data>
   <data name="MsnMessenger_AudioBackup" xml:space="preserve">
-    <value>Would you like to backup the files before proceeding?</value>
+    <value>Möchten Sie die Dateien sichern, bevor Sie fortfahren?</value>
   </data>
   <data name="MsnMessenger_AudioRestore" xml:space="preserve">
-    <value>Would you like to restore the files?</value>
+    <value>Möchten Sie die Dateien wiederherstellen?</value>
   </data>
   <data name="OneDrive_Uninstall_DeleteFolder" xml:space="preserve">
-    <value>Would you like to delete the OneDrive folder?</value>
+    <value>Möchten Sie den OneDrive-Ordner löschen?</value>
   </data>
   <data name="OneDrive_Uninstall_DeleteFolder_Failed" xml:space="preserve">
-    <value>Failed to delete the OneDrive folder because of following error message:
+    <value>Es ist ein Fehler aufgereten beim Löschen des OneDrive-Ordners aufgrund der folgenden Fehlermeldung:
 
 {0}</value>
   </data>
   <data name="OneDrive_Uninstall_InstallerNotFound" xml:space="preserve">
-    <value>The uninstall info for OneDrive couldn't be found.
-Therefore, OneDrive won't be automatically uninstalled, you can continue deleting directories and registry entries related to it. 
+    <value>Die Deinstallationsinformationen für OneDrive konnten nicht gefunden werden.
+Aus diesem Grund wird OneDrive nicht automatisch deinstalliert. Sie können weiterhin die zugehörigen Verzeichnisse und Registrierungseinträge löschen.
 
-Do you want to continue?</value>
+Wollen Sie fortfahren?</value>
   </data>
   <data name="OneDrive_Uninstall_SetFlagMessage" xml:space="preserve">
-    <value>Currently, the "user initiated uninstallation" flag isn't set, possibly leading Windows into reinstalling OneDrive.
-Setting this flag will tell Windows that you want to keep OneDrive uninstalled.
+    <value>Derzeit ist die "Benutzerinitiierte Deinstallation" Flagge nicht gesetzt, was möglicherweise dazu führt, dass Windows OneDrive neu installiert.
+Wenn Sie diese Flagge setzen, wird Windows darüber informiert, dass OneDrive weiterhin deinstalliert bleiben soll.
 
-Would you like to switch it on?</value>
+Möchten Sie diese einschalten?</value>
   </data>
   <data name="OneDrive_Uninstall_Success" xml:space="preserve">
-    <value>OneDrive, along with its trails, have been deleted.</value>
+    <value>OneDrive wurde deinstalled.</value>
   </data>
   <data name="OneDrive_Uninstall_Warning" xml:space="preserve">
-    <value>The OneDrive uninstaller didn't seem to run correctly.
+    <value>Das OneDrive-Deinstallationsprogramm wurde anscheinend nicht ordnungsgemäß ausgeführt.
 
-Do you want to continue?</value>
+Wollen Sie fortfahren?</value>
   </data>
   <data name="Reload_ExplorerRestart" xml:space="preserve">
-    <value>This option requires you to restart Windows Explorer.
+    <value>Für diese Option müssen Sie den Windows Explorer neu starten.
 
-Would you like to do that now?</value>
+Möchten Sie das jetzt tun?</value>
   </data>
   <data name="Reload_LogOff" xml:space="preserve">
-    <value>This option requires you to log off.
+    <value>Für diese Option müssen Sie sich abmelden.
 
-Would you like to do that now?</value>
+Möchten Sie das jetzt tun?</value>
   </data>
   <data name="Reload_SystemRestart" xml:space="preserve">
-    <value>This option requires you to restart your system.
+    <value>Für diese Option müssen Sie Ihr System neu starten.
 
-Would you like to do that now?</value>
+Möchten Sie das jetzt tun?</value>
   </data>
   <data name="Reload_Unknown" xml:space="preserve">
-    <value>This option requires you to reload the thing related to it, as there isn't a refresh implemented yet.
+    <value>Bei dieser Option müssen Sie das zugehörige Programm neu laden, da noch keine Aktualisierung implementiert ist.
 
-If you know how to implement this refresh programmatically, please let us know by clicking the feedback button in the about window.</value>
+Wenn Sie wissen, wie diese Aktualisierung programmgesteuert implementiert werden kann, teilen Sie uns dies bitte mit, indem Sie im "Über Tweak Utility" Fenster auf die Feedback-Schaltfläche klicken.</value>
     <comment>Message telling user to reload themself, since code is missing.</comment>
-  </data>
-  <data name="Report_Disclaimer" xml:space="preserve">
-    <value>Please make sure this report doesn't contain any personal details accidentally picked up by this program. (That said we aren't reliable if you dox yourself.)</value>
   </data>
 </root>

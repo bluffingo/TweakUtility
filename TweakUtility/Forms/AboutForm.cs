@@ -9,7 +9,22 @@ namespace TweakUtility.Forms
     {
         private readonly List<Keys> input = new List<Keys>();
 
-        internal AboutForm() => this.InitializeComponent();
+        internal AboutForm()
+        {
+            this.InitializeComponent();
+            this.Localize();
+        }
+
+        public void Localize()
+        {
+            this.Text = Properties.Strings.About;
+            this.githubLabel.Text = Properties.Strings.About_License.Replace("{0}", "GitHub");
+            this.githubLabel.LinkArea = new LinkArea(Properties.Strings.About_License.IndexOf("{0}"), 6);
+            this.descriptionLabel.Text = Properties.Strings.About_Description;
+            this.copyrightLabel.Text = Properties.Strings.About_Copyright;
+            this.feedbackButton.Text = Properties.Strings.Button_Feedback;
+            this.creditsButton.Text = Properties.Strings.Button_Credits;
+        }
 
         private void FeedbackButton_Click(object sender, EventArgs e) => Program.OpenURL("https://github.com/Craftplacer/TweakUtility/issues/new/choose");
 
@@ -33,6 +48,14 @@ namespace TweakUtility.Forms
                 {
                     throw new Exception("User triggered exception");
                 }
+            }
+        }
+
+        private void CreditsButton_Click(object sender, EventArgs e)
+        {
+            using (var credits = new CreditsForm())
+            {
+                credits.ShowDialog(this);
             }
         }
     }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.applyButton = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listView = new System.Windows.Forms.ListView();
             this.nameColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dateColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.sizeColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -43,33 +43,33 @@
             // 
             this.applyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.applyButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.applyButton.Location = new System.Drawing.Point(452, 276);
+            this.applyButton.Location = new System.Drawing.Point(442, 276);
             this.applyButton.Name = "applyButton";
-            this.applyButton.Size = new System.Drawing.Size(70, 23);
+            this.applyButton.Size = new System.Drawing.Size(80, 23);
             this.applyButton.TabIndex = 0;
-            this.applyButton.Text = "&Apply";
+            this.applyButton.Text = global::TweakUtility.Properties.Strings.Button_Apply;
             this.applyButton.UseVisualStyleBackColor = true;
             this.applyButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
-            // listView1
+            // listView
             // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.nameColumnHeader,
             this.dateColumnHeader,
             this.sizeColumnHeader});
-            this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 41);
-            this.listView1.MultiSelect = false;
-            this.listView1.Name = "listView1";
-            this.listView1.ShowGroups = false;
-            this.listView1.Size = new System.Drawing.Size(510, 229);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listView.HideSelection = false;
+            this.listView.Location = new System.Drawing.Point(12, 41);
+            this.listView.MultiSelect = false;
+            this.listView.Name = "listView";
+            this.listView.ShowGroups = false;
+            this.listView.Size = new System.Drawing.Size(510, 229);
+            this.listView.TabIndex = 1;
+            this.listView.UseCompatibleStateImageBehavior = false;
+            this.listView.View = System.Windows.Forms.View.Details;
             // 
             // nameColumnHeader
             // 
@@ -91,9 +91,9 @@
             this.openFolderButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.openFolderButton.Location = new System.Drawing.Point(12, 276);
             this.openFolderButton.Name = "openFolderButton";
-            this.openFolderButton.Size = new System.Drawing.Size(150, 23);
+            this.openFolderButton.Size = new System.Drawing.Size(175, 23);
             this.openFolderButton.TabIndex = 2;
-            this.openFolderButton.Text = global::TweakUtility.Properties.Strings.Extensions_OpenFolder;
+            this.openFolderButton.Text = global::TweakUtility.Properties.Strings.Backups_OpenFolder;
             this.openFolderButton.UseVisualStyleBackColor = true;
             this.openFolderButton.Click += new System.EventHandler(this.OpenFolderButton_Click);
             // 
@@ -103,7 +103,7 @@
             this.createButton.Name = "createButton";
             this.createButton.Size = new System.Drawing.Size(70, 23);
             this.createButton.TabIndex = 3;
-            this.createButton.Text = "&Create";
+            this.createButton.Text = global::TweakUtility.Properties.Strings.Button_Create;
             this.createButton.UseVisualStyleBackColor = true;
             this.createButton.Click += new System.EventHandler(this.Button1_Click);
             // 
@@ -113,18 +113,18 @@
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(70, 23);
             this.deleteButton.TabIndex = 4;
-            this.deleteButton.Text = "&Delete";
+            this.deleteButton.Text = global::TweakUtility.Properties.Strings.Button_Delete;
             this.deleteButton.UseVisualStyleBackColor = true;
             // 
             // cancelButton
             // 
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(376, 276);
+            this.cancelButton.Location = new System.Drawing.Point(356, 276);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(70, 23);
+            this.cancelButton.Size = new System.Drawing.Size(80, 23);
             this.cancelButton.TabIndex = 5;
-            this.cancelButton.Text = "&Cancel";
+            this.cancelButton.Text = global::TweakUtility.Properties.Strings.Button_Cancel;
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
             // BackupsForm
@@ -138,7 +138,7 @@
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.createButton);
             this.Controls.Add(this.openFolderButton);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listView);
             this.Controls.Add(this.applyButton);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -156,7 +156,7 @@
         #endregion
 
         private System.Windows.Forms.Button applyButton;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listView;
         private System.Windows.Forms.Button openFolderButton;
         private System.Windows.Forms.ColumnHeader nameColumnHeader;
         private System.Windows.Forms.ColumnHeader sizeColumnHeader;

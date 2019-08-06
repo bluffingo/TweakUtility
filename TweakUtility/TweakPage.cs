@@ -37,7 +37,7 @@ namespace TweakUtility
                     entries.Add(new TweakAction(this, methodInfo));
                 }
             }
-            Entries = new ReadOnlyCollection<TweakEntry>(entries);
+            this.Entries = new ReadOnlyCollection<TweakEntry>(entries);
         }
 
         [Browsable(false)]

@@ -13,7 +13,7 @@ namespace TweakUtility
             {
                 if (reflectionInfo is PropertyInfo propertyInfo)
                 {
-                    var attribute = GetAttribute<DisplayNameAttribute>();
+                    var attribute = this.GetAttribute<DisplayNameAttribute>();
 
                     if (attribute != null && !string.IsNullOrWhiteSpace(attribute.DisplayName))
                     {
@@ -24,7 +24,7 @@ namespace TweakUtility
                 }
                 else if (reflectionInfo is MethodInfo methodInfo)
                 {
-                    var attribute = GetAttribute<DisplayNameAttribute>();
+                    var attribute = this.GetAttribute<DisplayNameAttribute>();
 
                     if (attribute != null && !string.IsNullOrWhiteSpace(attribute.DisplayName))
                     {
@@ -35,7 +35,7 @@ namespace TweakUtility
                 }
                 else if (reflectionInfo is FieldInfo fieldInfo)
                 {
-                    var attribute = GetAttribute<DisplayNameAttribute>();
+                    var attribute = this.GetAttribute<DisplayNameAttribute>();
 
                     if (attribute != null && !string.IsNullOrWhiteSpace(attribute.DisplayName))
                     {
@@ -55,13 +55,13 @@ namespace TweakUtility
         {
             get
             {
-                var browsableAttribute = GetAttribute<BrowsableAttribute>();
+                var browsableAttribute = this.GetAttribute<BrowsableAttribute>();
                 if (browsableAttribute != null && !browsableAttribute.Browsable)
                 {
                     return false;
                 }
 
-                var supportedAttribute = GetAttribute<OperatingSystemSupportedAttribute>();
+                var supportedAttribute = this.GetAttribute<OperatingSystemSupportedAttribute>();
                 if (supportedAttribute != null && !supportedAttribute.IsSupported)
                 {
                     return false;
