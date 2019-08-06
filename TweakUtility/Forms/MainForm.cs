@@ -424,13 +424,13 @@ namespace TweakUtility.Forms
             public string t32 => "Bring it";
 
             [DisplayName(".")]
-            public string t33 => "Cause baby tonight, the creeper's tryin' to steal all our stuff again(Get your Stuff)";
+            public string t33 => "Cause baby tonight, the creeper's tryin' to steal all our stuff again (Get your stuff)";
 
             [DisplayName(".")]
             public string t34 => "Yea, let's take back the world";
 
             [DisplayName(".")]
-            public string t35 => "Yea baby tonight, grab your sword armor and go(It's on)";
+            public string t35 => "Yea baby tonight, grab your sword armor and go (It's on)";
 
             [DisplayName(".")]
             public string t36 => "Take your revenge (Whoo)";
