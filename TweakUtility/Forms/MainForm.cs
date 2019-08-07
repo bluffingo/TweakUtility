@@ -186,9 +186,11 @@ namespace TweakUtility.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            //Adds tool tips for the bottom buttons
             toolTip.SetToolTip(backupsButton, Properties.Strings.Backups);
             toolTip.SetToolTip(extensionsButton, Properties.Strings.Extensions);
 
+            //Loads icons for the bottom buttons
             backupsButton.Image = NativeHelpers.ExtractIcon(@"%SystemRoot%\system32\shell32.dll", -21).ToBitmap();
             extensionsButton.Image = NativeHelpers.ExtractIcon(@"%SystemRoot%\system32\shell32.dll", -154).ToBitmap();
 
@@ -255,13 +257,18 @@ namespace TweakUtility.Forms
         {
             if (e.Node.Tag is TweakPage tweakPage)
             {
-                Control control = tweakPage.CustomView ?? new TweakPageView(tweakPage);
-
-                control.Dock = DockStyle.Fill;
-
-                splitContainer.Panel2.Controls.Clear();
-                splitContainer.Panel2.Controls.Add(control);
+                this.SetView(tweakPage);
             }
+        }
+
+        private void SetView(TweakPage tweakPage)
+        {
+            Control control = tweakPage.CustomView ?? new TweakPageView(tweakPage);
+
+            control.Dock = DockStyle.Fill;
+
+            splitContainer.Panel2.Controls.Clear();
+            splitContainer.Panel2.Controls.Add(control);
         }
 
         private void SearchTextBox_KeyDown(object sender, KeyEventArgs e)
@@ -270,16 +277,9 @@ namespace TweakUtility.Forms
             {
                 foreach (TweakPage tweakPage in this.GetAllTweakPages())
                 {
-                    if (searchTextBox.Text == "Creeper, aw man")
+                    if (searchTextBox.Text.Equals("Creeper, aw man", StringComparison.InvariantCultureIgnoreCase))
                     {
-                        Control control = new TweakPageView(new CreeperPage());
-
-                        control.Dock = DockStyle.Fill;
-
-                        splitContainer.Panel2.Controls.Clear();
-                        splitContainer.Panel2.Controls.Add(control);
-
-                        break;
+                        SetView(new CreeperPage());
                     }
 
                     //Searches for a page matching the query (case-insensitive)
