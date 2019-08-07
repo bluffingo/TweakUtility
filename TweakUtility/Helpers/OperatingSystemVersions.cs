@@ -45,7 +45,6 @@ namespace TweakUtility.Helpers
             new Version(6, 2, 8400),
             new Version(6, 2),
             new Version(6, 3),
-            new Version(6, 4),
             new Version(10, 0, 10074),
             new Version(10, 0)
         };

@@ -47,5 +47,6 @@ Please remember that:
 
 2.x.x are Release Builds of TweakUtility
 
+The build number is decimal.
 */
 [assembly: CLSCompliant(false)]

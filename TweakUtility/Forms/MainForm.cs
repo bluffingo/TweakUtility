@@ -326,7 +326,7 @@ namespace TweakUtility.Forms
             public CreeperPage() : base("Creeper, aw man")
             {
             }
-
+            //Keep it until a later build of 1.1. Check on Google Trends the term "Creeper Aw Man". It seems to be slowly declining, if we check by "Last 7 Days".
             [DisplayName(".")]
             public string t1 => "So we back in the mine, got our pickaxe swingin' from side to side, side, side to side";
 
