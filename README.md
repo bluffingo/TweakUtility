@@ -1,9 +1,6 @@
 # Tweak Utility
 A .NET Framework application for tweaking Windows with an easy UI.
 
-![alt text](https://raw.githubusercontent.com/Craftplacer/TweakUtility/master/readme.png "TweakUtility in Action")
+> [Contributing](https://github.com/Craftplacer/TweakUtility/blob/master/CONTRIBUTING.md) | [Localizing/Translating](https://github.com/Craftplacer/TweakUtility/blob/master/LOCALIZATION.md) | [Changelogs](https://github.com/Craftplacer/TweakUtility/blob/master/CHANGELOG.md) | [Compatibility](https://github.com/Craftplacer/TweakUtility/blob/master/COMPATIBILITY.md) | [Wiki](https://github.com/Craftplacer/TweakUtility/wiki)
 
-## Contributers
-- [Craftplacer](https://github.com/Craftplacer) (owner)
-- [PF94, aka Gamerappa](https://github.com/PF94) (developer)
-- [Alien Future, aka Balázs Vámos](https://github.com/AlienFuture) (developer)
+![alt text](https://raw.githubusercontent.com/Craftplacer/TweakUtility/master/readme.png "TweakUtility in Action")
