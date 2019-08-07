@@ -1,4 +1,4 @@
-# TweakUtility
+# Tweak Utility
 A .NET Framework application for tweaking Windows with an easy UI.
 
 ![alt text](https://raw.githubusercontent.com/Craftplacer/TweakUtility/master/readme.png "TweakUtility in Action")

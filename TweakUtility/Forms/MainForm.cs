@@ -391,7 +391,7 @@ namespace TweakUtility.Forms
             public string t21 => "Dig up diamonds, craft those diamonds, make some armor";
 
             [DisplayName(".")]
-            public string t22 => "Get it baby, go and forge that like you so, MLG pro";
+            public string t22 => "Get it baby, go and forge that like you so, TweakUtility pro";
 
             [DisplayName(".")]
             public string t23 => "The sword's made of diamonds, so come at me bro";
@@ -424,13 +424,13 @@ namespace TweakUtility.Forms
             public string t32 => "Bring it";
 
             [DisplayName(".")]
-            public string t33 => "Cause baby tonight, the creeper's tryin' to steal all our stuff again(Get your Stuff)";
+            public string t33 => "Cause baby tonight, the creeper's tryin' to steal all our stuff again (Get your stuff)";
 
             [DisplayName(".")]
             public string t34 => "Yea, let's take back the world";
 
             [DisplayName(".")]
-            public string t35 => "Yea baby tonight, grab your sword armor and go(It's on)";
+            public string t35 => "Yea baby tonight, grab your sword armor and go (It's on)";
 
             [DisplayName(".")]
             public string t36 => "Take your revenge (Whoo)";
