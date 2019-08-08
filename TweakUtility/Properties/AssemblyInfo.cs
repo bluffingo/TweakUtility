@@ -33,7 +33,7 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.99.*")]
+[assembly: AssemblyVersion("1.0.99")]
 [assembly: AssemblyFileVersion("1.0.99")]
 [assembly: NeutralResourcesLanguage("en-US")]
 /* READ ME (ORIGINALLY WRITTEN IN https://www.reddit.com/r/Cloudsoftware/comments/cg57et/tweakutillity_1094_has_been_released/)
