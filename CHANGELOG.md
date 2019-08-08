@@ -2,7 +2,7 @@
 
 ## 1.0.99 (Private)
 - **Changed** the way how "revisions" work on build numbers.
-- *Added* a pretty bad and cringy easter egg.
+- **Added** a pretty bad and cringy easter egg.
 
 ## 1.0.98
 
