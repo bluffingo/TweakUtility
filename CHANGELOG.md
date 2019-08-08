@@ -1,7 +1,7 @@
 # Changelogs for Tweak Utility
 
 ## 1.0.99 (Private)
-- **Changed** the way how "revisions" work on build numbers.
+- **Removed** revision numbers on the build number
 - **Added** a pretty bad and cringy easter egg.
 
 ## 1.0.98
