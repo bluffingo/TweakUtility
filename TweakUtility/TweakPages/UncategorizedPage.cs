@@ -83,7 +83,7 @@ namespace TweakUtility.TweakPages
         }
 
         [DisplayName("Metro (Developer Preview)")]
-        [OperatingSystemSupported(OperatingSystemVersion.Windows8Developer)]
+        [OperatingSystemSupported(OperatingSystemVersion.Windows8Developer, OperatingSystemVersion.Windows8Developer)]
         public bool MetroDeveloper
         {
             get => RegistryHelper.GetValue<int>(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RPEnabled", 0) == 1;

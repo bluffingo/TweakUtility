@@ -43,7 +43,6 @@ namespace TweakUtility.Attributes
         Windows8Release,
         Windows8,
         Windows81,
-        Windows10Tech, //Builds 9833 to 9883 of Windows 10 from 2014.
         Windows10Beta10074,
         Windows10
     }

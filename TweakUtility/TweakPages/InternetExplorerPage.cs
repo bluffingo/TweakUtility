@@ -1,6 +1,8 @@
 ﻿using TweakUtility.Attributes;
 using TweakUtility.Helpers;
 
+//To-do: See issue #25
+
 namespace TweakUtility.TweakPages
 {
     internal class InternetExplorerPage : TweakPage
@@ -22,10 +24,10 @@ namespace TweakUtility.TweakPages
             set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Microsoft\Internet Explorer\AboutURLs\DesktopItemNavigationFailure", value);
         }
 
-        [DisplayName("In new private window")]
-        //[DefaultValue("res://ieframe.dll/inprivate.htm")]
+        [DisplayName("New InPrivate window")]
+        [DefaultValue("res://ieframe.dll/inprivate.htm")]
         [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
-        public string InPrivateIE
+        public string InPrivate
         {
             get => RegistryHelper.GetValue<string>(@"HKLM\SOFTWARE\Microsoft\Internet Explorer\AboutURLs\InPrivate");
             set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Microsoft\Internet Explorer\AboutURLs\InPrivate", value);

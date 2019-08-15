@@ -1,5 +1,35 @@
 # Changelogs for Tweak Utility
 
+## 1.1.0
+Entered beta versions. Expect refining of the new features in the following builds.
+
+- **Completed** classic theme colors page.
+- **Completed** Internet Explorer page locations. (Thanks @PF94)
+- **Added** a pretty bad and cringy easter egg.
+- **Added** extensions.
+- **Added** backups.
+- **Added** credits.
+- **Added** easter egg (this version only!)
+- **Added** Windows Media Player deskband installation.
+- **Added** searching pages and tweaks.
+- **Added** Windows 10 classic UI options.
+- **Changed** snipping tool page.
+- **Removed** revision numbers on the build number
+
+### Code Changes
+- **Added** new attributes for checking various things.
+- **Changed** attributes used for tweak pages and entries.
+  - **Removed** default values for the time being.
+- **Removed** unused resources due to dynmaic retrieval of icons.
+- **Added** progress indicator class.
+- Refactoring
+
+### Unfinished
+- Startup items
+- Registry editor
+- Translations
+- Windows 7 API support
+
 ## 1.0.98
 
 - **Added new installer**
