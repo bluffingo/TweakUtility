@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -239,25 +238,15 @@ namespace TweakUtility
                 if (entry is TweakOption option)
                 {
                     if (option.Type == typeof(bool))
-                    {
                         this.AddBooleanEntry(option, panel);
-                    }
                     else if (option.Type == typeof(int))
-                    {
                         this.AddIntegerEntry(option, panel);
-                    }
                     else if (option.Type == typeof(string))
-                    {
                         this.AddStringEntry(option, panel);
-                    }
                     else if (option.Type.BaseType == typeof(Enum))
-                    {
                         this.AddEnumEntry(option, panel);
-                    }
                     else if (option.Type == typeof(Color))
-                    {
                         this.AddColorEntry(option, panel);
-                    }
                     else
                     {
                         //Display a fallback message to let the user know,

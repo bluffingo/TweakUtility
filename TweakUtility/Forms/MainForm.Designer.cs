@@ -36,10 +36,10 @@ namespace TweakUtility.Forms
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.startupLabel = new System.Windows.Forms.Label();
             this.bottomPanel = new System.Windows.Forms.Panel();
+            this.preferencesButton = new System.Windows.Forms.Button();
             this.extensionsButton = new System.Windows.Forms.Button();
             this.backupsButton = new System.Windows.Forms.Button();
             this.aboutLabel = new System.Windows.Forms.LinkLabel();
-            this.settingsButton = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -123,6 +123,7 @@ namespace TweakUtility.Forms
             // bottomPanel
             // 
             this.bottomPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.bottomPanel.Controls.Add(this.preferencesButton);
             this.bottomPanel.Controls.Add(this.extensionsButton);
             this.bottomPanel.Controls.Add(this.backupsButton);
             this.bottomPanel.Controls.Add(this.aboutLabel);
@@ -132,10 +133,20 @@ namespace TweakUtility.Forms
             this.bottomPanel.Size = new System.Drawing.Size(622, 45);
             this.bottomPanel.TabIndex = 2;
             // 
+            // preferencesButton
+            // 
+            this.preferencesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.preferencesButton.Location = new System.Drawing.Point(530, 9);
+            this.preferencesButton.Name = "preferencesButton";
+            this.preferencesButton.Size = new System.Drawing.Size(25, 25);
+            this.preferencesButton.TabIndex = 5;
+            this.preferencesButton.UseVisualStyleBackColor = true;
+            this.preferencesButton.Visible = false;
+            // 
             // extensionsButton
             // 
             this.extensionsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.extensionsButton.Location = new System.Drawing.Point(585, 9);
+            this.extensionsButton.Location = new System.Drawing.Point(584, 9);
             this.extensionsButton.Name = "extensionsButton";
             this.extensionsButton.Size = new System.Drawing.Size(25, 25);
             this.extensionsButton.TabIndex = 4;
@@ -145,7 +156,7 @@ namespace TweakUtility.Forms
             // backupsButton
             // 
             this.backupsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.backupsButton.Location = new System.Drawing.Point(560, 9);
+            this.backupsButton.Location = new System.Drawing.Point(557, 9);
             this.backupsButton.Name = "backupsButton";
             this.backupsButton.Size = new System.Drawing.Size(25, 25);
             this.backupsButton.TabIndex = 3;
@@ -167,16 +178,6 @@ namespace TweakUtility.Forms
             this.aboutLabel.UseCompatibleTextRendering = true;
             this.aboutLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.AboutLabel_LinkClicked);
             // 
-            // settingsButton
-            // 
-            this.settingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.settingsButton.Location = new System.Drawing.Point(426, 14);
-            this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(87, 27);
-            this.settingsButton.TabIndex = 3;
-            this.settingsButton.Text = "&Settings";
-            this.settingsButton.UseVisualStyleBackColor = true;
-            // 
             // toolTip
             // 
             this.toolTip.AutoPopDelay = 0;
@@ -185,8 +186,7 @@ namespace TweakUtility.Forms
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(622, 419);
             this.Controls.Add(this.bottomPanel);
@@ -199,6 +199,7 @@ namespace TweakUtility.Forms
             this.Text = "Tweak Utility";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
             this.splitContainer.Panel1.ResumeLayout(false);
             this.splitContainer.Panel1.PerformLayout();
@@ -214,7 +215,6 @@ namespace TweakUtility.Forms
         #endregion
         private System.Windows.Forms.SplitContainer splitContainer;
         private System.Windows.Forms.LinkLabel aboutLabel;
-        private System.Windows.Forms.Button settingsButton;
         public System.Windows.Forms.Panel bottomPanel;
         public System.Windows.Forms.TreeView treeView;
         private System.Windows.Forms.Label startupLabel;
@@ -223,6 +223,7 @@ namespace TweakUtility.Forms
         private System.Windows.Forms.Button backupsButton;
         private System.Windows.Forms.Button extensionsButton;
         private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.Button preferencesButton;
     }
 }
 

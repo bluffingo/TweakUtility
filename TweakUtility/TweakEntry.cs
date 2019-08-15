@@ -1,53 +1,49 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Reflection;
 using TweakUtility.Attributes;
+using TweakUtility.Exceptions;
 
 namespace TweakUtility
 {
     public abstract class TweakEntry
     {
+        /// <summary>The display name of this tweak entry.</summary>
         public string Name
+        {
+            get
+            {
+                string localizedName = Properties.Strings.ResourceManager.GetString(this.Id);
+                if (!string.IsNullOrWhiteSpace(localizedName))
+                    return localizedName;
+
+                DisplayNameAttribute attribute = this.GetAttribute<DisplayNameAttribute>();
+                if (!string.IsNullOrWhiteSpace(attribute?.DisplayName))
+                    return attribute.DisplayName;
+
+                return this.InternalName;
+            }
+        }
+
+        public string InternalName
         {
             get
             {
                 if (reflectionInfo is PropertyInfo propertyInfo)
                 {
-                    var attribute = this.GetAttribute<DisplayNameAttribute>();
-
-                    if (attribute != null && !string.IsNullOrWhiteSpace(attribute.DisplayName))
-                    {
-                        return attribute.DisplayName;
-                    }
-
                     return propertyInfo.Name;
                 }
-                else if (reflectionInfo is MethodInfo methodInfo)
+
+                if (reflectionInfo is MethodInfo methodInfo)
                 {
-                    var attribute = this.GetAttribute<DisplayNameAttribute>();
-
-                    if (attribute != null && !string.IsNullOrWhiteSpace(attribute.DisplayName))
-                    {
-                        return attribute.DisplayName;
-                    }
-
                     return methodInfo.Name;
                 }
-                else if (reflectionInfo is FieldInfo fieldInfo)
+
+                if (reflectionInfo is FieldInfo fieldInfo)
                 {
-                    var attribute = this.GetAttribute<DisplayNameAttribute>();
-
-                    if (attribute != null && !string.IsNullOrWhiteSpace(attribute.DisplayName))
-                    {
-                        return attribute.DisplayName;
-                    }
-
                     return fieldInfo.Name;
                 }
-                else
-                {
-                    throw new Exception("invalid reflection info");
-                }
+
+                throw new InvalidReflectionInfoException();
             }
         }
 
@@ -55,14 +51,13 @@ namespace TweakUtility
         {
             get
             {
-                var browsableAttribute = this.GetAttribute<BrowsableAttribute>();
-                if (browsableAttribute != null && !browsableAttribute.Browsable)
+                var browsableAttribute = this.GetAttribute<VisibleAttribute>();
+                if (browsableAttribute != null && !browsableAttribute.Visible)
                 {
                     return false;
                 }
 
-                var supportedAttribute = this.GetAttribute<OperatingSystemSupportedAttribute>();
-                if (supportedAttribute != null && !supportedAttribute.IsSupported)
+                if (!this.RequirementsMet)
                 {
                     return false;
                 }
@@ -71,9 +66,16 @@ namespace TweakUtility
             }
         }
 
+        /// <summary>
+        /// A tweak entry id is a compound between the page type name and the entry's reflection info name, used to find it later on again.
+        /// </summary>
+        public string Id => parent.GetType().Name + "#" + this.InternalName;
+
         public bool CanWrite => reflectionInfo is PropertyInfo propertyInfo ? propertyInfo.CanWrite : true;
 
         public bool CanRead => reflectionInfo is PropertyInfo propertyInfo ? propertyInfo.CanRead : true;
+
+        public bool RequirementsMet => Helpers.Helpers.RequirementsMet(this.GetType());
 
         public object reflectionInfo;
         public TweakPage parent;
@@ -98,7 +100,7 @@ namespace TweakUtility
             }
             else
             {
-                throw new Exception("invalid reflection info");
+                throw new InvalidReflectionInfoException();
             }
         }
     }

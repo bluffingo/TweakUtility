@@ -1,9 +1,10 @@
 ﻿using Microsoft.Win32;
+
 using System;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+
 using TweakUtility.Attributes;
 using TweakUtility.Helpers;
 
@@ -16,7 +17,7 @@ namespace TweakUtility.TweakPages
         }
 
         [DisplayName("Cleanup program")]
-        [DefaultValue(@"%SystemRoot%\System32\cleanmgr.exe /D %c")]
+        //[DefaultValue(@"%SystemRoot%\System32\cleanmgr.exe /D %c")]
         public string CleanupProgram
         {
             get => RegistryHelper.GetValue<string>(@"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\cleanuppath\ ");
@@ -24,7 +25,7 @@ namespace TweakUtility.TweakPages
         }
 
         [DisplayName("Defragmentation program")]
-        [DefaultValue(@"%systemroot%\system32\dfrgui.exe")]
+        //[DefaultValue(@"%systemroot%\system32\dfrgui.exe")]
         public string DefragmentationProgram
         {
             get => RegistryHelper.GetValue<string>(@"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\DefragPath\ ");
@@ -33,16 +34,17 @@ namespace TweakUtility.TweakPages
 
         [Category("Remote Desktop")]
         [DisplayName("Listening port")]
-        [DefaultValue(3389)]
+        //[DefaultValue(3389)]
         public int RDPPortNumber
         {
             get => RegistryHelper.GetValue<int>(@"HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\PortNumber");
             set => RegistryHelper.SetValue(@"HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\PortNumber", value);
         }
 
-        [Browsable(true)]
+        [Visible(true)]
         [Category("Windows Media Player")]
         [DisplayName("Install Deskband")]
+        [OperatingSystemSupported(OperatingSystemVersion.WindowsVista)]
         public void InstallWMPDeskBand(ProgressIndicator indicator)
         {
             indicator.Initialize(5);
@@ -86,15 +88,6 @@ namespace TweakUtility.TweakPages
         {
             get => RegistryHelper.GetValue<int>(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RPEnabled", 0) == 1;
             set => RegistryHelper.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RPEnabled", value ? 1 : 0);
-        }
-
-        [DisplayName("Unsaved Modfiied Theme Name")]
-        [DefaultValue("Windows XP (Modified)")]
-        [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
-        public string XPthemeUnsaved
-        {
-            get => RegistryHelper.GetValue<string>(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\LastTheme");
-            set => RegistryHelper.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\LastTheme", value);
         }
     }
 }

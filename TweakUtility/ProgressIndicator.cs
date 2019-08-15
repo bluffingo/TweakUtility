@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
 using TweakUtility.Forms;
 
 namespace TweakUtility
@@ -12,7 +10,15 @@ namespace TweakUtility
 
         public int Maximum { get; private set; }
 
-        public void Dispose() => form.Dispose();
+        public int Value { get; private set; }
+
+        public void Dispose()
+        {
+            if (form != null)
+            {
+                form.Dispose();
+            }
+        }
 
         public void Initialize(int maximum)
         {
@@ -24,6 +30,12 @@ namespace TweakUtility
             }
         }
 
-        public void SetProgress(int value, string status = "") => form.SetProgress(value, this.Maximum, status);
+        public void SetProgress(int value, string status = "")
+        {
+            if (form != null)
+            {
+                form.SetProgress(value, this.Maximum, status);
+            }
+        }
     }
 }

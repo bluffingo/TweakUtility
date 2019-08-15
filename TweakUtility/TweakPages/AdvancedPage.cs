@@ -1,5 +1,6 @@
-﻿using System;
-using System.ComponentModel;
+﻿using Microsoft.Win32;
+
+using System;
 using System.Diagnostics;
 using System.Drawing;
 
@@ -16,6 +17,30 @@ namespace TweakUtility.TweakPages
     internal class AdvancedPage : TweakPage
     {
         internal AdvancedPage() : base("Advanced", new OEMInformation(), new DiskCleanupPage()) => this.Icon = NativeHelpers.ExtractIcon(@"%SystemRoot%\System32\shell32.dll", -22);
+
+        // I'M HAVING ATTENTION
+        [DisplayName("Verbose Messages")]
+        public bool VerboseMessages
+        {
+            get => RegistryHelper.GetValue<int>(@"HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\System\VerboseStatus", 0) == 1;
+            set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\System\VerboseStatus", value ? 1 : 0);
+        }
+
+        [DisplayName("Disable all Windows hotkeys (except lock)")]
+        [RefreshRequired(RestartType.ExplorerRestart)]
+        public bool DisableWindowsHotkeys
+        {
+            get => RegistryHelper.GetValue(@"HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\NoWinKeys", 0) == 1;
+            set => RegistryHelper.SetValue(@"HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\NoWinKeys", value ? 1 : 0);
+        }
+
+        [DisplayName("Disable specific hotkeys")]
+        [RefreshRequired(RestartType.ExplorerRestart)]
+        public string DisabledWindowsHotkeys
+        {
+            get => RegistryHelper.GetValue(@"HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\DisabledHotkeys", "");
+            set => RegistryHelper.SetValue(@"HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\DisabledHotkeys", value, RegistryValueKind.ExpandString);
+        }
 
         [DisplayName("Owner")]
         [Category("Registration")]
@@ -49,17 +74,9 @@ namespace TweakUtility.TweakPages
             set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\LegalNoticeText", value);
         }
 
-        // I'M HAVING ATTENTION
-        [DisplayName("Verbose Messages")]
-        public bool VerboseMessages
-        {
-            get => RegistryHelper.GetValue<int>(@"HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\System\VerboseStatus", 0) == 1;
-            set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\System\VerboseStatus", value ? 1 : 0);
-        }
-
         [DisplayName("Windows System File Checker")]
         [OperatingSystemSupported(OperatingSystemVersion.WindowsXP, OperatingSystemVersion.WindowsVista)]
-        [DefaultValue(WindowsSFCMode.Enabled)]
+        //[DefaultValue(WindowsSFCMode.Enabled)]
         public WindowsSFCMode WindowsSFC
         {
             get => (WindowsSFCMode)RegistryHelper.GetValue<int>(@"HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SFCDisable");
@@ -202,7 +219,7 @@ namespace TweakUtility.TweakPages
                 set => RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\SupportURL", value);
             }
 
-            [Browsable(true)]
+            [Visible(true)]
             public void Preview()
             {
                 if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))

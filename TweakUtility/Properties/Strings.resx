@@ -136,6 +136,9 @@
   <data name="Backups" xml:space="preserve">
     <value>Backups</value>
   </data>
+  <data name="Backups_Confirmation" xml:space="preserve">
+    <value>Are you sure you want to apply this backup?</value>
+  </data>
   <data name="Backups_FolderDescription" xml:space="preserve">
     <value>This folder contains backups made by Tweak Utility. </value>
   </data>
@@ -149,10 +152,10 @@
     <value>&amp;Cancel</value>
   </data>
   <data name="Button_Create" xml:space="preserve">
-    <value>Cre&amp;ate</value>
+    <value>Cr&amp;eate</value>
   </data>
   <data name="Button_Credits" xml:space="preserve">
-    <value>Credits</value>
+    <value>Cred&amp;its</value>
   </data>
   <data name="Button_Delete" xml:space="preserve">
     <value>&amp;Delete</value>
@@ -160,8 +163,14 @@
   <data name="Button_Feedback" xml:space="preserve">
     <value>&amp;Feedback</value>
   </data>
+  <data name="Button_Install" xml:space="preserve">
+    <value>&amp;Install</value>
+  </data>
   <data name="Button_OK" xml:space="preserve">
     <value>&amp;OK</value>
+  </data>
+  <data name="CheckBox_DontAskAgain" xml:space="preserve">
+    <value>Don't ask again</value>
   </data>
   <data name="Credits" xml:space="preserve">
     <value>Lead Developer
@@ -169,16 +178,25 @@ Craftplacer
 
 Contributer Developers
 PF94, aka Gamerappa
+
+Former Contributers
 Alien Future, aka Balázs Vámos
 
 Translators
 Craftplacer (English, German)
-veselcraft (Russian)
 Alien Future (Hungarian)
+CatHR Games (Spanish)
 
 Icons
 Craftplacer (application icon)
 Microsoft Windows (for version specific icons, taken dynamically)
+
+Tweak Sources
+AskVG (https://www.askvg.com)
+
+
+
+
 
 
 
@@ -190,6 +208,7 @@ Microsoft Windows (for version specific icons, taken dynamically)
 
 
 ⭐ And you for using this application ⭐
+
 
 
 
@@ -222,6 +241,15 @@ Automated crash reports are also disabled.</value>
   </data>
   <data name="Extensions_OpenFolder" xml:space="preserve">
     <value>Open Extensions &amp;Folder</value>
+  </data>
+  <data name="Extension_Install" xml:space="preserve">
+    <value>Install Extension</value>
+  </data>
+  <data name="Extension_Install_Confirmation" xml:space="preserve">
+    <value>Are you sure you want to install this extension?</value>
+  </data>
+  <data name="Extension_Install_Success" xml:space="preserve">
+    <value>Extension has been installed.</value>
   </data>
   <data name="MsnMessenger_AudioBackup" xml:space="preserve">
     <value>Would you like to backup the files before proceeding?</value>
@@ -280,5 +308,16 @@ If you know how to implement this refresh programmatically, please let us know b
   </data>
   <data name="Report_Disclaimer" xml:space="preserve">
     <value>Please make sure this report doesn't contain any personal details accidentally picked up by this program. (That said we aren't reliable if you dox yourself.)</value>
+  </data>
+  <data name="TweakPage_InsufficientPermissions" xml:space="preserve">
+    <value>The tweak page {0} has failed to load because the application is running with insufficient permissions.
+You can try restarting the program as administrator.</value>
+  </data>
+  <data name="TweakPage_LoadError" xml:space="preserve">
+    <value>The tweak page {0} has failed to load because of the following the error message:
+{1}
+
+This tweak page won't be included in the application</value>
+    <comment>{0} Page Name/Id, {1} error message</comment>
   </data>
 </root>

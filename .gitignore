@@ -328,3 +328,5 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+TweakUtility.Installer/Release (XP)/setup.exe
+TweakUtility.Installer/Release (XP)/Tweak Utility v1.1.0 (XP).msi

@@ -66,8 +66,6 @@ namespace TweakUtility.Theming
             }
         }
 
-        public static Color SplitColor;
-
         public static FontFamily TitleFontFamily
         {
             get

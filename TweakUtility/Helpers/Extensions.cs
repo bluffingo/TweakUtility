@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 
 namespace TweakUtility.Helpers
 {
@@ -48,5 +49,17 @@ namespace TweakUtility.Helpers
         ///<param name="item">The item to find.</param>
         ///<returns>The index of the first matching item, or -1 if the item was not found.</returns>
         public static int IndexOf<T>(this IEnumerable<T> items, T item) => items.FindIndex(i => EqualityComparer<T>.Default.Equals(item, i));
+
+        public static IEnumerable<T> Flatten<T, R>(this IEnumerable<T> source, Func<T, R> recursion) where R : IEnumerable<T>
+        {
+            IEnumerable<T> enumarable = new List<T>();
+
+            foreach (T item in source)
+            {
+                enumarable = enumarable.Concat(recursion.Invoke(item));
+            }
+
+            return enumarable;
+        }
     }
 }

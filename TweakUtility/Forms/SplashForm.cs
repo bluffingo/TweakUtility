@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows.Forms;
 
 using TweakUtility.Attributes;
@@ -21,25 +22,12 @@ namespace TweakUtility.Forms
 
         private void SplashForm_Shown(object sender, EventArgs e)
         {
-            this.SetStatus("Creating folders...");
-            Program.CreateFolders();
+        }
 
-            this.SetStatus("Retrieving OS Version...");
-            _ = OperatingSystemVersions.CurrentVersion; //This causes the property to be called
-
-            this.SetStatus("Loading extensions...");
-            Program.Loader.LoadExtensions();
-
-            this.SetStatus("Initializing pages...");
-            this.InitializePages();
-
-#if DEBUG
-            this.SetStatus("Unlocking debug page...");
-            Program.Pages.Add(new DebugPage());
-#endif
-
+        public new void Close()
+        {
             formInitiatedClose = true;
-            this.Close();
+            base.Close();
         }
 
         public void SetStatus(string status)
@@ -76,24 +64,34 @@ namespace TweakUtility.Forms
 
             foreach (Type pageType in types)
             {
-                OperatingSystemSupportedAttribute osAttribute = pageType.GetAttribute<OperatingSystemSupportedAttribute>();
-                if (osAttribute != null && !osAttribute.IsSupported)
-                {
-                    continue;
-                }
-
-                RegistryKeyRequiredAttribute keyAttribute = pageType.GetAttribute<RegistryKeyRequiredAttribute>();
-                if (keyAttribute != null && !keyAttribute.Exists)
+                //Gets all requirement attributes and checks if there's an invalid one.
+                if (!Helpers.Helpers.RequirementsMet(pageType))
                 {
                     continue;
                 }
 
                 this.SetStatus($"Initializing pages... ({pageType.Name})");
-                object instance = Activator.CreateInstance(pageType, true);
 
-                Debug.Assert(instance is TweakPage);
+                try
+                {
+                    object instance = Activator.CreateInstance(pageType, true);
 
-                Program.Pages.Add(instance as TweakPage);
+                    Debug.Assert(instance is TweakPage);
+
+                    Program.Pages.Add(instance as TweakPage);
+                }
+                catch (Exception ex)
+                {
+                    if (ex.InnerException is UnauthorizedAccessException)
+                    {
+                        MessageBox.Show(string.Format(Properties.Strings.TweakPage_InsufficientPermissions, pageType.Name), Properties.Strings.Application_Name, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else
+                    {
+                        Debug.Fail(ex.ToString());
+                        MessageBox.Show(string.Format(Properties.Strings.TweakPage_LoadError, pageType.Name, ex.Message), Properties.Strings.Application_Name, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
             }
         }
     }

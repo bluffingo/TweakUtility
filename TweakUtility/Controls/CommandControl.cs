@@ -32,7 +32,7 @@ namespace TweakUtility.Controls
             }
             else
             {
-                bitmap = NativeHelpers.ExtractIcon(@"%SystemRoot%\system32\shell32.dll", -290).ToBitmap();
+                bitmap = Icons.Go.ToBitmap();
             }
 
             if (underlinedFont == null && !OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
@@ -88,7 +88,7 @@ namespace TweakUtility.Controls
                 this.Width - this.Padding.Right,
                 this.Height - this.Padding.Bottom - 4);
 
-            e.Graphics.DrawString(this.Text, font, SystemBrushes.ControlText, rect, Program.stringFormat);
+            e.Graphics.DrawString(this.Text, font, SystemBrushes.ControlText, rect, Constants.NearCenterStringFormat);
         }
 
         private Image GetIcon(int frame)

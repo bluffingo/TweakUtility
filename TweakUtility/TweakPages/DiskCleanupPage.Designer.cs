@@ -29,16 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DiskCleanupPageView));
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.listView = new System.Windows.Forms.ListView();
             this.displayNameColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.propertyGrid = new System.Windows.Forms.PropertyGrid();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.toolStripContainer = new System.Windows.Forms.ToolStripContainer();
             this.addButton = new System.Windows.Forms.ToolStripButton();
             this.removeButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripContainer = new System.Windows.Forms.ToolStripContainer();
             this.refreshButton = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -122,28 +121,9 @@
             this.toolStrip.Location = new System.Drawing.Point(3, 0);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip.Size = new System.Drawing.Size(203, 25);
+            this.toolStrip.Size = new System.Drawing.Size(251, 25);
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "toolStrip1";
-            // 
-            // addButton
-            // 
-            this.addButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.addButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(60, 22);
-            this.addButton.Text = "&Add item";
-            this.addButton.Click += new System.EventHandler(this.AddButton_Click);
-            // 
-            // removeButton
-            // 
-            this.removeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.removeButton.Image = ((System.Drawing.Image)(resources.GetObject("removeButton.Image")));
-            this.removeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.removeButton.Name = "removeButton";
-            this.removeButton.Size = new System.Drawing.Size(81, 22);
-            this.removeButton.Text = "&Remove item";
-            this.removeButton.Click += new System.EventHandler(this.RemoveButton_Click);
             // 
             // toolStripContainer
             // 
@@ -163,13 +143,30 @@
             // 
             this.toolStripContainer.TopToolStripPanel.Controls.Add(this.toolStrip);
             // 
+            // addButton
+            // 
+            this.addButton.Image = global::TweakUtility.Properties.Resources.add;
+            this.addButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(76, 22);
+            this.addButton.Text = "&Add item";
+            this.addButton.Click += new System.EventHandler(this.AddButton_Click);
+            // 
+            // removeButton
+            // 
+            this.removeButton.Image = global::TweakUtility.Properties.Resources.delete;
+            this.removeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.removeButton.Name = "removeButton";
+            this.removeButton.Size = new System.Drawing.Size(97, 22);
+            this.removeButton.Text = "&Remove item";
+            this.removeButton.Click += new System.EventHandler(this.RemoveButton_Click);
+            // 
             // refreshButton
             // 
-            this.refreshButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.refreshButton.Image = ((System.Drawing.Image)(resources.GetObject("refreshButton.Image")));
+            this.refreshButton.Image = global::TweakUtility.Properties.Resources.refresh;
             this.refreshButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(50, 22);
+            this.refreshButton.Size = new System.Drawing.Size(66, 22);
             this.refreshButton.Text = "Re&fresh";
             this.refreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 

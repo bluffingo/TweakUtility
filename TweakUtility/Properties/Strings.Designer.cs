@@ -115,6 +115,15 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to apply this backup?.
+        /// </summary>
+        internal static string Backups_Confirmation {
+            get {
+                return ResourceManager.GetString("Backups_Confirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This folder contains backups made by Tweak Utility. .
         /// </summary>
         internal static string Backups_FolderDescription {
@@ -151,7 +160,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cre&amp;ate.
+        ///   Looks up a localized string similar to Cr&amp;eate.
         /// </summary>
         internal static string Button_Create {
             get {
@@ -160,7 +169,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Credits.
+        ///   Looks up a localized string similar to Cred&amp;its.
         /// </summary>
         internal static string Button_Credits {
             get {
@@ -187,6 +196,15 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &amp;Install.
+        /// </summary>
+        internal static string Button_Install {
+            get {
+                return ResourceManager.GetString("Button_Install", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &amp;OK.
         /// </summary>
         internal static string Button_OK {
@@ -196,21 +214,39 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Don&apos;t ask again.
+        /// </summary>
+        internal static string CheckBox_DontAskAgain {
+            get {
+                return ResourceManager.GetString("CheckBox_DontAskAgain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lead Developer
         ///Craftplacer
         ///
         ///Contributer Developers
         ///PF94, aka Gamerappa
+        ///
+        ///Former Contributers
         ///Alien Future, aka Balázs Vámos
         ///
         ///Translators
         ///Craftplacer (English, German)
-        ///veselcraft (Russian)
         ///Alien Future (Hungarian)
+        ///CatHR Games (Spanish)
         ///
         ///Icons
         ///Craftplacer (application icon)
         ///Microsoft Windows (for version specific icons, taken dynamically)
+        ///
+        ///Tweak Sources
+        ///AskVG (https://www.askvg.com)
+        ///
+        ///
+        ///
+        ///
         ///
         ///
         ///
@@ -222,6 +258,7 @@ namespace TweakUtility.Properties {
         ///
         ///
         ///⭐ And you for using this application ⭐
+        ///
         ///
         ///
         ///
@@ -245,6 +282,33 @@ namespace TweakUtility.Properties {
         internal static string Debug_Disclaimer {
             get {
                 return ResourceManager.GetString("Debug_Disclaimer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Install Extension.
+        /// </summary>
+        internal static string Extension_Install {
+            get {
+                return ResourceManager.GetString("Extension_Install", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to install this extension?.
+        /// </summary>
+        internal static string Extension_Install_Confirmation {
+            get {
+                return ResourceManager.GetString("Extension_Install_Confirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Extension has been installed..
+        /// </summary>
+        internal static string Extension_Install_Success {
+            get {
+                return ResourceManager.GetString("Extension_Install_Success", resourceCulture);
             }
         }
         
@@ -434,6 +498,28 @@ namespace TweakUtility.Properties {
         internal static string Report_Disclaimer {
             get {
                 return ResourceManager.GetString("Report_Disclaimer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The tweak page {0} has failed to load because the application is running with insufficient permissions.
+        ///You can try restarting the program as administrator..
+        /// </summary>
+        internal static string TweakPage_InsufficientPermissions {
+            get {
+                return ResourceManager.GetString("TweakPage_InsufficientPermissions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The tweak page {0} has failed to load because of the following the error message:
+        ///{1}
+        ///
+        ///This tweak page won&apos;t be included in the application.
+        /// </summary>
+        internal static string TweakPage_LoadError {
+            get {
+                return ResourceManager.GetString("TweakPage_LoadError", resourceCulture);
             }
         }
     }

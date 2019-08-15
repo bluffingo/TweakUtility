@@ -5,7 +5,7 @@ using static TweakUtility.Helpers.OperatingSystemVersions;
 namespace TweakUtility.Attributes
 {
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Class | AttributeTargets.Method)]
-    public sealed class OperatingSystemSupportedAttribute : Attribute
+    public sealed class OperatingSystemSupportedAttribute : RequirementAttribute
     {
         public OperatingSystemSupportedAttribute(OperatingSystemVersion mininum, OperatingSystemVersion maximum = OperatingSystemVersion.None)
         {
@@ -21,7 +21,7 @@ namespace TweakUtility.Attributes
         public Version Mininum { get; }
         public Version Maximum { get; }
 
-        public bool IsSupported => OperatingSystemVersions.IsSupported(this.Mininum, this.Maximum);
+        public override bool Valid => OperatingSystemVersions.IsSupported(this.Mininum, this.Maximum);
     }
 
     /// <summary>

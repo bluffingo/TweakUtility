@@ -82,7 +82,7 @@ namespace TweakUtility.Controls
 
             //HACK: Optimization can be done to reduce initializations of SolidBrush.
             //      (only create new instance of SolidBrush on color change)
-            e.Graphics.DrawString(this.Text, this.Font, new SolidBrush(this.ForeColor), textRectangle, Program.stringFormat);
+            e.Graphics.DrawString(this.Text, this.Font, new SolidBrush(this.ForeColor), textRectangle, Constants.NearCenterStringFormat);
         }
     }
 }

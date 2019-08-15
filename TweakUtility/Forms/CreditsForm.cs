@@ -10,12 +10,6 @@ namespace TweakUtility.Forms
         private float creditsEnd = -1;
         private float position = 0;
 
-        private static StringFormat format = new StringFormat()
-        {
-            Alignment = StringAlignment.Center,
-            LineAlignment = StringAlignment.Near
-        };
-
         public CreditsForm()
         {
             this.InitializeComponent();
@@ -23,10 +17,6 @@ namespace TweakUtility.Forms
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint, true);
 
             this.timer.Interval = 1000 / 60;
-        }
-
-        private void CreditsForm_Load(object sender, EventArgs e)
-        {
         }
 
         private void CreditsForm_Paint(object sender, PaintEventArgs e)
@@ -46,7 +36,7 @@ namespace TweakUtility.Forms
             }
 
             var rect = new RectangleF(0, this.Height - position, this.Width, creditsEnd);
-            e.Graphics.DrawString(Properties.Strings.Credits, this.Font, SystemBrushes.ControlText, rect, format);
+            e.Graphics.DrawString(Properties.Strings.Credits, this.Font, SystemBrushes.ControlText, rect, Constants.CenterNearStringFormat);
         }
 
         private void Timer_Tick(object sender, EventArgs e) => this.Refresh();

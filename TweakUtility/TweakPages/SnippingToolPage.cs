@@ -1,11 +1,13 @@
-﻿using System.ComponentModel;
-using System.Drawing;
+﻿using System.Drawing;
+
 using TweakUtility.Attributes;
 using TweakUtility.Helpers;
 
 namespace TweakUtility.TweakPages
 {
     [OperatingSystemSupported(OperatingSystemVersion.WindowsVista)]
+    [RegistryKeyRequired(@"HKCU\SOFTWARE\Microsoft\Windows\TabletPC\Snipping Tool")]
+    [Notice(NoticeAttributeType.Warning, "Make sure Snipping Tool is closed, before continuing.")]
     internal class SnippingToolPage : TweakPage
     {
         internal SnippingToolPage() : base("Snipping Tool")
@@ -18,11 +20,32 @@ namespace TweakUtility.TweakPages
             }
         }
 
-        [DisplayName("Hide instructions")]
-        public bool HideInstructions
+        [DisplayName("Hide instruction text")]
+        public bool HideSnipInstructions
         {
             get => RegistryHelper.GetValue<int>(@"HKCU\SOFTWARE\Microsoft\Windows\TabletPC\Snipping Tool\DisplaySnipInstructions") == 0;
             set => RegistryHelper.SetValue(@"HKCU\SOFTWARE\Microsoft\Windows\TabletPC\Snipping Tool\DisplaySnipInstructions", value ? 0 : 1);
+        }
+
+        [DisplayName("Show screen overlay when Snipping Tool is active")]
+        public bool CaptureWindowVisible
+        {
+            get => RegistryHelper.GetValue<int>(@"HKCU\SOFTWARE\Microsoft\Windows\TabletPC\Snipping Tool\CaptureWindowVisible") == 1;
+            set => RegistryHelper.SetValue(@"HKCU\SOFTWARE\Microsoft\Windows\TabletPC\Snipping Tool\CaptureWindowVisible", value ? 1 : 0);
+        }
+
+        [DisplayName("Expand screen sketch banner")]
+        public bool IsScreenSketchBannerExpanded
+        {
+            get => RegistryHelper.GetValue(@"HKCU\SOFTWARE\Microsoft\Windows\TabletPC\Snipping Tool\IsScreenSketchBannerExpanded", 0) == 1;
+            set => RegistryHelper.SetValue(@"HKCU\SOFTWARE\Microsoft\Windows\TabletPC\Snipping Tool\IsScreenSketchBannerExpanded", value);
+        }
+
+        [DisplayName("Capture mode")]
+        public Mode CaptureMode
+        {
+            get => (Mode)RegistryHelper.GetValue(@"HKCU\SOFTWARE\Microsoft\Windows\TabletPC\Snipping Tool\IsScreenSketchBannerExpanded", 2);
+            set => RegistryHelper.SetValue(@"HKCU\SOFTWARE\Microsoft\Windows\TabletPC\Snipping Tool\IsScreenSketchBannerExpanded", (int)value);
         }
 
         [Category("Custom Pen")]
@@ -48,6 +71,18 @@ namespace TweakUtility.TweakPages
 
             [Description("Chisel tip pen")]
             Chisel = 1,
+        }
+
+        public enum Mode
+        {
+            [Description("Free-form Snip")]
+            FreeForm = 1,
+
+            [Description("Rectangular Snip")]
+            Rectangular = 2,
+
+            [Description("Window Snip")]
+            Window = 3
         }
     }
 }

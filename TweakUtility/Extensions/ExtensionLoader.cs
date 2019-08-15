@@ -4,6 +4,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Security;
+using System.Security.Permissions;
+using System.Security.Policy;
 
 namespace TweakUtility.Extensions
 {
@@ -11,40 +14,48 @@ namespace TweakUtility.Extensions
     {
         public List<Extension> Extensions { get; } = new List<Extension>();
 
-        private string[] GetFiles() => Directory.GetFiles("extensions", "*.dll");
+        private IEnumerable<string> GetFiles() => Directory.GetFiles("extensions", "*.dll").Concat(Directory.GetFiles("extensions", "*.tuex"));
 
         public void LoadExtensions()
         {
             foreach (string path in this.GetFiles())
             {
-                Debug.WriteLine("[EL] Loading DLL: " + path);
+                Debug.WriteLine("[Extension Loader] Loading DLL: " + path);
                 byte[] data = File.ReadAllBytes(path);
 
                 var assembly = Assembly.Load(data);
-                this.LoadExtension(assembly);
+                this.LoadExtensions(assembly);
             }
         }
 
-        private void LoadExtension(Assembly assembly)
+        internal Extension[] GetExtensions(Assembly assembly)
         {
-            var extensions = assembly.GetTypes().Where(t => t.BaseType == typeof(Extension));
+            IEnumerable<Type> extensions = assembly.GetTypes().Where(t => t.BaseType == typeof(Extension));
 
             if (extensions.Count() == 0) //this assembly doesn't contain any extensions
             {
                 GC.Collect(); // collects all unused memory
                 GC.WaitForPendingFinalizers(); // wait until GC has finished its work
                 GC.Collect();
-                return;
+
+                return null;
             }
 
-            foreach (Type extension in extensions)
+            var array = new Extension[extensions.Count()];
+
+            for (int i = 0; i < array.Length; i++)
             {
+                var extension = extensions.ElementAt(i);
                 object instance = Activator.CreateInstance(extension);
 
                 Debug.Assert(instance is Extension);
 
-                this.Extensions.Add(instance as Extension);
+                array[i] = instance as Extension;
             }
+
+            return array;
         }
+
+        private void LoadExtensions(Assembly assembly) => this.Extensions.AddRange(this.GetExtensions(assembly));
     }
 }

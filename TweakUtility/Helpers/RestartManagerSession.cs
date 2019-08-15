@@ -220,10 +220,7 @@ namespace TweakUtility.Helpers
             }
         }
 
-        public void Restart()
-        {
-            this.Restart(null);
-        }
+        public void Restart() => this.Restart(null);
 
         public void Shutdown(ShutdownType shutdownType, WriteStatusCallback statusCallback)
         {

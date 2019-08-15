@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace TweakUtility
 {
-    internal sealed class TweakAction : TweakEntry
+    internal class TweakAction : TweakEntry
     {
         private MethodInfo MethodInfo => reflectionInfo as MethodInfo;
 

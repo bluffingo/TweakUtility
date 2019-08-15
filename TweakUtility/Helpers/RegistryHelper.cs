@@ -7,6 +7,9 @@ using System.Text;
 
 namespace TweakUtility.Helpers
 {
+    /// <summary>
+    /// Class containing methods for easy access and interaction with the Windows registry.
+    /// </summary>
     public static class RegistryHelper
     {
         public static bool GetBoolValue(string path)
@@ -129,6 +132,16 @@ namespace TweakUtility.Helpers
                 var names = subKey.GetSubKeyNames();
 
                 return names.Contains(info[2]);
+            }
+        }
+
+        public static bool ValueExists(string path)
+        {
+            var info = ProcessPath(path);
+
+            using (RegistryKey subKey = GetHive(info[0]).OpenSubKey(info[1], false))
+            {
+                return subKey.GetValue(info[2]) != null;
             }
         }
 

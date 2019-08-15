@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Net;
@@ -29,7 +28,7 @@ namespace TweakUtility.TweakPages
         }
 
         [DisplayName("Applications use light theme")]
-        [DefaultValue(false)]
+        //[DefaultValue(false)]
         [OperatingSystemSupported(OperatingSystemVersion.Windows10)] //also works with Windows 10 RTM and november update, no need to make it 1607+ only.
         public bool AppsUseLightTheme
         {
@@ -38,7 +37,7 @@ namespace TweakUtility.TweakPages
         }
 
         [DisplayName("System uses light theme")]
-        [DefaultValue(false)] //:shrug:
+        //[DefaultValue(false)] //:shrug:
         [OperatingSystemSupported(OperatingSystemVersion.Windows10)] //not really...
         public bool SystemUsesLightTheme
         {
@@ -47,7 +46,7 @@ namespace TweakUtility.TweakPages
         }
 
         [OperatingSystemSupported(OperatingSystemVersion.Windows8)]
-        [Browsable(true)]
+        [Visible(true)]
         [DisplayName("Enable Lite Theme")]
         public void EnableLiteTheme()
         {
@@ -73,18 +72,11 @@ namespace TweakUtility.TweakPages
             set => RegistryHelper.SetValue(@"HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ShowSecondsInsystemClock", value ? 1 : 0);
         }
 
-        public enum WallpaperStyle
-        {
-            Tile = 0,
-            Stretch = 2,
-            Fit = 6,
-            Fill = 10,
-            Span = 22,
-        }
-
         public class ColorsPage : TweakPage
         {
             public ColorsPage() : base("Classic Theme Colors") => this.Icon = Properties.Resources.colors;
+
+            #region Button Colors
 
             [Category("Button Colors")]
             [DisplayName("Button Text")]
@@ -142,6 +134,46 @@ namespace TweakUtility.TweakPages
                 set => this.SetColor(@"HKCU\Control Panel\Colors\ButtonLight", value);
             }
 
+            #endregion Button Colors
+
+            #region Menu Colors
+
+            [Category("Menu Colors")]
+            [DisplayName("Menu color")]
+            public Color Menu
+            {
+                get => this.GetColor(@"HKCU\Control Panel\Colors\Menu");
+                set => this.SetColor(@"HKCU\Control Panel\Colors\Menu", value);
+            }
+
+            [Category("Menu Colors")]
+            [DisplayName("Menu bar color")]
+            public Color MenuBar
+            {
+                get => this.GetColor(@"HKCU\Control Panel\Colors\MenuBar");
+                set => this.SetColor(@"HKCU\Control Panel\Colors\MenuBar", value);
+            }
+
+            [Category("Menu Colors")]
+            [DisplayName("Menu highlight color")]
+            public Color MenuHilight
+            {
+                get => this.GetColor(@"HKCU\Control Panel\Colors\MenuHilight");
+                set => this.SetColor(@"HKCU\Control Panel\Colors\MenuHilight", value);
+            }
+
+            [Category("Menu Colors")]
+            [DisplayName("Menu text color")]
+            public Color MenuText
+            {
+                get => this.GetColor(@"HKCU\Control Panel\Colors\MenuText");
+                set => this.SetColor(@"HKCU\Control Panel\Colors\MenuText", value);
+            }
+
+            #endregion Menu Colors
+
+            #region Title Bar Colors
+
             [Category("Title Bar Colors")]
             [DisplayName("Active title bar color")]
             public Color ActiveTitle
@@ -189,6 +221,136 @@ namespace TweakUtility.TweakPages
                 get => this.GetColor(@"HKCU\Control Panel\Colors\InactiveTitleText");
                 set => this.SetColor(@"HKCU\Control Panel\Colors\InactiveTitleText", value);
             }
+
+            #endregion Title Bar Colors
+
+            #region Tooltip Colors
+
+            [Category("Tooltip Colors")]
+            [DisplayName("Tooltip background color")]
+            public Color InfoWindow
+            {
+                get => this.GetColor(@"HKCU\Control Panel\Colors\InfoWindow");
+                set => this.SetColor(@"HKCU\Control Panel\Colors\InfoWindow", value);
+            }
+
+            [Category("Tooltip Colors")]
+            [DisplayName("Tooltip text color")]
+            public Color InfoText
+            {
+                get => this.GetColor(@"HKCU\Control Panel\Colors\InfoText");
+                set => this.SetColor(@"HKCU\Control Panel\Colors\InfoText", value);
+            }
+
+            #endregion Tooltip Colors
+
+            #region Window Colors
+
+            [Category("Window Colors")]
+            [DisplayName("Window background color")]
+            public Color Window
+            {
+                get => this.GetColor(@"HKCU\Control Panel\Colors\Window");
+                set => this.SetColor(@"HKCU\Control Panel\Colors\Window", value);
+            }
+
+            [Category("Window Colors")]
+            [DisplayName("Window frame color")]
+            public Color WindowFrame
+            {
+                get => this.GetColor(@"HKCU\Control Panel\Colors\WindowFrame");
+                set => this.SetColor(@"HKCU\Control Panel\Colors\WindowFrame", value);
+            }
+
+            [Category("Window Colors")]
+            [DisplayName("Window text color")]
+            public Color WindowText
+            {
+                get => this.GetColor(@"HKCU\Control Panel\Colors\WindowText");
+                set => this.SetColor(@"HKCU\Control Panel\Colors\WindowText", value);
+            }
+
+            #endregion Window Colors
+
+            #region Border Colors
+
+            [Category("Border Colors")]
+            [DisplayName("Active border color")]
+            public Color ActiveBorder
+            {
+                get => this.GetColor(@"HKCU\Control Panel\Colors\ActiveBorder");
+                set => this.SetColor(@"HKCU\Control Panel\Colors\ActiveBorder", value);
+            }
+
+            [Category("Border Colors")]
+            [DisplayName("Inactive border color")]
+            public Color InactiveBorder
+            {
+                get => this.GetColor(@"HKCU\Control Panel\Colors\InactiveBorder");
+                set => this.SetColor(@"HKCU\Control Panel\Colors\InactiveBorder", value);
+            }
+
+            #endregion Border Colors
+
+            #region Background Colors
+
+            [Category("Background Colors")]
+            [DisplayName("Application workspace color")]
+            public Color AppWorkspace
+            {
+                get => this.GetColor(@"HKCU\Control Panel\Colors\AppWorkspace");
+                set => this.SetColor(@"HKCU\Control Panel\Colors\AppWorkspace", value);
+            }
+
+            [Category("Background Colors")]
+            [DisplayName("Background")]
+            public Color Background
+            {
+                get => this.GetColor(@"HKCU\Control Panel\Colors\Background");
+                set => this.SetColor(@"HKCU\Control Panel\Colors\Background", value);
+            }
+
+            #endregion Background Colors
+
+            #region Highlight Colors
+
+            [Category("Highlight Colors")]
+            [DisplayName("Highlight background color")]
+            public Color Hilight
+            {
+                get => this.GetColor(@"HKCU\Control Panel\Colors\Hilight");
+                set => this.SetColor(@"HKCU\Control Panel\Colors\Hilight", value);
+            }
+
+            [Category("Highlight Colors")]
+            [DisplayName("Highlight text color")]
+            public Color HilightText
+            {
+                get => this.GetColor(@"HKCU\Control Panel\Colors\HilightText");
+                set => this.SetColor(@"HKCU\Control Panel\Colors\HilightText", value);
+            }
+
+            #endregion Highlight Colors
+
+            #region Miscellaneous Colors
+
+            [Category("Miscellaneous Colors")]
+            [DisplayName("Disabled text color")]
+            public Color GrayText
+            {
+                get => this.GetColor(@"HKCU\Control Panel\Colors\GrayText");
+                set => this.SetColor(@"HKCU\Control Panel\Colors\GrayText", value);
+            }
+
+            [Category("Miscellaneous Colors")]
+            [DisplayName("Scrollbar color")]
+            public Color Scrollbar
+            {
+                get => this.GetColor(@"HKCU\Control Panel\Colors\Scrollbar");
+                set => this.SetColor(@"HKCU\Control Panel\Colors\Scrollbar", value);
+            }
+
+            #endregion Miscellaneous Colors
 
             private Color GetColor(string path)
             {

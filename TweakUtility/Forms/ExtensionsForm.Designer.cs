@@ -40,9 +40,9 @@
             // 
             this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.okButton.Location = new System.Drawing.Point(453, 276);
+            this.okButton.Location = new System.Drawing.Point(447, 276);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(70, 23);
+            this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 0;
             this.okButton.Text = global::TweakUtility.Properties.Strings.Button_OK;
             this.okButton.UseVisualStyleBackColor = true;
@@ -88,7 +88,7 @@
             this.openFolderButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.openFolderButton.Location = new System.Drawing.Point(12, 276);
             this.openFolderButton.Name = "openFolderButton";
-            this.openFolderButton.Size = new System.Drawing.Size(175, 23);
+            this.openFolderButton.Size = new System.Drawing.Size(185, 23);
             this.openFolderButton.TabIndex = 2;
             this.openFolderButton.Text = global::TweakUtility.Properties.Strings.Extensions_OpenFolder;
             this.openFolderButton.UseVisualStyleBackColor = true;
@@ -98,8 +98,8 @@
             // 
             this.AcceptButton = this.okButton;
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 311);
             this.Controls.Add(this.openFolderButton);
             this.Controls.Add(this.listView);

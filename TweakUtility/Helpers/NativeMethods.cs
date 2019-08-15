@@ -163,5 +163,14 @@ namespace TweakUtility.Helpers
 
         [DllImport("kernel32")]
         internal static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
+
+        public const int HWND_BROADCAST = 0xffff;
+        public static readonly int WM_SHOWME = RegisterWindowMessage("WM_SHOWME");
+
+        [DllImport("user32")]
+        public static extern bool PostMessage(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam);
+
+        [DllImport("user32")]
+        public static extern int RegisterWindowMessage(string message);
     }
 }

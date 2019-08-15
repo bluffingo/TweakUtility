@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using TweakUtility.Helpers;
 using static TweakUtility.Helpers.NativeHelpers;
 
 namespace TweakUtility.TweakPages
@@ -55,12 +56,7 @@ namespace TweakUtility.TweakPages
                 Tag = handler
             };
 
-            Icon icon = handler.Icon;
-
-            if (icon == null)
-            {
-                icon = ExtractIcon(@"%SystemRoot%\System32\shell32.dll", 0);
-            }
+            Icon icon = handler.Icon ?? Icons.File;
 
             imageList.Images.Add(handler.KeyName, icon);
             item.ImageKey = handler.KeyName;
@@ -68,7 +64,11 @@ namespace TweakUtility.TweakPages
             listView.Items.Add(item);
         }
 
-        private void ListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e) => propertyGrid.SelectedObject = e.Item?.Tag;
+        private void ListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            removeButton.Enabled = e.Item != null;
+            propertyGrid.SelectedObject = e.Item?.Tag;
+        }
 
         private void AddButton_Click(object sender, EventArgs e)
         {

@@ -1,7 +1,7 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 
 using TweakUtility.Attributes;
@@ -12,10 +12,13 @@ namespace TweakUtility.TweakPages
     [OperatingSystemSupported(OperatingSystemVersion.Windows10)]
     internal class Windows10Page : TweakPage
     {
-        internal Windows10Page() : base("Windows 10", new AudioTransitions()) => this.Icon = Properties.Resources.windows10;
+        internal Windows10Page() : base("Windows 10", new AudioTransitions())
+        {
+            this.Icon = Properties.Resources.windows10;
+        }
 
         [DisplayName("Disable Notification Center")]
-        [DefaultValue(false)]
+        //[DefaultValue(false)]
         [RefreshRequired(RestartType.ExplorerRestart)]
         public bool DisableNotificationCenter
         {
@@ -59,7 +62,7 @@ namespace TweakUtility.TweakPages
             //okay
         }*/
 
-        [Browsable(true)]
+        [Visible(true)]
         [DisplayName("Uninstall OneDrive")]
         [RegistryKeyRequired(@"HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\OneDriveSetup.exe\UninstallString")]
         public void UninstallOneDrive()

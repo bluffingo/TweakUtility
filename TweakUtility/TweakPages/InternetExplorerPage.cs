@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using TweakUtility.Attributes;
+﻿using TweakUtility.Attributes;
 using TweakUtility.Helpers;
 
 namespace TweakUtility.TweakPages
@@ -9,8 +8,6 @@ namespace TweakUtility.TweakPages
         internal InternetExplorerPage() : base("Internet Explorer") => this.Icon = NativeHelpers.ExtractIcon(NativeHelpers.GetApplicationPath("iexplore.exe"), -0);
 
         [DisplayName("Blank page")]
-        [DefaultValue("res://mshtml.dll/blank.htm")]
-        [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
         public string BlankPage
         {
             get => RegistryHelper.GetValue<string>(@"HKLM\SOFTWARE\Microsoft\Internet Explorer\AboutURLs\blank");
@@ -18,7 +15,6 @@ namespace TweakUtility.TweakPages
         }
 
         [DisplayName("Desktop Item Navigation Failure")]
-        [DefaultValue("res://ieframe.dll/navcancl.htm")]
         [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
         public string DesktopItemNavigationFailure
         {
@@ -27,7 +23,7 @@ namespace TweakUtility.TweakPages
         }
 
         [DisplayName("In new private window")]
-        [DefaultValue("res://ieframe.dll/inprivate.htm")]
+        //[DefaultValue("res://ieframe.dll/inprivate.htm")]
         [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
         public string InPrivateIE
         {
@@ -36,7 +32,7 @@ namespace TweakUtility.TweakPages
         }
 
         [DisplayName("Cancelled Navigation")]
-        [DefaultValue("res://ieframe.dll/navcancl.htm")]
+        //[DefaultValue("res://ieframe.dll/navcancl.htm")]
         [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
         public string NavigationCancelled
         {
@@ -45,7 +41,7 @@ namespace TweakUtility.TweakPages
         }
 
         [DisplayName("Navigation Error")]
-        [DefaultValue("res://ieframe.dll/navcancl.htm")]
+        //[DefaultValue("res://ieframe.dll/navcancl.htm")]
         [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
         public string NavigationFailure
         {
@@ -54,7 +50,7 @@ namespace TweakUtility.TweakPages
         }
 
         [DisplayName("No Add-Ons Message")]
-        [DefaultValue("res://ieframe.dll/noaddon.htm")]
+        //[DefaultValue("res://ieframe.dll/noaddon.htm")]
         [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
         public string NoAddons
         {
@@ -63,7 +59,7 @@ namespace TweakUtility.TweakPages
         }
 
         [DisplayName("No Add-Ons Infomation")]
-        [DefaultValue("res://ieframe.dll/noaddoninfo.htm")]
+        //[DefaultValue("res://ieframe.dll/noaddoninfo.htm")]
         [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
         public string NoAddonsInfo
         {
@@ -72,7 +68,7 @@ namespace TweakUtility.TweakPages
         }
 
         [DisplayName("Offline Notice")]
-        [DefaultValue("res://ieframe.dll/offcancl.htm")]
+        //[DefaultValue("res://ieframe.dll/offcancl.htm")]
         [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
         public string OfflineInformation
         {
@@ -81,7 +77,7 @@ namespace TweakUtility.TweakPages
         }
 
         [DisplayName("Infomation sent not cached")]
-        [DefaultValue("res://ieframe.dll/repost.htm")]
+        //[DefaultValue("res://ieframe.dll/repost.htm")]
         [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
         public string PostNotCached
         {
@@ -90,7 +86,7 @@ namespace TweakUtility.TweakPages
         }
 
         [DisplayName("Security Risk")]
-        [DefaultValue("res://ieframe.dll/securityatrisk.htm")]
+        //[DefaultValue("res://ieframe.dll/securityatrisk.htm")]
         [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
         public string SecurityRisk
         {
@@ -99,7 +95,7 @@ namespace TweakUtility.TweakPages
         }
 
         [DisplayName("New Tab")]
-        [DefaultValue("res://ieframe.dll/securityatrisk.htm")]
+        //[DefaultValue("res://ieframe.dll/securityatrisk.htm")]
         [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
         public string TabsIE
         {
