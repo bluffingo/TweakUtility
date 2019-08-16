@@ -449,6 +449,15 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Preferences.
+        /// </summary>
+        internal static string Preferences {
+            get {
+                return ResourceManager.GetString("Preferences", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This option requires you to restart Windows Explorer.
         ///
         ///Would you like to do that now?.

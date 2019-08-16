@@ -13,7 +13,7 @@ using System.Windows.Forms;
 using TweakUtility.Attributes;
 using TweakUtility.Helpers;
 using TweakUtility.Theming;
-
+using TweakUtility.TweakPages;
 using static TweakUtility.Helpers.OperatingSystemVersions;
 
 namespace TweakUtility.Forms
@@ -201,11 +201,13 @@ namespace TweakUtility.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //Adds tool tips for the bottom buttons
+            //Adds tooltips for the bottom buttons
+            toolTip.SetToolTip(preferencesButton, Properties.Strings.Preferences);
             toolTip.SetToolTip(backupsButton, Properties.Strings.Backups);
             toolTip.SetToolTip(extensionsButton, Properties.Strings.Extensions);
 
             //Loads icons for the bottom buttons
+            preferencesButton.Image = Icons.Options.ToBitmap();
             backupsButton.Image = Icons.RecentDocuments.ToBitmap();
             extensionsButton.Image = Icons.SystemFile.ToBitmap();
 
@@ -349,6 +351,12 @@ namespace TweakUtility.Forms
         {
             if (e.Node.Tag is TweakPage tweakPage)
                 this.SetView(tweakPage);
+        }
+
+        private void PreferencesButton_Click(object sender, EventArgs e)
+        {
+            this.treeView.SelectedNode = null;
+            this.SetView(new PreferencesPage());
         }
     }
 }

@@ -10,5 +10,6 @@ namespace TweakUtility.Helpers
         public static readonly Icon Folder = ExtractIcon(@"%SystemRoot%\System32\shell32.dll", -4);
         public static readonly Icon File = ExtractIcon(@"%SystemRoot%\System32\shell32.dll", 0);
         public static readonly Icon Go = ExtractIcon(@"%SystemRoot%\system32\shell32.dll", -290);
+        public static readonly Icon Options = ExtractIcon(@"%SystemRoot%\system32\shell32.dll", -274);
     }
 }

@@ -285,6 +285,9 @@ Would you like to switch it on?</value>
 
 Do you want to continue?</value>
   </data>
+  <data name="Preferences" xml:space="preserve">
+    <value>Preferences</value>
+  </data>
   <data name="Reload_ExplorerRestart" xml:space="preserve">
     <value>This option requires you to restart Windows Explorer.
 

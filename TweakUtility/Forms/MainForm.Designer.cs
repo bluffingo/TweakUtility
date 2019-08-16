@@ -141,7 +141,7 @@ namespace TweakUtility.Forms
             this.preferencesButton.Size = new System.Drawing.Size(25, 25);
             this.preferencesButton.TabIndex = 5;
             this.preferencesButton.UseVisualStyleBackColor = true;
-            this.preferencesButton.Visible = false;
+            this.preferencesButton.Click += new System.EventHandler(this.PreferencesButton_Click);
             // 
             // extensionsButton
             // 
