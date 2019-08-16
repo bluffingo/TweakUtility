@@ -25,7 +25,7 @@ namespace TweakUtility.TweakPages
         }
 
         [DisplayName("New InPrivate window")]
-        [DefaultValue("res://ieframe.dll/inprivate.htm")]
+        //[DefaultValue("res://ieframe.dll/inprivate.htm")]
         [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
         public string InPrivate
         {
