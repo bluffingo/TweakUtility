@@ -74,14 +74,14 @@ namespace TweakUtility.TweakPages
             set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\LegalNoticeText", value);
         }
 
-        [DisplayName("Windows System File Checker")]
-        [OperatingSystemSupported(OperatingSystemVersion.WindowsXP, OperatingSystemVersion.WindowsVista)]
-        //[DefaultValue(WindowsSFCMode.Enabled)]
-        public WindowsSFCMode WindowsSFC
-        {
-            get => (WindowsSFCMode)RegistryHelper.GetValue<int>(@"HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SFCDisable");
-            set => RegistryHelper.SetValue(@"HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SFCDisable", (int)value);
-        }
+        //[DisplayName("Windows System File Checker")]
+        //[OperatingSystemSupported(OperatingSystemVersion.WindowsXP, OperatingSystemVersion.WindowsVista)]
+        ////[DefaultValue(WindowsSFCMode.Enabled)]
+        //public WindowsSFCMode WindowsSFC
+        //{
+        //    get => (WindowsSFCMode)RegistryHelper.GetValue<int>(@"HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SFCDisable");
+        //    set => RegistryHelper.SetValue(@"HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SFCDisable", (int)value);
+        //}
 
         public enum WindowsSFCMode
         {

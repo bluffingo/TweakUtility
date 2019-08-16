@@ -5,11 +5,10 @@ Entered beta versions. Expect refining of the new features in the following buil
 
 - **Completed** classic theme colors page.
 - **Completed** Internet Explorer page locations. (Thanks @PF94)
-- **Added** a pretty bad and cringy easter egg.
+- **Added** a pretty bad and cringy easter egg. (this version only!)
 - **Added** extensions.
 - **Added** backups.
 - **Added** credits.
-- **Added** easter egg (this version only!)
 - **Added** Windows Media Player deskband installation.
 - **Added** searching pages and tweaks.
 - **Added** Windows 10 classic UI options.

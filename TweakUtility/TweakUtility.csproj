@@ -220,12 +220,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Properties\Strings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Strings.resx</DependentUpon>
-    </Compile>
     <Compile Include="Helpers\RegistryHelper.cs" />
+    <Compile Include="Properties\Strings.Designer.cs">
+      <DependentUpon>Strings.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Include="Theming\Theme.cs" />
     <Compile Include="TweakPages\AdvancedPage.cs" />
     <Compile Include="TweakPages\CustomizationPage.cs" />
@@ -299,6 +299,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Strings.es.resx" />
     <EmbeddedResource Include="Properties\Strings.de.resx" />
+    <None Include="Properties\Strings.fr.resx" />
     <EmbeddedResource Include="Properties\Strings.hu.resx" />
     <EmbeddedResource Include="Properties\Strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -331,6 +332,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\windowsVista7.png" />
+    <None Include="Resources\windows8.png" />
     <None Include="Resources\volume.png" />
     <None Include="Resources\windows10.png" />
     <None Include="Resources\TweakUtility.png" />
@@ -342,6 +345,7 @@
     <Content Include="Resources\go10.png" />
     <None Include="Resources\openfolder_24.bmp" />
     <None Include="Resources\refresh.png" />
+    <None Include="Resources\NewTweakUtility.png" />
     <Content Include="Resources\TweakUtility.ico" />
     <Content Include="Resources\TweakUtility.svg" />
   </ItemGroup>

@@ -103,8 +103,6 @@ namespace TweakUtility.Theming
 
         public static int TitleSize => 14;
 
-        //call the bricks icon rtb or returntoblockland, alright? what, the icon reminds me of RTB,yeah I know but we aren't going to use that hopfall,
-        //The icon does not remind me of Roblox at all.
         public static int CategorySize => 11;
 
         public static void Apply(Control control)
