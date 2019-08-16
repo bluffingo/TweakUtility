@@ -30,7 +30,6 @@
             this.components = new System.ComponentModel.Container();
             this.okButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
-            this.iconPictureBox = new System.Windows.Forms.PictureBox();
             this.versionLabel = new System.Windows.Forms.Label();
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.feedbackButton = new System.Windows.Forms.Button();
@@ -39,6 +38,7 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.copyrightLabel = new System.Windows.Forms.Label();
             this.creditsButton = new System.Windows.Forms.Button();
+            this.iconPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,16 +63,6 @@
             this.titleLabel.TabIndex = 1;
             this.titleLabel.Text = "Tweak Utility";
             // 
-            // iconPictureBox
-            // 
-            this.iconPictureBox.Image = global::TweakUtility.Properties.Resources.TweakUtility;
-            this.iconPictureBox.Location = new System.Drawing.Point(12, 12);
-            this.iconPictureBox.Name = "iconPictureBox";
-            this.iconPictureBox.Size = new System.Drawing.Size(48, 48);
-            this.iconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.iconPictureBox.TabIndex = 2;
-            this.iconPictureBox.TabStop = false;
-            // 
             // versionLabel
             // 
             this.versionLabel.AutoSize = true;
@@ -91,7 +81,8 @@
             this.descriptionLabel.Name = "descriptionLabel";
             this.descriptionLabel.Size = new System.Drawing.Size(411, 30);
             this.descriptionLabel.TabIndex = 4;
-            this.descriptionLabel.Text = Properties.Strings.About_Description;
+            this.descriptionLabel.Text = "Tweak Utility is an application for tweaking Windows, as well as other applicatio" +
+    "ns, similar to Tweak UI and Winaero Tweaker.";
             this.descriptionLabel.UseCompatibleTextRendering = true;
             // 
             // feedbackButton
@@ -101,7 +92,7 @@
             this.feedbackButton.Name = "feedbackButton";
             this.feedbackButton.Size = new System.Drawing.Size(75, 23);
             this.feedbackButton.TabIndex = 5;
-            this.feedbackButton.Text = Properties.Strings.Button_Feedback;
+            this.feedbackButton.Text = global::TweakUtility.Properties.Strings.Button_Feedback;
             this.feedbackButton.UseVisualStyleBackColor = true;
             this.feedbackButton.Click += new System.EventHandler(this.FeedbackButton_Click);
             // 
@@ -120,15 +111,16 @@
             // 
             this.debugLabel.AutoSize = true;
             this.debugLabel.Cursor = System.Windows.Forms.Cursors.Help;
-            this.debugLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.debugLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.debugLabel.ForeColor = System.Drawing.SystemColors.GrayText;
             this.debugLabel.Location = new System.Drawing.Point(381, 12);
             this.debugLabel.Name = "debugLabel";
-            this.debugLabel.Size = new System.Drawing.Size(42, 15);
+            this.debugLabel.Size = new System.Drawing.Size(43, 15);
             this.debugLabel.TabIndex = 8;
             this.debugLabel.Text = "Debug";
             this.toolTip.SetToolTip(this.debugLabel, global::TweakUtility.Properties.Strings.Debug_Disclaimer);
             this.debugLabel.Visible = false;
+            this.debugLabel.Click += new System.EventHandler(this.DebugLabel_Click);
             // 
             // toolTip
             // 
@@ -145,7 +137,7 @@
             this.copyrightLabel.Name = "copyrightLabel";
             this.copyrightLabel.Size = new System.Drawing.Size(409, 32);
             this.copyrightLabel.TabIndex = 9;
-            this.copyrightLabel.Text = Properties.Strings.About_Copyright;
+            this.copyrightLabel.Text = "All icons used (except the application icon), belong to their rightful owners.";
             this.copyrightLabel.UseCompatibleTextRendering = true;
             // 
             // creditsButton
@@ -158,6 +150,16 @@
             this.creditsButton.Text = "&Credits";
             this.creditsButton.UseVisualStyleBackColor = true;
             this.creditsButton.Click += new System.EventHandler(this.CreditsButton_Click);
+            // 
+            // iconPictureBox
+            // 
+            this.iconPictureBox.Image = global::TweakUtility.Properties.Resources.NewTweakUtility;
+            this.iconPictureBox.Location = new System.Drawing.Point(12, 12);
+            this.iconPictureBox.Name = "iconPictureBox";
+            this.iconPictureBox.Size = new System.Drawing.Size(48, 48);
+            this.iconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iconPictureBox.TabIndex = 2;
+            this.iconPictureBox.TabStop = false;
             // 
             // AboutForm
             // 
@@ -184,7 +186,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = Properties.Strings.About;
+            this.Text = "About Tweak Utility";
             this.Load += new System.EventHandler(this.AboutForm_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AboutForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).EndInit();

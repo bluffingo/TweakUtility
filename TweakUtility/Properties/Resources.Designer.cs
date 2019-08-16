@@ -123,6 +123,16 @@ namespace TweakUtility.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap NewTweakUtility {
+            get {
+                object obj = ResourceManager.GetObject("NewTweakUtility", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap openfolder_24 {
             get {
                 object obj = ResourceManager.GetObject("openfolder_24", resourceCulture);
@@ -176,6 +186,26 @@ namespace TweakUtility.Properties {
         internal static System.Drawing.Bitmap windows10 {
             get {
                 object obj = ResourceManager.GetObject("windows10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap windows8 {
+            get {
+                object obj = ResourceManager.GetObject("windows8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap windowsVista7 {
+            get {
+                object obj = ResourceManager.GetObject("windowsVista7", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -71,5 +71,10 @@ namespace TweakUtility.Forms
                 credits.ShowDialog(this);
             }
         }
+
+        private void DebugLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

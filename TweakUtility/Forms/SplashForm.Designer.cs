@@ -64,7 +64,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::TweakUtility.Properties.Resources.TweakUtility;
+            this.pictureBox1.Image = global::TweakUtility.Properties.Resources.NewTweakUtility;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(48, 48);

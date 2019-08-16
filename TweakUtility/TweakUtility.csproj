@@ -332,6 +332,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\windowsVista7.png" />
+    <None Include="Resources\windows8.png" />
     <None Include="Resources\volume.png" />
     <None Include="Resources\windows10.png" />
     <None Include="Resources\TweakUtility.png" />
@@ -343,6 +345,7 @@
     <Content Include="Resources\go10.png" />
     <None Include="Resources\openfolder_24.bmp" />
     <None Include="Resources\refresh.png" />
+    <None Include="Resources\NewTweakUtility.png" />
     <Content Include="Resources\TweakUtility.ico" />
     <Content Include="Resources\TweakUtility.svg" />
   </ItemGroup>

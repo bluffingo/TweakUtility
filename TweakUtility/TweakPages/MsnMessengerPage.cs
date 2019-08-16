@@ -1,3 +1,5 @@
+//Buggy at the time of 1.1.00's release, last worked in 1.0.99 (aka earlier builds of 1.1.00's developement)
+
 using Microsoft.Win32;
 
 using System.Collections.Generic;
@@ -10,7 +12,6 @@ using System.Windows.Forms;
 
 using TweakUtility.Attributes;
 using TweakUtility.Helpers;
-
 namespace TweakUtility.TweakPages
 {
     [RegistryKeyRequired(@"HKCU\SOFTWARE\Microsoft\MSNMessenger")]
