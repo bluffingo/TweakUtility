@@ -221,10 +221,10 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Helpers\RegistryHelper.cs" />
-    <Compile Include="Properties\Strings.fr.Designer.cs">
-      <AutoGen>True</AutoGen>
+    <Compile Include="Properties\Strings.Designer.cs">
+      <DependentUpon>Strings.resx</DependentUpon>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Strings.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Theming\Theme.cs" />
     <Compile Include="TweakPages\AdvancedPage.cs" />
@@ -299,11 +299,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Strings.es.resx" />
     <EmbeddedResource Include="Properties\Strings.de.resx" />
-    <EmbeddedResource Include="Properties\Strings.fr.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Strings.fr.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
+    <None Include="Properties\Strings.fr.resx" />
     <EmbeddedResource Include="Properties\Strings.hu.resx" />
+    <EmbeddedResource Include="Properties\Strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="TweakPages\DiskCleanupPage.resx">
       <DependentUpon>DiskCleanupPage.cs</DependentUpon>
     </EmbeddedResource>

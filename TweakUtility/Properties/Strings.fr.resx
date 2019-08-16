@@ -118,207 +118,158 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>About Tweak Utility</value>
+    <value>À propos de Tweak Utility</value>
   </data>
   <data name="About_Copyright" xml:space="preserve">
-    <value>All icons used (except the application icon), belong to their rightful owners.</value>
+    <value>Toutes les icônes utilisées (à l'exception de l'icône de l'application) appartiennent à leurs propriétaires légitimes.</value>
   </data>
   <data name="About_Description" xml:space="preserve">
-    <value>Tweak Utility is an application for tweaking Windows, as well as other applications, similar to Tweak UI and Winaero Tweaker.</value>
+    <value>Tweak Utility est une application qui permet de peaufiner Windows, ainsi que d’autres applications similaires à Tweak UI et Winaero Tweaker.</value>
   </data>
   <data name="About_License" xml:space="preserve">
-    <value>Tweak Utility is available on {0}, and licensed under GPL-3.0.</value>
+    <value>Tweak Utility est disponible sur {0} et sous la licence de GPL-3.0.</value>
     <comment>{0} (link) = "GitHub"</comment>
   </data>
   <data name="Application_Name" xml:space="preserve">
     <value>Tweak Utility</value>
   </data>
   <data name="Backups" xml:space="preserve">
-    <value>Backups</value>
+    <value>Sauvegardes</value>
   </data>
   <data name="Backups_Confirmation" xml:space="preserve">
-    <value>Are you sure you want to apply this backup?</value>
+    <value>Êtes-vous sûr de vouloir appliquer cette sauvegarde?</value>
   </data>
   <data name="Backups_FolderDescription" xml:space="preserve">
-    <value>This folder contains backups made by Tweak Utility. </value>
+    <value>Ce dossier contient des sauvegardes effectuées par Tweak Utility.</value>
   </data>
   <data name="Backups_OpenFolder" xml:space="preserve">
-    <value>Open Backups &amp;Folder</value>
+    <value>Ouvrir le dossier de &amp;sauvegarde</value>
   </data>
   <data name="Button_Apply" xml:space="preserve">
-    <value>&amp;Apply</value>
+    <value>&amp;Appliquer</value>
   </data>
   <data name="Button_Cancel" xml:space="preserve">
     <value>&amp;Cancel</value>
   </data>
   <data name="Button_Create" xml:space="preserve">
-    <value>Cr&amp;eate</value>
+    <value>Cr&amp;éer</value>
   </data>
   <data name="Button_Credits" xml:space="preserve">
-    <value>Cred&amp;its</value>
+    <value>Créd&amp;its</value>
   </data>
   <data name="Button_Delete" xml:space="preserve">
-    <value>&amp;Delete</value>
+    <value>&amp;Supprimer</value>
   </data>
   <data name="Button_Feedback" xml:space="preserve">
-    <value>&amp;Feedback</value>
+    <value>Commentaires</value>
   </data>
   <data name="Button_Install" xml:space="preserve">
     <value>&amp;Install</value>
   </data>
   <data name="Button_OK" xml:space="preserve">
-    <value>&amp;OK</value>
+    <value>D'accord</value>
   </data>
   <data name="CheckBox_DontAskAgain" xml:space="preserve">
-    <value>Don't ask again</value>
-  </data>
-  <data name="Credits" xml:space="preserve">
-    <value>Lead Developer
-Craftplacer
-
-Contributer Developers
-PF94, aka Gamerappa
-
-Former Contributers
-Alien Future, aka Balázs Vámos
-
-Translators
-Craftplacer (English, German)
-Alien Future (Hungarian)
-CatHR Games (Spanish)
-PF94 (French)
-
-Icons
-Craftplacer (application icon)
-Microsoft Windows (for version specific icons, taken dynamically)
-
-Tweak Sources
-AskVG (https://www.askvg.com)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-⭐ And you for using this application ⭐
-
-
-
-
-
-
-
-
-
-</value>
-    <comment>THIS STRING ISN'T SUPPOSED TO BE TRANSLATED</comment>
+    <value>Ne demande plus</value>
   </data>
   <data name="Debug_Disclaimer" xml:space="preserve">
-    <value>Debug builds are experimental and do not guarantee to be working or offer any support.
-Automated crash reports are also disabled.</value>
+    <value>Les versions de débogage sont expérimentales et ne garantissent pas de fonctionner ni d’offrir de support.
+Les rapports d'incident automatisés sont également désactivés.</value>
   </data>
   <data name="Extensions" xml:space="preserve">
-    <value>Extensions</value>
+    <value>Les Extensions</value>
   </data>
   <data name="Extensions_Author" xml:space="preserve">
-    <value>Author</value>
+    <value>Auteur(e)</value>
   </data>
   <data name="Extensions_Description" xml:space="preserve">
     <value>Description</value>
   </data>
   <data name="Extensions_FolderDescription" xml:space="preserve">
-    <value>This folder contains extensions for Tweak Utility.</value>
+    <value>Ce dossier contient des extensions pour Tweak Utility.</value>
   </data>
   <data name="Extensions_Name" xml:space="preserve">
-    <value>Name</value>
+    <value>prénom</value>
   </data>
   <data name="Extensions_OpenFolder" xml:space="preserve">
-    <value>Open Extensions &amp;Folder</value>
+    <value>Ouvrir le dossier de &amp;Extensions</value>
   </data>
   <data name="Extension_Install" xml:space="preserve">
-    <value>Install Extension</value>
+    <value>Installer une extension</value>
   </data>
   <data name="Extension_Install_Confirmation" xml:space="preserve">
-    <value>Are you sure you want to install this extension?</value>
+    <value>Êtes-vous sûr de vouloir installer cette extension?</value>
   </data>
   <data name="Extension_Install_Success" xml:space="preserve">
-    <value>Extension has been installed.</value>
+    <value>L'extension a été installée.</value>
   </data>
   <data name="MsnMessenger_AudioBackup" xml:space="preserve">
-    <value>Would you like to backup the files before proceeding?</value>
+    <value>Voulez-vous sauvegarder les fichiers avant de continuer?</value>
   </data>
   <data name="MsnMessenger_AudioRestore" xml:space="preserve">
-    <value>Would you like to restore the files?</value>
+    <value>Voulez-vous restaurer les fichiers?</value>
   </data>
   <data name="OneDrive_Uninstall_DeleteFolder" xml:space="preserve">
-    <value>Would you like to delete the OneDrive folder?</value>
+    <value>Voulez-vous supprimer le dossier OneDrive?</value>
   </data>
   <data name="OneDrive_Uninstall_DeleteFolder_Failed" xml:space="preserve">
-    <value>Failed to delete the OneDrive folder because of following error message:
+    <value>Impossible de supprimer le dossier OneDrive en raison du message d'erreur suivant:
 
 {0}</value>
   </data>
   <data name="OneDrive_Uninstall_InstallerNotFound" xml:space="preserve">
-    <value>The uninstall info for OneDrive couldn't be found.
-Therefore, OneDrive won't be automatically uninstalled, you can continue deleting directories and registry entries related to it. 
+    <value>Les informations de désinstallation pour OneDrive sont introuvables.
+Par conséquent, OneDrive ne sera pas automatiquement désinstallé, vous pouvez continuer à supprimer des répertoires et des entrées de registre le concernant.
 
-Do you want to continue?</value>
+Voulez-vous continuer?</value>
   </data>
   <data name="OneDrive_Uninstall_SetFlagMessage" xml:space="preserve">
-    <value>Currently, the "user initiated uninstallation" flag isn't set, possibly leading Windows into reinstalling OneDrive.
-Setting this flag will tell Windows that you want to keep OneDrive uninstalled.
+    <value>Actuellement, l'indicateur "désinstallation initiée par l'utilisateur" n'est pas défini, ce qui peut éventuellement amener Windows à réinstaller OneDrive.
+La définition de cet indicateur indiquera à Windows que vous souhaitez laisser OneDrive désinstallé.
 
-Would you like to switch it on?</value>
+Voulez-vous l'allumer?</value>
   </data>
   <data name="OneDrive_Uninstall_Success" xml:space="preserve">
-    <value>OneDrive, along with its trails, have been deleted.</value>
+    <value>OneDrive, ainsi que ses traces, ont été supprimés.</value>
   </data>
   <data name="OneDrive_Uninstall_Warning" xml:space="preserve">
-    <value>The OneDrive uninstaller didn't seem to run correctly.
+    <value>Le programme de désinstallation de OneDrive ne semblait pas fonctionner correctement.
 
-Do you want to continue?</value>
+Voulez-vous continuer?</value>
   </data>
   <data name="Reload_ExplorerRestart" xml:space="preserve">
-    <value>This option requires you to restart Windows Explorer.
+    <value>Cette option nécessite de redémarrer l'Explorateur Windows.
 
-Would you like to do that now?</value>
+Voulez-vous faire ça maintenant?</value>
   </data>
   <data name="Reload_LogOff" xml:space="preserve">
-    <value>This option requires you to log off.
+    <value>Cette option nécessite que vous vous déconnectiez.
 
-Would you like to do that now?</value>
+Voulez-vous faire ça maintenant?</value>
   </data>
   <data name="Reload_SystemRestart" xml:space="preserve">
-    <value>This option requires you to restart your system.
+    <value>Cette option nécessite de redémarrer votre système.
 
-Would you like to do that now?</value>
+Voulez-vous faire ça maintenant?</value>
   </data>
   <data name="Reload_Unknown" xml:space="preserve">
-    <value>This option requires you to reload the thing related to it, as there isn't a refresh implemented yet.
+    <value>Cette option nécessite de recharger l'élément associé, car l'actualisation n'est pas encore implémentée.
 
-If you know how to implement this refresh programmatically, please let us know by clicking the feedback button in the about window.</value>
+Si vous savez comment implémenter cette actualisation par programme, veuillez nous en informer en cliquant sur le bouton Commentaires dans la fenêtre à propos de.</value>
     <comment>Message telling user to reload themself, since code is missing.</comment>
   </data>
   <data name="Report_Disclaimer" xml:space="preserve">
-    <value>Please make sure this report doesn't contain any personal details accidentally picked up by this program. (That said we aren't reliable if you dox yourself.)</value>
+    <value>Assurez-vous que ce rapport ne contient aucune donnée personnelle collectée accidentellement par ce programme.</value>
   </data>
   <data name="TweakPage_InsufficientPermissions" xml:space="preserve">
-    <value>The tweak page {0} has failed to load because the application is running with insufficient permissions.
-You can try restarting the program as administrator.</value>
+    <value>Le chargement de la page d'ajustement {0} a échoué car l'application est en cours d'exécution avec des autorisations insuffisantes.
+Vous pouvez essayer de redémarrer le programme en tant qu'administrateur.</value>
   </data>
   <data name="TweakPage_LoadError" xml:space="preserve">
-    <value>The tweak page {0} has failed to load because of the following the error message:
+    <value>Le chargement de la page de réglage {0} a échoué à cause du message d'erreur suivant:
 {1}
 
-This tweak page won't be included in the application</value>
+Cette page de tweak ne sera pas incluse dans l'application</value>
     <comment>{0} Page Name/Id, {1} error message</comment>
   </data>
 </root>
