@@ -61,5 +61,17 @@ namespace TweakUtility.Helpers
 
             return enumarable;
         }
+
+        /// <summary>
+        /// Returns a readable color generated from the input <paramref name="color"/>.
+        /// </summary>
+        /// <param name="color">The background color</param>
+        /// <returns><see cref="true"/> for white, <see cref="false"/> for black</returns>
+        public static bool GetReadableColor(this Color color)
+        {
+            int nThreshold = 105;
+            int bgDelta = Convert.ToInt32((color.R * 0.299) + (color.G * 0.587) + (color.B * 0.114));
+            return !(255 - bgDelta < nThreshold);
+        }
     }
 }
