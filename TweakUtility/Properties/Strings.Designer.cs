@@ -236,6 +236,7 @@ namespace TweakUtility.Properties {
         ///Craftplacer (English, German)
         ///Alien Future (Hungarian)
         ///CatHR Games (Spanish)
+        ///PF94 (French)
         ///
         ///Icons
         ///Craftplacer (application icon)
