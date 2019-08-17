@@ -78,13 +78,6 @@ namespace TweakUtility.Forms
             }
         }
 
-        public List<TweakPage> GetAllTweakPages()
-        {
-            var pages = Program.GetAllTweakPages().ToList();
-            pages.Add(new DeadMemeCreeperPage());
-            return pages;
-        }
-
         /// <summary>
         /// magical function
         /// </summary>
@@ -243,7 +236,7 @@ namespace TweakUtility.Forms
                 i++; //move +1 to get page type name
                 string targetType = args[i];
 
-                TweakPage targetPage = this.GetAllTweakPages().FirstOrDefault(t => t.GetType().FullName.Equals(targetType, StringComparison.InvariantCultureIgnoreCase));
+                TweakPage targetPage = Program.GetAllTweakPages().FirstOrDefault(t => t.GetType().FullName.Equals(targetType, StringComparison.OrdinalIgnoreCase));
 
                 if (targetPage != null)
                     this.Select(targetPage);
@@ -263,25 +256,22 @@ namespace TweakUtility.Forms
             if (e.KeyCode != Keys.Enter)
                 return;
 
-            if (TriggerCreeperPage(searchTextBox.Text))
+            foreach (TweakPage tweakPage in Program.GetAllTweakPages())
             {
-                foreach (TweakPage tweakPage in this.GetAllTweakPages())
+                //Searches for a page matching the query (case-insensitive)
+                if (tweakPage.Name.Equals(searchTextBox.Text, StringComparison.InvariantCultureIgnoreCase))
                 {
-                    //Searches for a page matching the query (case-insensitive)
-                    if (tweakPage.Name.Equals(searchTextBox.Text, StringComparison.InvariantCultureIgnoreCase))
+                    this.Select(tweakPage);
+                    break;
+                }
+
+                //Searches for an entry inside the page matching the query (case-insensitive)
+                foreach (TweakEntry entry in tweakPage.Entries)
+                {
+                    if (entry.Name.Equals(searchTextBox.Text, StringComparison.InvariantCultureIgnoreCase))
                     {
                         this.Select(tweakPage);
                         break;
-                    }
-
-                    //Searches for an entry inside the page matching the query (case-insensitive)
-                    foreach (TweakEntry entry in tweakPage.Entries)
-                    {
-                        if (entry.Name.Equals(searchTextBox.Text, StringComparison.InvariantCultureIgnoreCase))
-                        {
-                            this.Select(tweakPage);
-                            break;
-                        }
                     }
                 }
             }
@@ -298,14 +288,14 @@ namespace TweakUtility.Forms
             TaskbarManager.Instance.ApplicationId = Constants.Application_Id;
 
             var jumpList = JumpList.CreateJumpList();
-            var pages = this.GetAllTweakPages();
-            var tasks = new JumpListTask[pages.Count];
+            var pages = Program.GetAllTweakPages();
+            var tasks = new JumpListTask[pages.Count()];
 
             jumpList.KnownCategoryToDisplay = JumpListKnownCategoryType.Recent;
 
-            for (int i = 0; i < pages.Count; i++)
+            for (int i = 0; i < pages.Count(); i++)
             {
-                var page = pages[i];
+                var page = pages.ElementAt(i);
                 var id = page.GetType().FullName;
 
                 //damnit, my screen just froze and now firefox is laggy,
