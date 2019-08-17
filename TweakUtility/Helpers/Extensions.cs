@@ -67,6 +67,7 @@ namespace TweakUtility.Helpers
         /// </summary>
         /// <param name="color">The background color</param>
         /// <returns><see cref="true"/> for white, <see cref="false"/> for black</returns>
+        /// <remarks>https://www.codeproject.com/Articles/16565/Determining-Ideal-Text-Color-Based-on-Specified-Ba</remarks>
         public static bool GetReadableColor(this Color color)
         {
             int nThreshold = 105;
