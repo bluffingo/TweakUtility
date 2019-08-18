@@ -153,7 +153,7 @@
             // 
             // iconPictureBox
             // 
-            this.iconPictureBox.Image = global::TweakUtility.Properties.Resources.NewTweakUtility;
+            this.iconPictureBox.Image = global::TweakUtility.Properties.Resources.TweakUtility;
             this.iconPictureBox.Location = new System.Drawing.Point(12, 12);
             this.iconPictureBox.Name = "iconPictureBox";
             this.iconPictureBox.Size = new System.Drawing.Size(48, 48);

@@ -123,16 +123,6 @@ namespace TweakUtility.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap NewTweakUtility {
-            get {
-                object obj = ResourceManager.GetObject("NewTweakUtility", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap openfolder_24 {
             get {
                 object obj = ResourceManager.GetObject("openfolder_24", resourceCulture);
