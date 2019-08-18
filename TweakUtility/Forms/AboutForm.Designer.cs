@@ -102,25 +102,26 @@
             this.githubLabel.Location = new System.Drawing.Point(12, 109);
             this.githubLabel.Name = "githubLabel";
             this.githubLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.githubLabel.Size = new System.Drawing.Size(0, 16);
+            this.githubLabel.Size = new System.Drawing.Size(0, 18);
             this.githubLabel.TabIndex = 7;
             this.githubLabel.UseCompatibleTextRendering = true;
             this.githubLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.GithubLabel_LinkClicked);
             // 
             // debugLabel
             // 
+            this.debugLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.debugLabel.AutoSize = true;
             this.debugLabel.Cursor = System.Windows.Forms.Cursors.Help;
             this.debugLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.debugLabel.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.debugLabel.Location = new System.Drawing.Point(381, 12);
+            this.debugLabel.Location = new System.Drawing.Point(378, 12);
+            this.debugLabel.Margin = new System.Windows.Forms.Padding(0);
             this.debugLabel.Name = "debugLabel";
             this.debugLabel.Size = new System.Drawing.Size(43, 15);
             this.debugLabel.TabIndex = 8;
             this.debugLabel.Text = "Debug";
             this.toolTip.SetToolTip(this.debugLabel, global::TweakUtility.Properties.Strings.Debug_Disclaimer);
             this.debugLabel.Visible = false;
-            this.debugLabel.Click += new System.EventHandler(this.DebugLabel_Click);
             // 
             // toolTip
             // 
@@ -164,7 +165,7 @@
             // AboutForm
             // 
             this.AcceptButton = this.okButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(434, 204);
             this.Controls.Add(this.creditsButton);
@@ -177,7 +178,7 @@
             this.Controls.Add(this.iconPictureBox);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.okButton);
-            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.KeyPreview = true;
             this.MaximizeBox = false;
@@ -187,7 +188,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "About Tweak Utility";
-            this.Load += new System.EventHandler(this.AboutForm_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AboutForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).EndInit();
             this.ResumeLayout(false);

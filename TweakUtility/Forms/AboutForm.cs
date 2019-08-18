@@ -24,17 +24,13 @@ namespace TweakUtility.Forms
             this.copyrightLabel.Text = Properties.Strings.About_Copyright;
             this.feedbackButton.Text = Properties.Strings.Button_Feedback;
             this.creditsButton.Text = Properties.Strings.Button_Credits;
+            this.versionLabel.Text = $"Version {Assembly.GetExecutingAssembly().GetName().Version.ToString(3)}";
+#if DEBUG
+            this.debugLabel.Visible = true;
+#endif
         }
 
         private void FeedbackButton_Click(object sender, EventArgs e) => Program.OpenURL("https://github.com/Craftplacer/TweakUtility/issues/new/choose");
-
-        private void AboutForm_Load(object sender, EventArgs e)
-        {
-            versionLabel.Text = $"Version {Assembly.GetExecutingAssembly().GetName().Version}";
-#if DEBUG
-            debugLabel.Visible = true;
-#endif
-        }
 
         private void GithubLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => Program.OpenURL("https://github.com/Craftplacer/TweakUtility");
 
@@ -48,6 +44,11 @@ namespace TweakUtility.Forms
                 {
                     throw new Exception("User triggered exception");
                 }
+            }
+            else if (10 <= input.Count)
+            {
+                //resetting
+                input.Clear();
             }
         }
 
@@ -70,11 +71,6 @@ namespace TweakUtility.Forms
             {
                 credits.ShowDialog(this);
             }
-        }
-
-        private void DebugLabel_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
