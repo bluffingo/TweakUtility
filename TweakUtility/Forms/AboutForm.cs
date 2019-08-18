@@ -35,7 +35,7 @@ namespace TweakUtility.Forms
         private void GithubLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => Program.OpenURL("https://github.com/Craftplacer/TweakUtility");
 
         private void AboutForm_KeyUp(object sender, KeyEventArgs e)
-        {   //BELOW IS THE KONAMI CODE EASTER EGG CODE
+        {
             input.Add(e.KeyCode);
 
             if (input.ToArray() == new[] { Keys.Up, Keys.Up, Keys.Down, Keys.Down, Keys.Left, Keys.Right, Keys.Left, Keys.Right, Keys.B, Keys.A })
