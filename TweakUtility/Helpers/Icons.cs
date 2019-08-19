@@ -1,4 +1,7 @@
 ﻿using System.Drawing;
+
+using TweakUtility.Attributes;
+
 using static TweakUtility.Helpers.NativeHelpers;
 
 namespace TweakUtility.Helpers
@@ -11,5 +14,32 @@ namespace TweakUtility.Helpers
         public static readonly Icon File = ExtractIcon(@"%SystemRoot%\System32\shell32.dll", 0);
         public static readonly Icon Go = ExtractIcon(@"%SystemRoot%\system32\shell32.dll", -290);
         public static readonly Icon Options = ExtractIcon(@"%SystemRoot%\system32\shell32.dll", -274);
+        public static readonly Icon Bulb = Properties.Resources.Lightbulb_16x;
+        public static readonly Icon Information = getInformationIcon();
+        public static readonly Icon Warning = getWarningIcon();
+
+        private static Icon getInformationIcon()
+        {
+            if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+            {
+                return ExtractIcon(@"%SystemRoot%\System32\imageres.dll", -81);
+            }
+            else
+            {
+                return ExtractIcon(@"%SystemRoot%\System32\user32.dll", -104);
+            }
+        }
+
+        private static Icon getWarningIcon()
+        {
+            if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+            {
+                return ExtractIcon(@"%SystemRoot%\System32\imageres.dll", -84);
+            }
+            else
+            {
+                return ExtractIcon(@"%SystemRoot%\System32\user32.dll", -101);
+            }
+        }
     }
 }

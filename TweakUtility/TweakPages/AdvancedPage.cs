@@ -102,14 +102,7 @@ namespace TweakUtility.TweakPages
         {
             public OEMInformation() : base("OEM Information")
             {
-                if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista)) //i do remember that xp had oem information.
-                {
-                    this.Icon = NativeHelpers.ExtractIcon(@"%SystemRoot%\System32\imageres.dll", -81);
-                }
-                else
-                {
-                    this.Icon = NativeHelpers.ExtractIcon(@"%SystemRoot%\System32\user32.dll", -104);
-                }
+                this.Icon = Icons.Information;
             }
 
             public string Logo
