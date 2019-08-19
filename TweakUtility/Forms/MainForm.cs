@@ -2,10 +2,7 @@ using Microsoft.WindowsAPICodePack.Shell;
 using Microsoft.WindowsAPICodePack.Taskbar;
 
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
@@ -169,25 +166,17 @@ namespace TweakUtility.Forms
 
             int optimalLeft;
             if (this.Left < 0)
-            {
                 this.Left = 0;
-            }
             else if ((optimalLeft = Screen.PrimaryScreen.Bounds.Width - this.Width) < this.Left)
-            {
                 this.Left = optimalLeft;
-            }
 
             this.Top = RegistryHelper.GetValue(@"HKCU\Software\Craftplacer\TweakUtility\WindowTop", this.Top);
 
             int optimalTop;
             if (this.Top < 0)
-            {
                 this.Top = 0;
-            }
             else if ((optimalTop = Screen.PrimaryScreen.Bounds.Height - this.Width) < this.Top)
-            {
                 this.Top = optimalTop;
-            }
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e) => this.SaveWindowRectangle();

@@ -17,10 +17,7 @@ namespace TweakUtility.TweakPages
             this.Icon = Properties.Resources.windows10;
         }
 
-        //Can we check what version of Windows 10 the end user is running? I'm (PF94) running 1903 and the "Classic Volume" control doesn't work, The calender/clock hasen't worked since November Update or Aniversery update.
-
         [DisplayName("Disable Notification Center")]
-        //[DefaultValue(false)]
         [RefreshRequired(RestartType.ExplorerRestart)]
         public bool DisableNotificationCenter
         {
@@ -56,13 +53,6 @@ namespace TweakUtility.TweakPages
             get => RegistryHelper.GetValue(@"HKLM\Software\Microsoft\Windows\CurrentVersion\ImmersiveShell\UseActionCenterExperience", 1) == 0;
             set => RegistryHelper.SetValue(@"HKLM\Software\Microsoft\Windows\CurrentVersion\ImmersiveShell\UseActionCenterExperience", value ? 0 : 1);
         }
-
-        /* [Browsable(true)]
-        [DisplayName("Remove ALL UWP Applications")]
-        public void RemoveUWP()
-        {
-            //okay
-        }*/
 
         [Visible(true)]
         [DisplayName("Uninstall OneDrive")]

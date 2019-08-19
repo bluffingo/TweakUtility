@@ -82,8 +82,6 @@ namespace TweakUtility.Theming
 
         public static Font CategoryFont => new Font(CategoryFontFamily, CategorySize, GraphicsUnit.Point);
 
-        //what should be the new build number? 1.0.94 was already released, 1.0.95 (edit: that turned up to be 1.0.96) then. after build 95, it's build 98,
-        //because WINDOWS 98 yes
         public static FontFamily CategoryFontFamily
         {
             get
