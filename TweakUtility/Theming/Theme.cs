@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using TweakUtility.Attributes;
 using TweakUtility.Forms;
+using TweakUtility.Helpers;
 using static TweakUtility.Helpers.OperatingSystemVersions;
 
 namespace TweakUtility.Theming
@@ -46,34 +47,33 @@ namespace TweakUtility.Theming
         {
             get
             {
+                if (SystemColors.Window.GetReadableColor())
+                {
+                    return Color.White;
+                }
+
                 if (IsSupported(OperatingSystemVersion.WindowsVista))
                 {
                     return Color.FromArgb(0, 51, 153);
                 }
+
                 return Color.Black;
             }
         }
 
-        public static Color CategoryForeground
-        {
-            get
-            {
-                if (IsSupported(OperatingSystemVersion.WindowsVista))
-                {
-                    return Color.FromArgb(0, 51, 153);
-                }
-                return Color.Black;
-            }
-        }
+        public static Color CategoryForeground => TitleForeground;
 
         public static FontFamily TitleFontFamily
         {
             get
             {
+                // Aero Theme
                 if (IsSupported(OperatingSystemVersion.WindowsVista))
                 {
                     return FontFamily.Families.First(f => f.Name == "Segoe UI");
                 }
+
+                // Luna Theme
                 return FontFamily.Families.First(f => f.Name == "Franklin Gothic Medium");
             }
         }
