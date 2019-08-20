@@ -40,6 +40,5 @@ the day is saved, firefox decided to load discord.
 
 i did this shit (live share) on a live share session of botrappa a while back :P -PF94
 
-Display a fallback message to let the user know,
 so they can bully the developers of t.... fuck
 
