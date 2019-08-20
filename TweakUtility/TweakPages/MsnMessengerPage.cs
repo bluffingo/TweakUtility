@@ -33,7 +33,7 @@ namespace TweakUtility.TweakPages
                 {
                     string name = names.ElementAt(i);
 
-                    if (name == "0") //empty passport idk why
+                    if (name == "0")
                     {
                         continue;
                     }
@@ -90,7 +90,6 @@ namespace TweakUtility.TweakPages
             set => RegistryHelper.SetValue(@"HKCU\SOFTWARE\Microsoft\MSNMessenger\IntroShownCount", value);
         }
 
-        //@PF94, problem fixed :P
         private class PassportPage : TweakPage
         {
             private readonly string _passportId;

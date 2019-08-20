@@ -249,8 +249,6 @@ namespace TweakUtility
                         this.AddColorEntry(option, panel);
                     else
                     {
-                        //Display a fallback message to let the user know,
-                        //so they can bully the developers of t.... fuck
                         panel.Controls.Add(new Label()
                         {
                             AutoSize = true,
