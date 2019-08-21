@@ -1,13 +1,14 @@
 ﻿using System.Drawing;
 
 using TweakUtility.Attributes;
+using TweakUtility.Enums;
 using TweakUtility.Helpers;
 
 namespace TweakUtility.TweakPages
 {
     [OperatingSystemSupported(OperatingSystemVersion.WindowsVista)]
     [RegistryKeyRequired(@"HKCU\SOFTWARE\Microsoft\Windows\TabletPC\Snipping Tool")]
-    [Notice(NoticeAttributeType.Warning, "Make sure Snipping Tool is closed, before continuing.")]
+    [Notice(NoticeType.Warning, "Make sure Snipping Tool is closed, before continuing.")]
     internal class SnippingToolPage : TweakPage
     {
         internal SnippingToolPage() : base("Snipping Tool")

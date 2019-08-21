@@ -112,11 +112,15 @@
     <Compile Include="Attributes\DirectoryRequiredAttribute.cs" />
     <Compile Include="Attributes\FileRequiredAttribute.cs" />
     <Compile Include="Attributes\NoticeAttribute.cs" />
+    <Compile Include="Enums\NoticeAttributeType.cs" />
     <Compile Include="Attributes\RegistryKeyRequiredAttribute.cs" />
     <Compile Include="Attributes\RegistryValueRequiredAttribute.cs" />
     <Compile Include="Attributes\RequirementAttribute.cs" />
     <Compile Include="Attributes\VisibleAttribute.cs" />
     <Compile Include="Backup.cs" />
+    <Compile Include="Controls\NoticeControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Exceptions\InvalidReflectionInfoException.cs" />
     <Compile Include="Extensions\Extension.cs" />
     <Compile Include="Constants.cs" />
@@ -342,6 +346,7 @@
     <Content Include="Resources\go10.png" />
     <None Include="Resources\openfolder_24.bmp" />
     <None Include="Resources\refresh.png" />
+    <None Include="Resources\Lightbulb_16x.ico" />
     <Content Include="Resources\TweakUtility.ico" />
     <Content Include="Resources\TweakUtility.svg" />
   </ItemGroup>

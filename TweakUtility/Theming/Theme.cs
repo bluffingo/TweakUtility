@@ -14,6 +14,11 @@ namespace TweakUtility.Theming
         // *crab rave literally in background* removing themes -Craftplacer
         // i'd prob keep plex as a easter egg. :P -PF94
 
+        /// <summary>
+        /// Checks if the current system theme is dark.
+        /// </summary>
+        public static bool IsDark => SystemColors.Window.GetReadableColor();
+
         public static Color ApplicationBackground
         {
             get
@@ -47,7 +52,7 @@ namespace TweakUtility.Theming
         {
             get
             {
-                if (SystemColors.Window.GetReadableColor())
+                if (IsDark)
                 {
                     return Color.White;
                 }

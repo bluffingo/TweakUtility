@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Windows.Forms;
 
 using TweakUtility.Attributes;
+using TweakUtility.Controls;
 using TweakUtility.Helpers;
 using TweakUtility.Theming;
 using TweakUtility.TweakPages;

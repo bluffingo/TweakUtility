@@ -229,6 +229,12 @@ namespace TweakUtility
 
             try
             {
+                if (entry.GetAttribute<NoticeAttribute>() is NoticeAttribute noticeAttribute)
+                {
+                    var control = new NoticeControl(noticeAttribute);
+                    panel.Controls.Add(control);
+                }
+
                 if (entry is TweakAction action)
                 {
                     this.AddAction(action, panel);
@@ -431,6 +437,12 @@ namespace TweakUtility
                 Margin = new Padding(0),
                 ForeColor = Theme.TitleForeground
             });
+
+            if (this.TweakPage.GetType().GetAttribute<NoticeAttribute>() is NoticeAttribute noticeAttribute)
+            {
+                var control = new NoticeControl(noticeAttribute);
+                panel.Controls.Add(control);
+            }
 
             this.AddOptions(this.TweakPage, panel);
 
