@@ -13,9 +13,6 @@ namespace TweakUtility.Theming
 {
     internal static class Theme
     {
-        // *crab rave literally in background* removing themes -Craftplacer
-        // i'd prob keep plex as a easter egg. :P -PF94
-
         /// <summary>
         /// Checks if the current system theme is dark.
         /// </summary>

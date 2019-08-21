@@ -289,12 +289,6 @@ namespace TweakUtility.Forms
                 var page = pages.ElementAt(i);
                 var id = page.GetType().FullName;
 
-                //damnit, my screen just froze and now firefox is laggy,
-                //firefox is too lazy to load discord, i'm guessing my driver is glitchy or something
-                //brb gonna load chrome, oh, it loaded, great
-                //the day is saved, firefox decided to load discord.
-                //           -PF94, August 15th 2019.
-
                 tasks[i] = new JumpListLink(Assembly.GetExecutingAssembly().Location, page.Name)
                 {
                     ShowCommand = WindowShowCommand.Restore,
@@ -317,7 +311,6 @@ namespace TweakUtility.Forms
             splitContainer.Panel2.Controls.Add(control);
         }
 
-        //i did this shit (live share) on a live share session of botrappa a while back :P -PF94
         private void SplitContainer_BorderPaint(object sender, PaintEventArgs e)
         {
             if (sender == splitContainer.Panel1)

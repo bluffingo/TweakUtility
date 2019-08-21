@@ -19,7 +19,6 @@ namespace TweakUtility.TweakPages
     {
         internal AdvancedPage() : base("Advanced", new OEMInformation(), new DiskCleanupPage()) => this.Icon = NativeHelpers.ExtractIcon(@"%SystemRoot%\System32\shell32.dll", -22);
 
-        // I'M HAVING ATTENTION
         [DisplayName("Verbose Messages")]
         public bool VerboseMessages
         {

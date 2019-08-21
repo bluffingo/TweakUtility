@@ -12,12 +12,6 @@ namespace TweakUtility.TweakPages
     {
         internal CustomizationPage() : base("Customization", new ColorsPage())
         {
-            ///[4:33 AM] Craftplacer: https://files.catbox.moe/hipgjk.png
-            ///[4:33 AM] Craftplacer: tech gore
-            ///[4:33 AM] Craftplacer: but self made
-            ///[4:34 AM] PF94: tweakutility's main gimmick is that it can customize your printer
-            ///[4:34 AM] Craftplacer: lmao
-            ///[4:34 AM] PF94: and put ink without buying ink
             if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
             {
                 this.Icon = NativeHelpers.ExtractIcon(@"%SystemRoot%\system32\imageres.dll", -197);

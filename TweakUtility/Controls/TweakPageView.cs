@@ -254,9 +254,8 @@ namespace TweakUtility
                     else if (option.Type == typeof(Color))
                         this.AddColorEntry(option, panel);
                     else
+                    //Display a fallback message to let the user know
                     {
-                        //Display a fallback message to let the user know,
-                        //so they can bully the developers of t.... fuck
                         panel.Controls.Add(new Label()
                         {
                             AutoSize = true,
