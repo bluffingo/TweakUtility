@@ -34,5 +34,17 @@ namespace TweakUtility.Properties {
                 this["AutoInstallExtensions"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("None")]
+        public global::TweakUtility.Enums.OperatingSystemVersion CosmeticVersion {
+            get {
+                return ((global::TweakUtility.Enums.OperatingSystemVersion)(this["CosmeticVersion"]));
+            }
+            set {
+                this["CosmeticVersion"] = value;
+            }
+        }
     }
 }

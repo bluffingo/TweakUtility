@@ -4,6 +4,7 @@ using System.Management;
 
 using TweakUtility.Attributes;
 using TweakUtility.Enums;
+using TweakUtility.TweakPages;
 
 /// ---TweakUtility - Operating System Version Check (IMPORTANT NOTES)---
 /// WARNING: Beta support is experimental at the moment.
@@ -71,25 +72,29 @@ namespace TweakUtility.Helpers
 
         public static bool IsSupported(OperatingSystemVersion mininum, OperatingSystemVersion maximum = OperatingSystemVersion.None) => IsSupported(GetVersion(mininum), GetVersion(maximum));
 
+        public static bool IsSupportedCosmetic(OperatingSystemVersion mininum, OperatingSystemVersion maximum = OperatingSystemVersion.None) => IsSupported(GetVersion(mininum), PreferencesPage.GetCosmeticVersion(), GetVersion(maximum));
+
         /// <summary>
         /// Checks if the current operating system version matches the <paramref name="mininum"/> and <paramref name="maximum"/> version.
         /// </summary>
         /// <param name="mininum">The minimum supported operating system version.</param>
         /// <param name="maximum">The maximum supported operating system version.</param>
         /// <returns></returns>
-        public static bool IsSupported(this Version mininum, Version maximum = null)
+        public static bool IsSupported(this Version mininum, Version maximum = null) => IsSupported(mininum, CurrentVersion, maximum);
+
+        private static bool IsSupported(this Version mininum, Version current, Version maximum = null)
         {
             if (mininum is null)
             {
                 throw new ArgumentNullException(nameof(mininum));
             }
 
-            if (CurrentVersion < mininum)
+            if (current < mininum)
             {
                 return false;
             } //Check if current version is older than the minimum
 
-            if (maximum != null && maximum < CurrentVersion)
+            if (maximum != null && maximum < current)
             {
                 return false;
             } //Check if there's a maximum version and if the current version is too new.

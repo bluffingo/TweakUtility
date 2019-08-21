@@ -5,5 +5,8 @@
     <Setting Name="AutoInstallExtensions" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="CosmeticVersion" Type="TweakUtility.Enums.OperatingSystemVersion" Scope="User">
+      <Value Profile="(Default)">None</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

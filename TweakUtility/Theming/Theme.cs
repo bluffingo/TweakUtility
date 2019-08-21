@@ -2,10 +2,11 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using TweakUtility.Attributes;
+
 using TweakUtility.Enums;
 using TweakUtility.Forms;
 using TweakUtility.Helpers;
+
 using static TweakUtility.Helpers.OperatingSystemVersions;
 
 namespace TweakUtility.Theming
@@ -24,7 +25,7 @@ namespace TweakUtility.Theming
         {
             get
             {
-                if (IsSupported(OperatingSystemVersion.WindowsVista))
+                if (IsSupportedCosmetic(OperatingSystemVersion.WindowsVista))
                 {
                     return SystemColors.Window; //basically white on aero, no plans for aero transparency (like CustomizerGod) at the moment.
                 }
@@ -38,7 +39,7 @@ namespace TweakUtility.Theming
         {
             get
             {
-                if (IsSupported(OperatingSystemVersion.WindowsVista))
+                if (IsSupportedCosmetic(OperatingSystemVersion.WindowsVista))
                 {
                     return Color.FromArgb(0, 102, 204);
                 }
@@ -58,7 +59,7 @@ namespace TweakUtility.Theming
                     return Color.White;
                 }
 
-                if (IsSupported(OperatingSystemVersion.WindowsVista))
+                if (IsSupportedCosmetic(OperatingSystemVersion.WindowsVista))
                 {
                     return Color.FromArgb(0, 51, 153);
                 }
@@ -74,7 +75,7 @@ namespace TweakUtility.Theming
             get
             {
                 // Aero Theme
-                if (IsSupported(OperatingSystemVersion.WindowsVista))
+                if (IsSupportedCosmetic(OperatingSystemVersion.WindowsVista))
                 {
                     return FontFamily.Families.First(f => f.Name == "Segoe UI");
                 }
@@ -92,7 +93,7 @@ namespace TweakUtility.Theming
         {
             get
             {
-                if (IsSupported(OperatingSystemVersion.WindowsVista))
+                if (IsSupportedCosmetic(OperatingSystemVersion.WindowsVista))
                 {
                     return FontFamily.Families.First(f => f.Name == "Segoe UI");
                 }
