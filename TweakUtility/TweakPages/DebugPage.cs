@@ -1,8 +1,9 @@
-﻿using System.ComponentModel;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using TweakUtility.Attributes;
 
 namespace TweakUtility.TweakPages
 {
+    [Description("Various tweak entries for debugging purposes")]
     internal class DebugPage : TweakPage
     {
         internal DebugPage() : base("Debug")
@@ -13,7 +14,7 @@ namespace TweakUtility.TweakPages
         public int Integer { get; set; }
         public bool Boolean { get; set; }
 
-        [Browsable(true)]
+        [Visible(true)]
         public void Function() => MessageBox.Show("Hello world!");
     }
 }

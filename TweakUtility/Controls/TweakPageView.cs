@@ -265,6 +265,19 @@ namespace TweakUtility
                         });
                     }
                 }
+
+                if (entry.GetAttribute<DescriptionAttribute>() is DescriptionAttribute descriptionAttribute)
+                {
+                    var control = new Label()
+                    {
+                        Text = descriptionAttribute.Description,
+                        ForeColor = SystemColors.GrayText,
+                        AutoSize = true,
+                        Padding = new Padding(0, 0, 0, Constants.Design_Description_Padding_Bottom)
+                    };
+
+                    panel.Controls.Add(control);
+                }
             }
             catch
             {
@@ -437,6 +450,19 @@ namespace TweakUtility
                 Margin = new Padding(0),
                 ForeColor = Theme.TitleForeground
             });
+
+            if (this.TweakPage.GetType().GetAttribute<DescriptionAttribute>() is DescriptionAttribute descriptionAttribute)
+            {
+                var control = new Label()
+                {
+                    Text = descriptionAttribute.Description,
+                    ForeColor = SystemColors.GrayText,
+                    AutoSize = true,
+                    Padding = new Padding(0, 0, 0, Constants.Design_Description_Padding_Bottom)
+                };
+
+                panel.Controls.Add(control);
+            }
 
             if (this.TweakPage.GetType().GetAttribute<NoticeAttribute>() is NoticeAttribute noticeAttribute)
             {
