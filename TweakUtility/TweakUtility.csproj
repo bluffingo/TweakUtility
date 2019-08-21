@@ -113,6 +113,7 @@
     <Compile Include="Attributes\FileRequiredAttribute.cs" />
     <Compile Include="Attributes\NoticeAttribute.cs" />
     <Compile Include="Enums\NoticeAttributeType.cs" />
+    <Compile Include="Enums\OperatingSystemVersion.cs" />
     <Compile Include="Attributes\RegistryKeyRequiredAttribute.cs" />
     <Compile Include="Attributes\RegistryValueRequiredAttribute.cs" />
     <Compile Include="Attributes\RequirementAttribute.cs" />

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 using TweakUtility.Attributes;
 using TweakUtility.Controls;
+using TweakUtility.Enums;
 using TweakUtility.Helpers;
 using TweakUtility.Theming;
 using TweakUtility.TweakPages;

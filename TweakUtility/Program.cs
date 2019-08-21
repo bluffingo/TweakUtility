@@ -15,6 +15,7 @@ using System.Web;
 using System.Windows.Forms;
 
 using TweakUtility.Attributes;
+using TweakUtility.Enums;
 using TweakUtility.Extensions;
 using TweakUtility.Forms;
 using TweakUtility.Helpers;

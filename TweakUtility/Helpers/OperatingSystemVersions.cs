@@ -3,6 +3,7 @@ using System.Linq;
 using System.Management;
 
 using TweakUtility.Attributes;
+using TweakUtility.Enums;
 
 /// ---TweakUtility - Operating System Version Check (IMPORTANT NOTES)---
 /// WARNING: Beta support is experimental at the moment.

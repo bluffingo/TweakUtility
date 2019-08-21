@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Drawing;
 
 using TweakUtility.Attributes;
+using TweakUtility.Enums;
 using TweakUtility.Helpers;
 
 /// TweakUtility - IMPORTANT NOTES

@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using TweakUtility.Attributes;
+using TweakUtility.Enums;
 using TweakUtility.Forms;
 using TweakUtility.Helpers;
 using static TweakUtility.Helpers.OperatingSystemVersions;

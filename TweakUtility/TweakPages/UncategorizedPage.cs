@@ -6,6 +6,7 @@ using System.IO;
 using System.Net;
 
 using TweakUtility.Attributes;
+using TweakUtility.Enums;
 using TweakUtility.Helpers;
 
 namespace TweakUtility.TweakPages

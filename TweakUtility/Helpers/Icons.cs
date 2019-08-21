@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 
 using TweakUtility.Attributes;
-
+using TweakUtility.Enums;
 using static TweakUtility.Helpers.NativeHelpers;
 
 namespace TweakUtility.Helpers

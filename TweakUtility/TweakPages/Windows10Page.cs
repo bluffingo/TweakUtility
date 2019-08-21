@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Windows.Forms;
 
 using TweakUtility.Attributes;
+using TweakUtility.Enums;
 using TweakUtility.Helpers;
 
 namespace TweakUtility.TweakPages

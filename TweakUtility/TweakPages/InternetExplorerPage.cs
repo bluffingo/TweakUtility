@@ -1,4 +1,5 @@
 ﻿using TweakUtility.Attributes;
+using TweakUtility.Enums;
 using TweakUtility.Helpers;
 
 //To-do: See issue #25
