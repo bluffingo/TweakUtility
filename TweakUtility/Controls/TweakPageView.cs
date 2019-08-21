@@ -323,7 +323,7 @@ namespace TweakUtility
         {
             var categories = new Dictionary<string, List<object>>();
 
-            foreach (TweakEntry entry in tweakPage.Entries)
+            foreach (var entry in tweakPage.Entries)
             {
                 string categoryName = entry.GetAttribute<CategoryAttribute>()?.Category;
 

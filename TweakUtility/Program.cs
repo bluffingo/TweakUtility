@@ -243,15 +243,19 @@ namespace TweakUtility
                 string path = argument;
 
                 // remove "
-                if (path.StartsWith("\"") && path.EndsWith("\"")) path = path.Substring(1, path.Length - 2);
+                if (path.StartsWith("\"") && path.EndsWith("\""))
+                    path = path.Substring(1, path.Length - 2);
 
                 // skip missing file
-                if (!File.Exists(path)) continue;
+                if (!File.Exists(path))
+                    continue;
 
                 string fileExtension = Path.GetExtension(path).ToLower();
 
-                if (fileExtension == ".tuex") HandleExtension(path);
-                else if (fileExtension == ".tubk") HandleBackup(path);
+                if (fileExtension == ".tuex")
+                    HandleExtension(path);
+                else if (fileExtension == ".tubk")
+                    HandleBackup(path);
             }
 
             return true;
