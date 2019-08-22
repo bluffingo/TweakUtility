@@ -21,7 +21,7 @@ namespace TweakUtility
 
         public string Name => System.IO.Path.GetFileNameWithoutExtension(this.Path);
 
-        private FileInfo fileInfo;
+        private readonly FileInfo fileInfo;
 
         public Backup(string filePath)
         {
@@ -93,7 +93,8 @@ namespace TweakUtility
 
                 if (!(entry is TweakOption option))
                 {
-                    Debug.WriteLine("[Backup] Ignoring tweak entry..."); ;
+                    Debug.WriteLine("[Backup] Ignoring tweak entry...");
+                    ;
                     continue;
                 }
 

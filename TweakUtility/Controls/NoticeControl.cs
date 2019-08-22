@@ -10,9 +10,9 @@ namespace TweakUtility.Controls
 {
     public class NoticeControl : Control
     {
-        private Color outlineColor;
-        private Color fillColor;
-        private Icon icon;
+        private readonly Color outlineColor;
+        private readonly Color fillColor;
+        private readonly Icon icon;
 
         private new string Text { get; }
 

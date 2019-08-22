@@ -11,7 +11,7 @@ namespace TweakUtility.Helpers
 {
     public static class Helpers
     {
-        private static byte[] pngiconheader = new byte[] { 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        private static readonly byte[] pngiconheader = new byte[] { 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
         internal static Icon PngIconFromImage(Image img, int size = 16)
         {
@@ -33,7 +33,7 @@ namespace TweakUtility.Helpers
                     pngiconheader[7] = (byte)size;
                     pngiconheader[14] = (byte)(png.Length & 255);
                     pngiconheader[15] = (byte)(png.Length / 256);
-                    pngiconheader[18] = (byte)(pngiconheader.Length);
+                    pngiconheader[18] = (byte)pngiconheader.Length;
 
                     fs.Write(pngiconheader, 0, pngiconheader.Length);
                     fs.Write(png, 0, png.Length);

@@ -232,10 +232,7 @@ namespace TweakUtility.Helpers
             }
         }
 
-        public void Shutdown(ShutdownType shutdownType)
-        {
-            this.Shutdown(shutdownType, null);
-        }
+        public void Shutdown(ShutdownType shutdownType) => this.Shutdown(shutdownType, null);
 
         private void ReleaseUnmanagedResources()
         {

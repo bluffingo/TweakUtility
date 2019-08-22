@@ -25,7 +25,7 @@ namespace TweakUtility
 {
     internal static class Program
     {
-        private static Mutex Mutex = new Mutex(true, Helpers.Helpers.GetApplicationGuid().ToString());
+        private static readonly Mutex Mutex = new Mutex(true, Helpers.Helpers.GetApplicationGuid().ToString());
         public static RegistryKey CurrentUser { get; private set; }
         public static RegistryKey LocalMachine { get; private set; }
         public static ExtensionLoader Loader { get; } = new ExtensionLoader();

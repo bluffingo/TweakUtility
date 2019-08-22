@@ -155,7 +155,7 @@ namespace TweakUtility.Forms
             this.treeView.Height = this.splitContainer.Panel1.Height - this.treeView.Top - 1;
 
             this.searchTextBox.Width = this.splitContainer.Panel1.Width;
-            this.treeView.Width = (this.splitContainer.Panel1.Width - 2);
+            this.treeView.Width = this.splitContainer.Panel1.Width - 2;
             this.treeView.Left = 1;
         }
 
