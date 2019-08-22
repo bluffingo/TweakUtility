@@ -181,7 +181,11 @@ namespace TweakUtility.Forms
                 this.Top = optimalTop;
         }
 
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e) => this.SaveWindowRectangle();
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.SaveWindowRectangle();
+            Properties.Settings.Default.Save();
+        }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
