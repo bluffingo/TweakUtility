@@ -230,6 +230,8 @@
     </Compile>
     <Compile Include="Theming\Theme.cs" />
     <Compile Include="TweakPages\AdvancedPage.cs" />
+    <Compile Include="TweakPages\AdvancedPage.OEMInformationPage.cs" />
+    <Compile Include="TweakPages\CustomizationPage.ColorsPage.cs" />
     <Compile Include="TweakPages\CustomizationPage.cs" />
     <Compile Include="TweakPages\DebugPage.cs" />
     <Compile Include="TweakPages\DiskCleanupPage.cs">
@@ -240,6 +242,7 @@
     </Compile>
     <Compile Include="TweakPages\InternetExplorerPage.cs" />
     <Compile Include="TweakPages\MsnMessengerPage.cs" />
+    <Compile Include="TweakPages\MsnMessengerPage.PassportPage.cs" />
     <Compile Include="TweakPages\PaintDotNetPage.cs" />
     <Compile Include="TweakPages\PreferencesPage.cs" />
     <Compile Include="TweakPages\SnippingToolPage.cs" />
