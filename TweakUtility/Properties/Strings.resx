@@ -252,6 +252,18 @@ Automated crash reports are also disabled.</value>
   <data name="Extension_Install_Success" xml:space="preserve">
     <value>Extension has been installed.</value>
   </data>
+  <data name="Hosts_AddTitle" xml:space="preserve">
+    <value>Add a new hosts entry</value>
+  </data>
+  <data name="Hosts_EditTitle" xml:space="preserve">
+    <value>Edit an existing hosts entry</value>
+  </data>
+  <data name="Hosts_Host" xml:space="preserve">
+    <value>Host</value>
+  </data>
+  <data name="Hosts_IPAddress" xml:space="preserve">
+    <value>IP Address</value>
+  </data>
   <data name="MsnMessenger_AudioBackup" xml:space="preserve">
     <value>Would you like to backup the files before proceeding?</value>
   </data>

@@ -368,6 +368,42 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add a new hosts entry.
+        /// </summary>
+        internal static string Hosts_AddTitle {
+            get {
+                return ResourceManager.GetString("Hosts_AddTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit an existing hosts entry.
+        /// </summary>
+        internal static string Hosts_EditTitle {
+            get {
+                return ResourceManager.GetString("Hosts_EditTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Host.
+        /// </summary>
+        internal static string Hosts_Host {
+            get {
+                return ResourceManager.GetString("Hosts_Host", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IP Address.
+        /// </summary>
+        internal static string Hosts_IPAddress {
+            get {
+                return ResourceManager.GetString("Hosts_IPAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Would you like to backup the files before proceeding?.
         /// </summary>
         internal static string MsnMessenger_AudioBackup {
