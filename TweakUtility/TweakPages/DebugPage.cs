@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using TweakUtility.Attributes;
+using TweakUtility.Theming;
 
 namespace TweakUtility.TweakPages
 {
@@ -16,5 +17,7 @@ namespace TweakUtility.TweakPages
 
         [Visible(true)]
         public void Function() => MessageBox.Show("Hello world!");
+
+        public bool IsDark => Theme.IsDark;
     }
 }
