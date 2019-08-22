@@ -56,6 +56,7 @@ namespace TweakUtility.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            e.Graphics.Clear(this.BackColor);
             this.OnPaintPreview(e);
             this.OnPaintText(e);
         }
@@ -63,8 +64,8 @@ namespace TweakUtility.Controls
         public void OnPaintPreview(PaintEventArgs e)
         {
             var previewRectangle = new Rectangle(
-                e.ClipRectangle.X + this.Padding.Left,
-                e.ClipRectangle.Y + this.Padding.Top + (e.ClipRectangle.Height / 2) - (PreviewSize / 2),
+                this.Padding.Left,
+                this.Padding.Top + (this.Height / 2) - (PreviewSize / 2),
                 PreviewSize,
                 PreviewSize);
 
@@ -75,9 +76,9 @@ namespace TweakUtility.Controls
         public void OnPaintText(PaintEventArgs e)
         {
             var textRectangle = new Rectangle(
-                e.ClipRectangle.X + this.Padding.Left + PreviewSize + TextSpacing,
-                e.ClipRectangle.Y + this.Padding.Top,
-                this.Width - this.Padding.Left - this.Padding.Right - PreviewSize - TextSpacing + 5, //adding 5 to prevent the renderer to think that the space is too small
+                this.Padding.Left + PreviewSize + TextSpacing,
+                this.Padding.Top,
+                this.Width - this.Padding.Left - PreviewSize - TextSpacing - this.Padding.Right + 5, //adding 5 to prevent the renderer to think that the space is too small
                 this.Height - this.Padding.Top - this.Padding.Bottom);
 
             //HACK: Optimization can be done to reduce initializations of SolidBrush.
