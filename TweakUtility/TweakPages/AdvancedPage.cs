@@ -80,16 +80,16 @@ namespace TweakUtility.TweakPages
 
         public enum WindowsSFCMode
         {
-            [Description("Disabled with prompts")]
+            [DisplayName("Disabled with prompts")]
             Enabled = 0,
 
-            [Description("Disabled with reactivation prompts")]
+            [DisplayName("Disabled with reactivation prompts")]
             DisablePrompt = 1,
 
-            [Description("Disabled without any reactivation prompts")]
+            [DisplayName("Disabled without any reactivation prompts")]
             DisableNoPrompt = 2,
 
-            [Description("Enabled without prompts")]
+            [DisplayName("Enabled without prompts")]
             EnabledNoPrompt = 4
         }
     }

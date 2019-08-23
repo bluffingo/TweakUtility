@@ -144,7 +144,7 @@ namespace TweakUtility
 
                 //Use display name as label, if not available use property name as fallback.
                 var item = (Enum)comboBox.Items[e2.Index];
-                string valueDisplayName = item.GetAttribute<DescriptionAttribute>()?.Description ?? item.ToString();
+                string valueDisplayName = item.GetAttribute<DisplayNameAttribute>()?.DisplayName ?? item.ToString();
 
                 e2.Graphics.DrawString(valueDisplayName, comboBox.Font, new SolidBrush(e2.ForeColor), e2.Bounds.X, e2.Bounds.Y);
             };
