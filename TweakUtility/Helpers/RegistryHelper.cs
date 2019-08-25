@@ -55,6 +55,9 @@ namespace TweakUtility.Helpers
             {
                 object value = subKey.GetValue(info.Item2, null);
 
+                if (value == null)
+                    return default;
+
                 return (T)value;
             }
         }
