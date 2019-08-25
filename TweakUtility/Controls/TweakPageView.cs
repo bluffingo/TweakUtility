@@ -325,6 +325,15 @@ namespace TweakUtility
                     NativeMethods.ExitWindowsEx(NativeMethods.ExitWindows.LogOff, NativeMethods.ShutdownReason.MinorReconfig);
                 }
             }
+            else if (attribute.Type == RestartType.TweakUtility)
+            {
+                DialogResult result = MessageBox.Show(Properties.Strings.Reload_TweakUtility, Properties.Strings.Application_Name, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    Application.Restart();
+                }
+            }
             else if (attribute.Type == RestartType.Unknown)
             {
                 MessageBox.Show(Properties.Strings.Reload_Unknown, Properties.Strings.Application_Name, MessageBoxButtons.OK, MessageBoxIcon.Information);

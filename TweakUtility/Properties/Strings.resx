@@ -316,6 +316,11 @@ Would you like to do that now?</value>
 
 Would you like to do that now?</value>
   </data>
+  <data name="Reload_TweakUtility" xml:space="preserve">
+    <value>This option requires you to restart Tweak Utility.
+
+Would you like to do that now?</value>
+  </data>
   <data name="Reload_Unknown" xml:space="preserve">
     <value>This option requires you to reload the thing related to it, as there isn't a refresh implemented yet.
 

@@ -40,6 +40,11 @@ namespace TweakUtility.Attributes
         ProcessRestart,
 
         /// <summary>
+        /// Requires Tweak Utility to be restarted, to apply the changes.
+        /// </summary>
+        TweakUtility,
+
+        /// <summary>
         /// Notifies the user has to reload the thing related to the option. As there isn't a known method to reload.
         /// </summary>
         Unknown,

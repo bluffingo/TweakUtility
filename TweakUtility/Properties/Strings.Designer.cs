@@ -528,6 +528,17 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This option requires you to restart Tweak Utility.
+        ///
+        ///Would you like to do that now?.
+        /// </summary>
+        internal static string Reload_TweakUtility {
+            get {
+                return ResourceManager.GetString("Reload_TweakUtility", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This option requires you to reload the thing related to it, as there isn&apos;t a refresh implemented yet.
         ///
         ///If you know how to implement this refresh programmatically, please let us know by clicking the feedback button in the about window..
