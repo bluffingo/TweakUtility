@@ -19,6 +19,7 @@ namespace TweakUtility.Helpers
         public static readonly Icon Bulb = Properties.Resources.Lightbulb_16x;
         public static readonly Icon Information = getInformationIcon();
         public static readonly Icon Warning = getWarningIcon();
+        public static readonly Icon Software = ExtractIcon(@"%SystemRoot%\system32\shell32.dll", -271);
 
         private static Icon getInformationIcon()
         {
