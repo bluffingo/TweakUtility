@@ -8,5 +8,8 @@
     <Setting Name="CosmeticVersion" Type="TweakUtility.Enums.OperatingSystemVersion" Scope="User">
       <Value Profile="(Default)">None</Value>
     </Setting>
+    <Setting Name="EnableExperimentalFeatures" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

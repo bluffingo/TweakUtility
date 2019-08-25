@@ -39,5 +39,13 @@ namespace TweakUtility.TweakPages
 
             return OperatingSystemVersions.GetVersion(CosmeticVersion);
         }
+
+        [RefreshRequired(RestartType.TweakUtility)]
+        [DisplayName("Enable experimental features")]
+        public static bool EnableExperimentalFeatures
+        {
+            get => Properties.Settings.Default.EnableExperimentalFeatures;
+            set => Properties.Settings.Default.EnableExperimentalFeatures = value;
+        }
     }
 }
