@@ -35,6 +35,7 @@ namespace TweakUtility.TweakPages
             set => RegistryHelper.SetValue(@"HKCU\SOFTWARE\Microsoft\Windows\TabletPC\Snipping Tool\CaptureWindowVisible", value ? 1 : 0);
         }
 
+        [OperatingSystemSupported(OperatingSystemVersion.Windows10)]
         [DisplayName("Expand screen sketch banner")]
         public bool IsScreenSketchBannerExpanded
         {
