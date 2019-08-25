@@ -12,6 +12,6 @@ Tweak Utility offers extensibility options, this means you can add new tweaks to
 ## Working with the installer
 Tweak Utility uses at the moment the [Microsoft Visual Studio Installer Projects](https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.MicrosoftVisualStudio2017InstallerProjects) template, if you don't install it the install project included won't load.
 
-## What VS version to use
+## What Visual Studio version to use
 
-It is recommended to use 2019 for developing Tweak Utility.
+It is recommended to use 2019 for developing Tweak Utility. Older versions of Visual Studio may load TweakUtility but may send a lot of errors.
