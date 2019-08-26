@@ -68,22 +68,22 @@ namespace TweakUtility.TweakPages
 
         public enum CustomPenTip
         {
-            [Description("Round tip pen")]
+            [DisplayName("Round tip pen")]
             Round = 0,
 
-            [Description("Chisel tip pen")]
+            [DisplayName("Chisel tip pen")]
             Chisel = 1,
         }
 
         public enum Mode
         {
-            [Description("Free-form Snip")]
+            [DisplayName("Free-form Snip")]
             FreeForm = 1,
 
-            [Description("Rectangular Snip")]
+            [DisplayName("Rectangular Snip")]
             Rectangular = 2,
 
-            [Description("Window Snip")]
+            [DisplayName("Window Snip")]
             Window = 3
         }
     }
