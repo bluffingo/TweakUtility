@@ -46,8 +46,8 @@ namespace TweakUtility.TweakPages
         [DisplayName("Capture mode")]
         public Mode CaptureMode
         {
-            get => (Mode)RegistryHelper.GetValue(@"HKCU\SOFTWARE\Microsoft\Windows\TabletPC\Snipping Tool\IsScreenSketchBannerExpanded", 2);
-            set => RegistryHelper.SetValue(@"HKCU\SOFTWARE\Microsoft\Windows\TabletPC\Snipping Tool\IsScreenSketchBannerExpanded", (int)value);
+            get => (Mode)RegistryHelper.GetValue(@"HKCU\SOFTWARE\Microsoft\Windows\TabletPC\Snipping Tool\CaptureMode", 2);
+            set => RegistryHelper.SetValue(@"HKCU\SOFTWARE\Microsoft\Windows\TabletPC\Snipping Tool\CaptureMode", (int)value);
         }
 
         [Category("Custom Pen")]
