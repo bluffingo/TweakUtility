@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -128,7 +128,7 @@
   </data>
   <data name="About_License" xml:space="preserve">
     <value>Tweak Utility ist verfügbar auf {0}, und lizenziert unter der GPL-3.0.</value>
-    <comment>{0} (link) = "GitHub"</comment>
+    <comment>{0} (link) = &quot;GitHub&quot;</comment>
   </data>
   <data name="Application_Name" xml:space="preserve">
     <value>Tweak Utility</value>
@@ -136,6 +136,9 @@
   </data>
   <data name="Backups" xml:space="preserve">
     <value>Backups</value>
+  </data>
+  <data name="Backups_Confirmation" xml:space="preserve">
+    <value>Sind Sie sicher dass sie dieses Backup übernehmen wollen?</value>
   </data>
   <data name="Backups_FolderDescription" xml:space="preserve">
     <value>Dieser Ordner enthält Backups erstellt von Tweak Utility.</value>
@@ -152,14 +155,74 @@
   <data name="Button_Create" xml:space="preserve">
     <value>&amp;Erstellen</value>
   </data>
+  <data name="Button_Credits" xml:space="preserve">
+    <value>Cred&amp;its</value>
+    <comment>Kann nicht übersetzt werden, und muss auch nicht umbedingt</comment>
+  </data>
   <data name="Button_Delete" xml:space="preserve">
     <value>&amp;Löschen</value>
   </data>
   <data name="Button_Feedback" xml:space="preserve">
     <value>&amp;Feedback</value>
   </data>
+  <data name="Button_Install" xml:space="preserve">
+    <value>&amp;Installieren</value>
+  </data>
   <data name="Button_OK" xml:space="preserve">
     <value>&amp;OK</value>
+  </data>
+  <data name="CheckBox_DontAskAgain" xml:space="preserve">
+    <value>Nicht nochmal fragen</value>
+  </data>
+  <data name="Credits" xml:space="preserve">
+    <value>Lead Developer
+Craftplacer
+
+Contributer Developers
+PF94, aka Gamerappa
+
+Former Contributers
+Alien Future, aka Balázs Vámos
+
+Translators
+Craftplacer (English, German)
+Alien Future (Hungarian)
+CatHR Games (Spanish)
+PF94 and Google Translate (French)
+
+Icons
+Craftplacer (application icon)
+Microsoft Windows (for version specific icons, taken dynamically)
+
+Tweak Sources
+AskVG (https://www.askvg.com)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+⭐ And you for using this application ⭐
+
+
+
+
+
+
+
+
+
+
+</value>
+    <comment>THIS STRING ISN&apos;T SUPPOSED TO BE TRANSLATED</comment>
   </data>
   <data name="Debug_Disclaimer" xml:space="preserve">
     <value>Debug-Builds sind experimentell und garantieren nicht, dass sie funktionieren oder Unterstützung bieten.
@@ -183,6 +246,27 @@ Automatisierte Absturzberichte sind ebenfalls deaktiviert.</value>
   <data name="Extensions_OpenFolder" xml:space="preserve">
     <value>&amp;Erweiterungen Ordner öffnen</value>
   </data>
+  <data name="Extension_Install" xml:space="preserve">
+    <value>Erweiterung installieren</value>
+  </data>
+  <data name="Extension_Install_Confirmation" xml:space="preserve">
+    <value>Sind Sie sicher, dass Sie diese Erweiterung installieren möchten?</value>
+  </data>
+  <data name="Extension_Install_Success" xml:space="preserve">
+    <value>Die Erweiterung wurde installiert</value>
+  </data>
+  <data name="Hosts_AddTitle" xml:space="preserve">
+    <value>Neuer Hosts-Eintrag hinzufügen</value>
+  </data>
+  <data name="Hosts_EditTitle" xml:space="preserve">
+    <value>Existierenden Hosts-Eintrag bearbeiten</value>
+  </data>
+  <data name="Hosts_Host" xml:space="preserve">
+    <value>Host</value>
+  </data>
+  <data name="Hosts_IPAddress" xml:space="preserve">
+    <value>IP-Adresse</value>
+  </data>
   <data name="MsnMessenger_AudioBackup" xml:space="preserve">
     <value>Möchten Sie die Dateien sichern, bevor Sie fortfahren?</value>
   </data>
@@ -204,18 +288,21 @@ Aus diesem Grund wird OneDrive nicht automatisch deinstalliert. Sie können weit
 Wollen Sie fortfahren?</value>
   </data>
   <data name="OneDrive_Uninstall_SetFlagMessage" xml:space="preserve">
-    <value>Derzeit ist die "Benutzerinitiierte Deinstallation" Flagge nicht gesetzt, was möglicherweise dazu führt, dass Windows OneDrive neu installiert.
+    <value>Derzeit ist die &quot;Benutzerinitiierte Deinstallation&quot; Flagge nicht gesetzt, was möglicherweise dazu führt, dass Windows OneDrive neu installiert.
 Wenn Sie diese Flagge setzen, wird Windows darüber informiert, dass OneDrive weiterhin deinstalliert bleiben soll.
 
 Möchten Sie diese einschalten?</value>
   </data>
   <data name="OneDrive_Uninstall_Success" xml:space="preserve">
-    <value>OneDrive wurde deinstalled.</value>
+    <value>OneDrive wurde deinstalliert.</value>
   </data>
   <data name="OneDrive_Uninstall_Warning" xml:space="preserve">
     <value>Das OneDrive-Deinstallationsprogramm wurde anscheinend nicht ordnungsgemäß ausgeführt.
 
 Wollen Sie fortfahren?</value>
+  </data>
+  <data name="Preferences" xml:space="preserve">
+    <value>Einstellungen</value>
   </data>
   <data name="Reload_ExplorerRestart" xml:space="preserve">
     <value>Für diese Option müssen Sie den Windows Explorer neu starten.
@@ -235,7 +322,22 @@ Möchten Sie das jetzt tun?</value>
   <data name="Reload_Unknown" xml:space="preserve">
     <value>Bei dieser Option müssen Sie das zugehörige Programm neu laden, da noch keine Aktualisierung implementiert ist.
 
-Wenn Sie wissen, wie diese Aktualisierung programmgesteuert implementiert werden kann, teilen Sie uns dies bitte mit, indem Sie im "Über Tweak Utility" Fenster auf die Feedback-Schaltfläche klicken.</value>
+Wenn Sie wissen, wie diese Aktualisierung programmgesteuert implementiert werden kann, teilen Sie uns dies bitte mit, indem Sie im &quot;Über Tweak Utility&quot; Fenster auf die Feedback-Schaltfläche klicken.</value>
     <comment>Message telling user to reload themself, since code is missing.</comment>
+  </data>
+  <data name="Report_Disclaimer" xml:space="preserve">
+    <value>Bitte gehen Sie sicher dass dieser Bericht keine persöhnlichen Informationen ausversehen vom Programm hingefügt wurden. (Dies gesagt sind wir nicht haftend darüber wenn Sie sich doxxen.)</value>
+    <comment>Fuzzy</comment>
+  </data>
+  <data name="TweakPage_InsufficientPermissions" xml:space="preserve">
+    <value>Die Tweak Page {0} hat fehlgeschlagen zu laden weil die Anwendung mit unausreichenden Berechtigungen läuft.
+Sie können versuchen das Programm als Administrator neuzustarten.</value>
+  </data>
+  <data name="TweakPage_LoadError" xml:space="preserve">
+    <value>Die Tweak Page {0} hat fehlgeschlagen zu laden aufgrund der folgenden Fehlermeldung:
+{1}
+
+Diese Tweak Page wird nicht eingeschlossen.</value>
+    <comment>{0} Page Name/Id, {1} error message</comment>
   </data>
 </root>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -128,13 +128,17 @@
   </data>
   <data name="About_License" xml:space="preserve">
     <value>Tweak Utility esta disponible en {0}, y licenciado bajo GPL-3.0.</value>
-    <comment>{0} (link) = "GitHub"</comment>
+    <comment>{0} (link) = &quot;GitHub&quot;</comment>
   </data>
   <data name="Application_Name" xml:space="preserve">
     <value>Tweak Utility</value>
+    <comment>Google Translate is better than me. -Craftplacer</comment>
   </data>
   <data name="Backups" xml:space="preserve">
     <value>Copias de seguridad</value>
+  </data>
+  <data name="Backups_Confirmation" xml:space="preserve">
+    <value></value>
   </data>
   <data name="Backups_FolderDescription" xml:space="preserve">
     <value>Esta carpeta contiene copias de seguridad hechas por Tweak Utility. </value>
@@ -151,14 +155,27 @@
   <data name="Button_Create" xml:space="preserve">
     <value>Cre&amp;ar</value>
   </data>
+  <data name="Button_Credits" xml:space="preserve">
+    <value></value>
+  </data>
   <data name="Button_Delete" xml:space="preserve">
     <value>&amp;Borrar</value>
   </data>
   <data name="Button_Feedback" xml:space="preserve">
     <value>&amp;Feedback</value>
   </data>
+  <data name="Button_Install" xml:space="preserve">
+    <value></value>
+  </data>
   <data name="Button_OK" xml:space="preserve">
     <value>&amp;Aceptar</value>
+  </data>
+  <data name="CheckBox_DontAskAgain" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Credits" xml:space="preserve">
+    <value></value>
+    <comment>THIS STRING ISN&apos;T SUPPOSED TO BE TRANSLATED</comment>
   </data>
   <data name="Debug_Disclaimer" xml:space="preserve">
     <value>Las compilaciones de depuración son experimentales y no garantizan que funcionen ni ofrezcan ningún soporte.
@@ -182,6 +199,27 @@ Los informes automáticos de fallas también están deshabilitados.</value>
   <data name="Extensions_OpenFolder" xml:space="preserve">
     <value>Abrir carpeta de &amp;extensiones</value>
   </data>
+  <data name="Extension_Install" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Extension_Install_Confirmation" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Extension_Install_Success" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Hosts_AddTitle" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Hosts_EditTitle" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Hosts_Host" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Hosts_IPAddress" xml:space="preserve">
+    <value></value>
+  </data>
   <data name="MsnMessenger_AudioBackup" xml:space="preserve">
     <value>Desea hacer una copia de seguridad de los archivos antes de proceder?</value>
   </data>
@@ -203,7 +241,7 @@ Por lo tanto, OneDrive no se desinstalará automáticamente, puede continuar eli
 Desea continuar?</value>
   </data>
   <data name="OneDrive_Uninstall_SetFlagMessage" xml:space="preserve">
-    <value>Actualmente, el indicador "desinstalación iniciada por el usuario" no está configurado, lo que posiblemente lleve a Windows a reinstalar OneDrive.
+    <value>Actualmente, el indicador &quot;desinstalación iniciada por el usuario&quot; no está configurado, lo que posiblemente lleve a Windows a reinstalar OneDrive.
 Configurar el indicador informara a Windows que quieres mantener OneDrive desinstalado.
 
 Desea encenderlo?</value>
@@ -215,6 +253,9 @@ Desea encenderlo?</value>
     <value>El desinstalador de OneDrive no parecía ejecutarse correctamente.
 
 Desea continuar?</value>
+  </data>
+  <data name="Preferences" xml:space="preserve">
+    <value></value>
   </data>
   <data name="Reload_ExplorerRestart" xml:space="preserve">
     <value>Esta opción requiere que reinicie el Explorador de Windows.
@@ -236,5 +277,15 @@ Desea hacerlo ahora?</value>
 
 Si sabe cómo implementar esta actualización mediante programación, infórmenos haciendo clic en el boton feedback la ventana Acerca de.</value>
     <comment>Message telling user to reload themself, since code is missing.</comment>
+  </data>
+  <data name="Report_Disclaimer" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="TweakPage_InsufficientPermissions" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="TweakPage_LoadError" xml:space="preserve">
+    <value></value>
+    <comment>{0} Page Name/Id, {1} error message</comment>
   </data>
 </root>

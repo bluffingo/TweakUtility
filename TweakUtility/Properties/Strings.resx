@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -128,22 +128,17 @@
   </data>
   <data name="About_License" xml:space="preserve">
     <value>Tweak Utility is available on {0}, and licensed under GPL-3.0.</value>
-    <comment>{0} (link) = "GitHub"</comment>
+    <comment>{0} (link) = &quot;GitHub&quot;</comment>
   </data>
   <data name="Application_Name" xml:space="preserve">
     <value>Tweak Utility</value>
+    <comment>Google Translate is better than me. -Craftplacer</comment>
   </data>
   <data name="Backups" xml:space="preserve">
     <value>Backups</value>
   </data>
   <data name="Backups_Confirmation" xml:space="preserve">
     <value>Are you sure you want to apply this backup?</value>
-  </data>
-  <data name="Backups_Create_Instruction" xml:space="preserve">
-    <value>Please select the tweaks you want to create a backup from.</value>
-  </data>
-  <data name="Backups_Create_Requirement" xml:space="preserve">
-    <value>Please select at least one option to create a backup.</value>
   </data>
   <data name="Backups_FolderDescription" xml:space="preserve">
     <value>This folder contains backups made by Tweak Utility. </value>
@@ -176,7 +171,7 @@
     <value>&amp;OK</value>
   </data>
   <data name="CheckBox_DontAskAgain" xml:space="preserve">
-    <value>Don't ask again</value>
+    <value>Don&apos;t ask again</value>
   </data>
   <data name="Credits" xml:space="preserve">
     <value>Lead Developer
@@ -225,7 +220,7 @@ AskVG (https://www.askvg.com)
 
 
 </value>
-    <comment>THIS STRING ISN'T SUPPOSED TO BE TRANSLATED</comment>
+    <comment>THIS STRING ISN&apos;T SUPPOSED TO BE TRANSLATED</comment>
   </data>
   <data name="Debug_Disclaimer" xml:space="preserve">
     <value>Debug builds are experimental and do not guarantee to be working or offer any support.
@@ -285,13 +280,13 @@ Automated crash reports are also disabled.</value>
 {0}</value>
   </data>
   <data name="OneDrive_Uninstall_InstallerNotFound" xml:space="preserve">
-    <value>The uninstall info for OneDrive couldn't be found.
-Therefore, OneDrive won't be automatically uninstalled, you can continue deleting directories and registry entries related to it. 
+    <value>The uninstall info for OneDrive couldn&apos;t be found.
+Therefore, OneDrive won&apos;t be automatically uninstalled, you can continue deleting directories and registry entries related to it. 
 
 Do you want to continue?</value>
   </data>
   <data name="OneDrive_Uninstall_SetFlagMessage" xml:space="preserve">
-    <value>Currently, the "user initiated uninstallation" flag isn't set, possibly leading Windows into reinstalling OneDrive.
+    <value>Currently, the &quot;user initiated uninstallation&quot; flag isn&apos;t set, possibly leading Windows into reinstalling OneDrive.
 Setting this flag will tell Windows that you want to keep OneDrive uninstalled.
 
 Would you like to switch it on?</value>
@@ -300,7 +295,7 @@ Would you like to switch it on?</value>
     <value>OneDrive, along with its trails, have been deleted.</value>
   </data>
   <data name="OneDrive_Uninstall_Warning" xml:space="preserve">
-    <value>The OneDrive uninstaller didn't seem to run correctly.
+    <value>The OneDrive uninstaller didn&apos;t seem to run correctly.
 
 Do you want to continue?</value>
   </data>
@@ -322,19 +317,14 @@ Would you like to do that now?</value>
 
 Would you like to do that now?</value>
   </data>
-  <data name="Reload_TweakUtility" xml:space="preserve">
-    <value>This option requires you to restart Tweak Utility.
-
-Would you like to do that now?</value>
-  </data>
   <data name="Reload_Unknown" xml:space="preserve">
-    <value>This option requires you to reload the thing related to it, as there isn't a refresh implemented yet.
+    <value>This option requires you to reload the thing related to it, as there isn&apos;t a refresh implemented yet.
 
 If you know how to implement this refresh programmatically, please let us know by clicking the feedback button in the about window.</value>
     <comment>Message telling user to reload themself, since code is missing.</comment>
   </data>
   <data name="Report_Disclaimer" xml:space="preserve">
-    <value>Please make sure this report doesn't contain any personal details accidentally picked up by this program. (That said we aren't reliable if you dox yourself.)</value>
+    <value>Please make sure this report doesn&apos;t contain any personal details accidentally picked up by this program. (That said we aren&apos;t reliable if you dox yourself.)</value>
   </data>
   <data name="TweakPage_InsufficientPermissions" xml:space="preserve">
     <value>The tweak page {0} has failed to load because the application is running with insufficient permissions.
@@ -344,7 +334,7 @@ You can try restarting the program as administrator.</value>
     <value>The tweak page {0} has failed to load because of the following the error message:
 {1}
 
-This tweak page won't be included in the application</value>
+This tweak page won&apos;t be included in the application</value>
     <comment>{0} Page Name/Id, {1} error message</comment>
   </data>
 </root>
