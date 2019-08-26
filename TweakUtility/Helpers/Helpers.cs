@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
@@ -73,10 +74,19 @@ namespace TweakUtility.Helpers
 
         internal static Guid GetApplicationGuid() => Guid.Parse(((GuidAttribute)typeof(Program).Assembly.GetCustomAttributes(typeof(GuidAttribute), true)[0]).Value);
 
-        /// <summary>
-        /// Checks if all requirement attributes on a type are valid.
-        /// </summary>
-        internal static bool RequirementsMet(Type type) => !type.GetAttributes().Where(a => a is RequirementAttribute).Any(a => a is RequirementAttribute b && !b.Valid);
+		/// <summary>
+		/// Checks if all requirement attributes on a type are valid.
+		/// </summary>
+		internal static bool RequirementsMet(Type type)
+		{
+			var valid = RequirementsMet(type.GetAttributes());
+			return valid;
+		}
+
+		/// <summary>
+		/// Checks if all requirement attributes on a type are valid.
+		/// </summary>
+		internal static bool RequirementsMet(IEnumerable<Attribute> attributes) => !attributes.Where(a => a is RequirementAttribute b && !b.Valid).Any();
 
         /// <summary>
         /// Gets the location of Tweak Utility's temporary directory, creates it when it doesn't exist.

@@ -51,16 +51,8 @@ namespace TweakUtility
         {
             get
             {
-                var browsableAttribute = this.GetAttribute<VisibleAttribute>();
-                if (browsableAttribute != null && !browsableAttribute.Visible)
-                {
-                    return false;
-                }
-
                 if (!this.RequirementsMet)
-                {
                     return false;
-                }
 
                 return true;
             }
@@ -75,7 +67,28 @@ namespace TweakUtility
 
         public bool CanRead => reflectionInfo is PropertyInfo propertyInfo ? propertyInfo.CanRead : true;
 
-        public bool RequirementsMet => Helpers.Helpers.RequirementsMet(this.GetType());
+        public bool RequirementsMet
+        {
+            get
+            {
+                if (reflectionInfo is PropertyInfo propertyInfo)
+                {
+                    return Helpers.Helpers.RequirementsMet(propertyInfo.GetCustomAttributes<RequirementAttribute>(true));
+                }
+
+                if (reflectionInfo is MethodInfo methodInfo)
+                {
+                    return Helpers.Helpers.RequirementsMet(methodInfo.GetCustomAttributes<RequirementAttribute>(true));
+                }
+
+                if (reflectionInfo is FieldInfo fieldInfo)
+                {
+                    return Helpers.Helpers.RequirementsMet(fieldInfo.GetCustomAttributes<RequirementAttribute>(true));
+                }
+
+                throw new InvalidReflectionInfoException();
+            }
+        }
 
         public object reflectionInfo;
         public TweakPage parent;

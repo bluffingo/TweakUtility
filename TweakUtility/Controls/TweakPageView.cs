@@ -390,6 +390,11 @@ namespace TweakUtility
 
                     foreach (TweakEntry entry in categories[category])
                     {
+                        if (!entry.Visible)
+                        {
+                            continue;
+                        }
+
                         this.AddEntry(entry, panel);
                     }
                 }
