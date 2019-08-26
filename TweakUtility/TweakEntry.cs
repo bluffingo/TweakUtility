@@ -7,7 +7,9 @@ namespace TweakUtility
 {
     public abstract class TweakEntry
     {
-        /// <summary>The display name of this tweak entry.</summary>
+        /// <summary>
+        /// The display name of this tweak entry.
+        /// </summary>
         public string Name
         {
             get
