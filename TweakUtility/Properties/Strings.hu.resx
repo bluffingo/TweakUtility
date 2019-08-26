@@ -1,7 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- TRANSLATED BY ALIEN FUTURE ALIAS BALÁZS VÁMOS -->
-  <!-- FORDÍTOTTA ALIEN FUTURE AZAZ VÁMOS BALÁZS -->
   <!-- 
     Microsoft ResX Schema 
     
@@ -130,13 +128,17 @@
   </data>
   <data name="About_License" xml:space="preserve">
     <value>Tweak Utility elérhető a {0} -on GPL-3.0 licensz alatt.</value>
-    <comment>{0} (link) = "GitHub"</comment>
+    <comment>{0} (link) = &quot;GitHub&quot;</comment>
   </data>
   <data name="Application_Name" xml:space="preserve">
     <value>Tweak Utility</value>
+    <comment>Google Translate is better than me. -Craftplacer</comment>
   </data>
   <data name="Backups" xml:space="preserve">
     <value>Mentések</value>
+  </data>
+  <data name="Backups_Confirmation" xml:space="preserve">
+    <value>Biztosan alkalmazod ezt a biztonsági mentést?</value>
   </data>
   <data name="Backups_FolderDescription" xml:space="preserve">
     <value>Mappában találhatóak a biztonsági mentések, amit a Tweak Utility hozott lére. </value>
@@ -153,14 +155,47 @@
   <data name="Button_Create" xml:space="preserve">
     <value>Létre&amp;hoz</value>
   </data>
+  <data name="Button_Credits" xml:space="preserve">
+    <value>Kész&amp;ítők</value>
+  </data>
   <data name="Button_Delete" xml:space="preserve">
     <value>&amp;Törlés</value>
   </data>
   <data name="Button_Feedback" xml:space="preserve">
     <value>&amp;Visszajelzés</value>
   </data>
+  <data name="Button_Install" xml:space="preserve">
+    <value>&amp;Telepítés</value>
+  </data>
   <data name="Button_OK" xml:space="preserve">
     <value>&amp;OK</value>
+  </data>
+  <data name="CheckBox_DontAskAgain" xml:space="preserve">
+    <value>Ne figyelmeztessen újra</value>
+  </data>
+  <data name="Credits" xml:space="preserve">
+    <value>Vezető fejlesztő
+CraftPlacer
+
+Hozzájáruló fejlesztő
+PF94, másnéven Gamerappa
+
+Volt hozzájáruló
+Alien Future, vagyis Vámos Balázs
+
+Fordítók
+Craftplacer (angol, német)
+Alien Future (magyar)
+CatHR Games (spanyol)
+PF94 és Google Fordító (francia)
+
+Ikonok
+Craftplacer (alkalmazás ikon)
+Microsoft Windows (verziófüggő ikonok szerint, dinamikusan vetve)
+
+Tweak források
+AskVG (https://www.askvg.com)</value>
+    <comment>THIS STRING ISN&apos;T SUPPOSED TO BE TRANSLATED</comment>
   </data>
   <data name="Debug_Disclaimer" xml:space="preserve">
     <value>Teszt változatok kisérletűek és nem garantáljuk a hibátlan működést. Automatikus hibajelentés szintén kikapcsolt.</value>
@@ -183,6 +218,27 @@
   <data name="Extensions_OpenFolder" xml:space="preserve">
     <value>Bővítmények mappájának &amp;megnyitása</value>
   </data>
+  <data name="Extension_Install" xml:space="preserve">
+    <value>Bővítmény telepítése</value>
+  </data>
+  <data name="Extension_Install_Confirmation" xml:space="preserve">
+    <value>Biztosan szeretnéd telepíteni ezt a bővítményt?</value>
+  </data>
+  <data name="Extension_Install_Success" xml:space="preserve">
+    <value>Bővítmény telepítve.</value>
+  </data>
+  <data name="Hosts_AddTitle" xml:space="preserve">
+    <value>Új host átirányító hozzáadása</value>
+  </data>
+  <data name="Hosts_EditTitle" xml:space="preserve">
+    <value>Létező host átirányító módosítása</value>
+  </data>
+  <data name="Hosts_Host" xml:space="preserve">
+    <value>Host</value>
+  </data>
+  <data name="Hosts_IPAddress" xml:space="preserve">
+    <value>IP cím</value>
+  </data>
   <data name="MsnMessenger_AudioBackup" xml:space="preserve">
     <value>Szeretnél egy biztonsági mentést létrehozni a folyamat előtt?</value>
   </data>
@@ -204,7 +260,7 @@ Ebből adódóan, OneDrive nem lesz automatikusan törölve, viszont folytathato
 Szeretnéd folytatni??</value>
   </data>
   <data name="OneDrive_Uninstall_SetFlagMessage" xml:space="preserve">
-    <value>Jelenleg a "felhasználó által kért eltávolítás" jelző nincs beállítva, esetleg a Windows OneDrive újratelepítéséhez vezethet.
+    <value>Jelenleg a &quot;felhasználó által kért eltávolítás&quot; jelző nincs beállítva, esetleg a Windows OneDrive újratelepítéséhez vezethet.
 Ezzel a jelzővel megmondhatod Windowsnak, hogy továbbra is eltávolítani szeretnéd a OneDriveot.
 
 Beszeretnéd kapcsolni?</value>
@@ -216,6 +272,9 @@ Beszeretnéd kapcsolni?</value>
     <value>Úgy tűnik OneDrive eltálvolítása nem volt hibátlan.
 
 Folytatni szeretnéd?</value>
+  </data>
+  <data name="Preferences" xml:space="preserve">
+    <value>Preferenciák</value>
   </data>
   <data name="Reload_ExplorerRestart" xml:space="preserve">
     <value>Ehhez a beállításhoz újra kell indítanod a Windows Intézőt.
@@ -236,6 +295,16 @@ Szeretnéd most megtenni?</value>
     <value>Ehhez a lehetőséghez újra kell töltenie a hozzá tartozó részeket, amíg nincs végrehajtási funkció.
 
 ha tudod hogyan lehet ezt programozottan végrehajtani, kérlek kattins a visszajelzési gombra a Programról ablakban. </value>
-    <comment>Üzenet, amely arra szólítja fel a felhasználót, hogy töltse be újra a programot, mivel hiányzik a kód.</comment>
+    <comment>Message telling user to reload themself, since code is missing.</comment>
+  </data>
+  <data name="Report_Disclaimer" xml:space="preserve">
+    <value>Bizonyosodj meg arról, hogy a visszajelzés nem tartalmaz semmilyen személyes adatot, amit véletlenül vett fel a program.</value>
+  </data>
+  <data name="TweakPage_InsufficientPermissions" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="TweakPage_LoadError" xml:space="preserve">
+    <value></value>
+    <comment>{0} Page Name/Id, {1} error message</comment>
   </data>
 </root>
