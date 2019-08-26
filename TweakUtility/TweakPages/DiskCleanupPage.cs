@@ -16,9 +16,13 @@ namespace TweakUtility.TweakPages
     {
         private List<DiskCleanupHandler> Handlers { get; } = new List<DiskCleanupHandler>();
 
-        internal DiskCleanupPageView() => this.InitializeComponent();
+		internal DiskCleanupPageView()
+		{
+			this.InitializeComponent();
+			this.Padding = new Padding(SystemInformation.VerticalScrollBarWidth);
+		}
 
-        private void DiskCleanupPageView_Load(object sender, EventArgs e)
+		private void DiskCleanupPageView_Load(object sender, EventArgs e)
         {
             propertyGrid.CommandsVisibleIfAvailable = false;
 
@@ -112,12 +116,17 @@ namespace TweakUtility.TweakPages
         }
 
         private void RefreshButton_Click(object sender, EventArgs e) => this.DiskCleanupPageView_Load(sender, e);
-    }
 
-    /// <remarks>
-    /// Reference: https://docs.microsoft.com/en-us/windows/win32/lwef/disk-cleanup
-    /// </remarks>
-    internal class DiskCleanupPage : TweakPage
+		private void SplitContainer_SplitterMoved(object sender, SplitterEventArgs e)
+		{
+
+		}
+	}
+
+	/// <remarks>
+	/// Reference: https://docs.microsoft.com/en-us/windows/win32/lwef/disk-cleanup
+	/// </remarks>
+	internal class DiskCleanupPage : TweakPage
     {
         public DiskCleanupPage() : base("Disk Cleanup")
         {
@@ -130,6 +139,7 @@ namespace TweakUtility.TweakPages
     {
         public DiskCleanupHandler(RegistryKey key) => this.Key = key;
 
+		[Browsable(false)]
         public RegistryKey Key { get; }
 
         public string[] Folder
@@ -155,13 +165,15 @@ namespace TweakUtility.TweakPages
         [Browsable(false)]
         public string KeyName => this.Key.Name;
 
-        public string Display
+		[DisplayName("Display name")]
+		public string Display
         {
             get => this.Key.GetValue("Display", null) is string displayName ? displayName : null;
             set => this.Key.SetValue("Display", value, RegistryValueKind.String);
         }
 
-        public string DisplayName
+		[Browsable(false)]
+		public string DisplayName
         {
             get
             {
