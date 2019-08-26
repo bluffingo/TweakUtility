@@ -124,6 +124,24 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please select the tweaks you want to create a backup from..
+        /// </summary>
+        internal static string Backups_Create_Instruction {
+            get {
+                return ResourceManager.GetString("Backups_Create_Instruction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select at least one option to create a backup..
+        /// </summary>
+        internal static string Backups_Create_Requirement {
+            get {
+                return ResourceManager.GetString("Backups_Create_Requirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This folder contains backups made by Tweak Utility. .
         /// </summary>
         internal static string Backups_FolderDescription {

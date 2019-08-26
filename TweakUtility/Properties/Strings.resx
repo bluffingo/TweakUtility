@@ -139,6 +139,12 @@
   <data name="Backups_Confirmation" xml:space="preserve">
     <value>Are you sure you want to apply this backup?</value>
   </data>
+  <data name="Backups_Create_Instruction" xml:space="preserve">
+    <value>Please select the tweaks you want to create a backup from.</value>
+  </data>
+  <data name="Backups_Create_Requirement" xml:space="preserve">
+    <value>Please select at least one option to create a backup.</value>
+  </data>
   <data name="Backups_FolderDescription" xml:space="preserve">
     <value>This folder contains backups made by Tweak Utility. </value>
   </data>

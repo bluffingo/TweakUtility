@@ -11,6 +11,8 @@ namespace TweakUtility.Forms
         public BackupCreateForm()
         {
             this.InitializeComponent();
+			this.instructionLabel.Text = Properties.Strings.Backups_Create_Instruction;
+			this.validLabel.Text = Properties.Strings.Backups_Create_Requirement;
         }
 
         private void BackupCreateForm_Load(object sender, EventArgs e)
