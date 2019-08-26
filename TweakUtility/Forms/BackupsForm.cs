@@ -72,5 +72,7 @@ namespace TweakUtility.Forms
 
             this.Enabled = true;
         }
-    }
+
+		private void ListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e) => deleteButton.Enabled = listView.SelectedItems.Count != 0;
+	}
 }
