@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -121,17 +121,18 @@
     <value>À propos de Tweak Utility</value>
   </data>
   <data name="About_Copyright" xml:space="preserve">
-    <value>Toutes les icônes utilisées (à l'exception de l'icône de l'application) appartiennent à leurs propriétaires légitimes.</value>
+    <value>Toutes les icônes utilisées (à l&apos;exception de l&apos;icône de l&apos;application) appartiennent à leurs propriétaires légitimes.</value>
   </data>
   <data name="About_Description" xml:space="preserve">
     <value>Tweak Utility est une application qui permet de peaufiner Windows, ainsi que d’autres applications similaires à Tweak UI et Winaero Tweaker.</value>
   </data>
   <data name="About_License" xml:space="preserve">
     <value>Tweak Utility est disponible sur {0} et sous la licence de GPL-3.0.</value>
-    <comment>{0} (link) = "GitHub"</comment>
+    <comment>{0} (link) = &quot;GitHub&quot;</comment>
   </data>
   <data name="Application_Name" xml:space="preserve">
     <value>Tweak Utility</value>
+    <comment>Google Translate is better than me. -Craftplacer</comment>
   </data>
   <data name="Backups" xml:space="preserve">
     <value>Sauvegardes</value>
@@ -167,14 +168,18 @@
     <value>&amp;Install</value>
   </data>
   <data name="Button_OK" xml:space="preserve">
-    <value>D'accord</value>
+    <value>D&apos;accord</value>
   </data>
   <data name="CheckBox_DontAskAgain" xml:space="preserve">
     <value>Ne demande plus</value>
   </data>
+  <data name="Credits" xml:space="preserve">
+    <value></value>
+    <comment>THIS STRING ISN&apos;T SUPPOSED TO BE TRANSLATED</comment>
+  </data>
   <data name="Debug_Disclaimer" xml:space="preserve">
     <value>Les versions de débogage sont expérimentales et ne garantissent pas de fonctionner ni d’offrir de support.
-Les rapports d'incident automatisés sont également désactivés.</value>
+Les rapports d&apos;incident automatisés sont également désactivés.</value>
   </data>
   <data name="Extensions" xml:space="preserve">
     <value>Les Extensions</value>
@@ -201,7 +206,19 @@ Les rapports d'incident automatisés sont également désactivés.</value>
     <value>Êtes-vous sûr de vouloir installer cette extension?</value>
   </data>
   <data name="Extension_Install_Success" xml:space="preserve">
-    <value>L'extension a été installée.</value>
+    <value>L&apos;extension a été installée.</value>
+  </data>
+  <data name="Hosts_AddTitle" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Hosts_EditTitle" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Hosts_Host" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Hosts_IPAddress" xml:space="preserve">
+    <value></value>
   </data>
   <data name="MsnMessenger_AudioBackup" xml:space="preserve">
     <value>Voulez-vous sauvegarder les fichiers avant de continuer?</value>
@@ -213,7 +230,7 @@ Les rapports d'incident automatisés sont également désactivés.</value>
     <value>Voulez-vous supprimer le dossier OneDrive?</value>
   </data>
   <data name="OneDrive_Uninstall_DeleteFolder_Failed" xml:space="preserve">
-    <value>Impossible de supprimer le dossier OneDrive en raison du message d'erreur suivant:
+    <value>Impossible de supprimer le dossier OneDrive en raison du message d&apos;erreur suivant:
 
 {0}</value>
   </data>
@@ -224,10 +241,10 @@ Par conséquent, OneDrive ne sera pas automatiquement désinstallé, vous pouvez
 Voulez-vous continuer?</value>
   </data>
   <data name="OneDrive_Uninstall_SetFlagMessage" xml:space="preserve">
-    <value>Actuellement, l'indicateur "désinstallation initiée par l'utilisateur" n'est pas défini, ce qui peut éventuellement amener Windows à réinstaller OneDrive.
+    <value>Actuellement, l&apos;indicateur &quot;désinstallation initiée par l&apos;utilisateur&quot; n&apos;est pas défini, ce qui peut éventuellement amener Windows à réinstaller OneDrive.
 La définition de cet indicateur indiquera à Windows que vous souhaitez laisser OneDrive désinstallé.
 
-Voulez-vous l'allumer?</value>
+Voulez-vous l&apos;allumer?</value>
   </data>
   <data name="OneDrive_Uninstall_Success" xml:space="preserve">
     <value>OneDrive, ainsi que ses traces, ont été supprimés.</value>
@@ -237,8 +254,11 @@ Voulez-vous l'allumer?</value>
 
 Voulez-vous continuer?</value>
   </data>
+  <data name="Preferences" xml:space="preserve">
+    <value></value>
+  </data>
   <data name="Reload_ExplorerRestart" xml:space="preserve">
-    <value>Cette option nécessite de redémarrer l'Explorateur Windows.
+    <value>Cette option nécessite de redémarrer l&apos;Explorateur Windows.
 
 Voulez-vous faire ça maintenant?</value>
   </data>
@@ -253,7 +273,7 @@ Voulez-vous faire ça maintenant?</value>
 Voulez-vous faire ça maintenant?</value>
   </data>
   <data name="Reload_Unknown" xml:space="preserve">
-    <value>Cette option nécessite de recharger l'élément associé, car l'actualisation n'est pas encore implémentée.
+    <value>Cette option nécessite de recharger l&apos;élément associé, car l&apos;actualisation n&apos;est pas encore implémentée.
 
 Si vous savez comment implémenter cette actualisation par programme, veuillez nous en informer en cliquant sur le bouton Commentaires dans la fenêtre à propos de.</value>
     <comment>Message telling user to reload themself, since code is missing.</comment>
@@ -262,14 +282,14 @@ Si vous savez comment implémenter cette actualisation par programme, veuillez n
     <value>Assurez-vous que ce rapport ne contient aucune donnée personnelle collectée accidentellement par ce programme.</value>
   </data>
   <data name="TweakPage_InsufficientPermissions" xml:space="preserve">
-    <value>Le chargement de la page d'ajustement {0} a échoué car l'application est en cours d'exécution avec des autorisations insuffisantes.
-Vous pouvez essayer de redémarrer le programme en tant qu'administrateur.</value>
+    <value>Le chargement de la page d&apos;ajustement {0} a échoué car l&apos;application est en cours d&apos;exécution avec des autorisations insuffisantes.
+Vous pouvez essayer de redémarrer le programme en tant qu&apos;administrateur.</value>
   </data>
   <data name="TweakPage_LoadError" xml:space="preserve">
-    <value>Le chargement de la page de réglage {0} a échoué à cause du message d'erreur suivant:
+    <value>Le chargement de la page de réglage {0} a échoué à cause du message d&apos;erreur suivant:
 {1}
 
-Cette page de tweak ne sera pas incluse dans l'application</value>
+Cette page de tweak ne sera pas incluse dans l&apos;application</value>
     <comment>{0} Page Name/Id, {1} error message</comment>
   </data>
 </root>
