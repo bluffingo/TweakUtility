@@ -14,6 +14,8 @@ namespace TweakUtility.Forms
 
             ipTextBox.TextChanged += this.TextBox_TextChanged;
             hostTextBox.TextChanged += this.TextBox_TextChanged;
+
+			cancelButton.Text = Properties.Strings.Button_Cancel;
         }
 
         private void TextBox_TextChanged(object sender, EventArgs e) => this.mainButton.Enabled = (!string.IsNullOrWhiteSpace(ipTextBox.Text) && !string.IsNullOrWhiteSpace(hostTextBox.Text));
