@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 using TweakUtility.Attributes;
@@ -316,7 +318,35 @@ namespace TweakUtility
                     NativeMethods.ExitWindowsEx(NativeMethods.ExitWindows.Reboot, NativeMethods.ShutdownReason.MinorReconfig);
                 }
             }
-            else if (attribute.Type == RestartType.Logoff)
+			else if (attribute.Type == RestartType.ProcessRestart)
+			{
+				DialogResult result = MessageBox.Show(string.Format(Properties.Strings.Reload_ProcessRestart, attribute.Argument), Properties.Strings.Application_Name, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+				if (result == DialogResult.Yes)
+				{
+
+					var processes = Process.GetProcessesByName(attribute.Argument);
+					using (var indicator = new ProgressIndicator())
+					{
+						indicator.Initialize(processes.Length);
+
+						foreach (Process process in processes)
+						{
+							string fileName = process.MainModule.FileName;
+
+							indicator.SetProgress(-1, string.Format(Properties.Strings.Reload_ProcessRestart_WaitingFor, fileName));
+
+							if (!process.CloseMainWindow() && !process.HasExited && !process.WaitForExit(10000))
+								process.Kill();
+
+							Process.Start(fileName);
+						}
+
+						indicator.SetProgress(processes.Length, "");
+					}
+				}
+			}
+			else if (attribute.Type == RestartType.Logoff)
             {
                 DialogResult result = MessageBox.Show(Properties.Strings.Reload_LogOff, Properties.Strings.Application_Name, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 

@@ -544,6 +544,16 @@ namespace TweakUtility.Properties {
                 return ResourceManager.GetString("Reload_ProcessRestart", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Waiting for &quot;{0}&quot; to exit....
+        /// </summary>
+        internal static string Reload_ProcessRestart_WaitingFor {
+            get {
+                return ResourceManager.GetString("Reload_ProcessRestart_WaitingFor", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to This option requires you to restart your system.
         ///
