@@ -58,5 +58,17 @@ namespace TweakUtility.Properties {
                 this["EnableExperimentalFeatures"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool PreferSliders {
+            get {
+                return ((bool)(this["PreferSliders"]));
+            }
+            set {
+                this["PreferSliders"] = value;
+            }
+        }
     }
 }
