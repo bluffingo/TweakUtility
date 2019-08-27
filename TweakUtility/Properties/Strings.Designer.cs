@@ -555,6 +555,26 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This option requires you to restart {0} ({1}).
+        ///
+        ///Would you like to do that now?.
+        /// </summary>
+        internal static string Reload_ServiceRestart {
+            get {
+                return ResourceManager.GetString("Reload_ServiceRestart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restarting {0}....
+        /// </summary>
+        internal static string Reload_ServiceRestart_Text {
+            get {
+                return ResourceManager.GetString("Reload_ServiceRestart_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This option requires you to restart your system.
         ///
         ///Would you like to do that now?.

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.ServiceProcess;
 using System.Windows.Forms;
 
 using TweakUtility.Attributes;
@@ -345,6 +346,31 @@ namespace TweakUtility
 						indicator.SetProgress(processes.Length, "");
 					}
 				}
+			}
+			else if (attribute.Type == RestartType.ServiceRestart)
+			{
+				using (var controller = new ServiceController(attribute.Argument))
+				{
+					var result = MessageBox.Show(string.Format(Properties.Strings.Reload_ServiceRestart, controller.DisplayName, controller.ServiceName), Properties.Strings.Application_Name, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+					if (result == DialogResult.Yes)
+					{
+						using (var indicator = new ProgressIndicator())
+						{
+							indicator.Initialize(1);
+
+							indicator.SetProgress(-1, string.Format(Properties.Strings.Reload_ServiceRestart_Text, controller.DisplayName));
+
+							controller.Stop();
+							controller.WaitForStatus(ServiceControllerStatus.Stopped);
+							controller.Start();
+							controller.WaitForStatus(ServiceControllerStatus.Running);
+
+							indicator.SetProgress(1, "");
+						}
+					}
+				}
+				
 			}
 			else if (attribute.Type == RestartType.Logoff)
             {

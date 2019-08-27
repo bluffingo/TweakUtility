@@ -327,6 +327,14 @@ Do you want to continue?</value>
   <data name="Reload_ProcessRestart_WaitingFor" xml:space="preserve">
     <value>Waiting for "{0}" to exit...</value>
   </data>
+  <data name="Reload_ServiceRestart" xml:space="preserve">
+    <value>This option requires you to restart {0} ({1}).
+
+Would you like to do that now?</value>
+  </data>
+  <data name="Reload_ServiceRestart_Text" xml:space="preserve">
+    <value>Restarting {0}...</value>
+  </data>
   <data name="Reload_SystemRestart" xml:space="preserve">
     <value>This option requires you to restart your system.
 

@@ -39,6 +39,11 @@ namespace TweakUtility.Attributes
         /// </summary>
         ProcessRestart,
 
+		/// <summary>
+		/// Requires a service to be restarted, to apply the changes.
+		/// </summary>
+		ServiceRestart,
+
         /// <summary>
         /// Requires Tweak Utility to be restarted, to apply the changes.
         /// </summary>
