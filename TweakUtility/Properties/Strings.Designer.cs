@@ -535,6 +535,16 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This option requires all processes named &quot;{0}&quot; to be restarted.
+        ///
+        ///Do you want to continue?.
+        /// </summary>
+        internal static string Reload_ProcessRestart {
+            get {
+                return ResourceManager.GetString("Reload_ProcessRestart", resourceCulture);
+            }
+        }
+        /// <summary>
         ///   Looks up a localized string similar to This option requires you to restart your system.
         ///
         ///Would you like to do that now?.
