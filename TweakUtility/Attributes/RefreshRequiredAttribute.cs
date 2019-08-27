@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.AccessControl;
 
 namespace TweakUtility.Attributes
 {
@@ -7,9 +8,11 @@ namespace TweakUtility.Attributes
     {
         public RefreshRequiredAttribute(RestartType type = RestartType.None) => this.Type = type;
 
-        public string Argument { get; set; }
+		public RefreshRequiredAttribute(RestartType type, string argument) : this(type) => this.Argument = argument;
 
-        public RestartType Type { get; set; }
+		public string Argument { get; }
+
+        public RestartType Type { get; }
     }
 
     public enum RestartType
