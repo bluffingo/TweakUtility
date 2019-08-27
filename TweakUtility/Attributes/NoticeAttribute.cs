@@ -3,7 +3,7 @@ using TweakUtility.Enums;
 
 namespace TweakUtility.Attributes
 {
-    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Field | AttributeTargets.Method | AttributeTargets.Property, AllowMultiple = true)]
     public sealed class NoticeAttribute : Attribute
     {
         public NoticeAttribute(NoticeType type, string text)
