@@ -20,8 +20,9 @@ namespace TweakUtility.Helpers
         public static readonly Icon Information = getInformationIcon();
         public static readonly Icon Warning = getWarningIcon();
         public static readonly Icon Software = ExtractIcon(@"%SystemRoot%\system32\shell32.dll", -271);
+		public static readonly Icon Desktop = ExtractIcon(@"%SystemRoot%\system32\shell32.dll", -35);
 
-        private static Icon getInformationIcon()
+		private static Icon getInformationIcon()
         {
             if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
             {
