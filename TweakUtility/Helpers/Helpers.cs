@@ -104,10 +104,6 @@ namespace TweakUtility.Helpers
             return tempPath;
         }
 
-        /// <summary>
-        /// Finds a suitable registry view for this system architecture
-        /// </summary>
-        internal static RegistryView RegistryView => Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32;
 
         public static GraphicsPath RoundedRect(Rectangle bounds, int radius)
         {
