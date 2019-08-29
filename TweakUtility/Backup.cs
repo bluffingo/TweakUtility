@@ -98,6 +98,12 @@ namespace TweakUtility
                     continue;
                 }
 
+				if (item.Value == null)
+				{
+					Debug.WriteLine("[Backup] Ignoring empty tweak entry...");
+					continue;
+				}
+
                 if (option.Type == typeof(Color))
                 {
                     var html = item.Value as string;
