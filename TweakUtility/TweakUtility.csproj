@@ -265,6 +265,12 @@
     <Compile Include="TweakAction.cs" />
     <Compile Include="TweakOption.cs" />
     <Compile Include="TweakPage.cs" />
+    <Compile Include="TweakPages\SoftwarePageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TweakPages\SoftwarePageView.Designer.cs">
+      <DependentUpon>SoftwarePageView.cs</DependentUpon>
+    </Compile>
     <Compile Include="TweakPages\StartupPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -333,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TweakPages\HostsPageView.resx">
       <DependentUpon>HostsPageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TweakPages\SoftwarePageView.resx">
+      <DependentUpon>SoftwarePageView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TweakPages\StartupPage.resx">
       <DependentUpon>StartupPage.cs</DependentUpon>
