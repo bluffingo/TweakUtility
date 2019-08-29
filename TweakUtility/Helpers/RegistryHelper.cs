@@ -30,7 +30,7 @@ namespace TweakUtility.Helpers
                 }
                 else
                 {
-                    Debug.WriteLine("defaulting to false, in getboolvalue, please look into");
+                    Debug.WriteLine($"defaulting to false, in getboolvalue, please look into ({Environment.StackTrace})");
                     return false;
                 }
             }

@@ -52,6 +52,7 @@ namespace TweakUtility.Forms
                 typeof(InternetExplorerPage),
                 typeof(SnippingToolPage),
                 typeof(AdvancedPage),
+                typeof(SoftwarePage),
                 typeof(Windows10Page),
                 typeof(MsnMessengerPage),
                 typeof(UncategorizedPage)
