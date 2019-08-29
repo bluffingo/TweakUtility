@@ -6,6 +6,8 @@ using TweakUtility.Helpers;
 
 namespace TweakUtility.TweakPages
 {
+	//This fixes the bug where Tweak Utility would crash while retrieving the tweak page icon when the user uninstalled Internet Explorer as a feature.
+	[RegistryKeyRequired(@"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\iexplore.exe\")]
     internal class InternetExplorerPage : TweakPage
     {
         internal InternetExplorerPage() : base("Internet Explorer") => this.Icon = NativeHelpers.ExtractIcon(NativeHelpers.GetApplicationPath("iexplore.exe"), -0);
