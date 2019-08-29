@@ -30,7 +30,7 @@ namespace TweakUtility.TweakPages
             set => RegistryHelper.SetValue(@"HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize\AppsUseLightTheme", value ? 1 : 0);
         }
 
-        [DisplayName("System uses light theme")]
+		[DisplayName("System uses light theme")]
         //[DefaultValue(false)] //:shrug:
         [OperatingSystemSupported(OperatingSystemVersion.Windows10)] //not really...
         public bool SystemUsesLightTheme
@@ -57,7 +57,7 @@ namespace TweakUtility.TweakPages
             Process.Start(Path.GetFullPath("aerolite.theme"));
         }
 
-        [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
+		[OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
         [RefreshRequired(RestartType.ExplorerRestart)]
         [DisplayName("Show seconds on taskbar")]
         public bool ShowSeconds

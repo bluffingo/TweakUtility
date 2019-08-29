@@ -257,9 +257,9 @@ namespace TweakUtility
                     else if (option.Type == typeof(Color))
                         this.AddColorEntry(option, panel);
                     else
-                    //Display a fallback message to let the user know
                     {
-                        panel.Controls.Add(new Label()
+						//Display a fallback message to let the user know
+						panel.Controls.Add(new Label()
                         {
                             AutoSize = true,
                             Text = $"Unsupported property type {option.Type.ToString()} on property {option.Name}",
