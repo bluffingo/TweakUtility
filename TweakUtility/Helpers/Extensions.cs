@@ -52,7 +52,7 @@ namespace TweakUtility.Helpers
 
         public static IEnumerable<T> Flatten<T, R>(this IEnumerable<T> source, Func<T, R> recursion) where R : IEnumerable<T>
         {
-            IEnumerable<T> enumarable = new List<T>();
+            IEnumerable<T> enumarable = source;
 
             foreach (T item in source)
             {
