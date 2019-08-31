@@ -36,7 +36,7 @@ namespace TweakUtility.TweakPages
 
 		public Tuple<string, string, XmlDocument>[] getUwpApplications()
 		{
-			using (RegistryKey key = Program.CurrentUser.OpenSubKey(@"SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\Repository\Packages\"))
+			using (RegistryKey key = RegistryHelper.CurrentUser.OpenSubKey(@"SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\Repository\Packages\"))
 			{
 				var names = key.GetSubKeyNames();
 
@@ -73,7 +73,7 @@ namespace TweakUtility.TweakPages
 
 		public UninstallInfo[] getDesktopApplications()
 		{
-			using (RegistryKey key = Program.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"))
+			using (RegistryKey key = RegistryHelper.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"))
 			{
 				string[] names = key.GetSubKeyNames();
 				UninstallInfo[] info = new UninstallInfo[names.Length];

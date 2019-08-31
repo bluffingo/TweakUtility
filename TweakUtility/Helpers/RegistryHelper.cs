@@ -12,7 +12,10 @@ namespace TweakUtility.Helpers
     /// </summary>
     public static class RegistryHelper
     {
-        public static bool GetBoolValue(string path)
+		public static RegistryKey LocalMachine = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryHelper.RegistryView);
+		public static RegistryKey CurrentUser = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, RegistryHelper.RegistryView);
+
+		public static bool GetBoolValue(string path)
         {
             Tuple<RegistryKey, string> info = ProcessPathAdvanced(path);
 
@@ -178,11 +181,11 @@ namespace TweakUtility.Helpers
 
                 case "HKEY_LOCAL_MACHINE":
                 case "HKLM":
-                    return Program.LocalMachine;
+                    return LocalMachine;
 
                 case "HKEY_CURRENT_USER":
                 case "HKCU":
-                    return Program.CurrentUser;
+                    return CurrentUser;
             }
         }
 

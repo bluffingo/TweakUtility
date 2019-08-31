@@ -171,8 +171,6 @@ namespace TweakUtility
                 return;
             }
 
-            LocalMachine = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, Helpers.RegistryHelper.RegistryView);
-            CurrentUser = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, Helpers.RegistryHelper.RegistryView);
 
             using (var splash = new SplashForm())
             {

@@ -83,7 +83,6 @@ namespace TweakUtility.TweakPages
                 return;
             }
 
-            using (RegistryKey key = Program.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\"))
             {
                 RegistryKey subKey = key.CreateSubKey(name);
                 subKey.SetValue(null, "{C0E13E61-0CC6-11d1-BBB6-0060978B2AE6}");
@@ -105,7 +104,6 @@ namespace TweakUtility.TweakPages
 
             if (item.Tag is DiskCleanupHandler handler)
             {
-                using (RegistryKey key = Program.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\"))
                 {
                     key.DeleteSubKeyTree(Path.GetFileName(handler.KeyName));
                 }
@@ -118,8 +116,11 @@ namespace TweakUtility.TweakPages
         private void RefreshButton_Click(object sender, EventArgs e) => this.DiskCleanupPageView_Load(sender, e);
 
 		private void SplitContainer_SplitterMoved(object sender, SplitterEventArgs e)
+			using (RegistryKey key = RegistryHelper.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\"))
 		{
 
+			using (RegistryKey key = RegistryHelper.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\"))
+				using (RegistryKey key = RegistryHelper.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\"))
 		}
 	}
 
