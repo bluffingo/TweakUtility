@@ -133,7 +133,6 @@ namespace TweakUtility.TweakPages
 					largeImageList.Images.Add(info.IconPath, icon);
 				}
 
-
 				listView.Items.Add(item);
 			}
 		}
@@ -195,7 +194,6 @@ namespace TweakUtility.TweakPages
 
 		private void NameLabel_TextChanged(object sender, EventArgs e)
 		{
-
 		}
 
 		private void ListView_SelectedIndexChanged(object sender, EventArgs e)
@@ -251,14 +249,12 @@ namespace TweakUtility.TweakPages
 	}
 
 	[Experimental]
-    public class SoftwarePage : TweakPage
-    {
-        public SoftwarePage() : base("Software")
-        {
-            this.Icon = Icons.Software;
-            this.CustomView = new SoftwarePageView();
-        }
-    }
-
-	
+	public class SoftwarePage : TweakPage
+	{
+		public SoftwarePage() : base("Software")
+		{
+			this.Icon = Icons.Software;
+			this.CustomView = new SoftwarePageView();
+		}
+	}
 }
