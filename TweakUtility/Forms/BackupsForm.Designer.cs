@@ -45,6 +45,7 @@
 			// 
 			this.applyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.applyButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.applyButton.Enabled = false;
 			this.applyButton.Location = new System.Drawing.Point(427, 276);
 			this.applyButton.Name = "applyButton";
 			this.applyButton.Size = new System.Drawing.Size(95, 23);
@@ -62,6 +63,7 @@
             this.nameColumnHeader,
             this.dateColumnHeader,
             this.sizeColumnHeader});
+			this.listView.FullRowSelect = true;
 			this.listView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
 			this.listView.HideSelection = false;
 			this.listView.Location = new System.Drawing.Point(12, 41);
@@ -124,7 +126,7 @@
 			this.createButton.Image = global::TweakUtility.Properties.Resources.add;
 			this.createButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.createButton.Name = "createButton";
-			this.createButton.Size = new System.Drawing.Size(60, 22);
+			this.createButton.Size = new System.Drawing.Size(61, 22);
 			this.createButton.Text = "&Create";
 			this.createButton.Click += new System.EventHandler(this.CreateButton_Click);
 			// 
@@ -134,7 +136,7 @@
 			this.deleteButton.Image = global::TweakUtility.Properties.Resources.delete;
 			this.deleteButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.deleteButton.Name = "deleteButton";
-			this.deleteButton.Size = new System.Drawing.Size(58, 22);
+			this.deleteButton.Size = new System.Drawing.Size(60, 22);
 			this.deleteButton.Text = "&Delete";
 			this.deleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
 			// 
@@ -144,7 +146,7 @@
 			this.openFolderButton.Image = global::TweakUtility.Properties.Resources.openfolder_24;
 			this.openFolderButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.openFolderButton.Name = "openFolderButton";
-			this.openFolderButton.Size = new System.Drawing.Size(128, 22);
+			this.openFolderButton.Size = new System.Drawing.Size(139, 22);
 			this.openFolderButton.Text = "&Open Backups Folder";
 			// 
 			// BackupsForm
