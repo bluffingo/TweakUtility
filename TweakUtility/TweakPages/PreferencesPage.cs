@@ -48,6 +48,14 @@ namespace TweakUtility.TweakPages
 			set => Properties.Settings.Default.EnableExperimentalFeatures = value;
 		}
 
+		[DisplayName("Prefer sliders")]
+		[Description("Makes number values with a specified range turn into sliders")]
+		public static bool PreferSliders
+		{
+			get => Properties.Settings.Default.PreferSliders;
+			set => Properties.Settings.Default.PreferSliders = value;
+		}
+
 		[DisplayName("Save window position and size")]
 		public static bool SaveWindowInfo
 		{
