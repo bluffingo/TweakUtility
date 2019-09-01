@@ -159,27 +159,6 @@ namespace TweakUtility.Forms
             this.treeView.Left = 1;
         }
 
-        private void LoadWindowRectangle()
-        {
-            this.Width = RegistryHelper.GetValue(@"HKCU\Software\Craftplacer\TweakUtility\WindowWidth", this.Width);
-            this.Height = RegistryHelper.GetValue(@"HKCU\Software\Craftplacer\TweakUtility\WindowHeight", this.Height);
-
-            this.Left = RegistryHelper.GetValue(@"HKCU\Software\Craftplacer\TweakUtility\WindowLeft", this.Left);
-
-            int optimalLeft;
-            if (this.Left < 0)
-                this.Left = 0;
-            else if ((optimalLeft = Screen.PrimaryScreen.Bounds.Width - this.Width) < this.Left)
-                this.Left = optimalLeft;
-
-            this.Top = RegistryHelper.GetValue(@"HKCU\Software\Craftplacer\TweakUtility\WindowTop", this.Top);
-
-            int optimalTop;
-            if (this.Top < 0)
-                this.Top = 0;
-            else if ((optimalTop = Screen.PrimaryScreen.Bounds.Height - this.Width) < this.Top)
-                this.Top = optimalTop;
-        }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -238,13 +217,6 @@ namespace TweakUtility.Forms
             }
         }
 
-        private void SaveWindowRectangle()
-        {
-            RegistryHelper.SetValue(@"HKCU\Software\Craftplacer\TweakUtility\WindowLeft", this.Left);
-            RegistryHelper.SetValue(@"HKCU\Software\Craftplacer\TweakUtility\WindowTop", this.Top);
-            RegistryHelper.SetValue(@"HKCU\Software\Craftplacer\TweakUtility\WindowWidth", this.Width);
-            RegistryHelper.SetValue(@"HKCU\Software\Craftplacer\TweakUtility\WindowHeight", this.Height);
-        }
 
         private void SearchTextBox_KeyDown(object sender, KeyEventArgs e)
         {
@@ -337,4 +309,20 @@ namespace TweakUtility.Forms
             this.SetView(new PreferencesPage());
         }
     }
+		private void LoadWindowRectangle()
+		{
+			if (!Properties.Settings.Default.SaveWindowInfo)
+				return;
+
+			this.Location = Properties.Settings.Default.WindowPosition;
+			this.Size = Properties.Settings.Default.WindowSize;
+		}
+		private void SaveWindowRectangle()
+		{
+			if (!Properties.Settings.Default.SaveWindowInfo)
+				return;
+
+			Properties.Settings.Default.WindowPosition = this.Location;
+			Properties.Settings.Default.WindowSize = this.Size;
+		}
 }

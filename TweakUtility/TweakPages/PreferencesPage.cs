@@ -48,4 +48,11 @@ namespace TweakUtility.TweakPages
             set => Properties.Settings.Default.EnableExperimentalFeatures = value;
         }
     }
+		[DisplayName("Save window position and size")]
+		public static bool SaveWindowInfo
+		{
+			get => Properties.Settings.Default.SaveWindowInfo;
+			set => Properties.Settings.Default.SaveWindowInfo = value;
+		}
+
 }
