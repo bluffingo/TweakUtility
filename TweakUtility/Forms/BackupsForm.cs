@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
+using TweakUtility.Theming;
 
 namespace TweakUtility.Forms
 {
@@ -34,6 +35,8 @@ namespace TweakUtility.Forms
 
 				listView.Items.Add(item);
 			}
+
+			Theme.Apply(this);
 		}
 
 		private void OkButton_Click(object sender, EventArgs e)
