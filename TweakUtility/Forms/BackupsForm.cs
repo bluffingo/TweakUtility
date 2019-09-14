@@ -30,7 +30,7 @@ namespace TweakUtility.Forms
 				};
 
 				item.SubItems.Add(backup.Date.ToShortDateString());
-				item.SubItems.Add($"{backup.Size / 1000} KB");
+				item.SubItems.Add($"{Math.Round(value: backup.Size / 1000, 2, MidpointRounding.ToEven)} KB");
 
 				listView.Items.Add(item);
 			}
