@@ -11,7 +11,7 @@ namespace TweakUtility.TweakPages
 		{
 		}
 
-		[Category("Behaviour")]
+		[Category("Behavior")]
 		[DisplayName("Automatically install extensions")]
 		public bool AutoInstallExtensions
 		{
@@ -19,7 +19,7 @@ namespace TweakUtility.TweakPages
 			set => Properties.Settings.Default.AutoInstallExtensions = value;
 		}
 
-		[Category("Behaviour")]
+		[Category("Behavior")]
 		[RefreshRequired(RestartType.TweakUtility)]
 		[DisplayName("Enable experimental features")]
 		public static bool EnableExperimentalFeatures
@@ -28,7 +28,7 @@ namespace TweakUtility.TweakPages
 			set => Properties.Settings.Default.EnableExperimentalFeatures = value;
 		}
 
-		[Category("Behaviour")]
+		[Category("Behavior")]
 		[DisplayName("Save window position and size")]
 		public static bool SaveWindowInfo
 		{
