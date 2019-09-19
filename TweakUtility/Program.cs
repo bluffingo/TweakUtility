@@ -150,6 +150,7 @@ namespace TweakUtility
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
+            Application.ApplicationExit += (s, e) => Properties.Settings.Default.Save();
 
 			Environment.CurrentDirectory = ApplicationDirectory;
 

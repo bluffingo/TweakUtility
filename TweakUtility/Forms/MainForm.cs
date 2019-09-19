@@ -178,7 +178,6 @@ namespace TweakUtility.Forms
 		private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			this.SaveWindowRectangle();
-			Properties.Settings.Default.Save();
 		}
 
 		private void MainForm_Load(object sender, EventArgs e)
