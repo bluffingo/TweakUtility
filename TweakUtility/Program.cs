@@ -1,25 +1,18 @@
-using Microsoft.Win32;
-using Microsoft.WindowsAPICodePack.ApplicationServices;
-
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.InteropServices;
 using System.Threading;
 using System.Web;
 using System.Windows.Forms;
-
-using TweakUtility.Attributes;
 using TweakUtility.Enums;
 using TweakUtility.Extensions;
 using TweakUtility.Forms;
 using TweakUtility.Helpers;
-using TweakUtility.TweakPages;
+using TweakUtility.Tweaks.Pages;
 
 namespace TweakUtility
 {

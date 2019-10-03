@@ -4,7 +4,7 @@ using System.Management;
 
 using TweakUtility.Attributes;
 using TweakUtility.Enums;
-using TweakUtility.TweakPages;
+using TweakUtility.Tweaks.Pages;
 
 /// ---TweakUtility - Operating System Version Check (IMPORTANT NOTES)---
 /// WARNING: Beta support is experimental at the moment.

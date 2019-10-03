@@ -237,54 +237,62 @@
       <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Theming\Theme.cs" />
-    <Compile Include="TweakPages\AdvancedPage.cs" />
-    <Compile Include="TweakPages\AdvancedPage.HostsPage.cs" />
-    <Compile Include="TweakPages\AdvancedPage.OEMInformationPage.cs" />
-    <Compile Include="TweakPages\CustomizationPage.ColorsPage.cs" />
-    <Compile Include="TweakPages\CustomizationPage.cs" />
-    <Compile Include="TweakPages\DebugPage.cs" />
-    <Compile Include="TweakPages\DiskCleanupPage.cs">
+    <Compile Include="Tweaks\Model\StartupFolderItem.cs" />
+    <Compile Include="Tweaks\Model\StartupItem.cs" />
+    <Compile Include="Tweaks\Model\StartupItemType.cs" />
+    <Compile Include="Tweaks\Model\StartupRegistryItem.cs" />
+    <Compile Include="Tweaks\Pages\SoftwarePage.cs" />
+    <Compile Include="Tweaks\Views\SoftwarePageView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TweakPages\DiskCleanupPage.Designer.cs">
-      <DependentUpon>DiskCleanupPage.cs</DependentUpon>
+    <Compile Include="Tweaks\Views\SoftwarePageView.Designer.cs">
+      <DependentUpon>SoftwarePageView.cs</DependentUpon>
     </Compile>
-    <Compile Include="TweakPages\HostsPageView.cs">
+    <Compile Include="Tweaks\Views\StartupPageView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TweakPages\HostsPageView.Designer.cs">
+    <Compile Include="Tweaks\Views\StartupPageView.Designer.cs">
+      <DependentUpon>StartupPageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tweaks\Views\DiskCleanupPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tweaks\Pages\AdvancedPage.cs" />
+    <Compile Include="Tweaks\Pages\AdvancedPage.HostsPage.cs" />
+    <Compile Include="Tweaks\Pages\AdvancedPage.OEMInformationPage.cs" />
+    <Compile Include="Tweaks\Pages\CustomizationPage.ColorsPage.cs" />
+    <Compile Include="Tweaks\Pages\CustomizationPage.cs" />
+    <Compile Include="Tweaks\Pages\DebugPage.cs" />
+    <Compile Include="Tweaks\Pages\DiskCleanupPage.cs" />
+    <Compile Include="Tweaks\Views\DiskCleanupPageView.Designer.cs">
+      <DependentUpon>DiskCleanupPageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tweaks\Views\HostsPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tweaks\Views\HostsPageView.Designer.cs">
       <DependentUpon>HostsPageView.cs</DependentUpon>
     </Compile>
-    <Compile Include="TweakPages\InternetExplorerPage.cs" />
-    <Compile Include="TweakPages\MsnMessengerPage.cs" />
-    <Compile Include="TweakPages\MsnMessengerPage.PassportPage.cs" />
-    <Compile Include="TweakPages\PaintDotNetPage.cs" />
-    <Compile Include="TweakPages\PreferencesPage.cs" />
-    <Compile Include="TweakPages\SnippingToolPage.cs" />
+    <Compile Include="Tweaks\Pages\InternetExplorerPage.cs" />
+    <Compile Include="Tweaks\Pages\MsnMessengerPage.cs" />
+    <Compile Include="Tweaks\Pages\MsnMessengerPage.PassportPage.cs" />
+    <Compile Include="Tweaks\Pages\PaintDotNetPage.cs" />
+    <Compile Include="Tweaks\Pages\PreferencesPage.cs" />
+    <Compile Include="Tweaks\Pages\SnippingToolPage.cs" />
     <Compile Include="TweakEntry.cs" />
     <Compile Include="TweakAction.cs" />
     <Compile Include="TweakOption.cs" />
     <Compile Include="TweakPage.cs" />
-    <Compile Include="TweakPages\SoftwarePageView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="TweakPages\SoftwarePageView.Designer.cs">
-      <DependentUpon>SoftwarePageView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TweakPages\StartupPage.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="TweakPages\StartupPage.Designer.cs">
-      <DependentUpon>StartupPage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TweakPages\UncategorizedPage.cs" />
-    <Compile Include="TweakPages\Windows10Page.cs" />
+    <Compile Include="Tweaks\Pages\StartupPage.cs" />
+    <Compile Include="Tweaks\Pages\UncategorizedPage.cs" />
+    <Compile Include="Tweaks\Pages\Windows10Page.cs" />
     <Compile Include="Controls\TweakPageView.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\TweakPageView.Designer.cs">
       <DependentUpon>TweakPageView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tweaks\Pages\WindowsExplorerPage.cs" />
     <EmbeddedResource Include="Forms\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -328,23 +336,20 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Strings.es.resx" />
     <EmbeddedResource Include="Properties\Strings.de.resx" />
+    <EmbeddedResource Include="Tweaks\Views\SoftwarePageView.resx">
+      <DependentUpon>SoftwarePageView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Strings.fr.resx" />
     <EmbeddedResource Include="Properties\Strings.hu.resx" />
     <EmbeddedResource Include="Properties\Strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="TweakPages\DiskCleanupPage.resx">
+    <EmbeddedResource Include="Tweaks\Pages\DiskCleanupPage.resx">
       <DependentUpon>DiskCleanupPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TweakPages\HostsPageView.resx">
+    <EmbeddedResource Include="Tweaks\Views\HostsPageView.resx">
       <DependentUpon>HostsPageView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TweakPages\SoftwarePageView.resx">
-      <DependentUpon>SoftwarePageView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TweakPages\StartupPage.resx">
-      <DependentUpon>StartupPage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="key.pfx" />
@@ -396,6 +401,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tweaks\Forms\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

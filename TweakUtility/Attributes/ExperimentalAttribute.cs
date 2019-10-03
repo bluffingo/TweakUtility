@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TweakUtility.TweakPages;
+using TweakUtility.Tweaks.Pages;
 
 namespace TweakUtility.Attributes
 {

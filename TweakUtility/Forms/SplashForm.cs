@@ -7,7 +7,6 @@ using System.Windows.Forms;
 using TweakUtility.Attributes;
 using TweakUtility.Extensions;
 using TweakUtility.Helpers;
-using TweakUtility.TweakPages;
 
 namespace TweakUtility.Forms
 {
