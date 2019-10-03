@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.IO;
 using System.Text;
-
+using System.Windows.Forms;
 using static TweakUtility.Helpers.NativeMethods;
 
 namespace TweakUtility.Helpers
@@ -66,5 +66,30 @@ namespace TweakUtility.Helpers
         }
 
         public static string GetApplicationPath(string executableName) => RegistryHelper.GetValue<string>($@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\{executableName}\");
+
+        public static void AddIconToSubItem(this ListView listView, int row, int column, int iconIndex)
+        {
+            var lvi = new LV_ITEM
+            {
+                iItem = row,
+                iSubItem = column,
+                uiMask = LVIF_IMAGE,
+                iImage = iconIndex
+            };
+
+            SendMessage(listView.Handle, LVM_SETITEM, 0, ref lvi);
+        }
+
+        public static void ShowSubItemIcons(this ListView listView, bool show)
+        {
+            int style = SendMessage(listView.Handle, LVM_GETEXTENDEDLISTVIEWSTYLE, 0, 0);
+
+            if (show)
+                style |= LVS_EX_SUBITEMIMAGES;
+            else
+                style &= ~LVS_EX_SUBITEMIMAGES;
+
+            SendMessage(listView.Handle, LVM_SETEXTENDEDLISTVIEWSTYLE, 0, style);
+        }
     }
 }
