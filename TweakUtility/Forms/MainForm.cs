@@ -188,9 +188,19 @@ namespace TweakUtility.Forms
 			toolTip.SetToolTip(extensionsButton, Properties.Strings.Extensions);
 
 			//Loads icons for the bottom buttons
-			preferencesButton.Image = Icons.Options.ToBitmap();
-			backupsButton.Image = Icons.RecentDocuments.ToBitmap();
-			extensionsButton.Image = Icons.SystemFile.ToBitmap();
+			if (IsSupportedCosmetic(OperatingSystemVersion.Windows10))
+			{
+				preferencesButton.Text = "\uE713";
+				backupsButton.Text = "\uE81C";
+				extensionsButton.Text = "\uEA86";
+				preferencesButton.Font = backupsButton.Font = extensionsButton.Font = new Font("Segoe MDL2 Assets", 12);
+			}
+			else
+			{
+				preferencesButton.Image = Icons.Options.ToBitmap();
+				backupsButton.Image = Icons.RecentDocuments.ToBitmap();
+				extensionsButton.Image = Icons.SystemFile.ToBitmap();
+			}
 
 			this.LoadPages();
 			this.LoadWindowRectangle();
