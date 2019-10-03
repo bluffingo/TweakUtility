@@ -188,7 +188,7 @@ namespace TweakUtility
                 LoadBackups();
 
                 splash.SetStatus("Initializing pages...");
-                splash.InitializePages();
+                InitializePages();
 
 #if DEBUG
                 splash.SetStatus("Unlocking debug page...");
@@ -211,6 +211,60 @@ namespace TweakUtility
                 throw;
             }
 #endif
+        }
+
+        private static void InitializePages()
+        {
+            var types = new List<Type>() {
+                typeof(CustomizationPage),
+                typeof(WindowsExplorerPage),
+                typeof(InternetExplorerPage),
+                typeof(SnippingToolPage),
+                // Specialized
+                typeof(AdvancedPage),
+                typeof(SoftwarePage),
+                typeof(StartupPage),
+                typeof(Windows10Page),
+                // 3rd Party Applications
+                typeof(MsnMessengerPage),
+                // Other
+                typeof(UncategorizedPage)
+            };
+
+            foreach (Extension extension in Program.Loader.Extensions)
+            {
+                types.AddRange(extension.GetTweakPages());
+            }
+
+            foreach (Type pageType in types)
+            {
+                //Gets all requirement attributes and checks if there's an invalid one.
+                if (!Helpers.Helpers.RequirementsMet(pageType))
+                {
+                    continue;
+                }
+
+                try
+                {
+                    object instance = Activator.CreateInstance(pageType, true);
+
+                    Debug.Assert(instance is TweakPage);
+
+                    Program.Pages.Add(instance as TweakPage);
+                }
+                catch (Exception ex)
+                {
+                    if (ex.InnerException is UnauthorizedAccessException)
+                    {
+                        MessageBox.Show(string.Format(Properties.Strings.TweakPage_InsufficientPermissions, pageType.Name), Properties.Strings.Application_Name, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else
+                    {
+                        Debug.Fail(ex.ToString());
+                        MessageBox.Show(string.Format(Properties.Strings.TweakPage_LoadError, pageType.Name, ex.Message), Properties.Strings.Application_Name, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+            }
         }
 
         internal static void LoadBackups()

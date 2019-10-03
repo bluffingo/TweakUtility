@@ -44,56 +44,5 @@ namespace TweakUtility.Forms
                 Application.Exit();
             }
         }
-
-        public void InitializePages()
-        {
-            var types = new List<Type>() {
-                typeof(CustomizationPage),
-                typeof(InternetExplorerPage),
-                typeof(SnippingToolPage),
-                typeof(AdvancedPage),
-                typeof(SoftwarePage),
-                typeof(Windows10Page),
-                typeof(MsnMessengerPage),
-                typeof(UncategorizedPage)
-            };
-
-            foreach (Extension extension in Program.Loader.Extensions)
-            {
-                types.AddRange(extension.GetTweakPages());
-            }
-
-            foreach (Type pageType in types)
-            {
-                //Gets all requirement attributes and checks if there's an invalid one.
-                if (!Helpers.Helpers.RequirementsMet(pageType))
-                {
-                    continue;
-                }
-
-                this.SetStatus($"Initializing pages... ({pageType.Name})");
-
-                try
-                {
-                    object instance = Activator.CreateInstance(pageType, true);
-
-                    Debug.Assert(instance is TweakPage);
-
-                    Program.Pages.Add(instance as TweakPage);
-                }
-                catch (Exception ex)
-                {
-                    if (ex.InnerException is UnauthorizedAccessException)
-                    {
-                        MessageBox.Show(string.Format(Properties.Strings.TweakPage_InsufficientPermissions, pageType.Name), Properties.Strings.Application_Name, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-                    else
-                    {
-                        Debug.Fail(ex.ToString());
-                        MessageBox.Show(string.Format(Properties.Strings.TweakPage_LoadError, pageType.Name, ex.Message), Properties.Strings.Application_Name, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-                }
-            }
-        }
     }
 }
