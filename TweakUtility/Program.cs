@@ -216,7 +216,6 @@ namespace TweakUtility
                 // Specialized
                 typeof(AdvancedPage),
                 typeof(SoftwarePage),
-                typeof(StartupPage),
                 typeof(Windows10Page),
                 // 3rd Party Applications
                 typeof(MsnMessengerPage),

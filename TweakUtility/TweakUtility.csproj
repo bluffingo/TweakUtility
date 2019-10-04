@@ -248,12 +248,6 @@
     <Compile Include="Tweaks\Views\SoftwarePageView.Designer.cs">
       <DependentUpon>SoftwarePageView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tweaks\Views\StartupPageView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Tweaks\Views\StartupPageView.Designer.cs">
-      <DependentUpon>StartupPageView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Tweaks\Views\DiskCleanupPageView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -283,7 +277,6 @@
     <Compile Include="TweakAction.cs" />
     <Compile Include="TweakOption.cs" />
     <Compile Include="TweakPage.cs" />
-    <Compile Include="Tweaks\Pages\StartupPage.cs" />
     <Compile Include="Tweaks\Pages\UncategorizedPage.cs" />
     <Compile Include="Tweaks\Pages\Windows10Page.cs" />
     <Compile Include="Controls\TweakPageView.cs">
@@ -338,9 +331,6 @@
     <EmbeddedResource Include="Properties\Strings.de.resx" />
     <EmbeddedResource Include="Tweaks\Views\SoftwarePageView.resx">
       <DependentUpon>SoftwarePageView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tweaks\Views\StartupPageView.resx">
-      <DependentUpon>StartupPageView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Strings.fr.resx" />
     <EmbeddedResource Include="Properties\Strings.hu.resx" />
