@@ -176,10 +176,10 @@
     <Compile Include="Forms\ExtensionsForm.Designer.cs">
       <DependentUpon>ExtensionsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\HostsItemForm.cs">
+    <Compile Include="Tweaks\Forms\HostsItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\HostsItemForm.Designer.cs">
+    <Compile Include="Tweaks\Forms\HostsItemForm.Designer.cs">
       <DependentUpon>HostsItemForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForm.cs">
@@ -311,7 +311,7 @@
     <EmbeddedResource Include="Forms\ExtensionsForm.resx">
       <DependentUpon>ExtensionsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\HostsItemForm.resx">
+    <EmbeddedResource Include="Tweaks\Forms\HostsItemForm.resx">
       <DependentUpon>HostsItemForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
@@ -338,6 +338,9 @@
     <EmbeddedResource Include="Properties\Strings.de.resx" />
     <EmbeddedResource Include="Tweaks\Views\SoftwarePageView.resx">
       <DependentUpon>SoftwarePageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tweaks\Views\StartupPageView.resx">
+      <DependentUpon>StartupPageView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Strings.fr.resx" />
     <EmbeddedResource Include="Properties\Strings.hu.resx" />
@@ -402,8 +405,6 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Tweaks\Forms\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
