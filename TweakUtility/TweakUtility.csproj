@@ -241,6 +241,7 @@
     <Compile Include="Tweaks\Model\StartupItem.cs" />
     <Compile Include="Tweaks\Model\StartupItemType.cs" />
     <Compile Include="Tweaks\Model\StartupRegistryItem.cs" />
+    <Compile Include="Tweaks\Model\DiskCleanupHandler.cs" />
     <Compile Include="Tweaks\Pages\SoftwarePage.cs" />
     <Compile Include="Tweaks\Views\SoftwarePageView.cs">
       <SubType>UserControl</SubType>

@@ -18,7 +18,7 @@ namespace TweakUtility.Tweaks.Views
         {
             InitializeComponent();
             this.Padding = new Padding(SystemInformation.VerticalScrollBarWidth);
-            bottomPanel.Padding = new Padding(4, 4 + this.Padding.All / 2, 4, 4);
+            bottomPanel.Padding = new Padding(4, 4 + (this.Padding.All / 2), 4, 4);
             bottomPanel.Height += this.Padding.All / 2;
 
             iconPictureBox.Top = nameLabel.Top;

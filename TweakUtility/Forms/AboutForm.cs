@@ -45,7 +45,7 @@ namespace TweakUtility.Forms
                     throw new Exception("User triggered exception");
                 }
             }
-            else if (10 <= input.Count)
+            else if (input.Count >= 10)
             {
                 //resetting
                 input.Clear();
@@ -54,15 +54,15 @@ namespace TweakUtility.Forms
 
         //private void AboutForm_KeyP(object sender, KeyEventArgs e)
         //{   //BELOW IS THE PF94 PLEX EASTER EGG (Which isn't even done, yet).
-            //input.Add(e.KeyCode);
+        //input.Add(e.KeyCode);
 
-            //if (input.ToArray() == new[] { Keys.P, Keys.F, Keys.9, Keys.4,})
-            //{
-            //    if (MessageBox.Show("This isn't done yet.", Properties.Strings.Application_Name, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
-            //    {
-            //        throw new Exception("Code was copied from the Konami Code Easter Egg :/");
-            //    }
-            //}
+        //if (input.ToArray() == new[] { Keys.P, Keys.F, Keys.9, Keys.4,})
+        //{
+        //    if (MessageBox.Show("This isn't done yet.", Properties.Strings.Application_Name, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+        //    {
+        //        throw new Exception("Code was copied from the Konami Code Easter Egg :/");
+        //    }
+        //}
         //}
 
         private void CreditsButton_Click(object sender, EventArgs e)
