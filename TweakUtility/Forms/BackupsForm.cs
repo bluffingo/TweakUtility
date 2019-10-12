@@ -17,6 +17,9 @@ namespace TweakUtility.Forms
             this.createButton.Text = Properties.Strings.Button_Create;
             this.deleteButton.Text = Properties.Strings.Button_Delete;
             this.openFolderButton.Text = Properties.Strings.Backups_OpenFolder;
+            this.nameColumnHeader.Text = Properties.Strings.Backups_Name;
+            this.dateColumnHeader.Text = Properties.Strings.Backups_Date;
+            this.sizeColumnHeader.Text = Properties.Strings.Backups_Size;
         }
 
         private void BackupsForm_Load(object sender, EventArgs e)

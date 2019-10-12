@@ -330,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Strings.es.resx" />
     <EmbeddedResource Include="Properties\Strings.de.resx" />
+    <EmbeddedResource Include="Tweaks\Views\DiskCleanupPageView.resx">
+      <DependentUpon>DiskCleanupPageView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tweaks\Views\SoftwarePageView.resx">
       <DependentUpon>SoftwarePageView.cs</DependentUpon>
     </EmbeddedResource>

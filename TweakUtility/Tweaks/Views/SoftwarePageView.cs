@@ -23,6 +23,8 @@ namespace TweakUtility.Tweaks.Views
 
             iconPictureBox.Top = nameLabel.Top;
 
+            this.uninstallButton.Text = Properties.Strings.Uninstall;
+
             //nameLabel.Top = 8;
             //versionLabel.Top = nameLabel.Top + 5;
         }

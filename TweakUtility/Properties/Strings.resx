@@ -146,11 +146,20 @@
   <data name="Backups_Create_Requirement" xml:space="preserve">
     <value>Please select at least one option to create a backup.</value>
   </data>
+  <data name="Backups_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
   <data name="Backups_FolderDescription" xml:space="preserve">
     <value>This folder contains backups made by Tweak Utility. </value>
   </data>
+  <data name="Backups_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
   <data name="Backups_OpenFolder" xml:space="preserve">
     <value>Open Backups &amp;Folder</value>
+  </data>
+  <data name="Backups_Size" xml:space="preserve">
+    <value>Size</value>
   </data>
   <data name="Button_Apply" xml:space="preserve">
     <value>&amp;Apply</value>
@@ -232,6 +241,15 @@ AskVG (https://www.askvg.com)
     <value>Debug builds are experimental and do not guarantee to be working or offer any support.
 Automated crash reports are also disabled.</value>
   </data>
+  <data name="Entry_Add" xml:space="preserve">
+    <value>&amp;Add entry</value>
+  </data>
+  <data name="Entry_Edit" xml:space="preserve">
+    <value>&amp;Edit entry</value>
+  </data>
+  <data name="Entry_Remove" xml:space="preserve">
+    <value>&amp;Remove entry</value>
+  </data>
   <data name="Extensions" xml:space="preserve">
     <value>Extensions</value>
   </data>
@@ -305,8 +323,14 @@ Would you like to switch it on?</value>
 
 Do you want to continue?</value>
   </data>
+  <data name="OpenInNotepad" xml:space="preserve">
+    <value>Open in &amp;Notepad</value>
+  </data>
   <data name="Preferences" xml:space="preserve">
     <value>Preferences</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Re&amp;fresh</value>
   </data>
   <data name="Reload_ExplorerRestart" xml:space="preserve">
     <value>This option requires you to restart Windows Explorer.
@@ -364,5 +388,8 @@ You can try restarting the program as administrator.</value>
 
 This tweak page won't be included in the application</value>
     <comment>{0} Page Name/Id, {1} error message</comment>
+  </data>
+  <data name="Uninstall" xml:space="preserve">
+    <value>&amp;Uninstall</value>
   </data>
 </root>

@@ -19,6 +19,11 @@ namespace TweakUtility.Tweaks.Views
             InitializeComponent();
             this.Padding = new Padding(SystemInformation.VerticalScrollBarWidth);
             this.openButton.Image = Icons.Notepad.ToBitmap();
+
+            this.addButton.Text = Properties.Strings.Entry_Add;
+            this.deleteButton.Text = Properties.Strings.Entry_Remove;
+            this.editButton.Text = Properties.Strings.Entry_Edit;
+            this.openButton.Text = Properties.Strings.OpenInNotepad;
         }
 
         private void HostsPageView_Load(object sender, EventArgs e)

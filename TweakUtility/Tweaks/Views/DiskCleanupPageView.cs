@@ -20,6 +20,9 @@ namespace TweakUtility.Tweaks.Views
         {
             this.InitializeComponent();
             this.Padding = new Padding(SystemInformation.VerticalScrollBarWidth);
+            this.addButton.Text = Properties.Strings.Entry_Add;
+            this.removeButton.Text = Properties.Strings.Entry_Remove;
+            this.refreshButton.Text = Properties.Strings.Refresh;
         }
 
         private void DiskCleanupPageView_Load(object sender, EventArgs e)

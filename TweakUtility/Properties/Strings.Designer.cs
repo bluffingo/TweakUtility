@@ -142,6 +142,15 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        internal static string Backups_Date {
+            get {
+                return ResourceManager.GetString("Backups_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This folder contains backups made by Tweak Utility. .
         /// </summary>
         internal static string Backups_FolderDescription {
@@ -151,11 +160,29 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string Backups_Name {
+            get {
+                return ResourceManager.GetString("Backups_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Open Backups &amp;Folder.
         /// </summary>
         internal static string Backups_OpenFolder {
             get {
                 return ResourceManager.GetString("Backups_OpenFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Size.
+        /// </summary>
+        internal static string Backups_Size {
+            get {
+                return ResourceManager.GetString("Backups_Size", resourceCulture);
             }
         }
         
@@ -301,6 +328,33 @@ namespace TweakUtility.Properties {
         internal static string Debug_Disclaimer {
             get {
                 return ResourceManager.GetString("Debug_Disclaimer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Add entry.
+        /// </summary>
+        internal static string Entry_Add {
+            get {
+                return ResourceManager.GetString("Entry_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Edit entry.
+        /// </summary>
+        internal static string Entry_Edit {
+            get {
+                return ResourceManager.GetString("Entry_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Remove entry.
+        /// </summary>
+        internal static string Entry_Remove {
+            get {
+                return ResourceManager.GetString("Entry_Remove", resourceCulture);
             }
         }
         
@@ -504,11 +558,29 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Open in &amp;Notepad.
+        /// </summary>
+        internal static string OpenInNotepad {
+            get {
+                return ResourceManager.GetString("OpenInNotepad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Preferences.
         /// </summary>
         internal static string Preferences {
             get {
                 return ResourceManager.GetString("Preferences", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Re&amp;fresh.
+        /// </summary>
+        internal static string Refresh {
+            get {
+                return ResourceManager.GetString("Refresh", resourceCulture);
             }
         }
         
@@ -635,6 +707,15 @@ namespace TweakUtility.Properties {
         internal static string TweakPage_LoadError {
             get {
                 return ResourceManager.GetString("TweakPage_LoadError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Uninstall.
+        /// </summary>
+        internal static string Uninstall {
+            get {
+                return ResourceManager.GetString("Uninstall", resourceCulture);
             }
         }
     }
