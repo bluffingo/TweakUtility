@@ -102,7 +102,7 @@
 			// 
 			// uninstallButton
 			// 
-			this.uninstallButton.Image = global::TweakUtility.Properties.Resources.delete;
+			this.uninstallButton.Image = global::TweakUtility.Properties.Resources.DeleteApplication_16x;
 			this.uninstallButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.uninstallButton.Name = "uninstallButton";
 			this.uninstallButton.Size = new System.Drawing.Size(73, 20);

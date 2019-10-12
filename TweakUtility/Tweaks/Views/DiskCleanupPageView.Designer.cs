@@ -125,7 +125,7 @@
 			// 
 			// addButton
 			// 
-			this.addButton.Image = global::TweakUtility.Properties.Resources.add;
+			this.addButton.Image = global::TweakUtility.Properties.Resources.AddRow_16x;
 			this.addButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.addButton.Name = "addButton";
 			this.addButton.Size = new System.Drawing.Size(76, 22);
@@ -134,7 +134,7 @@
 			// 
 			// removeButton
 			// 
-			this.removeButton.Image = global::TweakUtility.Properties.Resources.delete;
+			this.removeButton.Image = global::TweakUtility.Properties.Resources.RemoveRow_16x;
 			this.removeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.removeButton.Name = "removeButton";
 			this.removeButton.Size = new System.Drawing.Size(97, 22);
@@ -143,7 +143,7 @@
 			// 
 			// refreshButton
 			// 
-			this.refreshButton.Image = global::TweakUtility.Properties.Resources.refresh;
+			this.refreshButton.Image = global::TweakUtility.Properties.Resources.Refresh_16x;
 			this.refreshButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.refreshButton.Name = "refreshButton";
 			this.refreshButton.Size = new System.Drawing.Size(66, 22);
