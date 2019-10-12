@@ -176,6 +176,12 @@
     <Compile Include="Forms\ExtensionsForm.Designer.cs">
       <DependentUpon>ExtensionsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tweaks\Forms\EnvironmentVariableItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tweaks\Forms\EnvironmentVariableItemForm.Designer.cs">
+      <DependentUpon>EnvironmentVariableItemForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tweaks\Forms\HostsItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -237,6 +243,7 @@
       <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Theming\Theme.cs" />
+    <Compile Include="Tweaks\Model\EnvironmentVariable.cs" />
     <Compile Include="Tweaks\Model\StartupFolderItem.cs" />
     <Compile Include="Tweaks\Model\StartupItem.cs" />
     <Compile Include="Tweaks\Model\StartupItemType.cs" />
@@ -311,6 +318,9 @@
     <EmbeddedResource Include="Forms\ExtensionsForm.resx">
       <DependentUpon>ExtensionsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tweaks\Forms\EnvironmentVariableItemForm.resx">
+      <DependentUpon>EnvironmentVariableItemForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tweaks\Forms\HostsItemForm.resx">
       <DependentUpon>HostsItemForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -336,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Strings.es.resx" />
     <EmbeddedResource Include="Properties\Strings.de.resx" />
+    <EmbeddedResource Include="Tweaks\Views\EnvironmentVariablesPageView.resx">
+      <DependentUpon>EnvironmentVariablesPageView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tweaks\Views\SoftwarePageView.resx">
       <DependentUpon>SoftwarePageView.cs</DependentUpon>
     </EmbeddedResource>
