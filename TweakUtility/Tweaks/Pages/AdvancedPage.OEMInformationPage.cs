@@ -1,16 +1,10 @@
-﻿
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Drawing;
 
 using TweakUtility.Attributes;
 using TweakUtility.Enums;
 using TweakUtility.Helpers;
-
-/// TweakUtility - IMPORTANT NOTES
-/// Please use vanilla versions for default values. Do not use customized/bootleg versions of Windows operating systems to get
-/// the most-authentic default values.
-/// Written by PF94, July 15th 2019
 
 namespace TweakUtility.Tweaks.Pages
 {

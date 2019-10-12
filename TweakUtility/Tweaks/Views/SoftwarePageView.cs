@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Microsoft.Win32;
-using System.IO;
-using System.Xml;
+﻿using Microsoft.Win32;
+
+using System;
 using System.Diagnostics;
-using TweakUtility.Helpers;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
+using System.Xml;
+
 using TweakUtility.Enums;
-using System.Runtime.InteropServices;
-using Microsoft.VisualBasic;
+using TweakUtility.Helpers;
 
 namespace TweakUtility.Tweaks.Views
 {

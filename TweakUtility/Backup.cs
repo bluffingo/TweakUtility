@@ -94,15 +94,14 @@ namespace TweakUtility
                 if (!(entry is TweakOption option))
                 {
                     Debug.WriteLine("[Backup] Ignoring tweak entry...");
-                    ;
                     continue;
                 }
 
-				if (item.Value == null)
-				{
-					Debug.WriteLine("[Backup] Ignoring empty tweak entry...");
-					continue;
-				}
+                if (item.Value == null)
+                {
+                    Debug.WriteLine("[Backup] Ignoring empty tweak entry...");
+                    continue;
+                }
 
                 if (option.Type == typeof(Color))
                 {

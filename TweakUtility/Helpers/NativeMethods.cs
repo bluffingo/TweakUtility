@@ -271,7 +271,7 @@ namespace TweakUtility.Helpers
             public int cchTextMax;
             public int iImage;
             public IntPtr lParam;
-        };
+        }
 
         public const int LVM_FIRST = 0x1000;
         public const int LVM_SETITEM = LVM_FIRST + 6;
