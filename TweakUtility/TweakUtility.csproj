@@ -242,7 +242,16 @@
     <Compile Include="Tweaks\Model\StartupItemType.cs" />
     <Compile Include="Tweaks\Model\StartupRegistryItem.cs" />
     <Compile Include="Tweaks\Model\DiskCleanupHandler.cs" />
+    <Compile Include="Tweaks\Pages\CustomizationPage.BackgroundsPage.cs" />
     <Compile Include="Tweaks\Pages\SoftwarePage.cs" />
+    <Compile Include="Tweaks\Views\BackgroundsPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tweaks\Views\BackgroundsPageView.Designer.cs">
+      <DependentUpon>BackgroundsPageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tweaks\Model\BackgroundsPageView.LogonStyle.cs" />
+    <Compile Include="Tweaks\Model\BackgroundsPageView.WallpaperStyle.cs" />
     <Compile Include="Tweaks\Views\SoftwarePageView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -330,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Strings.es.resx" />
     <EmbeddedResource Include="Properties\Strings.de.resx" />
+    <EmbeddedResource Include="Tweaks\Views\BackgroundsPageView.resx">
+      <DependentUpon>BackgroundsPageView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tweaks\Views\DiskCleanupPageView.resx">
       <DependentUpon>DiskCleanupPageView.cs</DependentUpon>
     </EmbeddedResource>

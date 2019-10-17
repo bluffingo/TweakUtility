@@ -9,7 +9,7 @@ namespace TweakUtility.Tweaks.Pages
 {
     internal partial class CustomizationPage : TweakPage
     {
-        internal CustomizationPage() : base("Customization", new ColorsPage())
+        internal CustomizationPage() : base("Customization", new ColorsPage(), new BackgroundsPage())
         {
             if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
             {
@@ -19,6 +19,10 @@ namespace TweakUtility.Tweaks.Pages
             {
                 this.Icon = NativeHelpers.ExtractIcon(@"%SystemRoot%\system32\shell32.dll", -250);
             }
+        }
+
+        public CustomizationPage(string name, params TweakPage[] subPages) : base(name, subPages)
+        {
         }
 
         [DisplayName("Applications use light theme")]
