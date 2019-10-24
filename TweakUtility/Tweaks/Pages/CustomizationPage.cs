@@ -9,7 +9,7 @@ namespace TweakUtility.Tweaks.Pages
 {
     internal partial class CustomizationPage : TweakPage
     {
-        internal CustomizationPage() : base("Customization", new ColorsPage())
+        internal CustomizationPage() : base("Customization", new ColorsPage(), new CursorsPage())
         {
             if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
             {
