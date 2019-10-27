@@ -38,7 +38,7 @@ namespace TweakUtility.Tweaks.Views
                 if (line.Length == 0 || line[0] == '#')
                     continue;
 
-                var split = line.Split(new[] { '\t' }, StringSplitOptions.RemoveEmptyEntries);
+                var split = line.Split(new[] { '\t', ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
                 if (split.Length == 0)
                     continue;
