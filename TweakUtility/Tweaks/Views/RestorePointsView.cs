@@ -1,15 +1,20 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Management;
+using System.Threading.Tasks;
 using TweakUtility.Enums;
+using TweakUtility.Helpers;
+using TweakUtility.Tweaks.Forms;
 
 namespace TweakUtility.Tweaks.Views
 {
     public partial class RestorePointsView : UserControl
     {
+        private ListViewItem _selectedItem = null;
+
         public RestorePointsView()
         {
             InitializeComponent();
@@ -44,43 +49,90 @@ namespace TweakUtility.Tweaks.Views
                         ? ((RestorePointType) restoreType).ToString()
                         : restoreType.ToString()
                 });
-                listView.Items.Add(item);
+                this.listView.Items.Add(item);
             }
         }
 
-        private void AddButtonClick(object sender, EventArgs e)
+        private void SetWorking(bool working)
         {
-            throw new System.NotImplementedException();
-        }
-
-        private void EditButtonClick(object sender, EventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        private void RemoveButtonClick(object sender, EventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        private void ListViewItemActivate(object sender, EventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        private void ListViewMouseClick(object sender, MouseEventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        private void ListViewKeyUp(object sender, KeyEventArgs e)
-        {
-            throw new System.NotImplementedException();
+            this.listView.Enabled = !working;
+            this.addButton.Enabled = !working;
+            this.removeButton.Enabled = !working;
+            this.progressBar.Value = working ? 100 : 0;
+            this.progressBar.Style = working ? ProgressBarStyle.Marquee : ProgressBarStyle.Continuous;
         }
 
         private void ListViewItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            throw new System.NotImplementedException();
+            this.removeButton.Enabled = e.IsSelected;
+            this._selectedItem = e.Item;
+        }
+
+        private void AddButtonClick(object sender, EventArgs e)
+        {
+            var diag = new SystemRestoreForm();
+            diag.ShowDialog();
+        }
+
+        private void RemoveButtonClick(object sender, EventArgs e)
+        {
+            if (this._selectedItem == null)
+            {
+                this.removeButton.Enabled = false;
+                return;
+            }
+
+            var seqNum = uint.Parse(this._selectedItem.SubItems[2].Text);
+            if (Properties.Settings.Default.RestorePointDeletionWarning)
+                // ReSharper disable once SwitchStatementMissingSomeCases
+                switch (MessageBox.Show(
+                    $"You are about to delete the System Restore Point: '{this._selectedItem.SubItems[0].Text}' ({seqNum})\n" +
+                    "This message is a safe guard.\nDo you want to see this message again the next time?",
+                    $"Delete {this._selectedItem.SubItems[0].Text}", MessageBoxButtons.YesNoCancel))
+                {
+                    case DialogResult.Cancel:
+                        return;
+                    case DialogResult.No:
+                        Properties.Settings.Default.RestorePointDeletionWarning = false;
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+
+            RunActionAsync(() => { NativeMethods.SRRemoveRestorePoint(seqNum); });
+        }
+
+        private async void RunActionAsync(Action action)
+        {
+            SetWorking(true);
+            this.statusLabel.Text = "Working... ";
+            var workTask = Task.Run(action);
+            var working = true;
+            var countTask = Task.Run(() =>
+            {
+                var sw = new Stopwatch();
+                while (working)
+                {
+                    this.statusLabel.Text = $"Working... {sw.Elapsed}";
+                    Task.Delay(50);
+                }
+
+                this.statusLabel.Text = $"Finished within {sw.Elapsed}";
+            });
+
+            await Task.WhenAny(workTask, countTask);
+            working = false;
+            this.listView.Items.Clear();
+            RestorePointsViewLoad(null, null); // Doing some hackery here
+            SetWorking(false);
+        }
+        
+        private void ListViewKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                RemoveButtonClick(sender, e); // More hackery
+            }
         }
     }
 }
