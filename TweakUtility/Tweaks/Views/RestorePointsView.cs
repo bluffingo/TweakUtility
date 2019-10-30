@@ -81,9 +81,9 @@ namespace TweakUtility.Tweaks.Views
                 using (var class_ = new ManagementClass(scope, path, options))
                 using (var parameters = class_.GetMethodParameters("CreateRestorePoint"))
                 {
-                    parameters["Description"] = description;
-                    parameters["EventType"] = (uint)diag.EventType;
-                    parameters["RestorePointType"] = (uint)diag.RestorePointType;
+                    parameters["Description"] = diag.Description;
+                    parameters["EventType"] = (uint) diag.EventType;
+                    parameters["RestorePointType"] = (uint) diag.RestorePointType;
                     class_.InvokeMethod("CreateRestorePoint", parameters, null);
                 }
             });
@@ -110,8 +110,9 @@ namespace TweakUtility.Tweaks.Views
                     case DialogResult.No:
                         Properties.Settings.Default.RestorePointDeletionWarning = false;
                         break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
+                    case DialogResult.Yes:
+                        Properties.Settings.Default.RestorePointDeletionWarning = true;
+                        break;
                 }
 
             RunActionAsync(() => { NativeMethods.SRRemoveRestorePoint(seqNum); });
@@ -125,20 +126,29 @@ namespace TweakUtility.Tweaks.Views
             var working = true;
             var countTask = Task.Run(() =>
             {
-                var sw = new Stopwatch();
+                var sw = Stopwatch.StartNew();
                 while (working)
                 {
-                    this.statusLabel.Text = $"Working... {sw.Elapsed}";
-                    Task.Delay(50);
+                    try
+                    {
+                        this.statusLabel.Text = $"Working... {Math.Round((sw.Elapsed.TotalMilliseconds / 1000f), 2)}s";
+                    }
+                    catch (Exception)
+                    {
+                        // ignored
+                    }
+
+                    Task.Delay(100);
                 }
 
                 this.statusLabel.Text = $"Finished within {sw.Elapsed}";
             });
 
             await Task.WhenAny(workTask, countTask);
-            working = false;
+            await Task.Delay(5000);
             this.listView.Items.Clear();
             RestorePointsViewLoad(null, null); // Doing some hackery here
+            working = false;
             SetWorking(false);
         }
 

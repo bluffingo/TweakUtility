@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace TweakUtility.Tweaks.Forms
 {
@@ -80,6 +81,7 @@ namespace TweakUtility.Tweaks.Forms
             this.eventTypeComboBox.Size = new System.Drawing.Size(285, 23);
             this.eventTypeComboBox.TabIndex = 4;
             this.eventTypeComboBox.Text = "BeginSystemChange";
+            this.eventTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             // 
             // restoreTypeComboBox
             // 
@@ -89,6 +91,7 @@ namespace TweakUtility.Tweaks.Forms
             this.restoreTypeComboBox.Size = new System.Drawing.Size(285, 23);
             this.restoreTypeComboBox.TabIndex = 5;
             this.restoreTypeComboBox.Text = "ApplicationInstall";
+            this.restoreTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             // 
             // okButton
             // 
