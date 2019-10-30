@@ -98,6 +98,7 @@ namespace TweakUtility.Tweaks.Forms
             this.okButton.TabIndex = 6;
             this.okButton.Text = "&Ok";
             this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.OkButtonClick);
             // 
             // cancelButton
             // 
@@ -107,6 +108,7 @@ namespace TweakUtility.Tweaks.Forms
             this.cancelButton.TabIndex = 7;
             this.cancelButton.Text = "&Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.CancelButtonClick);
             // 
             // SystemRestoreForm
             // 

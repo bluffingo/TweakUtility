@@ -22,16 +22,17 @@ namespace TweakUtility.Tweaks.Views
 
         private void RestorePointsViewLoad(object sender, EventArgs e)
         {
-            var sysRestores = new ManagementClass("\\\\.\\root\\default", "systemrestore",
+            var class_ = new ManagementClass("\\\\.\\root\\default", "systemrestore",
                 new System.Management.ObjectGetOptions());
-            var restores = sysRestores.GetInstances();
+            var instances = class_.GetInstances();
 
             var eventTypes =
-                ((RestorePointEventType[]) Enum.GetValues(typeof(RestorePointEventType))).Select(x => (uint) x);
+                ((RestorePointEventType[]) Enum.GetValues(typeof(RestorePointEventType))).Select(x => (uint) x)
+                .ToArray();
             var restoreTypes =
-                ((RestorePointType[]) Enum.GetValues(typeof(RestorePointType))).Select(x => (uint) x);
+                ((RestorePointType[]) Enum.GetValues(typeof(RestorePointType))).Select(x => (uint) x).ToArray();
 
-            foreach (var restore in restores)
+            foreach (var restore in instances)
             {
                 var eventType = (uint) restore["eventtype"];
                 var restoreType = (uint) restore["restorepointtype"];
@@ -71,7 +72,21 @@ namespace TweakUtility.Tweaks.Views
         private void AddButtonClick(object sender, EventArgs e)
         {
             var diag = new SystemRestoreForm();
-            diag.ShowDialog();
+            if (diag.ShowDialog() == DialogResult.Cancel) return;
+            RunActionAsync(() =>
+            {
+                var scope = new ManagementScope("\\\\.\\root\\default");
+                var path = new ManagementPath("SystemRestore");
+                var options = new ObjectGetOptions();
+                using (var class_ = new ManagementClass(scope, path, options))
+                using (var parameters = class_.GetMethodParameters("CreateRestorePoint"))
+                {
+                    parameters["Description"] = description;
+                    parameters["EventType"] = (uint)diag.EventType;
+                    parameters["RestorePointType"] = (uint)diag.RestorePointType;
+                    class_.InvokeMethod("CreateRestorePoint", parameters, null);
+                }
+            });
         }
 
         private void RemoveButtonClick(object sender, EventArgs e)
@@ -126,7 +141,7 @@ namespace TweakUtility.Tweaks.Views
             RestorePointsViewLoad(null, null); // Doing some hackery here
             SetWorking(false);
         }
-        
+
         private void ListViewKeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
