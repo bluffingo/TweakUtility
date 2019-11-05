@@ -24,15 +24,12 @@ namespace TweakUtility.Helpers
         public static Icon ExtractIcon(string file, int id)
         {
             file = Helpers.ResolvePath(file);
-            ExtractIconEx(file, id, out _, out IntPtr small, 1);
-            try
-            {
-                return Icon.FromHandle(small);
-            }
-            catch
-            {
+            ExtractIconEx(file, id, out _, out var small, 1);
+
+            if (small == IntPtr.Zero)
                 return null;
-            }
+
+            return Icon.FromHandle(small);
         }
 
         public static string ExtractString(string file, int id)
