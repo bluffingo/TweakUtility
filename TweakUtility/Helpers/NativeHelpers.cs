@@ -3,22 +3,24 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+
 using static TweakUtility.Helpers.NativeMethods;
 
 namespace TweakUtility.Helpers
 {
     internal static class NativeHelpers
     {
-        public static Bitmap ExtractImage(string file, int id)
+        public static void AddIconToSubItem(this ListView listView, int row, int column, int iconIndex)
         {
-            file = Helpers.ResolvePath(file);
+            var lvi = new LV_ITEM
+            {
+                iItem = row,
+                iSubItem = column,
+                uiMask = LVIF_IMAGE,
+                iImage = iconIndex
+            };
 
-            IntPtr hModule = LoadLibraryEx(file, IntPtr.Zero, LoadLibraryFlags.LOAD_LIBRARY_AS_DATAFILE | LoadLibraryFlags.LOAD_LIBRARY_AS_IMAGE_RESOURCE);
-            IntPtr hResource = FindResource(hModule, id, "IMAGE");
-            IntPtr hBitmap = LoadResource(hModule, hResource);
-            var bitmap = Bitmap.FromHbitmap(hBitmap);
-            DeleteObject(hBitmap);
-            return bitmap;
+            SendMessage(listView.Handle, LVM_SETITEM, 0, ref lvi);
         }
 
         public static Icon ExtractIcon(string file, int id)
@@ -32,26 +34,28 @@ namespace TweakUtility.Helpers
             return Icon.FromHandle(small);
         }
 
+        public static Bitmap ExtractImage(string file, int id)
+        {
+            file = Helpers.ResolvePath(file);
+
+            var hModule = LoadLibraryEx(file, IntPtr.Zero, LoadLibraryFlags.LOAD_LIBRARY_AS_DATAFILE | LoadLibraryFlags.LOAD_LIBRARY_AS_IMAGE_RESOURCE);
+            var hResource = FindResource(hModule, id, "IMAGE");
+            var hBitmap = LoadResource(hModule, hResource);
+            var image = Image.FromHbitmap(hBitmap);
+            DeleteObject(hBitmap);
+            return image;
+        }
+
         public static string ExtractString(string file, int id)
         {
-            IntPtr lib = LoadLibraryEx(file, IntPtr.Zero, LoadLibraryFlags.LOAD_LIBRARY_AS_DATAFILE | LoadLibraryFlags.LOAD_LIBRARY_AS_IMAGE_RESOURCE);
+            var library = LoadLibraryEx(file, IntPtr.Zero, LoadLibraryFlags.LOAD_LIBRARY_AS_DATAFILE | LoadLibraryFlags.LOAD_LIBRARY_AS_IMAGE_RESOURCE);
             var result = new StringBuilder(2048);
-            LoadString(lib, id, result, result.Capacity);
-            FreeLibrary(lib);
+            LoadString(library, id, result, result.Capacity);
+            FreeLibrary(library);
             return result.ToString();
         }
 
-        public static void IniWriteValue(string section, string key, string value, string path)
-        {
-            path = Environment.ExpandEnvironmentVariables(path);
-
-            if (!File.Exists(path))
-            {
-                File.Create(path).Close();
-            }
-
-            WritePrivateProfileString(section, key, value, path);
-        }
+        public static string GetApplicationPath(string executableName) => RegistryHelper.GetValue<string>($@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\{executableName}\");
 
         public static string IniReadValue(string section, string key, string path)
         {
@@ -62,19 +66,14 @@ namespace TweakUtility.Helpers
             return stringBuilder.ToString();
         }
 
-        public static string GetApplicationPath(string executableName) => RegistryHelper.GetValue<string>($@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\{executableName}\");
-
-        public static void AddIconToSubItem(this ListView listView, int row, int column, int iconIndex)
+        public static void IniWriteValue(string section, string key, string value, string path)
         {
-            var lvi = new LV_ITEM
-            {
-                iItem = row,
-                iSubItem = column,
-                uiMask = LVIF_IMAGE,
-                iImage = iconIndex
-            };
+            path = Environment.ExpandEnvironmentVariables(path);
 
-            SendMessage(listView.Handle, LVM_SETITEM, 0, ref lvi);
+            if (!File.Exists(path))
+                File.Create(path).Close();
+
+            WritePrivateProfileString(section, key, value, path);
         }
 
         public static void ShowSubItemIcons(this ListView listView, bool show)
