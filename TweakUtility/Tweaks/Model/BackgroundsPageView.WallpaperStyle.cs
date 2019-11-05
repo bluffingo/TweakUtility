@@ -1,9 +1,11 @@
 ﻿namespace TweakUtility.Tweaks.Model
 {
-    public enum WallpaperStyle
+    public enum WallpaperStyle : int
     {
-        Tiled,
-        Centered,
-        Stretched
+        Tiled = -1,
+        Centered = 0,
+        Stretched = 2,
+        Fit = 6,
+        Fill = 10,
     }
 }

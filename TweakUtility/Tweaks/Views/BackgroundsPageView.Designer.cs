@@ -46,7 +46,7 @@
             // desktopPictureBox
             // 
             this.desktopPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.desktopPictureBox.Location = new System.Drawing.Point(16, 16);
+            this.desktopPictureBox.Location = new System.Drawing.Point(22, 39);
             this.desktopPictureBox.Name = "desktopPictureBox";
             this.desktopPictureBox.Size = new System.Drawing.Size(192, 108);
             this.desktopPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -58,7 +58,7 @@
             // 
             this.desktopTitleLabel.AutoSize = true;
             this.desktopTitleLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.desktopTitleLabel.Location = new System.Drawing.Point(214, 16);
+            this.desktopTitleLabel.Location = new System.Drawing.Point(18, 15);
             this.desktopTitleLabel.Name = "desktopTitleLabel";
             this.desktopTitleLabel.Size = new System.Drawing.Size(169, 21);
             this.desktopTitleLabel.TabIndex = 1;
@@ -67,7 +67,7 @@
             // desktopStyleLabel
             // 
             this.desktopStyleLabel.AutoSize = true;
-            this.desktopStyleLabel.Location = new System.Drawing.Point(215, 45);
+            this.desktopStyleLabel.Location = new System.Drawing.Point(220, 45);
             this.desktopStyleLabel.Name = "desktopStyleLabel";
             this.desktopStyleLabel.Size = new System.Drawing.Size(35, 15);
             this.desktopStyleLabel.TabIndex = 2;
@@ -77,16 +77,17 @@
             // 
             this.desktopStyleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.desktopStyleComboBox.FormattingEnabled = true;
-            this.desktopStyleComboBox.Location = new System.Drawing.Point(256, 42);
+            this.desktopStyleComboBox.Location = new System.Drawing.Point(301, 42);
             this.desktopStyleComboBox.Name = "desktopStyleComboBox";
-            this.desktopStyleComboBox.Size = new System.Drawing.Size(165, 23);
+            this.desktopStyleComboBox.Size = new System.Drawing.Size(130, 23);
             this.desktopStyleComboBox.TabIndex = 3;
+            this.desktopStyleComboBox.SelectedIndexChanged += new System.EventHandler(this.DesktopStyleComboBox_SelectedIndexChanged);
             this.desktopStyleComboBox.SelectedValueChanged += new System.EventHandler(this.DesktopStyleComboBox_SelectedValueChanged);
             // 
             // loginPictureBox
             // 
             this.loginPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.loginPictureBox.Location = new System.Drawing.Point(16, 144);
+            this.loginPictureBox.Location = new System.Drawing.Point(22, 190);
             this.loginPictureBox.Name = "loginPictureBox";
             this.loginPictureBox.Size = new System.Drawing.Size(192, 108);
             this.loginPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -98,7 +99,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(214, 144);
+            this.label3.Location = new System.Drawing.Point(18, 166);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(154, 21);
             this.label3.TabIndex = 5;
@@ -109,7 +110,7 @@
             this.loginRestoreLinkLabel.AutoSize = true;
             this.loginRestoreLinkLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.loginRestoreLinkLabel.LinkColor = System.Drawing.SystemColors.HotTrack;
-            this.loginRestoreLinkLabel.Location = new System.Drawing.Point(215, 194);
+            this.loginRestoreLinkLabel.Location = new System.Drawing.Point(220, 268);
             this.loginRestoreLinkLabel.Name = "loginRestoreLinkLabel";
             this.loginRestoreLinkLabel.Size = new System.Drawing.Size(100, 15);
             this.loginRestoreLinkLabel.TabIndex = 6;
@@ -122,7 +123,7 @@
             this.loginPreviewLinkLabel.AutoSize = true;
             this.loginPreviewLinkLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.loginPreviewLinkLabel.LinkColor = System.Drawing.SystemColors.HotTrack;
-            this.loginPreviewLinkLabel.Location = new System.Drawing.Point(215, 209);
+            this.loginPreviewLinkLabel.Location = new System.Drawing.Point(220, 283);
             this.loginPreviewLinkLabel.Name = "loginPreviewLinkLabel";
             this.loginPreviewLinkLabel.Size = new System.Drawing.Size(48, 15);
             this.loginPreviewLinkLabel.TabIndex = 7;
@@ -133,12 +134,15 @@
             // qualityNoticeLinkLabel
             // 
             this.qualityNoticeLinkLabel.AutoSize = true;
+            this.qualityNoticeLinkLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.qualityNoticeLinkLabel.ForeColor = System.Drawing.SystemColors.GrayText;
             this.qualityNoticeLinkLabel.LinkArea = new System.Windows.Forms.LinkArea(45, 11);
             this.qualityNoticeLinkLabel.LinkColor = System.Drawing.SystemColors.HotTrack;
-            this.qualityNoticeLinkLabel.Location = new System.Drawing.Point(215, 237);
+            this.qualityNoticeLinkLabel.Location = new System.Drawing.Point(15, 313);
+            this.qualityNoticeLinkLabel.Margin = new System.Windows.Forms.Padding(0);
             this.qualityNoticeLinkLabel.Name = "qualityNoticeLinkLabel";
-            this.qualityNoticeLinkLabel.Size = new System.Drawing.Size(323, 21);
+            this.qualityNoticeLinkLabel.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.qualityNoticeLinkLabel.Size = new System.Drawing.Size(327, 21);
             this.qualityNoticeLinkLabel.TabIndex = 9;
             this.qualityNoticeLinkLabel.TabStop = true;
             this.qualityNoticeLinkLabel.Text = "The background was applied with 90% quality. Learn More";
@@ -150,19 +154,19 @@
             // 
             this.logonStyleLabel.AutoSize = true;
             this.logonStyleLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logonStyleLabel.Location = new System.Drawing.Point(215, 171);
+            this.logonStyleLabel.Location = new System.Drawing.Point(220, 192);
             this.logonStyleLabel.Name = "logonStyleLabel";
-            this.logonStyleLabel.Size = new System.Drawing.Size(35, 15);
+            this.logonStyleLabel.Size = new System.Drawing.Size(75, 15);
             this.logonStyleLabel.TabIndex = 11;
-            this.logonStyleLabel.Text = "Style:";
+            this.logonStyleLabel.Text = "Text shadow:";
             // 
             // logonStyleComboBox
             // 
             this.logonStyleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.logonStyleComboBox.FormattingEnabled = true;
-            this.logonStyleComboBox.Location = new System.Drawing.Point(256, 168);
+            this.logonStyleComboBox.Location = new System.Drawing.Point(301, 189);
             this.logonStyleComboBox.Name = "logonStyleComboBox";
-            this.logonStyleComboBox.Size = new System.Drawing.Size(165, 23);
+            this.logonStyleComboBox.Size = new System.Drawing.Size(130, 23);
             this.logonStyleComboBox.TabIndex = 12;
             this.logonStyleComboBox.SelectedValueChanged += new System.EventHandler(this.LogonStyleComboBox_SelectedValueChanged);
             // 
@@ -185,9 +189,9 @@
             this.Controls.Add(this.loginPictureBox);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "BackgroundsPageView";
-            this.Size = new System.Drawing.Size(551, 298);
+            this.Padding = new System.Windows.Forms.Padding(15);
+            this.Size = new System.Drawing.Size(449, 349);
             this.Load += new System.EventHandler(this.BackgroundsPageView_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.BackgroundsPageView_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.desktopPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginPictureBox)).EndInit();
             this.ResumeLayout(false);

@@ -42,42 +42,15 @@ namespace TweakUtility.Tweaks.Views
         {
             get
             {
-                var style = RegistryHelper.GetValue<string>(@"HKCU\Control Panel\Desktop\WallpaperStyle");
-                var tile = RegistryHelper.GetValue<string>(@"HKCU\Control Panel\Desktop\TileWallpaper");
-
-                if (tile == "1")
-                {
+                if (RegistryHelper.GetValue<string>(@"HKCU\Control Panel\Desktop\TileWallpaper") == "1")
                     return WallpaperStyle.Tiled;
-                }
                 else
-                {
-                    if (style == "1")
-                    {
-                        return WallpaperStyle.Centered;
-                    }
-                    else if (style == "2")
-                    {
-                        return WallpaperStyle.Stretched;
-                    }
-                }
-
-                return WallpaperStyle.Stretched;
+                    return (WallpaperStyle)int.Parse(RegistryHelper.GetValue<string>(@"HKCU\Control Panel\Desktop\WallpaperStyle"));
             }
-
             set
             {
-                switch (value)
-                {
-                    case WallpaperStyle.Stretched:
-                        RegistryHelper.SetValue(@"HKCU\Control Panel\Desktop\WallpaperStyle", "2");
-                        break;
-
-                    default:
-                        RegistryHelper.SetValue(@"HKCU\Control Panel\Desktop\WallpaperStyle", "1");
-                        break;
-                }
-
-                RegistryHelper.SetValue(@"HKCU\Control Panel\Desktop\TileWallpaper", value == WallpaperStyle.Centered ? "1" : "0");
+                RegistryHelper.SetValue(@"HKCU\Control Panel\Desktop\TileWallpaper", value == WallpaperStyle.Tiled ? "1" : "0");
+                RegistryHelper.SetValue(@"HKCU\Control Panel\Desktop\WallpaperStyle", ((int)value).ToString());
             }
         }
 
@@ -128,12 +101,6 @@ namespace TweakUtility.Tweaks.Views
             logonStyleComboBox.SelectedItem = LogonStyle;
 
             setBackgrounds();
-        }
-
-        private void BackgroundsPageView_Paint(object sender, PaintEventArgs e)
-        {
-            var y = desktopPictureBox.Top + desktopPictureBox.Height + 10;
-            e.Graphics.DrawLine(SystemPens.ControlDark, 0, y, this.Width, y);
         }
 
         private Image CheckOversizedResolution(Image input)
@@ -307,7 +274,12 @@ namespace TweakUtility.Tweaks.Views
         {
             if (logonStyleComboBox.SelectedItem == null)
                 return;
+        }
 
+        private void DesktopStyleComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DesktopStyle = (WallpaperStyle)desktopStyleComboBox.SelectedItem;
+            NativeMethods.SystemParametersInfo(20, 0, DesktopBackgroundPath, 3);
         }
     }
 }
