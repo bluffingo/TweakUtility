@@ -1,6 +1,8 @@
 ﻿-Tweak Utility Easter Eggs-
 These were originally in the source code, but have been placed here to clean the code.
 
+In a nutshell, this is a relic of TweakUtility's early developement (from July to August)
+
 I'M HAVING ATTENTION
 
 [4:33 AM] Craftplacer: https://files.catbox.moe/hipgjk.png
