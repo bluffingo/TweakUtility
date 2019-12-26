@@ -128,7 +128,7 @@
   </data>
   <data name="About_License" xml:space="preserve">
     <value>Tweak Utility elérhető a {0} -on GPL-3.0 licensz alatt.</value>
-    <comment>{0} (link) = &quot;GitHub&quot;</comment>
+    <comment>{0} (link) = "GitHub"</comment>
   </data>
   <data name="Application_Name" xml:space="preserve">
     <value>Tweak Utility</value>
@@ -172,30 +172,6 @@
   </data>
   <data name="CheckBox_DontAskAgain" xml:space="preserve">
     <value>Ne figyelmeztessen újra</value>
-  </data>
-  <data name="Credits" xml:space="preserve">
-    <value>Vezető fejlesztő
-CraftPlacer
-
-Hozzájáruló fejlesztő
-PF94, másnéven Gamerappa
-
-Volt hozzájáruló
-Alien Future, vagyis Vámos Balázs
-
-Fordítók
-Craftplacer (angol, német)
-Alien Future (magyar)
-CatHR Games (spanyol)
-PF94 és Google Fordító (francia)
-
-Ikonok
-Craftplacer (alkalmazás ikon)
-Microsoft Windows (verziófüggő ikonok szerint, dinamikusan vetve)
-
-Tweak források
-AskVG (https://www.askvg.com)</value>
-    <comment>THIS STRING ISN&apos;T SUPPOSED TO BE TRANSLATED</comment>
   </data>
   <data name="Debug_Disclaimer" xml:space="preserve">
     <value>Teszt változatok kisérletűek és nem garantáljuk a hibátlan működést. Automatikus hibajelentés szintén kikapcsolt.</value>
@@ -260,7 +236,7 @@ Ebből adódóan, OneDrive nem lesz automatikusan törölve, viszont folytathato
 Szeretnéd folytatni??</value>
   </data>
   <data name="OneDrive_Uninstall_SetFlagMessage" xml:space="preserve">
-    <value>Jelenleg a &quot;felhasználó által kért eltávolítás&quot; jelző nincs beállítva, esetleg a Windows OneDrive újratelepítéséhez vezethet.
+    <value>Jelenleg a "felhasználó által kért eltávolítás" jelző nincs beállítva, esetleg a Windows OneDrive újratelepítéséhez vezethet.
 Ezzel a jelzővel megmondhatod Windowsnak, hogy továbbra is eltávolítani szeretnéd a OneDriveot.
 
 Beszeretnéd kapcsolni?</value>
@@ -301,10 +277,14 @@ ha tudod hogyan lehet ezt programozottan végrehajtani, kérlek kattins a vissza
     <value>Bizonyosodj meg arról, hogy a visszajelzés nem tartalmaz semmilyen személyes adatot, amit véletlenül vett fel a program.</value>
   </data>
   <data name="TweakPage_InsufficientPermissions" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="TweakPage_LoadError" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>{0} Page Name/Id, {1} error message</comment>
+  </data>
+  <data name="Credits" xml:space="preserve">
+    <value />
+    <comment>THIS STRING ISN'T SUPPOSED TO BE TRANSLATED</comment>
   </data>
 </root>

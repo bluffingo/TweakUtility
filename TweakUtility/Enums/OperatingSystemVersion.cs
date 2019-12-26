@@ -34,7 +34,7 @@ namespace TweakUtility.Enums
         [DisplayName("Windows 8 (Consumer Preview)")]
         Windows8Consumer,
 
-        [DisplayName("Windows 8 (Release)")]
+        [DisplayName("Windows 8 (Release Preview)")]
         Windows8Release,
 
         [DisplayName("Windows 8")]
