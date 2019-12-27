@@ -19,7 +19,7 @@ namespace TweakUtility.Helpers
     ///
     /// The obscure Windows operating systems based on XP/2003's codebase should not be included.
     /// This means that any of the Embeddeds (including POSready), Fundamental for Legacy PCs and Home Server
-    /// should not be implemented, As even if they have a different "build" number and System, WinVer still says it's 2600.
+    /// should not be implemented, As even if they have a different "build" number and system, WinVer still says it's 2600.
     /// This also applies for Windows 7 (or Server 2008 R2)'s  MultiPoint Server 2010, Embedded 7, Home Server 2011 and Thin PC.
     ///
     /// This should be only official Microsoft versions, Do not bloat this list with Custom Versions that uses
@@ -36,10 +36,10 @@ namespace TweakUtility.Helpers
         private static readonly Version[] _versions = new[] {
           //new Version(major, minor, build),
             new Version(5, 1),
-            new Version(5, 2),
-            new Version(6, 0, 4074),
-            new Version(6, 0),
-            new Version(6, 1, 7000),
+            new Version(5, 2), // <--- i mean, Server 2003, with a different version count, is still XP.
+            new Version(6, 0, 4074), // <--- Does it even work with TweakUtility?
+            new Version(6, 0), // <--- applies to 6003 as well, also is it me or TweakUtility is broken on Vista or something?
+            new Version(6, 1, 7000), // <--- Does it even have Tweaks that applies to the Windows 7 Beta?
             new Version(6, 1),
             new Version(6, 2, 8102),
             new Version(6, 2, 8250),
