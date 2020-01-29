@@ -36,10 +36,10 @@ namespace TweakUtility.Helpers
         private static readonly Version[] _versions = new[] {
           //new Version(major, minor, build),
             new Version(5, 1),
-            new Version(5, 2), // <--- i mean, Server 2003, with a different version count, is still XP.
-            new Version(6, 0, 4074), // <--- Does it even work with TweakUtility?
-            new Version(6, 0), // <--- applies to 6003 as well, also is it me or TweakUtility is broken on Vista or something?
-            new Version(6, 1, 7000), // <--- Does it even have Tweaks that applies to the Windows 7 Beta?
+            new Version(5, 2),
+            new Version(6, 0, 4074),
+            new Version(6, 0),
+            new Version(6, 1, 7000),
             new Version(6, 1),
             new Version(6, 2, 8102),
             new Version(6, 2, 8250),
