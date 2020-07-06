@@ -1,3 +1,4 @@
+**Windows XP/Vista support is currently broken**
 # PF94's Tweak Utility
 A fork of a .NET Framework application for tweaking Windows with an easy UI.
 
