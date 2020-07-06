@@ -8,11 +8,6 @@ namespace TweakUtility.Helpers
 {
     /// <remarks>
     /// ---TweakUtility - Operating System Version Check (IMPORTANT NOTES)---
-    /// WARNING: Beta support is experimental at the moment.
-    /// Not every beta has custom registry values, Please remember that
-    ///
-    /// However, Important betas should be still supported in case
-    /// such as Longhorn 4074, The 3 Windows 8 Previews, etc.
     ///
     /// We do not plan for Windows Vista Post-Reset Beta Support, due to UAC being
     /// different.
@@ -23,7 +18,7 @@ namespace TweakUtility.Helpers
     /// This also applies for Windows 7 (or Server 2008 R2)'s  MultiPoint Server 2010, Embedded 7, Home Server 2011 and Thin PC.
     ///
     /// This should be only official Microsoft versions, Do not bloat this list with Custom Versions that uses
-    /// custom "build" numbers, such as Windows 2007 by Glosswired, or any other mods.
+    /// custom "build" numbers, such as Windows 2010 by GMM, or any other Windows Mods.
     ///
     /// DO NOT FORGET TO ADD THE OPERATING SYSTEM NAME ON "OperatingSystemSupportedAttribute.cs"!!!
     ///
@@ -34,7 +29,8 @@ namespace TweakUtility.Helpers
         private static Version _currentVersion = null;
 
         private static readonly Version[] _versions = new[] {
-          //new Version(major, minor, build),
+          //new Version(major, minor, build), Please refrain from supporting betas, as they likely won't work with TweakUtility.
+          //TODO: Remove any trace of Windows betas.
             new Version(5, 1),
             new Version(5, 2),
             new Version(6, 0, 4074),
