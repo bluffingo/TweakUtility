@@ -69,8 +69,8 @@ namespace TweakUtility.Forms
             this.splitContainer.Panel2.Controls.Add(this.startupLabel);
             this.splitContainer.Panel2.Padding = new System.Windows.Forms.Padding(1);
             this.splitContainer.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.SplitContainer_BorderPaint);
-            this.splitContainer.Size = new System.Drawing.Size(599, 350);
-            this.splitContainer.SplitterDistance = 198;
+            this.splitContainer.Size = new System.Drawing.Size(591, 339);
+            this.splitContainer.SplitterDistance = 195;
             this.splitContainer.TabIndex = 1;
             this.splitContainer.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.SplitContainer_SplitterMoved);
             // 
@@ -116,7 +116,7 @@ namespace TweakUtility.Forms
             this.startupLabel.ForeColor = System.Drawing.SystemColors.GrayText;
             this.startupLabel.Location = new System.Drawing.Point(1, 1);
             this.startupLabel.Name = "startupLabel";
-            this.startupLabel.Size = new System.Drawing.Size(395, 348);
+            this.startupLabel.Size = new System.Drawing.Size(390, 337);
             this.startupLabel.TabIndex = 3;
             this.startupLabel.Text = "Navigate to a page to get started!";
             this.startupLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -130,9 +130,9 @@ namespace TweakUtility.Forms
             this.bottomPanel.Controls.Add(this.backupsButton);
             this.bottomPanel.Controls.Add(this.aboutLabel);
             this.bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bottomPanel.Location = new System.Drawing.Point(0, 374);
+            this.bottomPanel.Location = new System.Drawing.Point(0, 363);
             this.bottomPanel.Name = "bottomPanel";
-            this.bottomPanel.Size = new System.Drawing.Size(622, 45);
+            this.bottomPanel.Size = new System.Drawing.Size(614, 45);
             this.bottomPanel.TabIndex = 2;
             // 
             // debugTranslation
@@ -203,7 +203,7 @@ namespace TweakUtility.Forms
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(622, 419);
+            this.ClientSize = new System.Drawing.Size(614, 408);
             this.Controls.Add(this.bottomPanel);
             this.Controls.Add(this.splitContainer);
             this.DoubleBuffered = true;

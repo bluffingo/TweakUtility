@@ -464,7 +464,8 @@ namespace TweakUtility
                 {
                     Text = "This page contains no tweaks.",
                     ForeColor = SystemColors.GrayText,
-                    Dock = DockStyle.Fill
+                    Dock = DockStyle.Fill,
+                    AutoSize = true
                 });
             }
             else
