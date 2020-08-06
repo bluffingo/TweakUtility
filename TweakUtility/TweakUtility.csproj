@@ -7,7 +7,7 @@
     <ProjectGuid>{DD35A5A0-5580-450B-BA86-2D0EE18B6C75}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>TweakUtility</RootNamespace>
-    <AssemblyName>Tweak Utility</AssemblyName>
+    <AssemblyName>PF94%27s TweakUtility</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -176,6 +176,7 @@
     <Compile Include="Forms\ExtensionsForm.Designer.cs">
       <DependentUpon>ExtensionsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="Tweaks\Forms\HostsItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
