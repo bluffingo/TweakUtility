@@ -198,8 +198,6 @@
 
         #endregion
 
-        //https://www.youtube.com/watch?v=9ULDCUvgkSQ is not a good concept, Do not try to add new styles for remaking a old Operating System.
-
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.PictureBox iconPictureBox;
