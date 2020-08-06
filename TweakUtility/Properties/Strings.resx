@@ -190,19 +190,18 @@
   </data>
   <data name="Credits" xml:space="preserve">
     <value>Lead Developer
-Craftplacer
-
-Contributer Developers
 PF94, aka Gamerappa
 
-Former Contributers
+Original TweakUtility Contributors
+Craftplacer
 Alien Future, aka Balázs Vámos
+PF94, aka Gamerappa
 
 Translators
 Craftplacer (English, German)
 Alien Future (Hungarian)
 CatHR Games (Spanish)
-PF94 and Google Translate (French)
+PF94, Google Translate and DeepL (French)
 
 Icons
 Craftplacer (application icon)
@@ -224,17 +223,7 @@ AskVG (https://www.askvg.com)
 
 
 
-⭐ And you for using this application ⭐
-
-
-
-
-
-
-
-
-
-</value>
+⭐ And you for using this application ⭐</value>
     <comment>THIS STRING ISN'T SUPPOSED TO BE TRANSLATED</comment>
   </data>
   <data name="Debug_Disclaimer" xml:space="preserve">
@@ -260,7 +249,7 @@ Automated crash reports are also disabled.</value>
     <value>Description</value>
   </data>
   <data name="Extensions_FolderDescription" xml:space="preserve">
-    <value>This folder contains extensions for Tweak Utility.</value>
+    <value>This folder contains extensions for PF94's TweakUtility.</value>
   </data>
   <data name="Extensions_Name" xml:space="preserve">
     <value>Name</value>

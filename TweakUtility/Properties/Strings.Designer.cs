@@ -269,19 +269,18 @@ namespace TweakUtility.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to Lead Developer
-        ///Craftplacer
-        ///
-        ///Contributer Developers
         ///PF94, aka Gamerappa
         ///
-        ///Former Contributers
+        ///Original TweakUtility Contributors
+        ///Craftplacer
         ///Alien Future, aka Balázs Vámos
+        ///PF94, aka Gamerappa
         ///
         ///Translators
         ///Craftplacer (English, German)
         ///Alien Future (Hungarian)
         ///CatHR Games (Spanish)
-        ///PF94 and Google Translate (French)
+        ///PF94, Google Translate and DeepL (French)
         ///
         ///Icons
         ///Craftplacer (application icon)
@@ -303,17 +302,7 @@ namespace TweakUtility.Properties {
         ///
         ///
         ///
-        ///⭐ And you for using this application ⭐
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///.
+        ///⭐ And you for using this application ⭐.
         /// </summary>
         internal static string Credits {
             get {
@@ -413,7 +402,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This folder contains extensions for Tweak Utility..
+        ///   Looks up a localized string similar to This folder contains extensions for PF94&apos;s TweakUtility..
         /// </summary>
         internal static string Extensions_FolderDescription {
             get {
