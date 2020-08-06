@@ -112,6 +112,8 @@ namespace TweakUtility
             }
         }
 
+        #region Crash Report
+
         /// <summary>
         /// Opens the GitHub issues page of Tweak Utility, preset with exception details.
         /// </summary>
@@ -125,10 +127,12 @@ namespace TweakUtility
 
             body = HttpUtility.UrlEncode(body);
 
-            string url = $"https://github.com/Craftplacer/TweakUtility/issues/new?labels=crash+report&title={title}&body={body}";
+            string url = $"https://github.com/PF94/TweakUtility_PF94/issues/new?labels=crash+report&title={title}&body={body}";
 
             OpenURL(url);
         }
+
+        #endregion Crash Report
 
         /// <summary>
         /// The main entry point for the application.
@@ -148,7 +152,7 @@ namespace TweakUtility
             Environment.CurrentDirectory = ApplicationDirectory;
 
             Thread.CurrentThread.CurrentUICulture = CultureInfo.CurrentCulture;
-            //Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("fr");
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("fr");
 
             //Don't start application if arguments/files were being handled (except --open)
             if (HandleArguments(args))
@@ -163,6 +167,8 @@ namespace TweakUtility
                 NativeMethods.PostMessage((IntPtr)NativeMethods.HWND_BROADCAST, NativeMethods.WM_SHOWME, IntPtr.Zero, IntPtr.Zero);
                 return;
             }
+
+            #region Splash Screen Code
 
             using (var splash = new SplashForm())
             {
@@ -191,10 +197,14 @@ namespace TweakUtility
                 splash.Hide();
             }
 
+            #endregion Splash Screen Code
             using (var main = new MainForm())
             {
-                Application.Run(main);
-            }
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(Properties.Resources.test);
+                    player.Play();
+
+                    Application.Run(main);
+                }
 
 #if !DEBUG
             }

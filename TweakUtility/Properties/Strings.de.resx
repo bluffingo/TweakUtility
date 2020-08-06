@@ -128,7 +128,7 @@
   </data>
   <data name="About_License" xml:space="preserve">
     <value>Tweak Utility ist verfügbar auf {0}, und lizenziert unter der GPL-3.0.</value>
-    <comment>{0} (link) = &quot;GitHub&quot;</comment>
+    <comment>{0} (link) = "GitHub"</comment>
   </data>
   <data name="Application_Name" xml:space="preserve">
     <value>Tweak Utility</value>
@@ -222,7 +222,10 @@ AskVG (https://www.askvg.com)
 
 
 </value>
-    <comment>THIS STRING ISN&apos;T SUPPOSED TO BE TRANSLATED</comment>
+    <comment>THIS STRING ISN'T SUPPOSED TO BE TRANSLATED</comment>
+  </data>
+  <data name="DebugTranslation" xml:space="preserve">
+    <value>German</value>
   </data>
   <data name="Debug_Disclaimer" xml:space="preserve">
     <value>Debug-Builds sind experimentell und garantieren nicht, dass sie funktionieren oder Unterstützung bieten.
@@ -288,7 +291,7 @@ Aus diesem Grund wird OneDrive nicht automatisch deinstalliert. Sie können weit
 Wollen Sie fortfahren?</value>
   </data>
   <data name="OneDrive_Uninstall_SetFlagMessage" xml:space="preserve">
-    <value>Derzeit ist die &quot;Benutzerinitiierte Deinstallation&quot; Flagge nicht gesetzt, was möglicherweise dazu führt, dass Windows OneDrive neu installiert.
+    <value>Derzeit ist die "Benutzerinitiierte Deinstallation" Flagge nicht gesetzt, was möglicherweise dazu führt, dass Windows OneDrive neu installiert.
 Wenn Sie diese Flagge setzen, wird Windows darüber informiert, dass OneDrive weiterhin deinstalliert bleiben soll.
 
 Möchten Sie diese einschalten?</value>
@@ -322,7 +325,7 @@ Möchten Sie das jetzt tun?</value>
   <data name="Reload_Unknown" xml:space="preserve">
     <value>Bei dieser Option müssen Sie das zugehörige Programm neu laden, da noch keine Aktualisierung implementiert ist.
 
-Wenn Sie wissen, wie diese Aktualisierung programmgesteuert implementiert werden kann, teilen Sie uns dies bitte mit, indem Sie im &quot;Über Tweak Utility&quot; Fenster auf die Feedback-Schaltfläche klicken.</value>
+Wenn Sie wissen, wie diese Aktualisierung programmgesteuert implementiert werden kann, teilen Sie uns dies bitte mit, indem Sie im "Über Tweak Utility" Fenster auf die Feedback-Schaltfläche klicken.</value>
     <comment>Message telling user to reload themself, since code is missing.</comment>
   </data>
   <data name="Report_Disclaimer" xml:space="preserve">

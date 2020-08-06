@@ -6,38 +6,16 @@ using TweakUtility.Tweaks.Pages;
 
 namespace TweakUtility.Helpers
 {
-    /// <remarks>
-    /// ---TweakUtility - Operating System Version Check (IMPORTANT NOTES)---
-    /// WARNING: Beta support is experimental at the moment.
-    /// Not every beta has custom registry values, Please remember that
-    ///
-    /// However, Important betas should be still supported in case
-    /// such as Longhorn 4074, The 3 Windows 8 Previews, etc.
-    ///
-    /// We do not plan for Windows Vista Post-Reset Beta Support, due to UAC being
-    /// different.
-    ///
-    /// The obscure Windows operating systems based on XP/2003's codebase should not be included.
-    /// This means that any of the Embeddeds (including POSready), Fundamental for Legacy PCs and Home Server
-    /// should not be implemented, As even if they have a different "build" number and System, WinVer still says it's 2600.
-    /// This also applies for Windows 7 (or Server 2008 R2)'s  MultiPoint Server 2010, Embedded 7, Home Server 2011 and Thin PC.
-    ///
-    /// This should be only official Microsoft versions, Do not bloat this list with Custom Versions that uses
-    /// custom "build" numbers, such as Windows 2007 by Glosswired, or any other mods.
-    ///
-    /// DO NOT FORGET TO ADD THE OPERATING SYSTEM NAME ON "OperatingSystemSupportedAttribute.cs"!!!
-    ///
-    /// Written and updated by PF94, July 20th 2019
-    /// </remarks>
     internal static class OperatingSystemVersions
     {
         private static Version _currentVersion = null;
 
+        #region Version Numbers
+
         private static readonly Version[] _versions = new[] {
-          //new Version(major, minor, build),
+          //new Version(major, minor, build)
             new Version(5, 1),
             new Version(5, 2),
-            new Version(6, 0, 4074),
             new Version(6, 0),
             new Version(6, 1, 7000),
             new Version(6, 1),
@@ -46,9 +24,10 @@ namespace TweakUtility.Helpers
             new Version(6, 2, 8400),
             new Version(6, 2),
             new Version(6, 3),
-            new Version(10, 0, 10074),
             new Version(10, 0)
         };
+
+        #endregion Version Numbers
 
         public static Version GetVersion(OperatingSystemVersion version) => version == OperatingSystemVersion.None ? null : _versions[(int)version - 1];
 

@@ -43,9 +43,9 @@
             this.titleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLabel.Location = new System.Drawing.Point(66, 15);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(122, 25);
+            this.titleLabel.Size = new System.Drawing.Size(177, 25);
             this.titleLabel.TabIndex = 0;
-            this.titleLabel.Text = "Tweak Utility";
+            this.titleLabel.Text = "PF94\'s TweakUtility";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.titleLabel.UseWaitCursor = true;
             // 
@@ -72,6 +72,7 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.UseWaitCursor = true;
+            this.pictureBox1.Click += new System.EventHandler(this.GarfieldPF94_Click);
             // 
             // SplashForm
             // 
@@ -88,7 +89,7 @@
             this.MinimizeBox = false;
             this.Name = "SplashForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tweak Utility";
+            this.Text = "PF94\'s TweakUtility";
             this.TopMost = true;
             this.UseWaitCursor = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SplashForm_FormClosing);

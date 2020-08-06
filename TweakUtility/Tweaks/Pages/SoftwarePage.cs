@@ -1,5 +1,5 @@
-﻿using TweakUtility.Helpers;
-using TweakUtility.Attributes;
+﻿using TweakUtility.Attributes;
+using TweakUtility.Helpers;
 using TweakUtility.Tweaks.Views;
 
 namespace TweakUtility.Tweaks.Pages

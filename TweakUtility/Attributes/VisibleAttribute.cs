@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TweakUtility.Attributes
+﻿namespace TweakUtility.Attributes
 {
     public class VisibleAttribute : RequirementAttribute
     {
