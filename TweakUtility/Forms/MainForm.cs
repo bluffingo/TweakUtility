@@ -343,9 +343,5 @@ namespace TweakUtility.Forms
             if (e.Node.Tag is TweakPage tweakPage)
                 this.SetView(tweakPage);
         }
-
-        private void debugButton_Click(object sender, EventArgs e)
-        {
-        }
     }
 }
