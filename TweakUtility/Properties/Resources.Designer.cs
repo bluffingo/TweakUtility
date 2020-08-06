@@ -123,6 +123,16 @@ namespace TweakUtility.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fbcc {
+            get {
+                object obj = ResourceManager.GetObject("fbcc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap go10 {
             get {
                 object obj = ResourceManager.GetObject("go10", resourceCulture);

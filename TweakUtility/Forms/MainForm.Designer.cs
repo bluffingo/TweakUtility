@@ -41,6 +41,7 @@ namespace TweakUtility.Forms
             this.backupsButton = new System.Windows.Forms.Button();
             this.aboutLabel = new System.Windows.Forms.LinkLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.debugButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -123,6 +124,7 @@ namespace TweakUtility.Forms
             // bottomPanel
             // 
             this.bottomPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.bottomPanel.Controls.Add(this.debugButton);
             this.bottomPanel.Controls.Add(this.preferencesButton);
             this.bottomPanel.Controls.Add(this.extensionsButton);
             this.bottomPanel.Controls.Add(this.backupsButton);
@@ -184,6 +186,20 @@ namespace TweakUtility.Forms
             this.toolTip.InitialDelay = 500;
             this.toolTip.ReshowDelay = 100;
             // 
+            // debugButton
+            // 
+
+            this.debugButton.Location = new System.Drawing.Point(452, 9);
+            this.debugButton.Name = "debugButton";
+            this.debugButton.Size = new System.Drawing.Size(72, 25);
+            this.debugButton.TabIndex = 6;
+            this.debugButton.Text = "DEBUG";
+            this.debugButton.UseVisualStyleBackColor = true;
+#if !RELEASE
+            this.debugButton.Visible = false;
+#endif
+            this.debugButton.Click += new System.EventHandler(this.debugButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -212,7 +228,7 @@ namespace TweakUtility.Forms
 
         }
 
-        #endregion
+#endregion
         private System.Windows.Forms.SplitContainer splitContainer;
         private System.Windows.Forms.LinkLabel aboutLabel;
         public System.Windows.Forms.Panel bottomPanel;
@@ -224,6 +240,7 @@ namespace TweakUtility.Forms
         private System.Windows.Forms.Button extensionsButton;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Button preferencesButton;
+        private System.Windows.Forms.Button debugButton;
     }
 }
 

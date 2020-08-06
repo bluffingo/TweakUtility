@@ -369,6 +369,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\fbcc.png" />
     <Content Include="TweakUtility.ico" />
     <None Include="Resources\windowsVista7.png" />
     <None Include="Resources\windows8.png" />
