@@ -16,7 +16,6 @@ namespace TweakUtility.Helpers
           //new Version(major, minor, build)
             new Version(5, 1),
             new Version(5, 2),
-            new Version(6, 0, 4074),
             new Version(6, 0),
             new Version(6, 1, 7000),
             new Version(6, 1),
@@ -25,7 +24,6 @@ namespace TweakUtility.Helpers
             new Version(6, 2, 8400),
             new Version(6, 2),
             new Version(6, 3),
-            new Version(10, 0, 10074),
             new Version(10, 0)
         };
 
