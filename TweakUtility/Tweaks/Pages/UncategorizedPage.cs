@@ -83,7 +83,7 @@ namespace TweakUtility.Tweaks.Pages
             }
         }
 
-        [DisplayName("Metro (Developer Preview)")]
+        [DisplayName("Toggle Metro on Developer Preview")]
         [OperatingSystemSupported(OperatingSystemVersion.Windows8Developer, OperatingSystemVersion.Windows8Developer)]
         public bool MetroDeveloper
         {

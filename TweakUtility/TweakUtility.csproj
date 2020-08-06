@@ -370,6 +370,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fbcc.png" />
+    <None Include="Resources\nuhuh.png" />
     <Content Include="TweakUtility.ico" />
     <None Include="Resources\windowsVista7.png" />
     <None Include="Resources\windows8.png" />

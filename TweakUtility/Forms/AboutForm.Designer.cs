@@ -72,6 +72,7 @@
             this.versionLabel.Size = new System.Drawing.Size(132, 19);
             this.versionLabel.TabIndex = 3;
             this.versionLabel.Text = "Application Version";
+            this.versionLabel.Click += new System.EventHandler(this.versionLabel_Click);
             // 
             // descriptionLabel
             // 
@@ -188,7 +189,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "About Tweak Utility";
+            this.Text = "About PF94\'s TweakUtility";
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AboutForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).EndInit();
             this.ResumeLayout(false);

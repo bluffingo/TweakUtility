@@ -64,5 +64,12 @@ namespace TweakUtility.Forms
         {
             debugLabel.Text = "Is it Possible, or are you Able?";
         }
+
+        private void versionLabel_Click(object sender, EventArgs e) //<-- probably should make it only happen on may 14th.
+        {
+            versionLabel.Text = "It's a beta! Nuh uh!";
+            iconPictureBox.Image = Properties.Resources.nuhuh;
+            titleLabel.Text = "Canberra's TweakUtility";
+        }
     }
 }
