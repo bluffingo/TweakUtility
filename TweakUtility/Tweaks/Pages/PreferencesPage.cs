@@ -7,7 +7,7 @@ namespace TweakUtility.Tweaks.Pages
 {
     public class PreferencesPage : TweakPage
     {
-        public PreferencesPage() : base("Tweak Utility Preferences")
+        public PreferencesPage() : base(Properties.Strings.PreferencesTitle)
         {
         }
 

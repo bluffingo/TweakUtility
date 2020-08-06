@@ -265,8 +265,8 @@ Voulez-vous l'allumer?</value>
 
 Voulez-vous continuer?</value>
   </data>
-  <data name="Preferences" xml:space="preserve">
-    <value />
+  <data name="PreferencesTitle" xml:space="preserve">
+    <value>Paramètres de Chaziz TweakUtility</value>
   </data>
   <data name="Reload_ExplorerRestart" xml:space="preserve">
     <value>Cette option nécessite de redémarrer l'Explorateur Windows.
@@ -303,7 +303,7 @@ Vous pouvez essayer de redémarrer le programme en tant qu'administrateur.</valu
     <value>Le chargement de la page de réglage {0} a échoué à cause du message d'erreur suivant:
 {1}
 
-Cette page de tweak ne sera pas incluse dans l'application</value>
+Cette page  ne sera pas incluse dans l'application</value>
     <comment>{0} Page Name/Id, {1} error message</comment>
   </data>
 </root>

@@ -187,9 +187,11 @@
   </data>
   <data name="Canberra_EasterEgg_1" xml:space="preserve">
     <value>It's a beta! Nuh uh!</value>
+    <comment>Text for Easter Egg in About Window</comment>
   </data>
   <data name="Canberra_EasterEgg_2" xml:space="preserve">
     <value>Canberra's TweakUtility</value>
+    <comment>Text for Easter Egg in About Window</comment>
   </data>
   <data name="CheckBox_DontAskAgain" xml:space="preserve">
     <value>Don't ask again</value>
@@ -210,7 +212,8 @@ CatHR Games (Spanish)
 PF94, Google Translate and DeepL (French)
 
 Icons
-Craftplacer (application icon)
+Craftplacer (original application icon)
+PF94 (modified application icon)
 Microsoft Windows (for version specific icons, taken dynamically)
 
 Tweak Sources
@@ -329,6 +332,9 @@ Do you want to continue?</value>
   </data>
   <data name="Preferences" xml:space="preserve">
     <value>Preferences</value>
+  </data>
+  <data name="PreferencesTitle" xml:space="preserve">
+    <value>PF94's TweakUtility Preferences</value>
   </data>
   <data name="Refresh" xml:space="preserve">
     <value>Re&amp;fresh</value>

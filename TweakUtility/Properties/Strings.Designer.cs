@@ -301,7 +301,8 @@ namespace TweakUtility.Properties {
         ///PF94, Google Translate and DeepL (French)
         ///
         ///Icons
-        ///Craftplacer (application icon)
+        ///Craftplacer (original application icon)
+        ///PF94 (modified application icon)
         ///Microsoft Windows (for version specific icons, taken dynamically)
         ///
         ///Tweak Sources
@@ -320,7 +321,7 @@ namespace TweakUtility.Properties {
         ///
         ///
         ///
-        ///⭐ And you for using this application ⭐.
+        ///⭐ And  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Credits {
             get {
@@ -597,6 +598,15 @@ namespace TweakUtility.Properties {
         internal static string Preferences {
             get {
                 return ResourceManager.GetString("Preferences", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PF94&apos;s TweakUtility Preferences.
+        /// </summary>
+        internal static string PreferencesTitle {
+            get {
+                return ResourceManager.GetString("PreferencesTitle", resourceCulture);
             }
         }
         
