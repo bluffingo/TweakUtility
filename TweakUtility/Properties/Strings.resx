@@ -118,20 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>About Tweak Utility</value>
+    <value>About PF94's TweakUtility</value>
   </data>
   <data name="About_Copyright" xml:space="preserve">
     <value>All icons used (except the application icon), belong to their rightful owners.</value>
   </data>
   <data name="About_Description" xml:space="preserve">
-    <value>Tweak Utility is an application for tweaking Windows, as well as other applications, similar to Tweak UI and Winaero Tweaker.</value>
+    <value>PF94's TweakUtility is a fork of an application for tweaking Windows, as well as other applications, similar to Tweak UI and Winaero Tweaker.</value>
   </data>
   <data name="About_License" xml:space="preserve">
-    <value>Tweak Utility is available on {0}, and licensed under GPL-3.0.</value>
+    <value>PF94's TweakUtility is available on {0}, and licensed under GPL-3.0.</value>
     <comment>{0} (link) = "GitHub"</comment>
   </data>
   <data name="Application_Name" xml:space="preserve">
-    <value>Tweak Utility</value>
+    <value>PF94's TweakUtility</value>
     <comment>Google Translate is better than me. -Craftplacer</comment>
   </data>
   <data name="Backups" xml:space="preserve">
@@ -150,7 +150,7 @@
     <value>Date</value>
   </data>
   <data name="Backups_FolderDescription" xml:space="preserve">
-    <value>This folder contains backups made by Tweak Utility. </value>
+    <value>This folder contains backups made by PF94's TweakUtility. </value>
   </data>
   <data name="Backups_Name" xml:space="preserve">
     <value>Name</value>

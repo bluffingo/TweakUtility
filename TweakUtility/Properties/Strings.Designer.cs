@@ -61,7 +61,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to About Tweak Utility.
+        ///   Looks up a localized string similar to About PF94&apos;s TweakUtility.
         /// </summary>
         internal static string About {
             get {
@@ -79,7 +79,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tweak Utility is an application for tweaking Windows, as well as other applications, similar to Tweak UI and Winaero Tweaker..
+        ///   Looks up a localized string similar to PF94&apos;s TweakUtility is a fork of an application for tweaking Windows, as well as other applications, similar to Tweak UI and Winaero Tweaker..
         /// </summary>
         internal static string About_Description {
             get {
@@ -88,7 +88,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tweak Utility is available on {0}, and licensed under GPL-3.0..
+        ///   Looks up a localized string similar to PF94&apos;s TweakUtility is available on {0}, and licensed under GPL-3.0..
         /// </summary>
         internal static string About_License {
             get {
@@ -97,7 +97,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tweak Utility.
+        ///   Looks up a localized string similar to PF94&apos;s TweakUtility.
         /// </summary>
         internal static string Application_Name {
             get {
@@ -151,7 +151,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This folder contains backups made by Tweak Utility. .
+        ///   Looks up a localized string similar to This folder contains backups made by PF94&apos;s TweakUtility. .
         /// </summary>
         internal static string Backups_FolderDescription {
             get {
