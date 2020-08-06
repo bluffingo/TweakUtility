@@ -90,5 +90,21 @@ namespace TweakUtility.Tweaks.Pages
             get => RegistryHelper.GetValue<int>(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RPEnabled", 0) == 1;
             set => RegistryHelper.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RPEnabled", value ? 1 : 0);
         }
+
+        [DisplayName("Place Windows Kernel into RAM")]
+        [OperatingSystemSupported(OperatingSystemVersion.WindowsXP, OperatingSystemVersion.WindowsXP)]
+        public bool RAMKernel
+        {
+            get => RegistryHelper.GetValue<int>(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\DisablePagingExecutive", 0) == 1;
+            set => RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\DisablePagingExecutive", value ? 1 : 0);
+        }
+
+        [DisplayName("Disable 8.3 Names on NTFS Drives")]
+        [OperatingSystemSupported(OperatingSystemVersion.WindowsXP, OperatingSystemVersion.WindowsXP)]
+        public bool DisableDOSNaming
+        {
+            get => RegistryHelper.GetValue<int>(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem\NtfsDisable8dot3NameCreation", 0) == 1;
+            set => RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem\NtfsDisable8dot3NameCreation", value ? 1 : 0);
+        }
     }
 }
