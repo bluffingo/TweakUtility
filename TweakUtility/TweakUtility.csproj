@@ -12,6 +12,13 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ApplicationIcon>TweakUtility.ico</ApplicationIcon>
+    <AssemblyOriginatorKeyFile>key.pfx</AssemblyOriginatorKeyFile>
+    <ManifestCertificateThumbprint>D77D12F45425D7D53BF7653BF6C3182B5F3947E7</ManifestCertificateThumbprint>
+    <ManifestKeyFile>TweakUtility_TemporaryKey.pfx</ManifestKeyFile>
+    <SignAssembly>false</SignAssembly>
+    <SignManifests>false</SignManifests>
+    <StartupObject>TweakUtility.Program</StartupObject>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,13 +33,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <ApplicationIcon>TweakUtility.ico</ApplicationIcon>
-    <AssemblyOriginatorKeyFile>key.pfx</AssemblyOriginatorKeyFile>
-    <ManifestCertificateThumbprint>D77D12F45425D7D53BF7653BF6C3182B5F3947E7</ManifestCertificateThumbprint>
-    <ManifestKeyFile>TweakUtility_TemporaryKey.pfx</ManifestKeyFile>
-    <SignAssembly>false</SignAssembly>
-    <SignManifests>false</SignManifests>
-    <StartupObject>TweakUtility.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -337,7 +337,7 @@
     <EmbeddedResource Include="Tweaks\Views\SoftwarePageView.resx">
       <DependentUpon>SoftwarePageView.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Properties\Strings.fr.resx" />
+    <EmbeddedResource Include="Properties\Strings.fr.resx" />
     <EmbeddedResource Include="Properties\Strings.hu.resx" />
     <EmbeddedResource Include="Properties\Strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -412,6 +412,17 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
