@@ -12,10 +12,10 @@ namespace TweakUtility.Helpers
     /// </summary>
     public static class RegistryHelper
     {
-		public static RegistryKey LocalMachine = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryHelper.RegistryView);
-		public static RegistryKey CurrentUser = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, RegistryHelper.RegistryView);
+        public static RegistryKey LocalMachine = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryHelper.RegistryView);
+        public static RegistryKey CurrentUser = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, RegistryHelper.RegistryView);
 
-		public static bool GetBoolValue(string path)
+        public static bool GetBoolValue(string path)
         {
             Tuple<RegistryKey, string> info = ProcessPathAdvanced(path);
 
@@ -189,9 +189,9 @@ namespace TweakUtility.Helpers
             }
         }
 
-		/// <summary>
-		/// Finds a suitable registry view for this system architecture
-		/// </summary>
-		internal static RegistryView RegistryView => Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32;
-	}
+        /// <summary>
+        /// Finds a suitable registry view for this system architecture
+        /// </summary>
+        internal static RegistryView RegistryView => Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32;
+    }
 }

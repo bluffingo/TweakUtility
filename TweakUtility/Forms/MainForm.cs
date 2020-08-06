@@ -1,12 +1,10 @@
+using Microsoft.WindowsAPICodePack.Shell;
+using Microsoft.WindowsAPICodePack.Taskbar;
 using System;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
-
-using Microsoft.WindowsAPICodePack.Shell;
-using Microsoft.WindowsAPICodePack.Taskbar;
-
 using TweakUtility.Enums;
 using TweakUtility.Helpers;
 using TweakUtility.Theming;
@@ -337,7 +335,6 @@ namespace TweakUtility.Forms
 
         private void debugButton_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

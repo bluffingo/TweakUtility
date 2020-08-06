@@ -9,7 +9,9 @@ namespace TweakUtility.Helpers
     internal static class OperatingSystemVersions
     {
         private static Version _currentVersion = null;
+
         #region Version Numbers
+
         private static readonly Version[] _versions = new[] {
           //new Version(major, minor, build)
             new Version(5, 1),
@@ -26,7 +28,8 @@ namespace TweakUtility.Helpers
             new Version(10, 0, 10074),
             new Version(10, 0)
         };
-        #endregion
+
+        #endregion Version Numbers
 
         public static Version GetVersion(OperatingSystemVersion version) => version == OperatingSystemVersion.None ? null : _versions[(int)version - 1];
 

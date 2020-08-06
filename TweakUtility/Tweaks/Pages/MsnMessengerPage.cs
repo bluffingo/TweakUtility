@@ -3,7 +3,6 @@
 using Microsoft.Win32;
 
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 
 using TweakUtility.Attributes;
