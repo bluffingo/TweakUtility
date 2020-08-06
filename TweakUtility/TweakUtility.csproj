@@ -26,7 +26,7 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <ApplicationIcon>Resources\TweakUtility.ico</ApplicationIcon>
+    <ApplicationIcon>TweakUtility.ico</ApplicationIcon>
     <AssemblyOriginatorKeyFile>key.pfx</AssemblyOriginatorKeyFile>
     <ManifestCertificateThumbprint>D77D12F45425D7D53BF7653BF6C3182B5F3947E7</ManifestCertificateThumbprint>
     <ManifestKeyFile>TweakUtility_TemporaryKey.pfx</ManifestKeyFile>
@@ -369,6 +369,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TweakUtility.ico" />
     <None Include="Resources\windowsVista7.png" />
     <None Include="Resources\windows8.png" />
     <None Include="Resources\volume.png" />

@@ -171,10 +171,10 @@ namespace TweakUtility.Forms
             this.aboutLabel.LinkColor = System.Drawing.SystemColors.GrayText;
             this.aboutLabel.Location = new System.Drawing.Point(10, 13);
             this.aboutLabel.Name = "aboutLabel";
-            this.aboutLabel.Size = new System.Drawing.Size(73, 21);
+            this.aboutLabel.Size = new System.Drawing.Size(108, 21);
             this.aboutLabel.TabIndex = 2;
             this.aboutLabel.TabStop = true;
-            this.aboutLabel.Text = "Tweak Utility";
+            this.aboutLabel.Text = "PF94\'s TweakUtility";
             this.aboutLabel.UseCompatibleTextRendering = true;
             this.aboutLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.AboutLabel_LinkClicked);
             // 
@@ -196,7 +196,7 @@ namespace TweakUtility.Forms
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
-            this.Text = "Tweak Utility";
+            this.Text = "PF94\'s TweakUtility";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Shown += new System.EventHandler(this.MainForm_Shown);

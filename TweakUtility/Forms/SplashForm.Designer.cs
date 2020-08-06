@@ -43,9 +43,9 @@
             this.titleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLabel.Location = new System.Drawing.Point(66, 15);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(122, 25);
+            this.titleLabel.Size = new System.Drawing.Size(177, 25);
             this.titleLabel.TabIndex = 0;
-            this.titleLabel.Text = "Tweak Utility";
+            this.titleLabel.Text = "PF94\'s TweakUtility";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.titleLabel.UseWaitCursor = true;
             // 
