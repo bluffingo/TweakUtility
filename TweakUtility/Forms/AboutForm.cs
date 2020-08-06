@@ -30,9 +30,9 @@ namespace TweakUtility.Forms
 #endif
         }
 
-        private void FeedbackButton_Click(object sender, EventArgs e) => Program.OpenURL("https://github.com/Craftplacer/TweakUtility/issues/new/choose");
+        private void FeedbackButton_Click(object sender, EventArgs e) => Program.OpenURL("https://github.com/PF94/TweakUtility_PF94/issues/new/choose");
 
-        private void GithubLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => Program.OpenURL("https://github.com/Craftplacer/TweakUtility");
+        private void GithubLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => Program.OpenURL("https://github.com/PF94/TweakUtility_PF94");
 
         private void AboutForm_KeyUp(object sender, KeyEventArgs e)
         {
@@ -51,19 +51,6 @@ namespace TweakUtility.Forms
                 input.Clear();
             }
         }
-
-        //private void AboutForm_KeyP(object sender, KeyEventArgs e)
-        //{   //BELOW IS THE PF94 PLEX EASTER EGG (Which isn't even done, yet).
-        //input.Add(e.KeyCode);
-
-        //if (input.ToArray() == new[] { Keys.P, Keys.F, Keys.9, Keys.4,})
-        //{
-        //    if (MessageBox.Show("This isn't done yet.", Properties.Strings.Application_Name, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
-        //    {
-        //        throw new Exception("Code was copied from the Konami Code Easter Egg :/");
-        //    }
-        //}
-        //}
 
         private void CreditsButton_Click(object sender, EventArgs e)
         {
