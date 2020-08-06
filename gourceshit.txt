@@ -1,5 +1,7 @@
+1562853900|TweakUtility Alpha 1.0.47 (date aprox)
 1563681600|TweakUtility Alpha 1.0.94
 1563768000|TweakUtility Alpha 1.0.96
 1564459200|TweakUtility Alpha 1.0.98
 1565841600|TweakUtility Beta 1.1.0
 1572148800|TweakUtility Beta 1.1.1
+1596636300|PF94's TweakUtility Beta 1.1.2
