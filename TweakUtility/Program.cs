@@ -112,6 +112,7 @@ namespace TweakUtility
             }
         }
 
+        #region Crash Report
         /// <summary>
         /// Opens the GitHub issues page of Tweak Utility, preset with exception details.
         /// </summary>
@@ -129,6 +130,7 @@ namespace TweakUtility
 
             OpenURL(url);
         }
+        #endregion
 
         /// <summary>
         /// The main entry point for the application.
@@ -163,8 +165,8 @@ namespace TweakUtility
                 NativeMethods.PostMessage((IntPtr)NativeMethods.HWND_BROADCAST, NativeMethods.WM_SHOWME, IntPtr.Zero, IntPtr.Zero);
                 return;
             }
-
-            using (var splash = new SplashForm())
+                #region Splash Screen Code
+                using (var splash = new SplashForm())
             {
                 splash.Show();
 
@@ -190,8 +192,8 @@ namespace TweakUtility
 
                 splash.Hide();
             }
-
-            using (var main = new MainForm())
+                #endregion
+                using (var main = new MainForm())
             {
                 Application.Run(main);
             }
