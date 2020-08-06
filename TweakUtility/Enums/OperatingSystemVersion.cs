@@ -16,7 +16,7 @@ namespace TweakUtility.Enums
         [DisplayName("Windows Server 2003")]
         Windows2003,
 
-        [DisplayName("Windows Longhorn (build 4047)")]
+        [DisplayName("Windows Longhorn (build 4074)")]
         WindowsLonghorn4074,
 
         [DisplayName("Windows Vista")]

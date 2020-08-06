@@ -148,7 +148,7 @@ namespace TweakUtility
             Environment.CurrentDirectory = ApplicationDirectory;
 
             Thread.CurrentThread.CurrentUICulture = CultureInfo.CurrentCulture;
-            //Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("fr");
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("fr");
 
             //Don't start application if arguments/files were being handled (except --open)
             if (HandleArguments(args))
