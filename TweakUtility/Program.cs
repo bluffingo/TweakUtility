@@ -198,11 +198,13 @@ namespace TweakUtility
             }
 
             #endregion Splash Screen Code
-
             using (var main = new MainForm())
             {
-                Application.Run(main);
-            }
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(Properties.Resources.test);
+                    player.Play();
+
+                    Application.Run(main);
+                }
 
 #if !DEBUG
             }
