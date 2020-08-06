@@ -122,6 +122,7 @@
             this.debugLabel.Text = "Debug";
             this.toolTip.SetToolTip(this.debugLabel, global::TweakUtility.Properties.Strings.Debug_Disclaimer);
             this.debugLabel.Visible = false;
+            this.debugLabel.Click += new System.EventHandler(this.debugLabel_Click);
             // 
             // toolTip
             // 

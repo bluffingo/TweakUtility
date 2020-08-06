@@ -72,5 +72,10 @@ namespace TweakUtility.Forms
                 credits.ShowDialog(this);
             }
         }
+
+        private void debugLabel_Click(object sender, EventArgs e)
+        {
+            debugLabel.Text = "Is it Possible, or are you Able?";
+        }
     }
 }
