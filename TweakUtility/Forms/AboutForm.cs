@@ -60,12 +60,12 @@ namespace TweakUtility.Forms
             }
         }
 
-        private void debugLabel_Click(object sender, EventArgs e)
+        private void DebugSivityigans_Click(object sender, EventArgs e)
         {
             debugLabel.Text = "Is it Possible, or are you Able?";
         }
 
-        private void versionLabel_Click(object sender, EventArgs e) //<-- probably should make it only happen on may 14th.
+        private void CanberraEasterEgg_Click(object sender, EventArgs e) //<-- probably should make it only happen on may 14th.
         {
             versionLabel.Text = "It's a beta! Nuh uh!";
             iconPictureBox.Image = Properties.Resources.nuhuh;

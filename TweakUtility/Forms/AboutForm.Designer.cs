@@ -72,7 +72,7 @@
             this.versionLabel.Size = new System.Drawing.Size(132, 19);
             this.versionLabel.TabIndex = 3;
             this.versionLabel.Text = "Application Version";
-            this.versionLabel.Click += new System.EventHandler(this.versionLabel_Click);
+            this.versionLabel.Click += new System.EventHandler(this.CanberraEasterEgg_Click);
             // 
             // descriptionLabel
             // 
@@ -123,7 +123,7 @@
             this.debugLabel.Text = "Debug";
             this.toolTip.SetToolTip(this.debugLabel, global::TweakUtility.Properties.Strings.Debug_Disclaimer);
             this.debugLabel.Visible = false;
-            this.debugLabel.Click += new System.EventHandler(this.debugLabel_Click);
+            this.debugLabel.Click += new System.EventHandler(this.DebugSivityigans_Click);
             // 
             // toolTip
             // 

@@ -37,10 +37,10 @@ namespace TweakUtility.Forms
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void GarfieldPF94_Click(object sender, EventArgs e)
         {
             {
-                DialogResult d;
+                DialogResult d; //causes IDE0059, but trying to fix it causes a error.
                 d = MessageBox.Show("Broken Heart, and Graphic High. Ahh the wine. Come home, Jon.", "Proud 'n 94th Parappa Fan", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (d == DialogResult.No)
                 {
