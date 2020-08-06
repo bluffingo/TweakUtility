@@ -185,6 +185,12 @@
   <data name="Button_OK" xml:space="preserve">
     <value>&amp;OK</value>
   </data>
+  <data name="Canberra_EasterEgg_1" xml:space="preserve">
+    <value>It's a beta! Nuh uh!</value>
+  </data>
+  <data name="Canberra_EasterEgg_2" xml:space="preserve">
+    <value>Canberra's TweakUtility</value>
+  </data>
   <data name="CheckBox_DontAskAgain" xml:space="preserve">
     <value>Don't ask again</value>
   </data>
@@ -225,6 +231,12 @@ AskVG (https://www.askvg.com)
 
 ⭐ And you for using this application ⭐</value>
     <comment>THIS STRING ISN'T SUPPOSED TO BE TRANSLATED</comment>
+  </data>
+  <data name="Debug" xml:space="preserve">
+    <value>Debug</value>
+  </data>
+  <data name="DebugTranslation" xml:space="preserve">
+    <value>English</value>
   </data>
   <data name="Debug_Disclaimer" xml:space="preserve">
     <value>Debug builds are experimental and do not guarantee to be working or offer any support.
@@ -366,6 +378,9 @@ If you know how to implement this refresh programmatically, please let us know b
   </data>
   <data name="Report_Disclaimer" xml:space="preserve">
     <value>Please make sure this report doesn't contain any personal details accidentally picked up by this program. (That said we aren't reliable if you dox yourself.)</value>
+  </data>
+  <data name="SivityigansPossible_EasterEgg" xml:space="preserve">
+    <value>Is it Possible, or are you Able?</value>
   </data>
   <data name="TweakPage_InsufficientPermissions" xml:space="preserve">
     <value>The tweak page {0} has failed to load because the application is running with insufficient permissions.

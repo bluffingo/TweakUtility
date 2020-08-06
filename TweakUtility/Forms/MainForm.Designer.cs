@@ -36,6 +36,7 @@ namespace TweakUtility.Forms
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.startupLabel = new System.Windows.Forms.Label();
             this.bottomPanel = new System.Windows.Forms.Panel();
+            this.debugTranslation = new System.Windows.Forms.Label();
             this.preferencesButton = new System.Windows.Forms.Button();
             this.extensionsButton = new System.Windows.Forms.Button();
             this.backupsButton = new System.Windows.Forms.Button();
@@ -123,6 +124,7 @@ namespace TweakUtility.Forms
             // bottomPanel
             // 
             this.bottomPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.bottomPanel.Controls.Add(this.debugTranslation);
             this.bottomPanel.Controls.Add(this.preferencesButton);
             this.bottomPanel.Controls.Add(this.extensionsButton);
             this.bottomPanel.Controls.Add(this.backupsButton);
@@ -133,9 +135,21 @@ namespace TweakUtility.Forms
             this.bottomPanel.Size = new System.Drawing.Size(622, 45);
             this.bottomPanel.TabIndex = 2;
             // 
+            // debugTranslation
+            // 
+            this.debugTranslation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.debugTranslation.AutoSize = true;
+            this.debugTranslation.Location = new System.Drawing.Point(124, 14);
+            this.debugTranslation.Name = "debugTranslation";
+            this.debugTranslation.Size = new System.Drawing.Size(68, 15);
+            this.debugTranslation.TabIndex = 6;
+            this.debugTranslation.Text = "LANGUAGE";
+            this.debugTranslation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.debugTranslation.Visible = false;
+            // 
             // preferencesButton
             // 
-            this.preferencesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.preferencesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.preferencesButton.Location = new System.Drawing.Point(530, 9);
             this.preferencesButton.Name = "preferencesButton";
             this.preferencesButton.Size = new System.Drawing.Size(25, 25);
@@ -145,7 +159,7 @@ namespace TweakUtility.Forms
             // 
             // extensionsButton
             // 
-            this.extensionsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.extensionsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.extensionsButton.Location = new System.Drawing.Point(584, 9);
             this.extensionsButton.Name = "extensionsButton";
             this.extensionsButton.Size = new System.Drawing.Size(25, 25);
@@ -155,7 +169,7 @@ namespace TweakUtility.Forms
             // 
             // backupsButton
             // 
-            this.backupsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.backupsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.backupsButton.Location = new System.Drawing.Point(557, 9);
             this.backupsButton.Name = "backupsButton";
             this.backupsButton.Size = new System.Drawing.Size(25, 25);
@@ -165,6 +179,7 @@ namespace TweakUtility.Forms
             // 
             // aboutLabel
             // 
+            this.aboutLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.aboutLabel.AutoSize = true;
             this.aboutLabel.LinkArea = new System.Windows.Forms.LinkArea(0, 28);
             this.aboutLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
@@ -224,6 +239,7 @@ namespace TweakUtility.Forms
         private System.Windows.Forms.Button extensionsButton;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Button preferencesButton;
+        private System.Windows.Forms.Label debugTranslation;
     }
 }
 

@@ -124,7 +124,7 @@
     <value>Toutes les icônes utilisées (sauf l'icône de l'application), appartiennent à leurs propriétaires légitimes.</value>
   </data>
   <data name="About_Description" xml:space="preserve">
-    <value>Chaziz TweakUtility est une bifurcation d'une application permettant de modifier Windows, ainsi que d'autres applications, similaires à Tweak UI et Winaero Tweaker.</value>
+    <value>Chaziz TweakUtility est une application qui permet de modifier Windows, ainsi que d'autres applications, similaires à Tweak UI et Winaero Tweaker.</value>
   </data>
   <data name="About_License" xml:space="preserve">
     <value>Chaziz TweakUtility est disponible sur {0}, et sous licence GPL-3.0.</value>
@@ -162,7 +162,7 @@
     <value>&amp;Supprimer</value>
   </data>
   <data name="Button_Feedback" xml:space="preserve">
-    <value>Commentaires</value>
+    <value>Responses</value>
   </data>
   <data name="Button_Install" xml:space="preserve">
     <value>&amp;Installer</value>
@@ -170,12 +170,24 @@
   <data name="Button_OK" xml:space="preserve">
     <value>D'accord</value>
   </data>
+  <data name="Canberra_EasterEgg_1" xml:space="preserve">
+    <value>C'est un beta! Zyva!</value>
+  </data>
+  <data name="Canberra_EasterEgg_2" xml:space="preserve">
+    <value>Kolala TweakUtility</value>
+  </data>
   <data name="CheckBox_DontAskAgain" xml:space="preserve">
     <value>Ne demande plus</value>
   </data>
   <data name="Credits" xml:space="preserve">
     <value />
     <comment>THIS STRING ISN'T SUPPOSED TO BE TRANSLATED</comment>
+  </data>
+  <data name="Debug" xml:space="preserve">
+    <value>Version Débogage</value>
+  </data>
+  <data name="DebugTranslation" xml:space="preserve">
+    <value>FRENCH</value>
   </data>
   <data name="Debug_Disclaimer" xml:space="preserve">
     <value>Les versions de débogage sont expérimentales et ne garantissent pas leur fonctionnement ni n'offrent aucun soutien. Les rapports d'accident automatisés sont également désactivés.</value>
@@ -279,6 +291,9 @@ Si vous savez comment implémenter cette actualisation par programme, veuillez n
   </data>
   <data name="Report_Disclaimer" xml:space="preserve">
     <value>Assurez-vous que ce rapport ne contient aucune donnée personnelle collectée accidentellement par ce programme.</value>
+  </data>
+  <data name="SivityigansPossible_EasterEgg" xml:space="preserve">
+    <value>Les Possibles ou Les Doigts de Fée?</value>
   </data>
   <data name="TweakPage_InsufficientPermissions" xml:space="preserve">
     <value>Le chargement de la page d'ajustement {0} a échoué car l'application est en cours d'exécution avec des autorisations insuffisantes.

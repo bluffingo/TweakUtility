@@ -259,6 +259,24 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to It&apos;s a beta! Nuh uh!.
+        /// </summary>
+        internal static string Canberra_EasterEgg_1 {
+            get {
+                return ResourceManager.GetString("Canberra_EasterEgg_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Canberra&apos;s TweakUtility.
+        /// </summary>
+        internal static string Canberra_EasterEgg_2 {
+            get {
+                return ResourceManager.GetString("Canberra_EasterEgg_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Don&apos;t ask again.
         /// </summary>
         internal static string CheckBox_DontAskAgain {
@@ -311,12 +329,30 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Debug.
+        /// </summary>
+        internal static string Debug {
+            get {
+                return ResourceManager.GetString("Debug", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Debug builds are experimental and do not guarantee to be working or offer any support.
         ///Automated crash reports are also disabled..
         /// </summary>
         internal static string Debug_Disclaimer {
             get {
                 return ResourceManager.GetString("Debug_Disclaimer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        internal static string DebugTranslation {
+            get {
+                return ResourceManager.GetString("DebugTranslation", resourceCulture);
             }
         }
         
@@ -674,6 +710,15 @@ namespace TweakUtility.Properties {
         internal static string Report_Disclaimer {
             get {
                 return ResourceManager.GetString("Report_Disclaimer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is it Possible, or are you Able?.
+        /// </summary>
+        internal static string SivityigansPossible_EasterEgg {
+            get {
+                return ResourceManager.GetString("SivityigansPossible_EasterEgg", resourceCulture);
             }
         }
         

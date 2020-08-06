@@ -17,6 +17,7 @@ namespace TweakUtility.Forms
 
         public void Localize()
         {
+            this.titleLabel.Text = Properties.Strings.Application_Name;
             this.Text = Properties.Strings.About;
             this.githubLabel.Text = Properties.Strings.About_License.Replace("{0}", "GitHub");
             this.githubLabel.LinkArea = new LinkArea(Properties.Strings.About_License.IndexOf("{0}"), 6);
@@ -27,6 +28,7 @@ namespace TweakUtility.Forms
             this.versionLabel.Text = $"Version {Assembly.GetExecutingAssembly().GetName().Version.ToString(3)}";
 #if DEBUG
             this.debugLabel.Visible = true;
+            this.debugLabel.Text = Properties.Strings.Debug;
 #endif
         }
 
@@ -62,14 +64,14 @@ namespace TweakUtility.Forms
 
         private void DebugSivityigans_Click(object sender, EventArgs e)
         {
-            debugLabel.Text = "Is it Possible, or are you Able?";
+            debugLabel.Text = Properties.Strings.SivityigansPossible_EasterEgg;
         }
 
         private void CanberraEasterEgg_Click(object sender, EventArgs e) //<-- probably should make it only happen on may 14th.
         {
-            versionLabel.Text = "It's a beta! Nuh uh!";
+            versionLabel.Text = Properties.Strings.Canberra_EasterEgg_1;
             iconPictureBox.Image = Properties.Resources.nuhuh;
-            titleLabel.Text = "Canberra's TweakUtility";
+            titleLabel.Text = Properties.Strings.Canberra_EasterEgg_2;
         }
     }
 }
