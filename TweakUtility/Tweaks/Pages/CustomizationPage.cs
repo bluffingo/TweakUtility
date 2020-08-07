@@ -45,7 +45,7 @@ namespace TweakUtility.Tweaks.Pages
 
         [OperatingSystemSupported(OperatingSystemVersion.Windows8)]
         [Visible(true)]
-        [DisplayName("Enable Lite Theme")]
+        [DisplayName("Enable Aero Lite Theme")]
         public void EnableLiteTheme()
         {
             //extract file if it doesn't exist
@@ -68,6 +68,15 @@ namespace TweakUtility.Tweaks.Pages
         {
             get => RegistryHelper.GetValue(@"HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ShowSecondsInsystemClock", 0) == 1;
             set => RegistryHelper.SetValue(@"HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ShowSecondsInsystemClock", value ? 1 : 0);
+        }
+
+        [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
+        [RefreshRequired(RestartType.ExplorerRestart)]
+        [DisplayName("Show build number on Dekstop")]
+        public bool ShowBuildNumberDesktop
+        {
+            get => RegistryHelper.GetValue(@"HKCU\Control Panel\Desktop\PaintDesktopVersion", 0) == 1;
+            set => RegistryHelper.SetValue(@"HKCU\Control Panel\Desktop\PaintDesktopVersion", value ? 1 : 0);
         }
     }
 }

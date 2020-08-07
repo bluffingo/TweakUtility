@@ -25,6 +25,9 @@ namespace TweakUtility.Tweaks.Pages
             set => RegistryHelper.SetValue(@"HKLM\Software\Policies\Microsoft\Windows\Explorer\DisableNotificationCenter", value ? 1 : 0);
         }
 
+        [Notice(NoticeType.Info, "Note that some of these tweaks may not work on newer verisons of Windows 10.")]
+
+        //[Category("Enable classic UI elements")] <--- kinda fucky atm
         [DisplayName("Enable classic volume control")]
         public bool EnableMtcUvc
         {
