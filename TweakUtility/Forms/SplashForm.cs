@@ -36,7 +36,10 @@ namespace TweakUtility.Forms
                 Application.Exit();
             }
         }
-
+        public void Localize()
+        {
+            this.titleLabel.Text = Properties.Strings.Application_Name;
+        }
         private void GarfieldPF94_Click(object sender, EventArgs e)
         {
             {
@@ -50,6 +53,7 @@ namespace TweakUtility.Forms
                 {
                     MessageBox.Show("Good, Thank you.", "Garfield", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+         
             }
         }
     }

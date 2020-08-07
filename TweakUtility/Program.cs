@@ -144,7 +144,7 @@ namespace TweakUtility
             try
             {
 #endif
-
+            
             Application.ApplicationExit += (s, e) => Properties.Settings.Default.Save();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -174,23 +174,29 @@ namespace TweakUtility
             {
                 splash.Show();
 
-                splash.SetStatus("Creating folders...");
+                splash.SetStatus(Properties.Strings.Splash_Folders);
+                splash.statusBar.Value = 20;
+
                 CreateFolders();
 
-                splash.SetStatus("Retrieving OS Version...");
+                splash.SetStatus(Properties.Strings.Splash_DetectOS);
                 _ = OperatingSystemVersions.CurrentVersion;
+                splash.statusBar.Value = 40;
 
-                splash.SetStatus("Loading extensions...");
+                splash.SetStatus(Properties.Strings.Splash_Extensions);
                 Loader.LoadExtensions();
+                splash.statusBar.Value = 60;
 
-                splash.SetStatus("Loading backups...");
+                splash.SetStatus(Properties.Strings.Splash_Backups);
                 LoadBackups();
+                splash.statusBar.Value = 80;
 
-                splash.SetStatus("Initializing pages...");
+                splash.SetStatus(Properties.Strings.Splash_Pages);
                 InitializePages();
+                splash.statusBar.Value = 100;
 
 #if DEBUG
-                splash.SetStatus("Unlocking debug page...");
+                splash.SetStatus(Properties.Strings.Splash_Debug);
                 Pages.Add(new DebugPage());
 #endif
 

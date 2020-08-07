@@ -391,6 +391,24 @@ If you know how to implement this refresh programmatically, please let us know b
   <data name="SivityigansPossible_EasterEgg" xml:space="preserve">
     <value>Is it Possible, or are you Able?</value>
   </data>
+  <data name="Splash_Backups" xml:space="preserve">
+    <value>Loading backups...</value>
+  </data>
+  <data name="Splash_Debug" xml:space="preserve">
+    <value>Unlocking debug page...</value>
+  </data>
+  <data name="Splash_DetectOS" xml:space="preserve">
+    <value>Retrieving OS Version...</value>
+  </data>
+  <data name="Splash_Extensions" xml:space="preserve">
+    <value>Loading extensions...</value>
+  </data>
+  <data name="Splash_Folders" xml:space="preserve">
+    <value>Creating folders...</value>
+  </data>
+  <data name="Splash_Pages" xml:space="preserve">
+    <value>Initializing pages...</value>
+  </data>
   <data name="TweakPage_InsufficientPermissions" xml:space="preserve">
     <value>The tweak page {0} has failed to load because the application is running with insufficient permissions.
 You can try restarting the program as administrator.</value>

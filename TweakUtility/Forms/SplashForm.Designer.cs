@@ -32,6 +32,7 @@
             this.titleLabel = new System.Windows.Forms.Label();
             this.statusLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.statusBar = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,10 +75,18 @@
             this.pictureBox1.UseWaitCursor = true;
             this.pictureBox1.Click += new System.EventHandler(this.GarfieldPF94_Click);
             // 
+            // statusBar
+            // 
+            this.statusBar.Location = new System.Drawing.Point(12, 66);
+            this.statusBar.Name = "statusBar";
+            this.statusBar.Size = new System.Drawing.Size(410, 23);
+            this.statusBar.TabIndex = 3;
+            // 
             // SplashForm
             // 
-            this.ClientSize = new System.Drawing.Size(434, 73);
+            this.ClientSize = new System.Drawing.Size(434, 98);
             this.ControlBox = false;
+            this.Controls.Add(this.statusBar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.titleLabel);
@@ -105,5 +114,6 @@
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.ProgressBar statusBar;
     }
 }

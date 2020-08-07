@@ -294,6 +294,24 @@ Si vous savez comment implémenter cette actualisation par programme, veuillez n
   <data name="SivityigansPossible_EasterEgg" xml:space="preserve">
     <value>Les Possibles ou Les Doigts de Fée?</value>
   </data>
+  <data name="Splash_Backups" xml:space="preserve">
+    <value>Chargement des sauvegardes...</value>
+  </data>
+  <data name="Splash_Debug" xml:space="preserve">
+    <value>Chargement de la page de débogage...</value>
+  </data>
+  <data name="Splash_DetectOS" xml:space="preserve">
+    <value>Détection de la version de Windows.</value>
+  </data>
+  <data name="Splash_Extensions" xml:space="preserve">
+    <value>Chargement des extensions...</value>
+  </data>
+  <data name="Splash_Folders" xml:space="preserve">
+    <value>Création des pages...</value>
+  </data>
+  <data name="Splash_Pages" xml:space="preserve">
+    <value>Initialisation des pages...</value>
+  </data>
   <data name="TweakPage_InsufficientPermissions" xml:space="preserve">
     <value>Le chargement de la page d'ajustement {0} a échoué car l'application est en cours d'exécution avec des autorisations insuffisantes.
 Vous pouvez essayer de redémarrer le programme en tant qu'administrateur.</value>
@@ -302,7 +320,7 @@ Vous pouvez essayer de redémarrer le programme en tant qu'administrateur.</valu
     <value>Le chargement de la page de réglage {0} a échoué à cause du message d'erreur suivant:
 {1}
 
-Cette page  ne sera pas incluse dans l'application</value>
+Cette page ne sera pas incluse dans l'application</value>
     <comment>{0} Page Name/Id, {1} error message</comment>
   </data>
 </root>

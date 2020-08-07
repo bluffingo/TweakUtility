@@ -742,11 +742,56 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show emoticons.
+        ///   Looks up a localized string similar to Loading backups....
         /// </summary>
-        internal static string Tweak_ShowEmoticons {
+        internal static string Splash_Backups {
             get {
-                return ResourceManager.GetString("Tweak_ShowEmoticons", resourceCulture);
+                return ResourceManager.GetString("Splash_Backups", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unlocking debug page....
+        /// </summary>
+        internal static string Splash_Debug {
+            get {
+                return ResourceManager.GetString("Splash_Debug", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Retrieving OS Version....
+        /// </summary>
+        internal static string Splash_DetectOS {
+            get {
+                return ResourceManager.GetString("Splash_DetectOS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading extensions....
+        /// </summary>
+        internal static string Splash_Extensions {
+            get {
+                return ResourceManager.GetString("Splash_Extensions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Creating folders....
+        /// </summary>
+        internal static string Splash_Folders {
+            get {
+                return ResourceManager.GetString("Splash_Folders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Initializing pages....
+        /// </summary>
+        internal static string Splash_Pages {
+            get {
+                return ResourceManager.GetString("Splash_Pages", resourceCulture);
             }
         }
         
