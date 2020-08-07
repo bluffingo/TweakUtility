@@ -48,7 +48,7 @@ namespace TweakUtility.Forms
                 }
                 if (d == DialogResult.Yes)
                 {
-                    d = MessageBox.Show("Good, Thank you.", "Garfield", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Good, Thank you.", "Garfield", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }

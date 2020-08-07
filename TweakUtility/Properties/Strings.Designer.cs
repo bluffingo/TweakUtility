@@ -742,6 +742,15 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show emoticons.
+        /// </summary>
+        internal static string Tweak_ShowEmoticons {
+            get {
+                return ResourceManager.GetString("Tweak_ShowEmoticons", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The tweak page {0} has failed to load because the application is running with insufficient permissions.
         ///You can try restarting the program as administrator..
         /// </summary>
