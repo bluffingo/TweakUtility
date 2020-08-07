@@ -286,6 +286,15 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This page contains no tweaks..
+        /// </summary>
+        internal static string ContainsNo {
+            get {
+                return ResourceManager.GetString("ContainsNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lead Developer
         ///PF94, aka Gamerappa
         ///

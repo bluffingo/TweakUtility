@@ -462,7 +462,7 @@ namespace TweakUtility
                 //Fallback message for empty page
                 panel.Controls.Add(new Label()
                 {
-                    Text = "This page contains no tweaks.",
+                    Text = Properties.Strings.ContainsNo,  //It originally contained no, but it now contains no tweaks.
                     ForeColor = SystemColors.GrayText,
                     Dock = DockStyle.Fill,
                     AutoSize = true

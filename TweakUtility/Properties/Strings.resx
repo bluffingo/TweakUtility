@@ -196,6 +196,9 @@
   <data name="CheckBox_DontAskAgain" xml:space="preserve">
     <value>Don't ask again</value>
   </data>
+  <data name="ContainsNo" xml:space="preserve">
+    <value>This page contains no tweaks.</value>
+  </data>
   <data name="Credits" xml:space="preserve">
     <value>Lead Developer
 PF94, aka Gamerappa
