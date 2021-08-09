@@ -61,7 +61,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to About PF94&apos;s TweakUtility.
+        ///   Looks up a localized string similar to About TweakUtility.
         /// </summary>
         internal static string About {
             get {
@@ -79,7 +79,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PF94&apos;s TweakUtility is a fork of an application for tweaking Windows, as well as other applications, similar to Tweak UI and Winaero Tweaker..
+        ///   Looks up a localized string similar to TweakUtility is an application for tweaking Windows, it is similar to Tweak UI and Winaero Tweaker..
         /// </summary>
         internal static string About_Description {
             get {
@@ -88,7 +88,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PF94&apos;s TweakUtility is available on {0}, and licensed under GPL-3.0..
+        ///   Looks up a localized string similar to TweakUtility is available on {0}, and licensed under GPL-3.0..
         /// </summary>
         internal static string About_License {
             get {
@@ -97,7 +97,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PF94&apos;s TweakUtility.
+        ///   Looks up a localized string similar to TweakUtility.
         /// </summary>
         internal static string Application_Name {
             get {
@@ -151,7 +151,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This folder contains backups made by PF94&apos;s TweakUtility. .
+        ///   Looks up a localized string similar to This folder contains backups made by TweakUtility. .
         /// </summary>
         internal static string Backups_FolderDescription {
             get {
@@ -259,24 +259,6 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to It&apos;s a beta! Nuh uh!.
-        /// </summary>
-        internal static string Canberra_EasterEgg_1 {
-            get {
-                return ResourceManager.GetString("Canberra_EasterEgg_1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Canberra&apos;s TweakUtility.
-        /// </summary>
-        internal static string Canberra_EasterEgg_2 {
-            get {
-                return ResourceManager.GetString("Canberra_EasterEgg_2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Don&apos;t ask again.
         /// </summary>
         internal static string CheckBox_DontAskAgain {
@@ -295,10 +277,9 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lead Developer
-        ///PF94, aka Gamerappa
+        ///   Looks up a localized string similar to (Outdated, rewrite this later lmao)
         ///
-        ///Original TweakUtility Contributors
+        ///Contributors
         ///Craftplacer
         ///Alien Future, aka Balázs Vámos
         ///PF94, aka Gamerappa
@@ -311,7 +292,6 @@ namespace TweakUtility.Properties {
         ///
         ///Icons
         ///Craftplacer (original application icon)
-        ///PF94 (modified application icon)
         ///Microsoft Windows (for version specific icons, taken dynamically)
         ///
         ///Tweak Sources
@@ -330,7 +310,7 @@ namespace TweakUtility.Properties {
         ///
         ///
         ///
-        ///⭐ And  [rest of string was truncated]&quot;;.
+        ///⭐ And you for using this application ⭐.
         /// </summary>
         internal static string Credits {
             get {
@@ -448,7 +428,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This folder contains extensions for PF94&apos;s TweakUtility..
+        ///   Looks up a localized string similar to This folder contains extensions for TweakUtility..
         /// </summary>
         internal static string Extensions_FolderDescription {
             get {
@@ -733,15 +713,6 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is it Possible, or are you Able?.
-        /// </summary>
-        internal static string SivityigansPossible_EasterEgg {
-            get {
-                return ResourceManager.GetString("SivityigansPossible_EasterEgg", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Loading backups....
         /// </summary>
         internal static string Splash_Backups {
@@ -760,7 +731,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Retrieving OS Version....
+        ///   Looks up a localized string similar to Detecting Windows Version....
         /// </summary>
         internal static string Splash_DetectOS {
             get {

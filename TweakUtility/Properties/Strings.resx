@@ -118,20 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>About PF94's TweakUtility</value>
+    <value>About TweakUtility</value>
   </data>
   <data name="About_Copyright" xml:space="preserve">
     <value>All icons used (except the application icon), belong to their rightful owners.</value>
   </data>
   <data name="About_Description" xml:space="preserve">
-    <value>PF94's TweakUtility is a fork of an application for tweaking Windows, as well as other applications, similar to Tweak UI and Winaero Tweaker.</value>
+    <value>TweakUtility is an application for tweaking Windows, it is similar to Tweak UI and Winaero Tweaker.</value>
   </data>
   <data name="About_License" xml:space="preserve">
-    <value>PF94's TweakUtility is available on {0}, and licensed under GPL-3.0.</value>
+    <value>TweakUtility is available on {0}, and licensed under GPL-3.0.</value>
     <comment>{0} (link) = "GitHub"</comment>
   </data>
   <data name="Application_Name" xml:space="preserve">
-    <value>PF94's TweakUtility</value>
+    <value>TweakUtility</value>
     <comment>Google Translate is better than me. -Craftplacer</comment>
   </data>
   <data name="Backups" xml:space="preserve">
@@ -150,7 +150,7 @@
     <value>Date</value>
   </data>
   <data name="Backups_FolderDescription" xml:space="preserve">
-    <value>This folder contains backups made by PF94's TweakUtility. </value>
+    <value>This folder contains backups made by TweakUtility. </value>
   </data>
   <data name="Backups_Name" xml:space="preserve">
     <value>Name</value>
@@ -185,14 +185,6 @@
   <data name="Button_OK" xml:space="preserve">
     <value>&amp;OK</value>
   </data>
-  <data name="Canberra_EasterEgg_1" xml:space="preserve">
-    <value>It's a beta! Nuh uh!</value>
-    <comment>Text for Easter Egg in About Window</comment>
-  </data>
-  <data name="Canberra_EasterEgg_2" xml:space="preserve">
-    <value>Canberra's TweakUtility</value>
-    <comment>Text for Easter Egg in About Window</comment>
-  </data>
   <data name="CheckBox_DontAskAgain" xml:space="preserve">
     <value>Don't ask again</value>
   </data>
@@ -200,10 +192,9 @@
     <value>This page contains no tweaks.</value>
   </data>
   <data name="Credits" xml:space="preserve">
-    <value>Lead Developer
-PF94, aka Gamerappa
+    <value>(Outdated, rewrite this later lmao)
 
-Original TweakUtility Contributors
+Contributors
 Craftplacer
 Alien Future, aka Balázs Vámos
 PF94, aka Gamerappa
@@ -216,7 +207,6 @@ PF94, Google Translate and DeepL (French)
 
 Icons
 Craftplacer (original application icon)
-PF94 (modified application icon)
 Microsoft Windows (for version specific icons, taken dynamically)
 
 Tweak Sources
@@ -267,7 +257,7 @@ Automated crash reports are also disabled.</value>
     <value>Description</value>
   </data>
   <data name="Extensions_FolderDescription" xml:space="preserve">
-    <value>This folder contains extensions for PF94's TweakUtility.</value>
+    <value>This folder contains extensions for TweakUtility.</value>
   </data>
   <data name="Extensions_Name" xml:space="preserve">
     <value>Name</value>
@@ -388,9 +378,6 @@ If you know how to implement this refresh programmatically, please let us know b
   <data name="Report_Disclaimer" xml:space="preserve">
     <value>Please make sure this report doesn't contain any personal details accidentally picked up by this program. (That said we aren't reliable if you dox yourself.)</value>
   </data>
-  <data name="SivityigansPossible_EasterEgg" xml:space="preserve">
-    <value>Is it Possible, or are you Able?</value>
-  </data>
   <data name="Splash_Backups" xml:space="preserve">
     <value>Loading backups...</value>
   </data>
@@ -398,7 +385,7 @@ If you know how to implement this refresh programmatically, please let us know b
     <value>Unlocking debug page...</value>
   </data>
   <data name="Splash_DetectOS" xml:space="preserve">
-    <value>Retrieving OS Version...</value>
+    <value>Detecting Windows Version...</value>
   </data>
   <data name="Splash_Extensions" xml:space="preserve">
     <value>Loading extensions...</value>

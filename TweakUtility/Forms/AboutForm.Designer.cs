@@ -50,7 +50,7 @@
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 0;
-            this.okButton.Text = global::TweakUtility.Properties.Strings.Button_OK;
+            this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
             // 
             // titleLabel
@@ -59,9 +59,9 @@
             this.titleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 14F);
             this.titleLabel.Location = new System.Drawing.Point(66, 15);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(177, 25);
+            this.titleLabel.Size = new System.Drawing.Size(118, 25);
             this.titleLabel.TabIndex = 1;
-            this.titleLabel.Text = "PF94\'s TweakUtility";
+            this.titleLabel.Text = "TweakUtility";
             // 
             // versionLabel
             // 
@@ -72,7 +72,6 @@
             this.versionLabel.Size = new System.Drawing.Size(132, 19);
             this.versionLabel.TabIndex = 3;
             this.versionLabel.Text = "Application Version";
-            this.versionLabel.Click += new System.EventHandler(this.CanberraEasterEgg_Click);
             // 
             // descriptionLabel
             // 
@@ -93,7 +92,6 @@
             this.feedbackButton.Name = "feedbackButton";
             this.feedbackButton.Size = new System.Drawing.Size(75, 23);
             this.feedbackButton.TabIndex = 5;
-            this.feedbackButton.Text = global::TweakUtility.Properties.Strings.Button_Feedback;
             this.feedbackButton.UseVisualStyleBackColor = true;
             this.feedbackButton.Click += new System.EventHandler(this.FeedbackButton_Click);
             // 
@@ -121,9 +119,7 @@
             this.debugLabel.Size = new System.Drawing.Size(43, 15);
             this.debugLabel.TabIndex = 8;
             this.debugLabel.Text = "Debug";
-            this.toolTip.SetToolTip(this.debugLabel, global::TweakUtility.Properties.Strings.Debug_Disclaimer);
             this.debugLabel.Visible = false;
-            this.debugLabel.Click += new System.EventHandler(this.DebugSivityigans_Click);
             // 
             // toolTip
             // 
@@ -189,7 +185,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "About PF94\'s TweakUtility";
+            this.Text = "About TweakUtility";
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AboutForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).EndInit();
             this.ResumeLayout(false);

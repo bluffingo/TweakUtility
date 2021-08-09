@@ -152,7 +152,7 @@ namespace TweakUtility
             Environment.CurrentDirectory = ApplicationDirectory;
 
             Thread.CurrentThread.CurrentUICulture = CultureInfo.CurrentCulture;
-            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("fr"); //forces french translations to be used
+            //Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("fr");
 
             //Don't start application if arguments/files were being handled (except --open)
             if (HandleArguments(args))
@@ -206,10 +206,11 @@ namespace TweakUtility
             #endregion Splash Screen Code
             using (var main = new MainForm())
             {
+#if DEBUG
                     System.Media.SoundPlayer player = new System.Media.SoundPlayer(Properties.Resources.test); //this loads in the startup sound
                     player.Play(); //it plays said sound
-
-                    Application.Run(main);
+#endif
+                Application.Run(main);
                 }
 
 #if !DEBUG

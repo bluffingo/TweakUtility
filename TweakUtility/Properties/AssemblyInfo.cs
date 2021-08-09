@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PF94's TweakUtility")]
-[assembly: AssemblyDescription("Tweaking application for Microsoft Windows XP and/or newer.")]
+[assembly: AssemblyTitle("TweakUtility")]
+[assembly: AssemblyDescription("Tweaking application for Microsoft Windows 7 and/or newer.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PF94's TweakUtility")]
+[assembly: AssemblyProduct("TweakUtility")]
 [assembly: AssemblyCopyright("Copyright © Craftplacer 2019, and maybe PF94 2020?")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

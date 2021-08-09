@@ -44,9 +44,9 @@
             this.titleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLabel.Location = new System.Drawing.Point(66, 15);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(177, 25);
+            this.titleLabel.Size = new System.Drawing.Size(206, 25);
             this.titleLabel.TabIndex = 0;
-            this.titleLabel.Text = "PF94\'s TweakUtility";
+            this.titleLabel.Text = "Starting TweakUtility...";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.titleLabel.UseWaitCursor = true;
             // 
@@ -81,6 +81,7 @@
             this.statusBar.Name = "statusBar";
             this.statusBar.Size = new System.Drawing.Size(410, 23);
             this.statusBar.TabIndex = 3;
+            this.statusBar.UseWaitCursor = true;
             // 
             // SplashForm
             // 
@@ -98,7 +99,7 @@
             this.MinimizeBox = false;
             this.Name = "SplashForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PF94\'s TweakUtility";
+            this.Text = "TweakUtility";
             this.TopMost = true;
             this.UseWaitCursor = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SplashForm_FormClosing);

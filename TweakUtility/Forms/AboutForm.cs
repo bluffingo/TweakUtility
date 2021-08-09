@@ -61,17 +61,5 @@ namespace TweakUtility.Forms
                 credits.ShowDialog(this);
             }
         }
-
-        private void DebugSivityigans_Click(object sender, EventArgs e)
-        {
-            debugLabel.Text = Properties.Strings.SivityigansPossible_EasterEgg;
-        }
-
-        private void CanberraEasterEgg_Click(object sender, EventArgs e) //<-- probably should make it only happen on may 14th.
-        {
-            versionLabel.Text = Properties.Strings.Canberra_EasterEgg_1;
-            iconPictureBox.Image = Properties.Resources.nuhuh;
-            titleLabel.Text = Properties.Strings.Canberra_EasterEgg_2;
-        }
     }
 }
