@@ -118,20 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>About Tweak Utility</value>
+    <value>About PF94's TweakUtility</value>
   </data>
   <data name="About_Copyright" xml:space="preserve">
     <value>All icons used (except the application icon), belong to their rightful owners.</value>
   </data>
   <data name="About_Description" xml:space="preserve">
-    <value>Tweak Utility is an application for tweaking Windows, as well as other applications, similar to Tweak UI and Winaero Tweaker.</value>
+    <value>PF94's TweakUtility is a fork of an application for tweaking Windows, as well as other applications, similar to Tweak UI and Winaero Tweaker.</value>
   </data>
   <data name="About_License" xml:space="preserve">
-    <value>Tweak Utility is available on {0}, and licensed under GPL-3.0.</value>
+    <value>PF94's TweakUtility is available on {0}, and licensed under GPL-3.0.</value>
     <comment>{0} (link) = "GitHub"</comment>
   </data>
   <data name="Application_Name" xml:space="preserve">
-    <value>Tweak Utility</value>
+    <value>PF94's TweakUtility</value>
     <comment>Google Translate is better than me. -Craftplacer</comment>
   </data>
   <data name="Backups" xml:space="preserve">
@@ -150,7 +150,7 @@
     <value>Date</value>
   </data>
   <data name="Backups_FolderDescription" xml:space="preserve">
-    <value>This folder contains backups made by Tweak Utility. </value>
+    <value>This folder contains backups made by PF94's TweakUtility. </value>
   </data>
   <data name="Backups_Name" xml:space="preserve">
     <value>Name</value>
@@ -185,27 +185,38 @@
   <data name="Button_OK" xml:space="preserve">
     <value>&amp;OK</value>
   </data>
+  <data name="Canberra_EasterEgg_1" xml:space="preserve">
+    <value>It's a beta! Nuh uh!</value>
+    <comment>Text for Easter Egg in About Window</comment>
+  </data>
+  <data name="Canberra_EasterEgg_2" xml:space="preserve">
+    <value>Canberra's TweakUtility</value>
+    <comment>Text for Easter Egg in About Window</comment>
+  </data>
   <data name="CheckBox_DontAskAgain" xml:space="preserve">
     <value>Don't ask again</value>
   </data>
+  <data name="ContainsNo" xml:space="preserve">
+    <value>This page contains no tweaks.</value>
+  </data>
   <data name="Credits" xml:space="preserve">
     <value>Lead Developer
-Craftplacer
-
-Contributer Developers
 PF94, aka Gamerappa
 
-Former Contributers
+Original TweakUtility Contributors
+Craftplacer
 Alien Future, aka Balázs Vámos
+PF94, aka Gamerappa
 
 Translators
 Craftplacer (English, German)
 Alien Future (Hungarian)
 CatHR Games (Spanish)
-PF94 and Google Translate (French)
+PF94, Google Translate and DeepL (French)
 
 Icons
-Craftplacer (application icon)
+Craftplacer (original application icon)
+PF94 (modified application icon)
 Microsoft Windows (for version specific icons, taken dynamically)
 
 Tweak Sources
@@ -224,18 +235,14 @@ AskVG (https://www.askvg.com)
 
 
 
-⭐ And you for using this application ⭐
-
-
-
-
-
-
-
-
-
-</value>
+⭐ And you for using this application ⭐</value>
     <comment>THIS STRING ISN'T SUPPOSED TO BE TRANSLATED</comment>
+  </data>
+  <data name="Debug" xml:space="preserve">
+    <value>Debug</value>
+  </data>
+  <data name="DebugTranslation" xml:space="preserve">
+    <value>English</value>
   </data>
   <data name="Debug_Disclaimer" xml:space="preserve">
     <value>Debug builds are experimental and do not guarantee to be working or offer any support.
@@ -260,7 +267,7 @@ Automated crash reports are also disabled.</value>
     <value>Description</value>
   </data>
   <data name="Extensions_FolderDescription" xml:space="preserve">
-    <value>This folder contains extensions for Tweak Utility.</value>
+    <value>This folder contains extensions for PF94's TweakUtility.</value>
   </data>
   <data name="Extensions_Name" xml:space="preserve">
     <value>Name</value>
@@ -329,6 +336,9 @@ Do you want to continue?</value>
   <data name="Preferences" xml:space="preserve">
     <value>Preferences</value>
   </data>
+  <data name="PreferencesTitle" xml:space="preserve">
+    <value>PF94's TweakUtility Preferences</value>
+  </data>
   <data name="Refresh" xml:space="preserve">
     <value>Re&amp;fresh</value>
   </data>
@@ -377,6 +387,27 @@ If you know how to implement this refresh programmatically, please let us know b
   </data>
   <data name="Report_Disclaimer" xml:space="preserve">
     <value>Please make sure this report doesn't contain any personal details accidentally picked up by this program. (That said we aren't reliable if you dox yourself.)</value>
+  </data>
+  <data name="SivityigansPossible_EasterEgg" xml:space="preserve">
+    <value>Is it Possible, or are you Able?</value>
+  </data>
+  <data name="Splash_Backups" xml:space="preserve">
+    <value>Loading backups...</value>
+  </data>
+  <data name="Splash_Debug" xml:space="preserve">
+    <value>Unlocking debug page...</value>
+  </data>
+  <data name="Splash_DetectOS" xml:space="preserve">
+    <value>Retrieving OS Version...</value>
+  </data>
+  <data name="Splash_Extensions" xml:space="preserve">
+    <value>Loading extensions...</value>
+  </data>
+  <data name="Splash_Folders" xml:space="preserve">
+    <value>Creating folders...</value>
+  </data>
+  <data name="Splash_Pages" xml:space="preserve">
+    <value>Initializing pages...</value>
   </data>
   <data name="TweakPage_InsufficientPermissions" xml:space="preserve">
     <value>The tweak page {0} has failed to load because the application is running with insufficient permissions.

@@ -61,7 +61,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to About Tweak Utility.
+        ///   Looks up a localized string similar to About PF94&apos;s TweakUtility.
         /// </summary>
         internal static string About {
             get {
@@ -79,7 +79,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tweak Utility is an application for tweaking Windows, as well as other applications, similar to Tweak UI and Winaero Tweaker..
+        ///   Looks up a localized string similar to PF94&apos;s TweakUtility is a fork of an application for tweaking Windows, as well as other applications, similar to Tweak UI and Winaero Tweaker..
         /// </summary>
         internal static string About_Description {
             get {
@@ -88,7 +88,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tweak Utility is available on {0}, and licensed under GPL-3.0..
+        ///   Looks up a localized string similar to PF94&apos;s TweakUtility is available on {0}, and licensed under GPL-3.0..
         /// </summary>
         internal static string About_License {
             get {
@@ -97,7 +97,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tweak Utility.
+        ///   Looks up a localized string similar to PF94&apos;s TweakUtility.
         /// </summary>
         internal static string Application_Name {
             get {
@@ -151,7 +151,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This folder contains backups made by Tweak Utility. .
+        ///   Looks up a localized string similar to This folder contains backups made by PF94&apos;s TweakUtility. .
         /// </summary>
         internal static string Backups_FolderDescription {
             get {
@@ -259,6 +259,24 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to It&apos;s a beta! Nuh uh!.
+        /// </summary>
+        internal static string Canberra_EasterEgg_1 {
+            get {
+                return ResourceManager.GetString("Canberra_EasterEgg_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Canberra&apos;s TweakUtility.
+        /// </summary>
+        internal static string Canberra_EasterEgg_2 {
+            get {
+                return ResourceManager.GetString("Canberra_EasterEgg_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Don&apos;t ask again.
         /// </summary>
         internal static string CheckBox_DontAskAgain {
@@ -268,23 +286,32 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This page contains no tweaks..
+        /// </summary>
+        internal static string ContainsNo {
+            get {
+                return ResourceManager.GetString("ContainsNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lead Developer
-        ///Craftplacer
-        ///
-        ///Contributer Developers
         ///PF94, aka Gamerappa
         ///
-        ///Former Contributers
+        ///Original TweakUtility Contributors
+        ///Craftplacer
         ///Alien Future, aka Balázs Vámos
+        ///PF94, aka Gamerappa
         ///
         ///Translators
         ///Craftplacer (English, German)
         ///Alien Future (Hungarian)
         ///CatHR Games (Spanish)
-        ///PF94 and Google Translate (French)
+        ///PF94, Google Translate and DeepL (French)
         ///
         ///Icons
-        ///Craftplacer (application icon)
+        ///Craftplacer (original application icon)
+        ///PF94 (modified application icon)
         ///Microsoft Windows (for version specific icons, taken dynamically)
         ///
         ///Tweak Sources
@@ -303,21 +330,20 @@ namespace TweakUtility.Properties {
         ///
         ///
         ///
-        ///⭐ And you for using this application ⭐
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///.
+        ///⭐ And  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Credits {
             get {
                 return ResourceManager.GetString("Credits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debug.
+        /// </summary>
+        internal static string Debug {
+            get {
+                return ResourceManager.GetString("Debug", resourceCulture);
             }
         }
         
@@ -328,6 +354,15 @@ namespace TweakUtility.Properties {
         internal static string Debug_Disclaimer {
             get {
                 return ResourceManager.GetString("Debug_Disclaimer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        internal static string DebugTranslation {
+            get {
+                return ResourceManager.GetString("DebugTranslation", resourceCulture);
             }
         }
         
@@ -413,7 +448,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This folder contains extensions for Tweak Utility..
+        ///   Looks up a localized string similar to This folder contains extensions for PF94&apos;s TweakUtility..
         /// </summary>
         internal static string Extensions_FolderDescription {
             get {
@@ -576,6 +611,15 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PF94&apos;s TweakUtility Preferences.
+        /// </summary>
+        internal static string PreferencesTitle {
+            get {
+                return ResourceManager.GetString("PreferencesTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Re&amp;fresh.
         /// </summary>
         internal static string Refresh {
@@ -685,6 +729,69 @@ namespace TweakUtility.Properties {
         internal static string Report_Disclaimer {
             get {
                 return ResourceManager.GetString("Report_Disclaimer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is it Possible, or are you Able?.
+        /// </summary>
+        internal static string SivityigansPossible_EasterEgg {
+            get {
+                return ResourceManager.GetString("SivityigansPossible_EasterEgg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading backups....
+        /// </summary>
+        internal static string Splash_Backups {
+            get {
+                return ResourceManager.GetString("Splash_Backups", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unlocking debug page....
+        /// </summary>
+        internal static string Splash_Debug {
+            get {
+                return ResourceManager.GetString("Splash_Debug", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Retrieving OS Version....
+        /// </summary>
+        internal static string Splash_DetectOS {
+            get {
+                return ResourceManager.GetString("Splash_DetectOS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading extensions....
+        /// </summary>
+        internal static string Splash_Extensions {
+            get {
+                return ResourceManager.GetString("Splash_Extensions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Creating folders....
+        /// </summary>
+        internal static string Splash_Folders {
+            get {
+                return ResourceManager.GetString("Splash_Folders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Initializing pages....
+        /// </summary>
+        internal static string Splash_Pages {
+            get {
+                return ResourceManager.GetString("Splash_Pages", resourceCulture);
             }
         }
         

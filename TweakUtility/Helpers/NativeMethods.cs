@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -12,6 +11,9 @@ namespace TweakUtility.Helpers
         internal const int RT_ICON = 0x00000003;
 
         internal const int WM_USER = 0x0400;
+
+        [DllImport("user32.dll", CharSet = CharSet.Unicode)]
+        public static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
 
         [Flags]
         internal enum ExitWindows : uint
@@ -46,6 +48,9 @@ namespace TweakUtility.Helpers
             LOAD_LIBRARY_SEARCH_USER_DIRS = 0x00000400,
             LOAD_WITH_ALTERED_SEARCH_PATH = 0x00000008
         }
+
+        [DllImport("user32.dll")]
+        public static extern bool LockWorkStation();
 
         [Flags]
         internal enum ShutdownReason : uint

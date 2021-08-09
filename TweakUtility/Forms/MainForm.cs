@@ -1,12 +1,10 @@
+using Microsoft.WindowsAPICodePack.Shell;
+using Microsoft.WindowsAPICodePack.Taskbar;
 using System;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
-
-using Microsoft.WindowsAPICodePack.Shell;
-using Microsoft.WindowsAPICodePack.Taskbar;
-
 using TweakUtility.Enums;
 using TweakUtility.Helpers;
 using TweakUtility.Theming;
@@ -20,7 +18,18 @@ namespace TweakUtility.Forms
         internal MainForm()
         {
             this.InitializeComponent();
+            this.Localize();
             this.SetStyle(ControlStyles.DoubleBuffer, true);
+        }
+
+        public void Localize()
+        {
+            this.aboutLabel.Text = Properties.Strings.Application_Name;
+            this.Text = Properties.Strings.Application_Name;
+#if DEBUG
+            this.debugTranslation.Text = Properties.Strings.DebugTranslation;
+            this.debugTranslation.Visible = true;
+#endif
         }
 
         public Control CurrentPageView => splitContainer.Panel2.Controls.Find("content", false)[0];

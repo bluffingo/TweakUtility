@@ -118,30 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>À propos de Tweak Utility</value>
+    <value>À propos de Chaziz TweakUtility</value>
   </data>
   <data name="About_Copyright" xml:space="preserve">
-    <value>Toutes les icônes utilisées (à l&apos;exception de l&apos;icône de l&apos;application) appartiennent à leurs propriétaires légitimes.</value>
+    <value>Toutes les icônes utilisées (sauf l'icône de l'application), appartiennent à leurs propriétaires légitimes.</value>
   </data>
   <data name="About_Description" xml:space="preserve">
-    <value>Tweak Utility est une application qui permet de peaufiner Windows, ainsi que d’autres applications similaires à Tweak UI et Winaero Tweaker.</value>
+    <value>Chaziz TweakUtility est une application qui permet de modifier Windows, ainsi que d'autres applications, similaires à Tweak UI et Winaero Tweaker.</value>
   </data>
   <data name="About_License" xml:space="preserve">
-    <value>Tweak Utility est disponible sur {0} et sous la licence de GPL-3.0.</value>
-    <comment>{0} (link) = &quot;GitHub&quot;</comment>
+    <value>Chaziz TweakUtility est disponible sur {0}, et sous licence GPL-3.0.</value>
+    <comment>{0} (link) = "GitHub"</comment>
   </data>
   <data name="Application_Name" xml:space="preserve">
-    <value>Tweak Utility</value>
+    <value>Chaziz TweakUtility</value>
     <comment>Google Translate is better than me. -Craftplacer</comment>
   </data>
   <data name="Backups" xml:space="preserve">
     <value>Sauvegardes</value>
   </data>
   <data name="Backups_Confirmation" xml:space="preserve">
-    <value>Êtes-vous sûr de vouloir appliquer cette sauvegarde?</value>
+    <value>Êtes-vous sûr de vouloir appliquer cette sauvegarde ?</value>
   </data>
   <data name="Backups_FolderDescription" xml:space="preserve">
-    <value>Ce dossier contient des sauvegardes effectuées par Tweak Utility.</value>
+    <value>Ce dossier contient des sauvegardes faites par Chaziz TweakUtility.</value>
   </data>
   <data name="Backups_OpenFolder" xml:space="preserve">
     <value>Ouvrir le dossier de &amp;sauvegarde</value>
@@ -150,10 +150,10 @@
     <value>&amp;Appliquer</value>
   </data>
   <data name="Button_Cancel" xml:space="preserve">
-    <value>&amp;Cancel</value>
+    <value>&amp;Annuler</value>
   </data>
   <data name="Button_Create" xml:space="preserve">
-    <value>Cr&amp;éer</value>
+    <value>C&amp;réer</value>
   </data>
   <data name="Button_Credits" xml:space="preserve">
     <value>Créd&amp;its</value>
@@ -162,24 +162,34 @@
     <value>&amp;Supprimer</value>
   </data>
   <data name="Button_Feedback" xml:space="preserve">
-    <value>Commentaires</value>
+    <value>&amp;Responses</value>
   </data>
   <data name="Button_Install" xml:space="preserve">
-    <value>&amp;Install</value>
+    <value>&amp;Installer</value>
   </data>
   <data name="Button_OK" xml:space="preserve">
-    <value>D&apos;accord</value>
+    <value>D'accord</value>
+  </data>
+  <data name="Canberra_EasterEgg_1" xml:space="preserve">
+    <value>C'est un beta! Zyva!</value>
+  </data>
+  <data name="Canberra_EasterEgg_2" xml:space="preserve">
+    <value>Kolala TweakUtility</value>
   </data>
   <data name="CheckBox_DontAskAgain" xml:space="preserve">
     <value>Ne demande plus</value>
   </data>
-  <data name="Credits" xml:space="preserve">
-    <value></value>
-    <comment>THIS STRING ISN&apos;T SUPPOSED TO BE TRANSLATED</comment>
+  <data name="ContainsNo" xml:space="preserve">
+    <value>Cette page ne contient aucune tweaks</value>
+  </data>
+  <data name="Debug" xml:space="preserve">
+    <value>Version Débogage</value>
+  </data>
+  <data name="DebugTranslation" xml:space="preserve">
+    <value>FRENCH</value>
   </data>
   <data name="Debug_Disclaimer" xml:space="preserve">
-    <value>Les versions de débogage sont expérimentales et ne garantissent pas de fonctionner ni d’offrir de support.
-Les rapports d&apos;incident automatisés sont également désactivés.</value>
+    <value>Les versions de débogage sont expérimentales et ne garantissent pas leur fonctionnement ni n'offrent aucun soutien. Les rapports d'accident automatisés sont également désactivés.</value>
   </data>
   <data name="Extensions" xml:space="preserve">
     <value>Les Extensions</value>
@@ -191,13 +201,13 @@ Les rapports d&apos;incident automatisés sont également désactivés.</value>
     <value>Description</value>
   </data>
   <data name="Extensions_FolderDescription" xml:space="preserve">
-    <value>Ce dossier contient des extensions pour Tweak Utility.</value>
+    <value>Ce dossier contient des extensions pour Chaziz TweakUtility.</value>
   </data>
   <data name="Extensions_Name" xml:space="preserve">
-    <value>prénom</value>
+    <value>Nom</value>
   </data>
   <data name="Extensions_OpenFolder" xml:space="preserve">
-    <value>Ouvrir le dossier de &amp;Extensions</value>
+    <value>Ouvrir le dossier d'&amp;extensions</value>
   </data>
   <data name="Extension_Install" xml:space="preserve">
     <value>Installer une extension</value>
@@ -206,19 +216,19 @@ Les rapports d&apos;incident automatisés sont également désactivés.</value>
     <value>Êtes-vous sûr de vouloir installer cette extension?</value>
   </data>
   <data name="Extension_Install_Success" xml:space="preserve">
-    <value>L&apos;extension a été installée.</value>
+    <value>L'extension a été installée.</value>
   </data>
   <data name="Hosts_AddTitle" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Hosts_EditTitle" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Hosts_Host" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Hosts_IPAddress" xml:space="preserve">
-    <value></value>
+    <value>Adresse IP</value>
   </data>
   <data name="MsnMessenger_AudioBackup" xml:space="preserve">
     <value>Voulez-vous sauvegarder les fichiers avant de continuer?</value>
@@ -230,7 +240,7 @@ Les rapports d&apos;incident automatisés sont également désactivés.</value>
     <value>Voulez-vous supprimer le dossier OneDrive?</value>
   </data>
   <data name="OneDrive_Uninstall_DeleteFolder_Failed" xml:space="preserve">
-    <value>Impossible de supprimer le dossier OneDrive en raison du message d&apos;erreur suivant:
+    <value>Impossible de supprimer le dossier OneDrive en raison du message d'erreur suivant:
 
 {0}</value>
   </data>
@@ -241,10 +251,10 @@ Par conséquent, OneDrive ne sera pas automatiquement désinstallé, vous pouvez
 Voulez-vous continuer?</value>
   </data>
   <data name="OneDrive_Uninstall_SetFlagMessage" xml:space="preserve">
-    <value>Actuellement, l&apos;indicateur &quot;désinstallation initiée par l&apos;utilisateur&quot; n&apos;est pas défini, ce qui peut éventuellement amener Windows à réinstaller OneDrive.
+    <value>Actuellement, l'indicateur "désinstallation initiée par l'utilisateur" n'est pas défini, ce qui peut éventuellement amener Windows à réinstaller OneDrive.
 La définition de cet indicateur indiquera à Windows que vous souhaitez laisser OneDrive désinstallé.
 
-Voulez-vous l&apos;allumer?</value>
+Voulez-vous l'allumer?</value>
   </data>
   <data name="OneDrive_Uninstall_Success" xml:space="preserve">
     <value>OneDrive, ainsi que ses traces, ont été supprimés.</value>
@@ -254,11 +264,11 @@ Voulez-vous l&apos;allumer?</value>
 
 Voulez-vous continuer?</value>
   </data>
-  <data name="Preferences" xml:space="preserve">
-    <value></value>
+  <data name="PreferencesTitle" xml:space="preserve">
+    <value>Paramètres de Chaziz TweakUtility</value>
   </data>
   <data name="Reload_ExplorerRestart" xml:space="preserve">
-    <value>Cette option nécessite de redémarrer l&apos;Explorateur Windows.
+    <value>Cette option nécessite de redémarrer l'Explorateur Windows.
 
 Voulez-vous faire ça maintenant?</value>
   </data>
@@ -273,7 +283,7 @@ Voulez-vous faire ça maintenant?</value>
 Voulez-vous faire ça maintenant?</value>
   </data>
   <data name="Reload_Unknown" xml:space="preserve">
-    <value>Cette option nécessite de recharger l&apos;élément associé, car l&apos;actualisation n&apos;est pas encore implémentée.
+    <value>Cette option nécessite de recharger l'élément associé, car l'actualisation n'est pas encore implémentée.
 
 Si vous savez comment implémenter cette actualisation par programme, veuillez nous en informer en cliquant sur le bouton Commentaires dans la fenêtre à propos de.</value>
     <comment>Message telling user to reload themself, since code is missing.</comment>
@@ -281,15 +291,36 @@ Si vous savez comment implémenter cette actualisation par programme, veuillez n
   <data name="Report_Disclaimer" xml:space="preserve">
     <value>Assurez-vous que ce rapport ne contient aucune donnée personnelle collectée accidentellement par ce programme.</value>
   </data>
+  <data name="SivityigansPossible_EasterEgg" xml:space="preserve">
+    <value>Les Possibles ou Les Doigts de Fée?</value>
+  </data>
+  <data name="Splash_Backups" xml:space="preserve">
+    <value>Chargement des sauvegardes...</value>
+  </data>
+  <data name="Splash_Debug" xml:space="preserve">
+    <value>Chargement de la page de débogage...</value>
+  </data>
+  <data name="Splash_DetectOS" xml:space="preserve">
+    <value>Détection de la version de Windows.</value>
+  </data>
+  <data name="Splash_Extensions" xml:space="preserve">
+    <value>Chargement des extensions...</value>
+  </data>
+  <data name="Splash_Folders" xml:space="preserve">
+    <value>Création des pages...</value>
+  </data>
+  <data name="Splash_Pages" xml:space="preserve">
+    <value>Initialisation des pages...</value>
+  </data>
   <data name="TweakPage_InsufficientPermissions" xml:space="preserve">
-    <value>Le chargement de la page d&apos;ajustement {0} a échoué car l&apos;application est en cours d&apos;exécution avec des autorisations insuffisantes.
-Vous pouvez essayer de redémarrer le programme en tant qu&apos;administrateur.</value>
+    <value>Le chargement de la page d'ajustement {0} a échoué car l'application est en cours d'exécution avec des autorisations insuffisantes.
+Vous pouvez essayer de redémarrer le programme en tant qu'administrateur.</value>
   </data>
   <data name="TweakPage_LoadError" xml:space="preserve">
-    <value>Le chargement de la page de réglage {0} a échoué à cause du message d&apos;erreur suivant:
+    <value>Le chargement de la page de réglage {0} a échoué à cause du message d'erreur suivant:
 {1}
 
-Cette page de tweak ne sera pas incluse dans l&apos;application</value>
+Cette page ne sera pas incluse dans l'application</value>
     <comment>{0} Page Name/Id, {1} error message</comment>
   </data>
 </root>

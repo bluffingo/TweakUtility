@@ -1,7 +1,7 @@
 ﻿-Tweak Utility Easter Eggs-
-These were originally in the source code, but have been placed here to clean the code.
+These were originally in the source code (from the original Craftplacer repo), but have been placed here to clean the code.
 
-In a nutshell, this is a relic of TweakUtility's early developement (from July to August)
+In a nutshell, this is a relic of TweakUtility's early developement (from July 2019 to August 2019)
 
 I'M HAVING ATTENTION
 
@@ -44,3 +44,4 @@ i did this shit (live share) on a live share session of botrappa a while back :P
 
 so they can bully the developers of t.... fuck
 
+https://www.youtube.com/watch?v=9ULDCUvgkSQ is not a good concept, Do not try to add new styles for remaking a old Operating System.

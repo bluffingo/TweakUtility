@@ -112,6 +112,8 @@ namespace TweakUtility
             }
         }
 
+        #region Crash Report
+
         /// <summary>
         /// Opens the GitHub issues page of Tweak Utility, preset with exception details.
         /// </summary>
@@ -125,10 +127,12 @@ namespace TweakUtility
 
             body = HttpUtility.UrlEncode(body);
 
-            string url = $"https://github.com/Craftplacer/TweakUtility/issues/new?labels=crash+report&title={title}&body={body}";
+            string url = $"https://github.com/PF94/TweakUtility_PF94/issues/new?labels=crash+report&title={title}&body={body}";
 
             OpenURL(url);
         }
+
+        #endregion Crash Report
 
         /// <summary>
         /// The main entry point for the application.
@@ -140,7 +144,7 @@ namespace TweakUtility
             try
             {
 #endif
-
+            
             Application.ApplicationExit += (s, e) => Properties.Settings.Default.Save();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -148,7 +152,7 @@ namespace TweakUtility
             Environment.CurrentDirectory = ApplicationDirectory;
 
             Thread.CurrentThread.CurrentUICulture = CultureInfo.CurrentCulture;
-            //Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("fr");
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("fr"); //forces french translations to be used
 
             //Don't start application if arguments/files were being handled (except --open)
             if (HandleArguments(args))
@@ -164,37 +168,49 @@ namespace TweakUtility
                 return;
             }
 
+            #region Splash Screen Code
+
             using (var splash = new SplashForm())
             {
                 splash.Show();
 
-                splash.SetStatus("Creating folders...");
+                splash.SetStatus(Properties.Strings.Splash_Folders);
+                splash.statusBar.Value = 20;
+
                 CreateFolders();
 
-                splash.SetStatus("Retrieving OS Version...");
+                splash.SetStatus(Properties.Strings.Splash_DetectOS);
                 _ = OperatingSystemVersions.CurrentVersion;
+                splash.statusBar.Value = 40;
 
-                splash.SetStatus("Loading extensions...");
+                splash.SetStatus(Properties.Strings.Splash_Extensions);
                 Loader.LoadExtensions();
+                splash.statusBar.Value = 60;
 
-                splash.SetStatus("Loading backups...");
+                splash.SetStatus(Properties.Strings.Splash_Backups);
                 LoadBackups();
+                splash.statusBar.Value = 80;
 
-                splash.SetStatus("Initializing pages...");
+                splash.SetStatus(Properties.Strings.Splash_Pages);
                 InitializePages();
+                splash.statusBar.Value = 100;
 
 #if DEBUG
-                splash.SetStatus("Unlocking debug page...");
+                splash.SetStatus(Properties.Strings.Splash_Debug);
                 Pages.Add(new DebugPage());
 #endif
 
                 splash.Hide();
             }
 
+            #endregion Splash Screen Code
             using (var main = new MainForm())
             {
-                Application.Run(main);
-            }
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(Properties.Resources.test); //this loads in the startup sound
+                    player.Play(); //it plays said sound
+
+                    Application.Run(main);
+                }
 
 #if !DEBUG
             }

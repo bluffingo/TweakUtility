@@ -7,11 +7,18 @@
     <ProjectGuid>{DD35A5A0-5580-450B-BA86-2D0EE18B6C75}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>TweakUtility</RootNamespace>
-    <AssemblyName>Tweak Utility</AssemblyName>
+    <AssemblyName>PF94%27s TweakUtility</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ApplicationIcon>TweakUtility.ico</ApplicationIcon>
+    <AssemblyOriginatorKeyFile>key.pfx</AssemblyOriginatorKeyFile>
+    <ManifestCertificateThumbprint>D77D12F45425D7D53BF7653BF6C3182B5F3947E7</ManifestCertificateThumbprint>
+    <ManifestKeyFile>TweakUtility_TemporaryKey.pfx</ManifestKeyFile>
+    <SignAssembly>false</SignAssembly>
+    <SignManifests>false</SignManifests>
+    <StartupObject>TweakUtility.Program</StartupObject>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,13 +33,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <ApplicationIcon>Resources\TweakUtility.ico</ApplicationIcon>
-    <AssemblyOriginatorKeyFile>key.pfx</AssemblyOriginatorKeyFile>
-    <ManifestCertificateThumbprint>D77D12F45425D7D53BF7653BF6C3182B5F3947E7</ManifestCertificateThumbprint>
-    <ManifestKeyFile>TweakUtility_TemporaryKey.pfx</ManifestKeyFile>
-    <SignAssembly>false</SignAssembly>
-    <SignManifests>false</SignManifests>
-    <StartupObject>TweakUtility.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -176,6 +176,7 @@
     <Compile Include="Forms\ExtensionsForm.Designer.cs">
       <DependentUpon>ExtensionsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="Tweaks\Forms\HostsItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,7 +243,16 @@
     <Compile Include="Tweaks\Model\StartupItemType.cs" />
     <Compile Include="Tweaks\Model\StartupRegistryItem.cs" />
     <Compile Include="Tweaks\Model\DiskCleanupHandler.cs" />
+    <Compile Include="Tweaks\Pages\CustomizationPage.BackgroundsPage.cs" />
     <Compile Include="Tweaks\Pages\SoftwarePage.cs" />
+    <Compile Include="Tweaks\Views\BackgroundsPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tweaks\Views\BackgroundsPageView.Designer.cs">
+      <DependentUpon>BackgroundsPageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tweaks\Model\BackgroundsPageView.LogonStyle.cs" />
+    <Compile Include="Tweaks\Model\BackgroundsPageView.WallpaperStyle.cs" />
     <Compile Include="Tweaks\Views\SoftwarePageView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -330,13 +340,16 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Strings.es.resx" />
     <EmbeddedResource Include="Properties\Strings.de.resx" />
+    <EmbeddedResource Include="Tweaks\Views\BackgroundsPageView.resx">
+      <DependentUpon>BackgroundsPageView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tweaks\Views\DiskCleanupPageView.resx">
       <DependentUpon>DiskCleanupPageView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tweaks\Views\SoftwarePageView.resx">
       <DependentUpon>SoftwarePageView.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Properties\Strings.fr.resx" />
+    <EmbeddedResource Include="Properties\Strings.fr.resx" />
     <EmbeddedResource Include="Properties\Strings.hu.resx" />
     <EmbeddedResource Include="Properties\Strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -369,6 +382,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\fbcc.png" />
+    <None Include="Resources\nuhuh.png" />
+    <None Include="Resources\test.wav" />
+    <Content Include="TweakUtility.ico" />
     <None Include="Resources\windowsVista7.png" />
     <None Include="Resources\windows8.png" />
     <None Include="Resources\volume.png" />
@@ -407,6 +424,17 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

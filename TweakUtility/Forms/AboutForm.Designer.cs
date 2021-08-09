@@ -59,9 +59,9 @@
             this.titleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 14F);
             this.titleLabel.Location = new System.Drawing.Point(66, 15);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(122, 25);
+            this.titleLabel.Size = new System.Drawing.Size(177, 25);
             this.titleLabel.TabIndex = 1;
-            this.titleLabel.Text = "Tweak Utility";
+            this.titleLabel.Text = "PF94\'s TweakUtility";
             // 
             // versionLabel
             // 
@@ -72,6 +72,7 @@
             this.versionLabel.Size = new System.Drawing.Size(132, 19);
             this.versionLabel.TabIndex = 3;
             this.versionLabel.Text = "Application Version";
+            this.versionLabel.Click += new System.EventHandler(this.CanberraEasterEgg_Click);
             // 
             // descriptionLabel
             // 
@@ -122,6 +123,7 @@
             this.debugLabel.Text = "Debug";
             this.toolTip.SetToolTip(this.debugLabel, global::TweakUtility.Properties.Strings.Debug_Disclaimer);
             this.debugLabel.Visible = false;
+            this.debugLabel.Click += new System.EventHandler(this.DebugSivityigans_Click);
             // 
             // toolTip
             // 
@@ -187,7 +189,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "About Tweak Utility";
+            this.Text = "About PF94\'s TweakUtility";
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AboutForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).EndInit();
             this.ResumeLayout(false);
@@ -196,8 +198,6 @@
         }
 
         #endregion
-
-        //https://www.youtube.com/watch?v=9ULDCUvgkSQ is not a good concept, Do not try to add new styles for remaking a old Operating System.
 
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Label titleLabel;
