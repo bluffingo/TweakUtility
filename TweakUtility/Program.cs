@@ -206,7 +206,7 @@ namespace TweakUtility
             #endregion Splash Screen Code
             using (var main = new MainForm())
             {
-#if DEBUG
+#if !DEBUG
                     System.Media.SoundPlayer player = new System.Media.SoundPlayer(Properties.Resources.test); //this loads in the startup sound
                     player.Play(); //it plays said sound
 #endif
