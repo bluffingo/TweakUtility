@@ -22,7 +22,7 @@ namespace TweakUtility.Theming
         {
             get
             {
-                if (IsSupportedCosmetic(OperatingSystemVersion.WindowsVista))
+                if (IsSupportedCosmetic(OperatingSystemVersion.Windows7))
                 {
                     return SystemColors.Window; //basically white on aero, no plans for aero transparency (like CustomizerGod) at the moment.
                 }
@@ -37,7 +37,7 @@ namespace TweakUtility.Theming
         {
             get
             {
-                if (IsSupportedCosmetic(OperatingSystemVersion.WindowsVista))
+                if (IsSupportedCosmetic(OperatingSystemVersion.Windows7))
                 {
                     return Color.FromArgb(0, 102, 204);
                 }
@@ -63,7 +63,7 @@ namespace TweakUtility.Theming
                     return Color.Black;
                 }
 
-                if (IsSupportedCosmetic(OperatingSystemVersion.WindowsVista))
+                if (IsSupportedCosmetic(OperatingSystemVersion.Windows7))
                 {
                     return Color.FromArgb(0, 51, 153);
                 }
@@ -85,7 +85,7 @@ namespace TweakUtility.Theming
                 }
 
                 // Aero Theme
-                if (IsSupportedCosmetic(OperatingSystemVersion.WindowsVista))
+                if (IsSupportedCosmetic(OperatingSystemVersion.Windows7))
                 {
                     return FontFamily.Families.First(f => f.Name == "Segoe UI");
                 }
@@ -131,7 +131,7 @@ namespace TweakUtility.Theming
                     return FontFamily.Families.First(f => f.Name == "Segoe UI");
                 }
 
-                if (IsSupportedCosmetic(OperatingSystemVersion.WindowsVista))
+                if (IsSupportedCosmetic(OperatingSystemVersion.Windows7))
                 {
                     return FontFamily.Families.First(f => f.Name == "Segoe UI");
                 }

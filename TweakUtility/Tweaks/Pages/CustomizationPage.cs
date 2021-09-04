@@ -11,7 +11,7 @@ namespace TweakUtility.Tweaks.Pages
     {
         internal CustomizationPage() : base("Customization", new ColorsPage(), new BackgroundsPage())
         {
-            if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+            if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.Windows7))
             {
                 this.Icon = NativeHelpers.ExtractIcon(@"%SystemRoot%\system32\imageres.dll", -197);
             }
@@ -61,7 +61,7 @@ namespace TweakUtility.Tweaks.Pages
             Process.Start(Path.GetFullPath("aerolite.theme"));
         }
 
-        [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
+        [OperatingSystemSupported(OperatingSystemVersion.Windows7)]
         [RefreshRequired(RestartType.ExplorerRestart)]
         [DisplayName("Show seconds on taskbar")]
         public bool ShowSeconds
@@ -70,7 +70,7 @@ namespace TweakUtility.Tweaks.Pages
             set => RegistryHelper.SetValue(@"HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ShowSecondsInsystemClock", value ? 1 : 0);
         }
 
-        [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
+        [OperatingSystemSupported(OperatingSystemVersion.Windows7)]
         [RefreshRequired(RestartType.ExplorerRestart)]
         [DisplayName("Show build number on Dekstop")]
         public bool ShowBuildNumberDesktop

@@ -87,7 +87,7 @@ namespace TweakUtility
         /// </summary>
         public static void RestartExplorer()
         {
-            if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+            if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.Windows7))
             {
                 using (var rm = new RestartManagerSession())
                 {

@@ -360,8 +360,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\fbcc.png" />
-    <None Include="Resources\nuhuh.png" />
     <None Include="Resources\test.wav" />
     <Content Include="TweakUtility.ico" />
     <None Include="Resources\windowsVista7.png" />

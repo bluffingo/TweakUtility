@@ -23,7 +23,7 @@ namespace TweakUtility.Helpers
 
         private static Icon getInformationIcon()
         {
-            if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+            if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.Windows7))
             {
                 return ExtractIcon(@"%SystemRoot%\System32\imageres.dll", -81);
             }
@@ -35,7 +35,7 @@ namespace TweakUtility.Helpers
 
         private static Icon getApplicationIcon()
         {
-            if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+            if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.Windows7))
             {
                 return ExtractIcon(@"%SystemRoot%\System32\imageres.dll", -15);
             }
@@ -47,7 +47,7 @@ namespace TweakUtility.Helpers
 
         private static Icon getWarningIcon()
         {
-            if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+            if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.Windows7))
             {
                 return ExtractIcon(@"%SystemRoot%\System32\imageres.dll", -84);
             }

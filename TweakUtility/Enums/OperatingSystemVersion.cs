@@ -10,29 +10,8 @@ namespace TweakUtility.Enums
     {
         None,
 
-        [DisplayName("Windows XP")]
-        WindowsXP,
-
-        [DisplayName("Windows Server 2003")]
-        Windows2003,
-
-        [DisplayName("Windows Vista")]
-        WindowsVista,
-
-        [DisplayName("Windows 7 (Beta)")]
-        Windows7Beta,
-
         [DisplayName("Windows 7")]
         Windows7,
-
-        [DisplayName("Windows 8 (Developer Preview)")]
-        Windows8Developer,
-
-        [DisplayName("Windows 8 (Consumer Preview)")]
-        Windows8Consumer,
-
-        [DisplayName("Windows 8 (Release Preview)")]
-        Windows8Release,
 
         [DisplayName("Windows 8")]
         Windows8,
@@ -41,6 +20,9 @@ namespace TweakUtility.Enums
         Windows81,
 
         [DisplayName("Windows 10")]
-        Windows10
+        Windows10,
+
+        [DisplayName("Windows 11 Cobalt")]
+        Windows11Cobalt
     }
 }

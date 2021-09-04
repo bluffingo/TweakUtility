@@ -65,28 +65,28 @@ namespace TweakUtility.Tweaks.Pages
             set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\LegalNoticeText", value);
         }
 
-        [DisplayName("Toggle Windows System File Checker")]
-        [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
-        //[DefaultValue(WindowsSFCMode.Enabled)]
-        public WindowsSFCMode WindowsSFC
-        {
-            get => (WindowsSFCMode)RegistryHelper.GetValue<int>(@"HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SFCDisable");
-            set => RegistryHelper.SetValue(@"HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SFCDisable", (int)value);
-        }
+        //[DisplayName("Toggle Windows System File Checker")]
+        //[OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
+        ////[DefaultValue(WindowsSFCMode.Enabled)]
+        //public WindowsSFCMode WindowsSFC
+        //{
+        //    get => (WindowsSFCMode)RegistryHelper.GetValue<int>(@"HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SFCDisable");
+        //    set => RegistryHelper.SetValue(@"HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SFCDisable", (int)value);
+        //}
 
-        public enum WindowsSFCMode
-        {
-            [DisplayName("Disabled with prompts")]
-            Enabled = 0,
+        //public enum WindowsSFCMode
+        //{
+        //    [DisplayName("Disabled with prompts")]
+        //    Enabled = 0,
 
-            [DisplayName("Disabled with reactivation prompts")]
-            DisablePrompt = 1,
+        //    [DisplayName("Disabled with reactivation prompts")]
+        //    DisablePrompt = 1,
 
-            [DisplayName("Disabled without any reactivation prompts")]
-            DisableNoPrompt = 2,
+        //    [DisplayName("Disabled without any reactivation prompts")]
+        //    DisableNoPrompt = 2,
 
-            [DisplayName("Enabled without prompts")]
-            EnabledNoPrompt = 4
-        }
+        //    [DisplayName("Enabled without prompts")]
+        //    EnabledNoPrompt = 4
+        //}
     }
 }

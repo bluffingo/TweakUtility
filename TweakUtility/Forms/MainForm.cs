@@ -215,7 +215,7 @@ namespace TweakUtility.Forms
 
             //Fixes design bug where the layout seems a bit off in Windows XP because
             //the bottom panel doesn't have different background colors (Aero).
-            if (!IsSupported(OperatingSystemVersion.WindowsVista))
+            if (!IsSupported(OperatingSystemVersion.Windows7))
                 splitContainer.Height += 10;
 
             this.LayoutSidebar();

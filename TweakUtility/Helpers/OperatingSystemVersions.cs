@@ -14,17 +14,11 @@ namespace TweakUtility.Helpers
 
         private static readonly Version[] _versions = new[] {
           //new Version(major, minor, build)
-            new Version(5, 1),
-            new Version(5, 2),
-            new Version(6, 0),
-            new Version(6, 1, 7000),
             new Version(6, 1),
-            new Version(6, 2, 8102),
-            new Version(6, 2, 8250),
-            new Version(6, 2, 8400),
             new Version(6, 2),
             new Version(6, 3),
-            new Version(10, 0)
+            new Version(10,0), // Should the Windows 10 updates be seperately counted?
+            new Version(10,0, 22000)
         };
 
         #endregion Version Numbers
