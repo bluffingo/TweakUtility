@@ -235,7 +235,7 @@ namespace TweakUtility
                 typeof(SoftwarePage),
                 typeof(Windows10Page),
                 // 3rd Party Applications
-                typeof(MsnMessengerPage),
+                //typeof(MsnMessengerPage), (fuck no)
                 // Other
                 typeof(UncategorizedPage)
             };

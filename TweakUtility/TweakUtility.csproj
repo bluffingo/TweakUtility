@@ -257,8 +257,8 @@
       <DependentUpon>HostsPageView.cs</DependentUpon>
     </Compile>
     <Compile Include="Tweaks\Pages\InternetExplorerPage.cs" />
-    <Compile Include="Tweaks\Pages\MsnMessengerPage.cs" />
-    <Compile Include="Tweaks\Pages\MsnMessengerPage.PassportPage.cs" />
+    <None Include="Tweaks\Pages\MsnMessengerPage.cs" />
+    <None Include="Tweaks\Pages\MsnMessengerPage.PassportPage.cs" />
     <Compile Include="Tweaks\Pages\PaintDotNetPage.cs" />
     <Compile Include="Tweaks\Pages\PreferencesPage.cs" />
     <Compile Include="Tweaks\Pages\SnippingToolPage.cs" />
