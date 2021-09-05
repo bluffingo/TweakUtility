@@ -237,7 +237,8 @@ namespace TweakUtility
                 // 3rd Party Applications
                 //typeof(MsnMessengerPage), (fuck no)
                 // Other
-                typeof(UncategorizedPage)
+                typeof(UncategorizedPage),
+                typeof(RestorePointsPage)
             };
 
             foreach (Extension extension in Program.Loader.Extensions)

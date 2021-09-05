@@ -95,6 +95,9 @@ namespace TweakUtility.Helpers
             FlagPlanned = 0x80000000
         }
 
+        [DllImport("Srclient.dll")]
+        public static extern uint SRRemoveRestorePoint(uint index);
+        
         [DllImport("shell32.dll", CharSet = CharSet.Unicode)]
         public static extern int SHGetKnownFolderPath([MarshalAs(UnmanagedType.LPStruct)] Guid rfid, uint dwFlags, IntPtr hToken, out string pszPath);
 
@@ -288,4 +291,5 @@ namespace TweakUtility.Helpers
 
         public const int LVS_EX_SUBITEMIMAGES = 0x2;
     }
+    
 }

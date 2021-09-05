@@ -74,6 +74,18 @@ namespace TweakUtility.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool RestorePointDeletionWarning {
+            get {
+                return ((bool)(this["RestorePointDeletionWarning"]));
+            }
+            set {
+                this["RestorePointDeletionWarning"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool SaveWindowInfo {
             get {
                 return ((bool)(this["SaveWindowInfo"]));
