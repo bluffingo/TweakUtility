@@ -102,6 +102,8 @@
     <Compile Include="Controls\NoticeControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enums\RestorePointEventType.cs" />
+    <Compile Include="Enums\RestorePointType.cs" />
     <Compile Include="Exceptions\InvalidReflectionInfoException.cs" />
     <Compile Include="Extensions\Extension.cs" />
     <Compile Include="Constants.cs" />
@@ -216,12 +218,19 @@
       <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Theming\Theme.cs" />
+    <Compile Include="Tweaks\Forms\SystemRestoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tweaks\Forms\SystemRestoreForm.Designer.cs">
+      <DependentUpon>SystemRestoreForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tweaks\Model\StartupFolderItem.cs" />
     <Compile Include="Tweaks\Model\StartupItem.cs" />
     <Compile Include="Tweaks\Model\StartupItemType.cs" />
     <Compile Include="Tweaks\Model\StartupRegistryItem.cs" />
     <Compile Include="Tweaks\Model\DiskCleanupHandler.cs" />
     <Compile Include="Tweaks\Pages\CustomizationPage.BackgroundsPage.cs" />
+    <Compile Include="Tweaks\Pages\RestorePointsPage.cs" />
     <Compile Include="Tweaks\Pages\SoftwarePage.cs" />
     <Compile Include="Tweaks\Views\BackgroundsPageView.cs">
       <SubType>UserControl</SubType>
@@ -231,6 +240,12 @@
     </Compile>
     <Compile Include="Tweaks\Model\BackgroundsPageView.LogonStyle.cs" />
     <Compile Include="Tweaks\Model\BackgroundsPageView.WallpaperStyle.cs" />
+    <Compile Include="Tweaks\Views\RestorePointsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tweaks\Views\RestorePointsView.Designer.cs">
+      <DependentUpon>RestorePointsView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tweaks\Views\SoftwarePageView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -318,11 +333,17 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Strings.es.resx" />
     <EmbeddedResource Include="Properties\Strings.de.resx" />
+    <EmbeddedResource Include="Tweaks\Forms\SystemRestoreForm.resx">
+      <DependentUpon>SystemRestoreForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tweaks\Views\BackgroundsPageView.resx">
       <DependentUpon>BackgroundsPageView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tweaks\Views\DiskCleanupPageView.resx">
       <DependentUpon>DiskCleanupPageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tweaks\Views\RestorePointsView.resx">
+      <DependentUpon>RestorePointsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tweaks\Views\SoftwarePageView.resx">
       <DependentUpon>SoftwarePageView.cs</DependentUpon>

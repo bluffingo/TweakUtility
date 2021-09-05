@@ -234,11 +234,11 @@ namespace TweakUtility
                 typeof(AdvancedPage),
                 typeof(SoftwarePage),
                 typeof(Windows10Page),
+                typeof(RestorePointsPage),
                 // 3rd Party Applications
                 //typeof(MsnMessengerPage), (fuck no)
                 // Other
-                typeof(UncategorizedPage),
-                typeof(RestorePointsPage)
+                typeof(UncategorizedPage)
             };
 
             foreach (Extension extension in Program.Loader.Extensions)
