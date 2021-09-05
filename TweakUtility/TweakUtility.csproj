@@ -120,6 +120,12 @@
       <DependentUpon>LabeledControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensions\ExtensionLoader.cs" />
+    <Compile Include="Forms\AboutBox1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AboutBox1.Designer.cs">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -290,6 +296,9 @@
       <DependentUpon>TweakPageView.cs</DependentUpon>
     </Compile>
     <Compile Include="Tweaks\Pages\WindowsExplorerPage.cs" />
+    <EmbeddedResource Include="Forms\AboutBox1.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -382,6 +391,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\test.wav" />
+    <None Include="Resources\about.png" />
     <Content Include="TweakUtility.ico" />
     <None Include="Resources\windowsVista7.png" />
     <None Include="Resources\windows8.png" />

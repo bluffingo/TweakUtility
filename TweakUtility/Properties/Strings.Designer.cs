@@ -277,18 +277,19 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to (Outdated, rewrite this later lmao)
+        ///   Looks up a localized string similar to TweakUtility Credits
         ///
         ///Contributors
         ///Craftplacer
-        ///Alien Future, aka Balázs Vámos
-        ///PF94, aka Gamerappa
+        ///Balázs Vámos (Balazs_V)
+        ///Gamerappa (Chaziz, PF94, Parappafan94)
+        ///Florian König (post-rex)
         ///
         ///Translators
-        ///Craftplacer (English, German)
-        ///Alien Future (Hungarian)
+        ///Craftplacer (German)
+        ///Balázs Vámos (Hungarian)
         ///CatHR Games (Spanish)
-        ///PF94, Google Translate and DeepL (French)
+        ///Gamerappa, Google Translate and DeepL (French)
         ///
         ///Icons
         ///Craftplacer (original application icon)

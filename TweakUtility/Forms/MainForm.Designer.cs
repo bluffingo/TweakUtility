@@ -42,11 +42,19 @@ namespace TweakUtility.Forms
             this.backupsButton = new System.Windows.Forms.Button();
             this.aboutLabel = new System.Windows.Forms.LinkLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.menuBar = new System.Windows.Forms.MenuStrip();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.myBackupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.myExtensionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             this.bottomPanel.SuspendLayout();
+            this.menuBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer
@@ -54,7 +62,7 @@ namespace TweakUtility.Forms
             this.splitContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer.Location = new System.Drawing.Point(11, 11);
+            this.splitContainer.Location = new System.Drawing.Point(11, 27);
             this.splitContainer.Name = "splitContainer";
             // 
             // splitContainer.Panel1
@@ -69,7 +77,7 @@ namespace TweakUtility.Forms
             this.splitContainer.Panel2.Controls.Add(this.startupLabel);
             this.splitContainer.Panel2.Padding = new System.Windows.Forms.Padding(1);
             this.splitContainer.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.SplitContainer_BorderPaint);
-            this.splitContainer.Size = new System.Drawing.Size(591, 339);
+            this.splitContainer.Size = new System.Drawing.Size(591, 367);
             this.splitContainer.SplitterDistance = 195;
             this.splitContainer.TabIndex = 1;
             this.splitContainer.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.SplitContainer_SplitterMoved);
@@ -116,7 +124,7 @@ namespace TweakUtility.Forms
             this.startupLabel.ForeColor = System.Drawing.SystemColors.GrayText;
             this.startupLabel.Location = new System.Drawing.Point(1, 1);
             this.startupLabel.Name = "startupLabel";
-            this.startupLabel.Size = new System.Drawing.Size(390, 337);
+            this.startupLabel.Size = new System.Drawing.Size(390, 365);
             this.startupLabel.TabIndex = 3;
             this.startupLabel.Text = "Navigate to a page to get started!";
             this.startupLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -130,7 +138,7 @@ namespace TweakUtility.Forms
             this.bottomPanel.Controls.Add(this.backupsButton);
             this.bottomPanel.Controls.Add(this.aboutLabel);
             this.bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bottomPanel.Location = new System.Drawing.Point(0, 363);
+            this.bottomPanel.Location = new System.Drawing.Point(0, 407);
             this.bottomPanel.Name = "bottomPanel";
             this.bottomPanel.Size = new System.Drawing.Size(614, 45);
             this.bottomPanel.TabIndex = 2;
@@ -139,7 +147,9 @@ namespace TweakUtility.Forms
             // 
             this.debugTranslation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.debugTranslation.AutoSize = true;
-            this.debugTranslation.Location = new System.Drawing.Point(124, 14);
+            this.debugTranslation.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.debugTranslation.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.debugTranslation.Location = new System.Drawing.Point(86, 14);
             this.debugTranslation.Name = "debugTranslation";
             this.debugTranslation.Size = new System.Drawing.Size(68, 15);
             this.debugTranslation.TabIndex = 6;
@@ -186,10 +196,10 @@ namespace TweakUtility.Forms
             this.aboutLabel.LinkColor = System.Drawing.SystemColors.GrayText;
             this.aboutLabel.Location = new System.Drawing.Point(10, 13);
             this.aboutLabel.Name = "aboutLabel";
-            this.aboutLabel.Size = new System.Drawing.Size(108, 21);
+            this.aboutLabel.Size = new System.Drawing.Size(70, 21);
             this.aboutLabel.TabIndex = 2;
             this.aboutLabel.TabStop = true;
-            this.aboutLabel.Text = "PF94\'s TweakUtility";
+            this.aboutLabel.Text = "TweakUtility";
             this.aboutLabel.UseCompatibleTextRendering = true;
             this.aboutLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.AboutLabel_LinkClicked);
             // 
@@ -199,19 +209,78 @@ namespace TweakUtility.Forms
             this.toolTip.InitialDelay = 500;
             this.toolTip.ReshowDelay = 100;
             // 
+            // menuBar
+            // 
+            this.menuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settingsToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.menuBar.Location = new System.Drawing.Point(0, 0);
+            this.menuBar.Name = "menuBar";
+            this.menuBar.Size = new System.Drawing.Size(614, 24);
+            this.menuBar.TabIndex = 3;
+            this.menuBar.Text = "menuStrip1";
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.preferencesToolStripMenuItem,
+            this.myBackupsToolStripMenuItem,
+            this.myExtensionsToolStripMenuItem});
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            // 
+            // preferencesToolStripMenuItem
+            // 
+            this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.preferencesToolStripMenuItem.Text = "Preferences";
+            this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.PreferencesButton_Click);
+            // 
+            // myBackupsToolStripMenuItem
+            // 
+            this.myBackupsToolStripMenuItem.Name = "myBackupsToolStripMenuItem";
+            this.myBackupsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.myBackupsToolStripMenuItem.Text = "My backups";
+            this.myBackupsToolStripMenuItem.Click += new System.EventHandler(this.BackupsButton_Click);
+            // 
+            // myExtensionsToolStripMenuItem
+            // 
+            this.myExtensionsToolStripMenuItem.Name = "myExtensionsToolStripMenuItem";
+            this.myExtensionsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.myExtensionsToolStripMenuItem.Text = "My extensions";
+            this.myExtensionsToolStripMenuItem.Click += new System.EventHandler(this.ExtensionsButton_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutClicked);
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(614, 408);
+            this.ClientSize = new System.Drawing.Size(614, 452);
             this.Controls.Add(this.bottomPanel);
             this.Controls.Add(this.splitContainer);
+            this.Controls.Add(this.menuBar);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuBar;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
-            this.Text = "PF94\'s TweakUtility";
+            this.Text = "TweakUtility";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Shown += new System.EventHandler(this.MainForm_Shown);
@@ -223,7 +292,10 @@ namespace TweakUtility.Forms
             this.splitContainer.ResumeLayout(false);
             this.bottomPanel.ResumeLayout(false);
             this.bottomPanel.PerformLayout();
+            this.menuBar.ResumeLayout(false);
+            this.menuBar.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -240,6 +312,13 @@ namespace TweakUtility.Forms
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Button preferencesButton;
         private System.Windows.Forms.Label debugTranslation;
+        private System.Windows.Forms.MenuStrip menuBar;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem myBackupsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem myExtensionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 

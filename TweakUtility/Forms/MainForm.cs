@@ -343,5 +343,13 @@ namespace TweakUtility.Forms
             if (e.Node.Tag is TweakPage tweakPage)
                 this.SetView(tweakPage);
         }
+
+        private void AboutClicked(object sender, EventArgs e)
+        {
+            using (var aboutForm = new AboutForm())
+            {
+                aboutForm.ShowDialog();
+            }
+        }
     }
 }

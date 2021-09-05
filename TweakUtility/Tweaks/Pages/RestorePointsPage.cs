@@ -7,6 +7,7 @@ using TweakUtility.Tweaks.Views;
 
 namespace TweakUtility.Tweaks.Pages
 {
+    [Experimental]
     public class RestorePointsPage : TweakPage
     {
         public RestorePointsPage() : base("RestorePoints")
