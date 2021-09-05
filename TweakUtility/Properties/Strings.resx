@@ -327,7 +327,7 @@ Do you want to continue?</value>
     <value>Preferences</value>
   </data>
   <data name="PreferencesTitle" xml:space="preserve">
-    <value>PF94's TweakUtility Preferences</value>
+    <value>TweakUtility Preferences</value>
   </data>
   <data name="Refresh" xml:space="preserve">
     <value>Re&amp;fresh</value>
@@ -365,7 +365,7 @@ Would you like to do that now?</value>
 Would you like to do that now?</value>
   </data>
   <data name="Reload_TweakUtility" xml:space="preserve">
-    <value>This option requires you to restart Tweak Utility.
+    <value>This option requires you to restart TweakUtility.
 
 Would you like to do that now?</value>
   </data>

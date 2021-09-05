@@ -16,7 +16,7 @@ namespace TweakUtility.Tweaks.Pages
         public int Integer { get; set; }
         public bool Boolean { get; set; }
 
-        public Color Color => Color.FromArgb(128, 255, 0, 0);
+        public Color Color => Color.FromArgb(128, 255, 0, 0); // BUG: Attempting to change the value crashes TweakUtility.
 
         [Visible(true)]
         public void Function() => MessageBox.Show("Hello world!");
