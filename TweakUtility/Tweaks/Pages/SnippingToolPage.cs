@@ -6,9 +6,9 @@ using TweakUtility.Helpers;
 
 namespace TweakUtility.Tweaks.Pages
 {
-    [OperatingSystemSupported(OperatingSystemVersion.WindowsVista)]
+    [OperatingSystemSupported(OperatingSystemVersion.Windows7, OperatingSystemVersion.Windows11Cobalt)]
     [RegistryKeyRequired(@"HKCU\SOFTWARE\Microsoft\Windows\TabletPC\Snipping Tool")]
-    [Notice(NoticeType.Warning, "Make sure Snipping Tool is closed, before continuing.")]
+    [Notice(NoticeType.Warning, "Make sure that Snipping Tool is closed, before continuing.")]
     internal class SnippingToolPage : TweakPage
     {
         internal SnippingToolPage() : base("Snipping Tool")

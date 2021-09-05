@@ -100,7 +100,7 @@
 			// 
 			// addButton
 			// 
-			this.addButton.Image = global::TweakUtility.Properties.Resources.add;
+			this.addButton.Image = global::TweakUtility.Properties.Resources.AddRow_16x;
 			this.addButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.addButton.Name = "addButton";
 			this.addButton.Size = new System.Drawing.Size(46, 20);
@@ -110,7 +110,7 @@
 			// editButton
 			// 
 			this.editButton.Enabled = false;
-			this.editButton.Image = global::TweakUtility.Properties.Resources.pencil;
+			this.editButton.Image = global::TweakUtility.Properties.Resources.EditRow_16x;
 			this.editButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.editButton.Name = "editButton";
 			this.editButton.Size = new System.Drawing.Size(45, 20);
@@ -120,7 +120,7 @@
 			// deleteButton
 			// 
 			this.deleteButton.Enabled = false;
-			this.deleteButton.Image = global::TweakUtility.Properties.Resources.delete;
+			this.deleteButton.Image = global::TweakUtility.Properties.Resources.RemoveRow_16x;
 			this.deleteButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.deleteButton.Name = "deleteButton";
 			this.deleteButton.Size = new System.Drawing.Size(66, 20);

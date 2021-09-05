@@ -1,13 +1,12 @@
 ﻿using Microsoft.VisualBasic;
-using Microsoft.Win32;
 
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+
 using TweakUtility.Helpers;
-using TweakUtility.Tweaks.Pages;
+using TweakUtility.Tweaks.Model;
 
 namespace TweakUtility.Tweaks.Views
 {
@@ -19,6 +18,9 @@ namespace TweakUtility.Tweaks.Views
         {
             this.InitializeComponent();
             this.Padding = new Padding(SystemInformation.VerticalScrollBarWidth);
+            this.addButton.Text = Properties.Strings.Entry_Add;
+            this.removeButton.Text = Properties.Strings.Entry_Remove;
+            this.refreshButton.Text = Properties.Strings.Refresh;
         }
 
         private void DiskCleanupPageView_Load(object sender, EventArgs e)
@@ -27,11 +29,11 @@ namespace TweakUtility.Tweaks.Views
 
             this.Handlers.Clear();
 
-            using (RegistryKey key = RegistryHelper.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\"))
+            using (var key = RegistryHelper.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\"))
             {
-                foreach (string subKeyName in key.GetSubKeyNames())
+                foreach (var subKeyName in key.GetSubKeyNames())
                 {
-                    RegistryKey subKey = key.OpenSubKey(subKeyName, true);
+                    var subKey = key.OpenSubKey(subKeyName, true);
 
                     if ((string)subKey.GetValue(null, "") != "{C0E13E61-0CC6-11d1-BBB6-0060978B2AE6}")
                     {
@@ -46,7 +48,7 @@ namespace TweakUtility.Tweaks.Views
             listView.Items.Clear();
             imageList.Images.Clear();
 
-            foreach (DiskCleanupHandler handler in this.Handlers)
+            foreach (var handler in this.Handlers)
             {
                 this.AddHandler(handler);
             }
@@ -59,7 +61,7 @@ namespace TweakUtility.Tweaks.Views
                 Tag = handler
             };
 
-            Icon icon = handler.Icon ?? Icons.File;
+            var icon = handler.Icon ?? Icons.File;
 
             imageList.Images.Add(handler.KeyName, icon);
             item.ImageKey = handler.KeyName;
@@ -75,16 +77,16 @@ namespace TweakUtility.Tweaks.Views
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            string name = Interaction.InputBox("Enter the name of the new item:");
+            var name = Interaction.InputBox("Enter the name of the new item:");
 
             if (string.IsNullOrWhiteSpace(name))
             {
                 return;
             }
 
-            using (RegistryKey key = RegistryHelper.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\"))
+            using (var key = RegistryHelper.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\"))
             {
-                RegistryKey subKey = key.CreateSubKey(name);
+                var subKey = key.CreateSubKey(name);
                 subKey.SetValue(null, "{C0E13E61-0CC6-11d1-BBB6-0060978B2AE6}");
 
                 var handler = new DiskCleanupHandler(subKey);
@@ -100,11 +102,11 @@ namespace TweakUtility.Tweaks.Views
                 return;
             }
 
-            ListViewItem item = listView.SelectedItems[0];
+            var item = listView.SelectedItems[0];
 
             if (item.Tag is DiskCleanupHandler handler)
             {
-                using (RegistryKey key = RegistryHelper.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\"))
+                using (var key = RegistryHelper.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\"))
                 {
                     key.DeleteSubKeyTree(Path.GetFileName(handler.KeyName));
                 }

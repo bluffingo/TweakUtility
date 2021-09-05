@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Tweak Utility")]
-[assembly: AssemblyDescription("Tweaking application for Microsoft Windows XP and/or newer.")]
+[assembly: AssemblyTitle("TweakUtility")]
+[assembly: AssemblyDescription("Tweaking application for Microsoft Windows 7 and/or newer.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Tweak Utility")]
-[assembly: AssemblyCopyright("Copyright © Craftplacer 2019")]
+[assembly: AssemblyProduct("TweakUtility")]
+[assembly: AssemblyCopyright("Copyright © Craftplacer 2019, and maybe PF94 2020?")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -33,8 +33,8 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.1.01")]
-[assembly: AssemblyFileVersion("1.1.01")]
+[assembly: AssemblyVersion("1.1.02")]
+[assembly: AssemblyFileVersion("1.1.02")]
 [assembly: NeutralResourcesLanguage("en-US")]
 /* READ ME (ORIGINALLY WRITTEN IN https://www.reddit.com/r/Cloudsoftware/comments/cg57et/tweakutillity_1094_has_been_released/)
 Please remember that:

@@ -2,11 +2,7 @@
 
 using TweakUtility.Attributes;
 using TweakUtility.Helpers;
-
-/// TweakUtility - IMPORTANT NOTES
-/// Please use vanilla versions for default values. Do not use customized/bootleg versions of Windows operating systems to get
-/// the most-authentic default values.
-/// Written by PF94, July 15th 2019
+using TweakUtility.Enums;
 
 namespace TweakUtility.Tweaks.Pages
 {
@@ -14,7 +10,7 @@ namespace TweakUtility.Tweaks.Pages
     {
         internal AdvancedPage() : base("Advanced", new OEMInformationPage(), new HostsPage(), new DiskCleanupPage(), new EnvironmentVariablesPage()) => this.Icon = NativeHelpers.ExtractIcon(@"%SystemRoot%\System32\shell32.dll", -22);
 
-        [DisplayName("Verbose Messages")]
+        [DisplayName("Verbose Mode")]
         public bool VerboseMessages
         {
             get => RegistryHelper.GetValue<int>(@"HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\System\VerboseStatus", 0) == 1;
@@ -69,8 +65,8 @@ namespace TweakUtility.Tweaks.Pages
             set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\LegalNoticeText", value);
         }
 
-        //[DisplayName("Windows System File Checker")]
-        //[OperatingSystemSupported(OperatingSystemVersion.WindowsXP, OperatingSystemVersion.WindowsVista)]
+        //[DisplayName("Toggle Windows System File Checker")]
+        //[OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
         ////[DefaultValue(WindowsSFCMode.Enabled)]
         //public WindowsSFCMode WindowsSFC
         //{
@@ -78,19 +74,19 @@ namespace TweakUtility.Tweaks.Pages
         //    set => RegistryHelper.SetValue(@"HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SFCDisable", (int)value);
         //}
 
-        public enum WindowsSFCMode
-        {
-            [DisplayName("Disabled with prompts")]
-            Enabled = 0,
+        //public enum WindowsSFCMode
+        //{
+        //    [DisplayName("Disabled with prompts")]
+        //    Enabled = 0,
 
-            [DisplayName("Disabled with reactivation prompts")]
-            DisablePrompt = 1,
+        //    [DisplayName("Disabled with reactivation prompts")]
+        //    DisablePrompt = 1,
 
-            [DisplayName("Disabled without any reactivation prompts")]
-            DisableNoPrompt = 2,
+        //    [DisplayName("Disabled without any reactivation prompts")]
+        //    DisableNoPrompt = 2,
 
-            [DisplayName("Enabled without prompts")]
-            EnabledNoPrompt = 4
-        }
+        //    [DisplayName("Enabled without prompts")]
+        //    EnabledNoPrompt = 4
+        //}
     }
 }

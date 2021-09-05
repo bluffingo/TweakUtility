@@ -17,6 +17,7 @@ namespace TweakUtility.Forms
 
         public void Localize()
         {
+            this.titleLabel.Text = Properties.Strings.Application_Name;
             this.Text = Properties.Strings.About;
             this.githubLabel.Text = Properties.Strings.About_License.Replace("{0}", "GitHub");
             this.githubLabel.LinkArea = new LinkArea(Properties.Strings.About_License.IndexOf("{0}"), 6);
@@ -27,12 +28,13 @@ namespace TweakUtility.Forms
             this.versionLabel.Text = $"Version {Assembly.GetExecutingAssembly().GetName().Version.ToString(3)}";
 #if DEBUG
             this.debugLabel.Visible = true;
+            this.debugLabel.Text = Properties.Strings.Debug;
 #endif
         }
 
-        private void FeedbackButton_Click(object sender, EventArgs e) => Program.OpenURL("https://github.com/Craftplacer/TweakUtility/issues/new/choose");
+        private void FeedbackButton_Click(object sender, EventArgs e) => Program.OpenURL("https://github.com/PF94/TweakUtility_PF94/issues/new/choose");
 
-        private void GithubLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => Program.OpenURL("https://github.com/Craftplacer/TweakUtility");
+        private void GithubLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => Program.OpenURL("https://github.com/PF94/TweakUtility_PF94");
 
         private void AboutForm_KeyUp(object sender, KeyEventArgs e)
         {
@@ -45,25 +47,12 @@ namespace TweakUtility.Forms
                     throw new Exception("User triggered exception");
                 }
             }
-            else if (10 <= input.Count)
+            else if (input.Count >= 10)
             {
                 //resetting
                 input.Clear();
             }
         }
-
-        //private void AboutForm_KeyP(object sender, KeyEventArgs e)
-        //{   //BELOW IS THE PF94 PLEX EASTER EGG (Which isn't even done, yet).
-            //input.Add(e.KeyCode);
-
-            //if (input.ToArray() == new[] { Keys.P, Keys.F, Keys.9, Keys.4,})
-            //{
-            //    if (MessageBox.Show("This isn't done yet.", Properties.Strings.Application_Name, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
-            //    {
-            //        throw new Exception("Code was copied from the Konami Code Easter Egg :/");
-            //    }
-            //}
-        //}
 
         private void CreditsButton_Click(object sender, EventArgs e)
         {

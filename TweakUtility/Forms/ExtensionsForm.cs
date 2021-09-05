@@ -8,26 +8,34 @@ using TweakUtility.Theming;
 
 namespace TweakUtility.Forms
 {
-	internal partial class ExtensionsForm : Form
-	{
-		internal ExtensionsForm() => this.InitializeComponent();
+    internal partial class ExtensionsForm : Form
+    {
+        internal ExtensionsForm()
+        {
+            this.InitializeComponent();
 
-		private void ExtensionsForm_Load(object sender, EventArgs e)
-		{
-			foreach (Extension extension in Program.Loader.Extensions)
-			{
-				var item = new ListViewItem(extension.Name);
+            this.openFolderButton.Text = Properties.Strings.Extensions_OpenFolder;
+            this.nameColumnHeader.Text = Properties.Strings.Extensions_Name;
+            this.descriptionColumnHeader.Text = Properties.Strings.Extensions_Description;
+            this.authorColumnHeader.Text = Properties.Strings.Extensions_Author;
+        }
 
-				item.SubItems.AddRange(new[] { extension.Description, extension.Author });
+        private void ExtensionsForm_Load(object sender, EventArgs e)
+        {
+            foreach (Extension extension in Program.Loader.Extensions)
+            {
+                var item = new ListViewItem(extension.Name);
 
-				listView.Items.Add(item);
-			}
+                item.SubItems.AddRange(new[] { extension.Description, extension.Author });
 
-			Theme.Apply(this);
-		}
+                listView.Items.Add(item);
+            }
 
-		private void OkButton_Click(object sender, EventArgs e) => this.Close();
+            Theme.Apply(this);
+        }
 
-		private void OpenFolderButton_Click(object sender, EventArgs e) => Process.Start(new ProcessStartInfo("explorer.exe", Path.GetFullPath("extensions")) { UseShellExecute = true });
-	}
+        private void OkButton_Click(object sender, EventArgs e) => this.Close();
+
+        private void OpenFolderButton_Click(object sender, EventArgs e) => Process.Start(new ProcessStartInfo("explorer.exe", Path.GetFullPath("extensions")) { UseShellExecute = true });
+    }
 }

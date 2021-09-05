@@ -70,17 +70,17 @@
             // 
             // nameColumnHeader
             // 
-            this.nameColumnHeader.Text = global::TweakUtility.Properties.Strings.Extensions_Name;
+            this.nameColumnHeader.Text = "Name";
             this.nameColumnHeader.Width = 121;
             // 
             // descriptionColumnHeader
             // 
-            this.descriptionColumnHeader.Text = global::TweakUtility.Properties.Strings.Extensions_Description;
+            this.descriptionColumnHeader.Text = "Descriptions";
             this.descriptionColumnHeader.Width = 270;
             // 
             // authorColumnHeader
             // 
-            this.authorColumnHeader.Text = global::TweakUtility.Properties.Strings.Extensions_Author;
+            this.authorColumnHeader.Text = "Author";
             this.authorColumnHeader.Width = 113;
             // 
             // openFolderButton
@@ -90,7 +90,7 @@
             this.openFolderButton.Name = "openFolderButton";
             this.openFolderButton.Size = new System.Drawing.Size(185, 23);
             this.openFolderButton.TabIndex = 2;
-            this.openFolderButton.Text = global::TweakUtility.Properties.Strings.Extensions_OpenFolder;
+            this.openFolderButton.Text = "Open Extensions &Folder";
             this.openFolderButton.UseVisualStyleBackColor = true;
             this.openFolderButton.Click += new System.EventHandler(this.OpenFolderButton_Click);
             // 

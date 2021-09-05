@@ -32,6 +32,7 @@
             this.titleLabel = new System.Windows.Forms.Label();
             this.statusLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.statusBar = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,9 +44,9 @@
             this.titleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLabel.Location = new System.Drawing.Point(66, 15);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(122, 25);
+            this.titleLabel.Size = new System.Drawing.Size(206, 25);
             this.titleLabel.TabIndex = 0;
-            this.titleLabel.Text = "Tweak Utility";
+            this.titleLabel.Text = "Starting TweakUtility...";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.titleLabel.UseWaitCursor = true;
             // 
@@ -72,11 +73,21 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.UseWaitCursor = true;
+            this.pictureBox1.Click += new System.EventHandler(this.GarfieldPF94_Click);
+            // 
+            // statusBar
+            // 
+            this.statusBar.Location = new System.Drawing.Point(12, 66);
+            this.statusBar.Name = "statusBar";
+            this.statusBar.Size = new System.Drawing.Size(410, 23);
+            this.statusBar.TabIndex = 3;
+            this.statusBar.UseWaitCursor = true;
             // 
             // SplashForm
             // 
-            this.ClientSize = new System.Drawing.Size(434, 73);
+            this.ClientSize = new System.Drawing.Size(434, 98);
             this.ControlBox = false;
+            this.Controls.Add(this.statusBar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.titleLabel);
@@ -88,7 +99,7 @@
             this.MinimizeBox = false;
             this.Name = "SplashForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tweak Utility";
+            this.Text = "TweakUtility";
             this.TopMost = true;
             this.UseWaitCursor = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SplashForm_FormClosing);
@@ -104,5 +115,6 @@
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.ProgressBar statusBar;
     }
 }

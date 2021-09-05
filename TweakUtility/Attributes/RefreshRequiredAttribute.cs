@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Security.AccessControl;
 
 namespace TweakUtility.Attributes
 {
@@ -8,9 +7,9 @@ namespace TweakUtility.Attributes
     {
         public RefreshRequiredAttribute(RestartType type = RestartType.None) => this.Type = type;
 
-		public RefreshRequiredAttribute(RestartType type, string argument) : this(type) => this.Argument = argument;
+        public RefreshRequiredAttribute(RestartType type, string argument) : this(type) => this.Argument = argument;
 
-		public string Argument { get; }
+        public string Argument { get; }
 
         public RestartType Type { get; }
     }
@@ -42,10 +41,10 @@ namespace TweakUtility.Attributes
         /// </summary>
         ProcessRestart,
 
-		/// <summary>
-		/// Requires a service to be restarted, to apply the changes.
-		/// </summary>
-		ServiceRestart,
+        /// <summary>
+        /// Requires a service to be restarted, to apply the changes.
+        /// </summary>
+        ServiceRestart,
 
         /// <summary>
         /// Requires Tweak Utility to be restarted, to apply the changes.

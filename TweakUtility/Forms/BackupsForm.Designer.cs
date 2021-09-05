@@ -123,27 +123,27 @@
 			// 
 			// createButton
 			// 
-			this.createButton.Image = global::TweakUtility.Properties.Resources.add;
 			this.createButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.createButton.Name = "createButton";
 			this.createButton.Size = new System.Drawing.Size(61, 22);
 			this.createButton.Text = "&Create";
 			this.createButton.Click += new System.EventHandler(this.CreateButton_Click);
+            this.createButton.Image = Properties.Resources.AddDatabase_16x;
 			// 
 			// deleteButton
 			// 
 			this.deleteButton.Enabled = false;
-			this.deleteButton.Image = global::TweakUtility.Properties.Resources.delete;
 			this.deleteButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.deleteButton.Name = "deleteButton";
 			this.deleteButton.Size = new System.Drawing.Size(60, 22);
 			this.deleteButton.Text = "&Delete";
 			this.deleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
-			// 
-			// openFolderButton
-			// 
-			this.openFolderButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-			this.openFolderButton.Image = global::TweakUtility.Properties.Resources.openfolder_24;
+            this.deleteButton.Image = Properties.Resources.DeleteDatabase_16x;
+            // 
+            // openFolderButton
+            // 
+            this.openFolderButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+			this.openFolderButton.Image = global::TweakUtility.Properties.Resources.OpenFolder_16x;
 			this.openFolderButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.openFolderButton.Name = "openFolderButton";
 			this.openFolderButton.Size = new System.Drawing.Size(139, 22);

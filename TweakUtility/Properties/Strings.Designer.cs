@@ -19,7 +19,7 @@ namespace TweakUtility.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Strings {
@@ -61,7 +61,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to About Tweak Utility.
+        ///   Looks up a localized string similar to About TweakUtility.
         /// </summary>
         internal static string About {
             get {
@@ -79,7 +79,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tweak Utility is an application for tweaking Windows, as well as other applications, similar to Tweak UI and Winaero Tweaker..
+        ///   Looks up a localized string similar to TweakUtility is an application for tweaking Windows, it is similar to Tweak UI and Winaero Tweaker..
         /// </summary>
         internal static string About_Description {
             get {
@@ -88,7 +88,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tweak Utility is available on {0}, and licensed under GPL-3.0..
+        ///   Looks up a localized string similar to TweakUtility is available on {0}, and licensed under GPL-3.0..
         /// </summary>
         internal static string About_License {
             get {
@@ -97,7 +97,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tweak Utility.
+        ///   Looks up a localized string similar to TweakUtility.
         /// </summary>
         internal static string Application_Name {
             get {
@@ -142,11 +142,29 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This folder contains backups made by Tweak Utility. .
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        internal static string Backups_Date {
+            get {
+                return ResourceManager.GetString("Backups_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This folder contains backups made by TweakUtility. .
         /// </summary>
         internal static string Backups_FolderDescription {
             get {
                 return ResourceManager.GetString("Backups_FolderDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string Backups_Name {
+            get {
+                return ResourceManager.GetString("Backups_Name", resourceCulture);
             }
         }
         
@@ -156,6 +174,15 @@ namespace TweakUtility.Properties {
         internal static string Backups_OpenFolder {
             get {
                 return ResourceManager.GetString("Backups_OpenFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Size.
+        /// </summary>
+        internal static string Backups_Size {
+            get {
+                return ResourceManager.GetString("Backups_Size", resourceCulture);
             }
         }
         
@@ -241,23 +268,31 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lead Developer
+        ///   Looks up a localized string similar to This page contains no tweaks..
+        /// </summary>
+        internal static string ContainsNo {
+            get {
+                return ResourceManager.GetString("ContainsNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TweakUtility Credits
+        ///
+        ///Contributors
         ///Craftplacer
-        ///
-        ///Contributer Developers
-        ///PF94, aka Gamerappa
-        ///
-        ///Former Contributers
-        ///Alien Future, aka Balázs Vámos
+        ///Balázs Vámos (Balazs_V)
+        ///Gamerappa (Chaziz, PF94, Parappafan94)
+        ///Florian König (post-rex)
         ///
         ///Translators
-        ///Craftplacer (English, German)
-        ///Alien Future (Hungarian)
+        ///Craftplacer (German)
+        ///Balázs Vámos (Hungarian)
         ///CatHR Games (Spanish)
-        ///PF94 and Google Translate (French)
+        ///Gamerappa, Google Translate and DeepL (French)
         ///
         ///Icons
-        ///Craftplacer (application icon)
+        ///Craftplacer (original application icon)
         ///Microsoft Windows (for version specific icons, taken dynamically)
         ///
         ///Tweak Sources
@@ -276,21 +311,20 @@ namespace TweakUtility.Properties {
         ///
         ///
         ///
-        ///⭐ And you for using this application ⭐
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///.
+        ///⭐ And you for using this application ⭐.
         /// </summary>
         internal static string Credits {
             get {
                 return ResourceManager.GetString("Credits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debug.
+        /// </summary>
+        internal static string Debug {
+            get {
+                return ResourceManager.GetString("Debug", resourceCulture);
             }
         }
         
@@ -301,6 +335,42 @@ namespace TweakUtility.Properties {
         internal static string Debug_Disclaimer {
             get {
                 return ResourceManager.GetString("Debug_Disclaimer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        internal static string DebugTranslation {
+            get {
+                return ResourceManager.GetString("DebugTranslation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Add entry.
+        /// </summary>
+        internal static string Entry_Add {
+            get {
+                return ResourceManager.GetString("Entry_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Edit entry.
+        /// </summary>
+        internal static string Entry_Edit {
+            get {
+                return ResourceManager.GetString("Entry_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Remove entry.
+        /// </summary>
+        internal static string Entry_Remove {
+            get {
+                return ResourceManager.GetString("Entry_Remove", resourceCulture);
             }
         }
         
@@ -359,7 +429,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This folder contains extensions for Tweak Utility..
+        ///   Looks up a localized string similar to This folder contains extensions for TweakUtility..
         /// </summary>
         internal static string Extensions_FolderDescription {
             get {
@@ -504,11 +574,38 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Open in &amp;Notepad.
+        /// </summary>
+        internal static string OpenInNotepad {
+            get {
+                return ResourceManager.GetString("OpenInNotepad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Preferences.
         /// </summary>
         internal static string Preferences {
             get {
                 return ResourceManager.GetString("Preferences", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TweakUtility Preferences.
+        /// </summary>
+        internal static string PreferencesTitle {
+            get {
+                return ResourceManager.GetString("PreferencesTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Re&amp;fresh.
+        /// </summary>
+        internal static string Refresh {
+            get {
+                return ResourceManager.GetString("Refresh", resourceCulture);
             }
         }
         
@@ -586,7 +683,7 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This option requires you to restart Tweak Utility.
+        ///   Looks up a localized string similar to This option requires you to restart TweakUtility.
         ///
         ///Would you like to do that now?.
         /// </summary>
@@ -617,6 +714,60 @@ namespace TweakUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Loading backups....
+        /// </summary>
+        internal static string Splash_Backups {
+            get {
+                return ResourceManager.GetString("Splash_Backups", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unlocking debug page....
+        /// </summary>
+        internal static string Splash_Debug {
+            get {
+                return ResourceManager.GetString("Splash_Debug", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Detecting Windows Version....
+        /// </summary>
+        internal static string Splash_DetectOS {
+            get {
+                return ResourceManager.GetString("Splash_DetectOS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading extensions....
+        /// </summary>
+        internal static string Splash_Extensions {
+            get {
+                return ResourceManager.GetString("Splash_Extensions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Creating folders....
+        /// </summary>
+        internal static string Splash_Folders {
+            get {
+                return ResourceManager.GetString("Splash_Folders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Initializing pages....
+        /// </summary>
+        internal static string Splash_Pages {
+            get {
+                return ResourceManager.GetString("Splash_Pages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The tweak page {0} has failed to load because the application is running with insufficient permissions.
         ///You can try restarting the program as administrator..
         /// </summary>
@@ -635,6 +786,15 @@ namespace TweakUtility.Properties {
         internal static string TweakPage_LoadError {
             get {
                 return ResourceManager.GetString("TweakPage_LoadError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Uninstall.
+        /// </summary>
+        internal static string Uninstall {
+            get {
+                return ResourceManager.GetString("Uninstall", resourceCulture);
             }
         }
     }

@@ -87,7 +87,7 @@ namespace TweakUtility
         /// </summary>
         public static void RestartExplorer()
         {
-            if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+            if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.Windows7))
             {
                 using (var rm = new RestartManagerSession())
                 {
@@ -112,6 +112,8 @@ namespace TweakUtility
             }
         }
 
+        #region Crash Report
+
         /// <summary>
         /// Opens the GitHub issues page of Tweak Utility, preset with exception details.
         /// </summary>
@@ -125,10 +127,12 @@ namespace TweakUtility
 
             body = HttpUtility.UrlEncode(body);
 
-            string url = $"https://github.com/Craftplacer/TweakUtility/issues/new?labels=crash+report&title={title}&body={body}";
+            string url = $"https://github.com/PF94/TweakUtility_PF94/issues/new?labels=crash+report&title={title}&body={body}";
 
             OpenURL(url);
         }
+
+        #endregion Crash Report
 
         /// <summary>
         /// The main entry point for the application.
@@ -140,7 +144,7 @@ namespace TweakUtility
             try
             {
 #endif
-
+            
             Application.ApplicationExit += (s, e) => Properties.Settings.Default.Save();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -164,37 +168,50 @@ namespace TweakUtility
                 return;
             }
 
+            #region Splash Screen Code
+
             using (var splash = new SplashForm())
             {
                 splash.Show();
 
-                splash.SetStatus("Creating folders...");
+                splash.SetStatus(Properties.Strings.Splash_Folders);
+                splash.statusBar.Value = 20;
+
                 CreateFolders();
 
-                splash.SetStatus("Retrieving OS Version...");
+                splash.SetStatus(Properties.Strings.Splash_DetectOS);
                 _ = OperatingSystemVersions.CurrentVersion;
+                splash.statusBar.Value = 40;
 
-                splash.SetStatus("Loading extensions...");
+                splash.SetStatus(Properties.Strings.Splash_Extensions);
                 Loader.LoadExtensions();
+                splash.statusBar.Value = 60;
 
-                splash.SetStatus("Loading backups...");
+                splash.SetStatus(Properties.Strings.Splash_Backups);
                 LoadBackups();
+                splash.statusBar.Value = 80;
 
-                splash.SetStatus("Initializing pages...");
+                splash.SetStatus(Properties.Strings.Splash_Pages);
                 InitializePages();
+                splash.statusBar.Value = 100;
 
 #if DEBUG
-                splash.SetStatus("Unlocking debug page...");
+                splash.SetStatus(Properties.Strings.Splash_Debug);
                 Pages.Add(new DebugPage());
 #endif
 
                 splash.Hide();
             }
 
+            #endregion Splash Screen Code
             using (var main = new MainForm())
             {
+#if !DEBUG
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(Properties.Resources.test); //this loads in the startup sound
+                    player.Play(); //it plays said sound
+#endif
                 Application.Run(main);
-            }
+                }
 
 #if !DEBUG
             }
@@ -217,8 +234,9 @@ namespace TweakUtility
                 typeof(AdvancedPage),
                 typeof(SoftwarePage),
                 typeof(Windows10Page),
+                typeof(RestorePointsPage),
                 // 3rd Party Applications
-                typeof(MsnMessengerPage),
+                //typeof(MsnMessengerPage), (fuck no)
                 // Other
                 typeof(UncategorizedPage)
             };
