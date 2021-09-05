@@ -45,7 +45,7 @@ namespace TweakUtility.Tweaks.Pages
         [Visible(true)]
         [Category("Windows Media Player")]
         [DisplayName("Install Deskband")]
-        [OperatingSystemSupported(OperatingSystemVersion.WindowsVista)]
+        [OperatingSystemSupported(OperatingSystemVersion.Windows7)]
         public void InstallWMPDeskBand(ProgressIndicator indicator)
         {
             indicator.Initialize(5);
@@ -81,14 +81,6 @@ namespace TweakUtility.Tweaks.Pages
                 indicator.SetProgress(5, "Registering 64-bit deskband...");
                 Process.Start(regsvrPath, $"\"{x64}\"").WaitForExit();
             }
-        }
-
-        [DisplayName("Metro (Developer Preview)")]
-        [OperatingSystemSupported(OperatingSystemVersion.Windows8Developer, OperatingSystemVersion.Windows8Developer)]
-        public bool MetroDeveloper
-        {
-            get => RegistryHelper.GetValue<int>(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RPEnabled", 0) == 1;
-            set => RegistryHelper.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RPEnabled", value ? 1 : 0);
         }
     }
 }

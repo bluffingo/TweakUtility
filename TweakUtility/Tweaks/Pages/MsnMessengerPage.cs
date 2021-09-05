@@ -1,9 +1,6 @@
-//Buggy at the time of 1.1.00's release, last worked in 1.0.99 (aka earlier builds of 1.1.00's developement)
-
 using Microsoft.Win32;
 
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 
 using TweakUtility.Attributes;
@@ -85,6 +82,14 @@ namespace TweakUtility.Tweaks.Pages
         {
             get => RegistryHelper.GetValue<int>(@"HKCU\SOFTWARE\Microsoft\MSNMessenger\IntroShownCount");
             set => RegistryHelper.SetValue(@"HKCU\SOFTWARE\Microsoft\MSNMessenger\IntroShownCount", value);
+        }
+
+        [DisplayName("Server")]
+        [Category("Legacy MSN Messenger (1.0-4.7)")]
+        public string LegacyMSNServer
+        {
+            get => RegistryHelper.GetValue(@"HKCU\SOFTWARE\Microsoft\MessengerService\Server", "");
+            set => RegistryHelper.SetValue(@"HKCU\SOFTWARE\Microsoft\MessengerService\Server", value);
         }
     }
 }

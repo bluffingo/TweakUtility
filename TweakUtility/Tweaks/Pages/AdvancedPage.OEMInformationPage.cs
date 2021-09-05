@@ -21,7 +21,7 @@ namespace TweakUtility.Tweaks.Pages
             {
                 get
                 {
-                    if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+                    if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.Windows7))
                     {
                         return RegistryHelper.GetValue<string>(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\Logo");
                     }
@@ -33,7 +33,7 @@ namespace TweakUtility.Tweaks.Pages
 
                 set
                 {
-                    if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+                    if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.Windows7))
                     {
                         RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\Logo", value);
                     }
@@ -51,7 +51,7 @@ namespace TweakUtility.Tweaks.Pages
             {
                 get
                 {
-                    if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+                    if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.Windows7))
                     {
                         return RegistryHelper.GetValue<string>(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\Manufacturer");
                     }
@@ -63,7 +63,7 @@ namespace TweakUtility.Tweaks.Pages
 
                 set
                 {
-                    if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+                    if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.Windows7))
                     {
                         RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\Manufacturer", value);
                     }
@@ -78,7 +78,7 @@ namespace TweakUtility.Tweaks.Pages
             {
                 get
                 {
-                    if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+                    if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.Windows7))
                     {
                         return RegistryHelper.GetValue<string>(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\Model");
                     }
@@ -89,7 +89,7 @@ namespace TweakUtility.Tweaks.Pages
                 }
                 set
                 {
-                    if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+                    if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.Windows7))
                     {
                         RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\Model", value);
                     }
@@ -100,7 +100,7 @@ namespace TweakUtility.Tweaks.Pages
                 }
             }
 
-            [OperatingSystemSupported(OperatingSystemVersion.WindowsVista)]
+            [OperatingSystemSupported(OperatingSystemVersion.Windows7)]
             [DisplayName("Support hours")]
             public string SupportHours
             {
@@ -108,7 +108,7 @@ namespace TweakUtility.Tweaks.Pages
                 set => RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\SupportHours", value);
             }
 
-            [OperatingSystemSupported(OperatingSystemVersion.WindowsVista)]
+            [OperatingSystemSupported(OperatingSystemVersion.Windows7)]
             [DisplayName("Support phone number")]
             public string SupportPhone
             {
@@ -116,7 +116,7 @@ namespace TweakUtility.Tweaks.Pages
                 set => RegistryHelper.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation\SupportPhone", value);
             }
 
-            [OperatingSystemSupported(OperatingSystemVersion.WindowsVista)]
+            [OperatingSystemSupported(OperatingSystemVersion.Windows7)]
             [DisplayName("Support URL")]
             public string SupportURL
             {
@@ -127,7 +127,7 @@ namespace TweakUtility.Tweaks.Pages
             [Visible(true)]
             public void Preview()
             {
-                if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+                if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.Windows7))
                 {
                     Process.Start("control.exe", "system");
                 }

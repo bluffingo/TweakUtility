@@ -287,4 +287,7 @@ ha tudod hogyan lehet ezt programozottan végrehajtani, kérlek kattins a vissza
     <value />
     <comment>THIS STRING ISN'T SUPPOSED TO BE TRANSLATED</comment>
   </data>
+  <data name="DebugTranslation" xml:space="preserve">
+    <value>Hungarian</value>
+  </data>
 </root>
