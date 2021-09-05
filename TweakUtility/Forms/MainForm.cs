@@ -24,7 +24,6 @@ namespace TweakUtility.Forms
 
         public void Localize()
         {
-            this.aboutLabel.Text = Properties.Strings.Application_Name;
             this.Text = Properties.Strings.Application_Name;
 #if DEBUG
             this.debugTranslation.Text = Properties.Strings.DebugTranslation;
@@ -189,25 +188,10 @@ namespace TweakUtility.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //Adds tooltips for the bottom buttons
-            toolTip.SetToolTip(preferencesButton, Properties.Strings.Preferences);
-            toolTip.SetToolTip(backupsButton, Properties.Strings.Backups);
-            toolTip.SetToolTip(extensionsButton, Properties.Strings.Extensions);
-
-            //Loads icons for the bottom buttons
-            if (IsSupportedCosmetic(OperatingSystemVersion.Windows10))
-            {
-                preferencesButton.Text = "\uE713";
-                backupsButton.Text = "\uE81C";
-                extensionsButton.Text = "\uEA86";
-                preferencesButton.Font = backupsButton.Font = extensionsButton.Font = new Font("Segoe MDL2 Assets", 12);
-            }
-            else
-            {
-                preferencesButton.Image = Icons.Options.ToBitmap();
-                backupsButton.Image = Icons.RecentDocuments.ToBitmap();
-                extensionsButton.Image = Icons.SystemFile.ToBitmap();
-            }
+            //Adds tooltips for the bottom buttons (remind me of this for the debug tooltip on about)
+            //toolTip.SetToolTip(preferencesButton, Properties.Strings.Preferences);
+            //toolTip.SetToolTip(backupsButton, Properties.Strings.Backups);
+            //toolTip.SetToolTip(extensionsButton, Properties.Strings.Extensions);
 
             this.LoadPages();
             this.LoadWindowRectangle();

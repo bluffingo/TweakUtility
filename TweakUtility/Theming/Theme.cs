@@ -154,7 +154,6 @@ namespace TweakUtility.Theming
 
             if (control is MainForm mainForm)
             {
-                mainForm.bottomPanel.BackColor = BottomPanelBackground;
                 mainForm.treeView.BackColor = SidebarBackground;
             }
 
