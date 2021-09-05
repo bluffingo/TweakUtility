@@ -156,6 +156,12 @@
     <Compile Include="Forms\ExtensionsForm.Designer.cs">
       <DependentUpon>ExtensionsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tweaks\Forms\EnvironmentVariableItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tweaks\Forms\EnvironmentVariableItemForm.Designer.cs">
+      <DependentUpon>EnvironmentVariableItemForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="Tweaks\Forms\HostsItemForm.cs">
       <SubType>Form</SubType>
@@ -218,6 +224,7 @@
       <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Theming\Theme.cs" />
+    <Compile Include="Tweaks\Model\EnvironmentVariable.cs" />
     <Compile Include="Tweaks\Forms\SystemRestoreForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,10 +235,16 @@
     <Compile Include="Tweaks\Model\StartupItem.cs" />
     <Compile Include="Tweaks\Model\StartupItemType.cs" />
     <Compile Include="Tweaks\Model\StartupRegistryItem.cs" />
+    <Compile Include="Tweaks\Pages\EnvironmentVariablesPage.cs" />
+    <Compile Include="Tweaks\Pages\SoftwarePage.cs" />
+    <Compile Include="Tweaks\Views\EnvironmentVariablesPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tweaks\Views\EnvironmentVariablesPageView.Designer.cs">
+      <DependentUpon>EnvironmentVariablesPageView.cs</DependentUpon>
     <Compile Include="Tweaks\Model\DiskCleanupHandler.cs" />
     <Compile Include="Tweaks\Pages\CustomizationPage.BackgroundsPage.cs" />
     <Compile Include="Tweaks\Pages\RestorePointsPage.cs" />
-    <Compile Include="Tweaks\Pages\SoftwarePage.cs" />
     <Compile Include="Tweaks\Views\BackgroundsPageView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -308,6 +321,9 @@
     <EmbeddedResource Include="Forms\ExtensionsForm.resx">
       <DependentUpon>ExtensionsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tweaks\Forms\EnvironmentVariableItemForm.resx">
+      <DependentUpon>EnvironmentVariableItemForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tweaks\Forms\HostsItemForm.resx">
       <DependentUpon>HostsItemForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -333,6 +349,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Strings.es.resx" />
     <EmbeddedResource Include="Properties\Strings.de.resx" />
+    <EmbeddedResource Include="Tweaks\Views\EnvironmentVariablesPageView.resx">
+      <DependentUpon>EnvironmentVariablesPageView.cs</DependentUpon>
     <EmbeddedResource Include="Tweaks\Forms\SystemRestoreForm.resx">
       <DependentUpon>SystemRestoreForm.cs</DependentUpon>
     </EmbeddedResource>
