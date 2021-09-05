@@ -204,6 +204,11 @@ namespace TweakUtility.Forms
 
             this.LayoutSidebar();
             this.OpenPageFromArguments();
+
+            preferencesToolStripMenuItem.Image = Icons.Options.ToBitmap();
+            myBackupsToolStripMenuItem.Image = Icons.RecentDocuments.ToBitmap();
+            myExtensionsToolStripMenuItem.Image = Icons.SystemFile.ToBitmap();
+            aboutToolStripMenuItem.Image = Icons.Information.ToBitmap();
         }
 
         private void MainForm_Shown(object sender, EventArgs e) => this.SetupTaskbar();

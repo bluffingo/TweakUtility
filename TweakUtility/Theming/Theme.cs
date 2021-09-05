@@ -160,23 +160,23 @@ namespace TweakUtility.Theming
             if (control is LinkLabel linkLabel)
                 linkLabel.LinkColor = LinkForeground;
 
-            if (IsSupportedCosmetic(OperatingSystemVersion.Windows10))
-            {
-                if (control is Button button)
-                {
-                    button.FlatStyle = FlatStyle.Flat;
-                    button.FlatAppearance.BorderSize = 0;
+            //if (IsSupportedCosmetic(OperatingSystemVersion.Windows10))
+            //{
+            //    if (control is Button button)
+            //    {
+            //        button.FlatStyle = FlatStyle.Flat;
+            //        button.FlatAppearance.BorderSize = 0;
 
-                    if (IsDark)
-                    {
-                        button.BackColor = Color.FromArgb(51, 51, 51);
-                    }
-                    else
-                    {
-                        button.BackColor = Color.FromArgb(204, 204, 204);
-                    }
-                }
-            }
+            //        if (IsDark)
+            //        {
+            //            button.BackColor = Color.FromArgb(51, 51, 51);
+            //        }
+            //        else
+            //        {
+            //            button.BackColor = Color.FromArgb(204, 204, 204);
+            //        }
+            //    }
+            //}
 
             // Apply to sub-controls as well.
             foreach (Control subControl in control.Controls)

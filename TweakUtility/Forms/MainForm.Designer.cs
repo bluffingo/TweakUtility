@@ -161,14 +161,14 @@ namespace TweakUtility.Forms
             // 
             this.myBackupsToolStripMenuItem.Name = "myBackupsToolStripMenuItem";
             this.myBackupsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.myBackupsToolStripMenuItem.Text = "My backups";
+            this.myBackupsToolStripMenuItem.Text = "Backups";
             this.myBackupsToolStripMenuItem.Click += new System.EventHandler(this.BackupsButton_Click);
             // 
             // myExtensionsToolStripMenuItem
             // 
             this.myExtensionsToolStripMenuItem.Name = "myExtensionsToolStripMenuItem";
             this.myExtensionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.myExtensionsToolStripMenuItem.Text = "My extensions";
+            this.myExtensionsToolStripMenuItem.Text = "Extensions";
             this.myExtensionsToolStripMenuItem.Click += new System.EventHandler(this.ExtensionsButton_Click);
             // 
             // helpToolStripMenuItem
