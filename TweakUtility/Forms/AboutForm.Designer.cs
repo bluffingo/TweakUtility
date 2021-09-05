@@ -113,13 +113,14 @@
             this.debugLabel.Cursor = System.Windows.Forms.Cursors.Help;
             this.debugLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.debugLabel.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.debugLabel.Location = new System.Drawing.Point(461, 12);
+            this.debugLabel.Location = new System.Drawing.Point(464, 12);
             this.debugLabel.Margin = new System.Windows.Forms.Padding(0);
             this.debugLabel.Name = "debugLabel";
             this.debugLabel.Size = new System.Drawing.Size(43, 15);
             this.debugLabel.TabIndex = 8;
             this.debugLabel.Text = "Debug";
-            this.toolTip.SetToolTip(this.debugLabel, "toolTip");
+            this.toolTip.SetToolTip(this.debugLabel, "Debug builds are experimental and do not guarantee to be working or offer any sup" +
+        "port. \nAutomated crash reports are also disabled.");
             this.debugLabel.Visible = false;
             // 
             // toolTip
