@@ -242,6 +242,7 @@
     </Compile>
     <Compile Include="Tweaks\Views\EnvironmentVariablesPageView.Designer.cs">
       <DependentUpon>EnvironmentVariablesPageView.cs</DependentUpon>
+	</Compile>
     <Compile Include="Tweaks\Model\DiskCleanupHandler.cs" />
     <Compile Include="Tweaks\Pages\CustomizationPage.BackgroundsPage.cs" />
     <Compile Include="Tweaks\Pages\RestorePointsPage.cs" />
@@ -351,6 +352,7 @@
     <EmbeddedResource Include="Properties\Strings.de.resx" />
     <EmbeddedResource Include="Tweaks\Views\EnvironmentVariablesPageView.resx">
       <DependentUpon>EnvironmentVariablesPageView.cs</DependentUpon>
+	</EmbeddedResource>
     <EmbeddedResource Include="Tweaks\Forms\SystemRestoreForm.resx">
       <DependentUpon>SystemRestoreForm.cs</DependentUpon>
     </EmbeddedResource>

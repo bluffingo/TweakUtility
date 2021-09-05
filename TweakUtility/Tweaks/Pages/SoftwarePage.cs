@@ -7,7 +7,7 @@ namespace TweakUtility.Tweaks.Pages
     [Experimental]
     public class SoftwarePage : TweakPage
     {
-        public SoftwarePage() : base("Software")
+        public SoftwarePage() : base("Software", new SnippingToolPage(), new InternetExplorerPage())
         {
             this.Icon = Icons.Software;
             this.CustomView = new SoftwarePageView();

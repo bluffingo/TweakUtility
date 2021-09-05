@@ -8,7 +8,7 @@ namespace TweakUtility.Tweaks.Pages
 {
     internal partial class AdvancedPage : TweakPage
     {
-        internal AdvancedPage() : base("Advanced", new OEMInformationPage(), new HostsPage(), new DiskCleanupPage(), new EnvironmentVariablesPage()) => this.Icon = NativeHelpers.ExtractIcon(@"%SystemRoot%\System32\shell32.dll", -22);
+        internal AdvancedPage() : base("Advanced", new OEMInformationPage(), new HostsPage(), new DiskCleanupPage(), new RestorePointsPage(), new EnvironmentVariablesPage()) => this.Icon = NativeHelpers.ExtractIcon(@"%SystemRoot%\System32\shell32.dll", -22);
 
         [DisplayName("Verbose Mode")]
         public bool VerboseMessages

@@ -228,13 +228,10 @@ namespace TweakUtility
             var types = new List<Type>() {
                 typeof(CustomizationPage),
                 typeof(WindowsExplorerPage),
-                typeof(InternetExplorerPage),
-                typeof(SnippingToolPage),
                 // Specialized
                 typeof(AdvancedPage),
-                typeof(SoftwarePage),
+                typeof(SoftwarePage), //moved IE and Snipping Tool pages under the Software page.
                 typeof(Windows10Page),
-                typeof(RestorePointsPage),
                 // 3rd Party Applications
                 //typeof(MsnMessengerPage), (fuck no)
                 // Other
