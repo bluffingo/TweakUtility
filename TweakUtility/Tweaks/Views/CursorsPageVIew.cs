@@ -8,9 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TweakUtility.Tweaks.Model;
+using TweakUtility.Attributes;
 
 namespace TweakUtility.Tweaks.Views
 {
+    [Experimental]
     public partial class CursorsPageView : UserControl
     {
         public CursorsPageView()

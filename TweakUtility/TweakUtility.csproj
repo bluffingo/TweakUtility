@@ -243,11 +243,11 @@
     </Compile>
     <Compile Include="Tweaks\Views\CursorsPageView.Designer.cs">
       <DependentUpon>CursorsPageView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tweaks\Pages\EnvironmentVariablesPage.cs" />
     <Compile Include="Tweaks\Pages\MsnMessengerPage.cs" />
     <Compile Include="Tweaks\Pages\MsnMessengerPage.PassportPage.cs" />
     <Compile Include="Tweaks\Pages\SoftwarePage.cs" />
-    <Compile Include="Tweaks\Pages\SoftwarePageBase.cs" />
     <Compile Include="Tweaks\Views\EnvironmentVariablesPageView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -361,6 +361,7 @@
     <EmbeddedResource Include="Properties\Strings.de.resx" />
     <EmbeddedResource Include="Tweaks\Views\CursorsPageVIew.resx">
       <DependentUpon>CursorsPageView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tweaks\Views\EnvironmentVariablesPageView.resx">
       <DependentUpon>EnvironmentVariablesPageView.cs</DependentUpon>
     </EmbeddedResource>
