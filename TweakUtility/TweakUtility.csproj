@@ -238,7 +238,6 @@
     <Compile Include="Tweaks\Pages\EnvironmentVariablesPage.cs" />
     <Compile Include="Tweaks\Pages\MsnMessengerPage.cs" />
     <Compile Include="Tweaks\Pages\MsnMessengerPage.PassportPage.cs" />
-    <Compile Include="Tweaks\Pages\SoftwareManagerPage.cs" />
     <Compile Include="Tweaks\Pages\SoftwarePage.cs" />
     <Compile Include="Tweaks\Pages\SoftwarePageBase.cs" />
     <Compile Include="Tweaks\Views\EnvironmentVariablesPageView.cs">

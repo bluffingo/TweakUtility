@@ -226,10 +226,8 @@ namespace TweakUtility
                 typeof(WindowsExplorerPage),
                 // Specialized
                 typeof(AdvancedPage),
-                typeof(SoftwarePage), //moved IE and Snipping Tool pages under the Software page.
+                typeof(SoftwarePage), //moved IE, MSN Messenger and Snipping Tool pages under the Programs page.
                 typeof(Windows10Page),
-                // 3rd Party Applications
-                typeof(MsnMessengerPage),
                 // Other
                 typeof(UncategorizedPage)
             };
