@@ -229,7 +229,7 @@ namespace TweakUtility
                 typeof(SoftwarePage), //moved IE and Snipping Tool pages under the Software page.
                 typeof(Windows10Page),
                 // 3rd Party Applications
-                //typeof(MsnMessengerPage), (fuck no)
+                typeof(MsnMessengerPage),
                 // Other
                 typeof(UncategorizedPage)
             };
