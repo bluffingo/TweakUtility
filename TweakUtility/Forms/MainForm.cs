@@ -25,10 +25,6 @@ namespace TweakUtility.Forms
         public void Localize()
         {
             this.Text = Properties.Strings.Application_Name;
-#if DEBUG
-            this.debugTranslation.Text = Properties.Strings.DebugTranslation;
-            this.debugTranslation.Visible = true;
-#endif
         }
 
         public Control CurrentPageView => splitContainer.Panel2.Controls.Find("content", false)[0];

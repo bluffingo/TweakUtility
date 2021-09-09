@@ -43,7 +43,6 @@ namespace TweakUtility.Forms
             this.myExtensionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.debugTranslation = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -71,7 +70,7 @@ namespace TweakUtility.Forms
             this.splitContainer.Panel2.Controls.Add(this.startupLabel);
             this.splitContainer.Panel2.Padding = new System.Windows.Forms.Padding(1);
             this.splitContainer.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.SplitContainer_BorderPaint);
-            this.splitContainer.Size = new System.Drawing.Size(591, 337);
+            this.splitContainer.Size = new System.Drawing.Size(591, 350);
             this.splitContainer.SplitterDistance = 195;
             this.splitContainer.TabIndex = 1;
             this.splitContainer.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.SplitContainer_SplitterMoved);
@@ -118,7 +117,7 @@ namespace TweakUtility.Forms
             this.startupLabel.ForeColor = System.Drawing.SystemColors.GrayText;
             this.startupLabel.Location = new System.Drawing.Point(1, 1);
             this.startupLabel.Name = "startupLabel";
-            this.startupLabel.Size = new System.Drawing.Size(390, 335);
+            this.startupLabel.Size = new System.Drawing.Size(390, 348);
             this.startupLabel.TabIndex = 3;
             this.startupLabel.Text = "Navigate to a page to get started!";
             this.startupLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -153,21 +152,21 @@ namespace TweakUtility.Forms
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.PreferencesButton_Click);
             // 
             // myBackupsToolStripMenuItem
             // 
             this.myBackupsToolStripMenuItem.Name = "myBackupsToolStripMenuItem";
-            this.myBackupsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.myBackupsToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.myBackupsToolStripMenuItem.Text = "Backups";
             this.myBackupsToolStripMenuItem.Click += new System.EventHandler(this.BackupsButton_Click);
             // 
             // myExtensionsToolStripMenuItem
             // 
             this.myExtensionsToolStripMenuItem.Name = "myExtensionsToolStripMenuItem";
-            this.myExtensionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.myExtensionsToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.myExtensionsToolStripMenuItem.Text = "Extensions";
             this.myExtensionsToolStripMenuItem.Click += new System.EventHandler(this.ExtensionsButton_Click);
             // 
@@ -182,30 +181,15 @@ namespace TweakUtility.Forms
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutClicked);
-            // 
-            // debugTranslation
-            // 
-            this.debugTranslation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.debugTranslation.AutoSize = true;
-            this.debugTranslation.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic);
-            this.debugTranslation.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.debugTranslation.Location = new System.Drawing.Point(8, 367);
-            this.debugTranslation.Name = "debugTranslation";
-            this.debugTranslation.Size = new System.Drawing.Size(63, 13);
-            this.debugTranslation.TabIndex = 6;
-            this.debugTranslation.Text = "LANGUAGE";
-            this.debugTranslation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.debugTranslation.Visible = false;
             // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(614, 389);
-            this.Controls.Add(this.debugTranslation);
             this.Controls.Add(this.splitContainer);
             this.Controls.Add(this.menuBar);
             this.DoubleBuffered = true;
@@ -245,7 +229,6 @@ namespace TweakUtility.Forms
         private System.Windows.Forms.ToolStripMenuItem myBackupsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem myExtensionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.Label debugTranslation;
     }
 }
 
