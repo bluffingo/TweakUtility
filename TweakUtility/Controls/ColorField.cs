@@ -69,19 +69,19 @@ namespace TweakUtility.Controls
                 PreviewSize,
                 PreviewSize);
 
-			int splits = 2;
-			int bgSize = previewRectangle.Width / splits;
-			for (int x = 0; x < splits; x++)
-			{
-				for (int y = 0; y < splits; y++)
-				{
-					var alternation = (x + y) % 2 == 0;
-					var brush = alternation ? Brushes.LightBlue : Brushes.White;
+            int splits = 2;
+            int bgSize = previewRectangle.Width / splits;
+            for (int x = 0; x < splits; x++)
+            {
+                for (int y = 0; y < splits; y++)
+                {
+                    var alternation = (x + y) % 2 == 0;
+                    var brush = alternation ? Brushes.LightBlue : Brushes.White;
 
-					e.Graphics.FillRectangle(brush, (bgSize * x) + previewRectangle.X, (bgSize * y) + previewRectangle.Y, bgSize, bgSize);
-				}
-			}
-			
+                    e.Graphics.FillRectangle(brush, (bgSize * x) + previewRectangle.X, (bgSize * y) + previewRectangle.Y, bgSize, bgSize);
+                }
+            }
+
             e.Graphics.FillRectangle(new SolidBrush(this.Color), previewRectangle);
             e.Graphics.DrawRectangle(SystemPens.ControlText, previewRectangle);
         }

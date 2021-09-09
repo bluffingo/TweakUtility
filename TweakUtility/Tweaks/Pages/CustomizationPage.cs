@@ -9,9 +9,9 @@ namespace TweakUtility.Tweaks.Pages
 {
     internal partial class CustomizationPage : TweakPage
     {
-        internal CustomizationPage() : base("Customization", new ColorsPage(), new CursorsPage())
+        internal CustomizationPage() : base("Customization", new ColorsPage(), new BackgroundsPage(), new CursorsPage())
         {
-            if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+            if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.Windows7))
             {
                 this.Icon = NativeHelpers.ExtractIcon(@"%SystemRoot%\system32\imageres.dll", -197);
             }
@@ -19,6 +19,10 @@ namespace TweakUtility.Tweaks.Pages
             {
                 this.Icon = NativeHelpers.ExtractIcon(@"%SystemRoot%\system32\shell32.dll", -250);
             }
+        }
+
+        public CustomizationPage(string name, params TweakPage[] subPages) : base(name, subPages)
+        {
         }
 
         [DisplayName("Applications use light theme")]
@@ -41,7 +45,7 @@ namespace TweakUtility.Tweaks.Pages
 
         [OperatingSystemSupported(OperatingSystemVersion.Windows8)]
         [Visible(true)]
-        [DisplayName("Enable Lite Theme")]
+        [DisplayName("Enable Aero Lite Theme")]
         public void EnableLiteTheme()
         {
             //extract file if it doesn't exist
@@ -57,13 +61,22 @@ namespace TweakUtility.Tweaks.Pages
             Process.Start(Path.GetFullPath("aerolite.theme"));
         }
 
-        [OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
+        [OperatingSystemSupported(OperatingSystemVersion.Windows7)]
         [RefreshRequired(RestartType.ExplorerRestart)]
         [DisplayName("Show seconds on taskbar")]
         public bool ShowSeconds
         {
             get => RegistryHelper.GetValue(@"HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ShowSecondsInsystemClock", 0) == 1;
             set => RegistryHelper.SetValue(@"HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ShowSecondsInsystemClock", value ? 1 : 0);
+        }
+
+        [OperatingSystemSupported(OperatingSystemVersion.Windows7)]
+        [RefreshRequired(RestartType.ExplorerRestart)]
+        [DisplayName("Show build number on Desktop")]
+        public bool ShowBuildNumberDesktop
+        {
+            get => RegistryHelper.GetValue(@"HKCU\Control Panel\Desktop\PaintDesktopVersion", 0) == 1;
+            set => RegistryHelper.SetValue(@"HKCU\Control Panel\Desktop\PaintDesktopVersion", value ? 1 : 0);
         }
     }
 }

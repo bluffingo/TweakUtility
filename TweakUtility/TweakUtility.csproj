@@ -7,11 +7,18 @@
     <ProjectGuid>{DD35A5A0-5580-450B-BA86-2D0EE18B6C75}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>TweakUtility</RootNamespace>
-    <AssemblyName>Tweak Utility</AssemblyName>
+    <AssemblyName>TweakUtility</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ApplicationIcon>TweakUtility.ico</ApplicationIcon>
+    <AssemblyOriginatorKeyFile>key.pfx</AssemblyOriginatorKeyFile>
+    <ManifestCertificateThumbprint>D77D12F45425D7D53BF7653BF6C3182B5F3947E7</ManifestCertificateThumbprint>
+    <ManifestKeyFile>TweakUtility_TemporaryKey.pfx</ManifestKeyFile>
+    <SignAssembly>false</SignAssembly>
+    <SignManifests>false</SignManifests>
+    <StartupObject>TweakUtility.Program</StartupObject>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,13 +33,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <ApplicationIcon>Resources\TweakUtility.ico</ApplicationIcon>
-    <AssemblyOriginatorKeyFile>key.pfx</AssemblyOriginatorKeyFile>
-    <ManifestCertificateThumbprint>D77D12F45425D7D53BF7653BF6C3182B5F3947E7</ManifestCertificateThumbprint>
-    <ManifestKeyFile>TweakUtility_TemporaryKey.pfx</ManifestKeyFile>
-    <SignAssembly>false</SignAssembly>
-    <SignManifests>false</SignManifests>
-    <StartupObject>TweakUtility.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,7 +46,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -60,29 +60,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug %28XP%29|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Debug %28XP%29\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;XP</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release %28XP%29|AnyCPU'">
-    <OutputPath>bin\Release %28XP%29\</OutputPath>
-    <DefineConstants>TRACE;XP</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -124,6 +102,8 @@
     <Compile Include="Controls\NoticeControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enums\RestorePointEventType.cs" />
+    <Compile Include="Enums\RestorePointType.cs" />
     <Compile Include="Exceptions\InvalidReflectionInfoException.cs" />
     <Compile Include="Extensions\Extension.cs" />
     <Compile Include="Constants.cs" />
@@ -176,6 +156,13 @@
     <Compile Include="Forms\ExtensionsForm.Designer.cs">
       <DependentUpon>ExtensionsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tweaks\Forms\EnvironmentVariableItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tweaks\Forms\EnvironmentVariableItemForm.Designer.cs">
+      <DependentUpon>EnvironmentVariableItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="Tweaks\Forms\HostsItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,11 +225,17 @@
     </Compile>
     <Compile Include="Theming\Theme.cs" />
     <Compile Include="Tweaks\Model\CursorScheme.cs" />
+    <Compile Include="Tweaks\Model\EnvironmentVariable.cs" />
+    <Compile Include="Tweaks\Forms\SystemRestoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tweaks\Forms\SystemRestoreForm.Designer.cs">
+      <DependentUpon>SystemRestoreForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tweaks\Model\StartupFolderItem.cs" />
     <Compile Include="Tweaks\Model\StartupItem.cs" />
     <Compile Include="Tweaks\Model\StartupItemType.cs" />
     <Compile Include="Tweaks\Model\StartupRegistryItem.cs" />
-    <Compile Include="Tweaks\Model\DiskCleanupHandler.cs" />
     <Compile Include="Tweaks\Pages\CursorsPage.cs" />
     <Compile Include="Tweaks\Pages\SoftwarePage.cs" />
     <Compile Include="Tweaks\Views\CursorsPageView.cs">
@@ -250,6 +243,34 @@
     </Compile>
     <Compile Include="Tweaks\Views\CursorsPageView.Designer.cs">
       <DependentUpon>CursorsPageView.cs</DependentUpon>
+    <Compile Include="Tweaks\Pages\EnvironmentVariablesPage.cs" />
+    <Compile Include="Tweaks\Pages\MsnMessengerPage.cs" />
+    <Compile Include="Tweaks\Pages\MsnMessengerPage.PassportPage.cs" />
+    <Compile Include="Tweaks\Pages\SoftwareManagerPage.cs" />
+    <Compile Include="Tweaks\Pages\SoftwarePage.cs" />
+    <Compile Include="Tweaks\Pages\SoftwarePageBase.cs" />
+    <Compile Include="Tweaks\Views\EnvironmentVariablesPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tweaks\Views\EnvironmentVariablesPageView.Designer.cs">
+      <DependentUpon>EnvironmentVariablesPageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tweaks\Model\DiskCleanupHandler.cs" />
+    <Compile Include="Tweaks\Pages\CustomizationPage.BackgroundsPage.cs" />
+    <Compile Include="Tweaks\Pages\RestorePointsPage.cs" />
+    <Compile Include="Tweaks\Views\BackgroundsPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tweaks\Views\BackgroundsPageView.Designer.cs">
+      <DependentUpon>BackgroundsPageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tweaks\Model\BackgroundsPageView.LogonStyle.cs" />
+    <Compile Include="Tweaks\Model\BackgroundsPageView.WallpaperStyle.cs" />
+    <Compile Include="Tweaks\Views\RestorePointsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tweaks\Views\RestorePointsView.Designer.cs">
+      <DependentUpon>RestorePointsView.cs</DependentUpon>
     </Compile>
     <Compile Include="Tweaks\Views\SoftwarePageView.cs">
       <SubType>UserControl</SubType>
@@ -277,8 +298,6 @@
       <DependentUpon>HostsPageView.cs</DependentUpon>
     </Compile>
     <Compile Include="Tweaks\Pages\InternetExplorerPage.cs" />
-    <Compile Include="Tweaks\Pages\MsnMessengerPage.cs" />
-    <Compile Include="Tweaks\Pages\MsnMessengerPage.PassportPage.cs" />
     <Compile Include="Tweaks\Pages\PaintDotNetPage.cs" />
     <Compile Include="Tweaks\Pages\PreferencesPage.cs" />
     <Compile Include="Tweaks\Pages\SnippingToolPage.cs" />
@@ -313,6 +332,9 @@
     <EmbeddedResource Include="Forms\ExtensionsForm.resx">
       <DependentUpon>ExtensionsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tweaks\Forms\EnvironmentVariableItemForm.resx">
+      <DependentUpon>EnvironmentVariableItemForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tweaks\Forms\HostsItemForm.resx">
       <DependentUpon>HostsItemForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -340,14 +362,25 @@
     <EmbeddedResource Include="Properties\Strings.de.resx" />
     <EmbeddedResource Include="Tweaks\Views\CursorsPageVIew.resx">
       <DependentUpon>CursorsPageView.cs</DependentUpon>
+    <EmbeddedResource Include="Tweaks\Views\EnvironmentVariablesPageView.resx">
+      <DependentUpon>EnvironmentVariablesPageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tweaks\Forms\SystemRestoreForm.resx">
+      <DependentUpon>SystemRestoreForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tweaks\Views\BackgroundsPageView.resx">
+      <DependentUpon>BackgroundsPageView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tweaks\Views\DiskCleanupPageView.resx">
       <DependentUpon>DiskCleanupPageView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tweaks\Views\RestorePointsView.resx">
+      <DependentUpon>RestorePointsView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tweaks\Views\SoftwarePageView.resx">
       <DependentUpon>SoftwarePageView.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Properties\Strings.fr.resx" />
+    <EmbeddedResource Include="Properties\Strings.fr.resx" />
     <EmbeddedResource Include="Properties\Strings.hu.resx" />
     <EmbeddedResource Include="Properties\Strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -380,6 +413,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\test.wav" />
+    <None Include="Resources\about.png" />
+    <Content Include="TweakUtility.ico" />
     <None Include="Resources\windowsVista7.png" />
     <None Include="Resources\windows8.png" />
     <None Include="Resources\volume.png" />
@@ -421,6 +457,17 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

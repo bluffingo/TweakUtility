@@ -5,17 +5,11 @@ using TweakUtility.Helpers;
 
 namespace TweakUtility.Tweaks.Pages
 {
-    /// <remarks>
-    /// TweakUtility - IMPORTANT NOTES
-    /// Please use vanilla versions for default values. Do not use customized/bootleg versions of Windows operating systems to get
-    /// the most-authentic default values.
-    /// Written by PF94, July 15th 2019
-    /// </remarks>
     internal partial class AdvancedPage : TweakPage
     {
-        internal AdvancedPage() : base("Advanced", new OEMInformationPage(), new HostsPage(), new DiskCleanupPage()) => this.Icon = NativeHelpers.ExtractIcon(@"%SystemRoot%\System32\shell32.dll", -22);
+        internal AdvancedPage() : base("Advanced", new OEMInformationPage(), new HostsPage(), new DiskCleanupPage(), new RestorePointsPage(), new EnvironmentVariablesPage()) => this.Icon = NativeHelpers.ExtractIcon(@"%SystemRoot%\System32\shell32.dll", -22);
 
-        [DisplayName("Verbose Messages")]
+        [DisplayName("Enable verbose messages")]
         public bool VerboseMessages
         {
             get => RegistryHelper.GetValue<int>(@"HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\System\VerboseStatus", 0) == 1;
@@ -39,7 +33,7 @@ namespace TweakUtility.Tweaks.Pages
         }
 
         [DisplayName("Owner")]
-        [Category("Registration")]
+        [Category("Registration info")]
         public string RegisteredOwner
         {
             get => RegistryHelper.GetValue<string>(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\RegisteredOwner");
@@ -47,7 +41,7 @@ namespace TweakUtility.Tweaks.Pages
         }
 
         [DisplayName("Organization")]
-        [Category("Registration")]
+        [Category("Registration info")]
         public string RegisteredOrganization
         {
             get => RegistryHelper.GetValue<string>(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\RegisteredOrganization");
@@ -55,7 +49,7 @@ namespace TweakUtility.Tweaks.Pages
         }
 
         [DisplayName("Title")]
-        [Category("Legal Notice")]
+        [Category("Login screen legal notice")]
         public string LegalNoticeCaption
         {
             get => RegistryHelper.GetValue(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\LegalNoticeCaption", "");
@@ -63,35 +57,11 @@ namespace TweakUtility.Tweaks.Pages
         }
 
         [DisplayName("Text")]
-        [Category("Legal Notice")]
+        [Category("Login screen legal notice")]
         public string LegalNoticeText
         {
             get => RegistryHelper.GetValue(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\LegalNoticeText", "");
             set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\LegalNoticeText", value);
-        }
-
-        //[DisplayName("Windows System File Checker")]
-        //[OperatingSystemSupported(OperatingSystemVersion.WindowsXP, OperatingSystemVersion.WindowsVista)]
-        ////[DefaultValue(WindowsSFCMode.Enabled)]
-        //public WindowsSFCMode WindowsSFC
-        //{
-        //    get => (WindowsSFCMode)RegistryHelper.GetValue<int>(@"HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SFCDisable");
-        //    set => RegistryHelper.SetValue(@"HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SFCDisable", (int)value);
-        //}
-
-        public enum WindowsSFCMode
-        {
-            [DisplayName("Disabled with prompts")]
-            Enabled = 0,
-
-            [DisplayName("Disabled with reactivation prompts")]
-            DisablePrompt = 1,
-
-            [DisplayName("Disabled without any reactivation prompts")]
-            DisableNoPrompt = 2,
-
-            [DisplayName("Enabled without prompts")]
-            EnabledNoPrompt = 4
         }
     }
 }

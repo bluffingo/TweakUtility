@@ -1,9 +1,8 @@
-//Buggy at the time of 1.1.00's release, last worked in 1.0.99 (aka earlier builds of 1.1.00's developement)
-
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 
 using TweakUtility.Attributes;
@@ -16,13 +15,19 @@ namespace TweakUtility.Tweaks.Pages
     {
         internal MsnMessengerPage() : base("MSN Messenger", GetPassportPages())
         {
-            this.Icon = NativeHelpers.ExtractIcon(NativeHelpers.GetApplicationPath("msnmsgr.exe"), 0);
+            var iconPath = NativeHelpers.GetApplicationPath("msnmsgr.exe");
+            if (File.Exists(iconPath))
+            {
+                Icon = NativeHelpers.ExtractIcon(iconPath, 0);
+            }
         }
 
         private static PassportPage[] GetPassportPages()
         {
             using (RegistryKey key = RegistryHelper.GetKey(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\MSNMessenger\PerPassportSettings"))
             {
+                if (key == null) return System.Array.Empty<PassportPage>();
+﻿
                 IEnumerable<string> names = key.GetSubKeyNames().Where(name => name != "0");
                 var pages = new PassportPage[names.Count()];
 
@@ -85,6 +90,14 @@ namespace TweakUtility.Tweaks.Pages
         {
             get => RegistryHelper.GetValue<int>(@"HKCU\SOFTWARE\Microsoft\MSNMessenger\IntroShownCount");
             set => RegistryHelper.SetValue(@"HKCU\SOFTWARE\Microsoft\MSNMessenger\IntroShownCount", value);
+        }
+
+        [DisplayName("Server")]
+        [Category("Legacy MSN Messenger (1.0-4.7)")]
+        public string LegacyMSNServer
+        {
+            get => RegistryHelper.GetValue(@"HKCU\SOFTWARE\Microsoft\MessengerService\Server", "");
+            set => RegistryHelper.SetValue(@"HKCU\SOFTWARE\Microsoft\MessengerService\Server", value);
         }
     }
 }

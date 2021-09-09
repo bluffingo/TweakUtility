@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using TweakUtility.Attributes;
 using TweakUtility.Enums;
 using TweakUtility.Helpers;
 
@@ -27,7 +26,7 @@ namespace TweakUtility.Controls
             {
                 bitmap = Properties.Resources.go10;
             }
-            else if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+            else if (OperatingSystemVersions.IsSupported(OperatingSystemVersion.Windows7))
             {
                 bitmap = Properties.Resources.go7;
             }
@@ -36,7 +35,7 @@ namespace TweakUtility.Controls
                 bitmap = Icons.Go.ToBitmap();
             }
 
-            if (underlinedFont == null && !OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+            if (underlinedFont == null && !OperatingSystemVersions.IsSupported(OperatingSystemVersion.Windows7))
             {
                 underlinedFont = new Font(this.Font, FontStyle.Underline);
             }
@@ -78,7 +77,7 @@ namespace TweakUtility.Controls
 
             Font font = this.Font;
 
-            if (currentState != 0 && !OperatingSystemVersions.IsSupported(OperatingSystemVersion.WindowsVista))
+            if (currentState != 0 && !OperatingSystemVersions.IsSupported(OperatingSystemVersion.Windows7))
             {
                 font = underlinedFont;
             }

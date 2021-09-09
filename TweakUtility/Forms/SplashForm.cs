@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Windows.Forms;
-
-using TweakUtility.Attributes;
-using TweakUtility.Extensions;
-using TweakUtility.Helpers;
 
 namespace TweakUtility.Forms
 {
@@ -42,6 +35,10 @@ namespace TweakUtility.Forms
             {
                 Application.Exit();
             }
+        }
+        public void Localize()
+        {
+            this.titleLabel.Text = Properties.Strings.Application_Name;
         }
     }
 }
