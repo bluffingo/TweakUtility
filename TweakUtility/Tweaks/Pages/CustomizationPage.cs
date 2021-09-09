@@ -72,7 +72,7 @@ namespace TweakUtility.Tweaks.Pages
 
         [OperatingSystemSupported(OperatingSystemVersion.Windows7)]
         [RefreshRequired(RestartType.ExplorerRestart)]
-        [DisplayName("Show build number on Desktop")] //amazing typo 10/10
+        [DisplayName("Show build number on Desktop")]
         public bool ShowBuildNumberDesktop
         {
             get => RegistryHelper.GetValue(@"HKCU\Control Panel\Desktop\PaintDesktopVersion", 0) == 1;

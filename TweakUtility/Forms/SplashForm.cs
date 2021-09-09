@@ -40,21 +40,5 @@ namespace TweakUtility.Forms
         {
             this.titleLabel.Text = Properties.Strings.Application_Name;
         }
-        private void GarfieldPF94_Click(object sender, EventArgs e)
-        {
-            {
-                DialogResult d; //causes IDE0059, but trying to fix it causes a error.
-                d = MessageBox.Show("Broken Heart, and Graphic High. Ahh the wine. Come home, Jon.", "Proud 'n 94th Parappa Fan", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (d == DialogResult.No)
-                {
-                    throw new Exception("I'm not sorry, Jon. You don't want to come back home. I don't want to be a Raymond.");
-                }
-                if (d == DialogResult.Yes)
-                {
-                    MessageBox.Show("Good, Thank you.", "Garfield", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-
-            }
-        }
     }
 }
