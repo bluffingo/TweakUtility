@@ -22,6 +22,7 @@ namespace TweakUtility.Tweaks.Pages
         [Category("Behavior")]
         [RefreshRequired(RestartType.TweakUtility)]
         [DisplayName("Enable experimental features")]
+        [Description("This preference will enable some unfinished features")]
         public static bool EnableExperimentalFeatures
         {
             get => Properties.Settings.Default.EnableExperimentalFeatures;
@@ -30,6 +31,7 @@ namespace TweakUtility.Tweaks.Pages
 
         [Category("Behavior")]
         [DisplayName("Save window position and size")]
+        [Description("This preference will make it so that launching TweakUtility keeps the position/size it had before it got closed")]
         public static bool SaveWindowInfo
         {
             get => Properties.Settings.Default.SaveWindowInfo;

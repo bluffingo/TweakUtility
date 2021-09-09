@@ -33,7 +33,7 @@ namespace TweakUtility.Tweaks.Pages
         }
 
         [DisplayName("Owner")]
-        [Category("Registration")]
+        [Category("Registration info")]
         public string RegisteredOwner
         {
             get => RegistryHelper.GetValue<string>(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\RegisteredOwner");
@@ -41,7 +41,7 @@ namespace TweakUtility.Tweaks.Pages
         }
 
         [DisplayName("Organization")]
-        [Category("Registration")]
+        [Category("Registration info")]
         public string RegisteredOrganization
         {
             get => RegistryHelper.GetValue<string>(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\RegisteredOrganization");
@@ -49,7 +49,7 @@ namespace TweakUtility.Tweaks.Pages
         }
 
         [DisplayName("Title")]
-        [Category("Legal Notice")]
+        [Category("Login screen legal notice")]
         public string LegalNoticeCaption
         {
             get => RegistryHelper.GetValue(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\LegalNoticeCaption", "");
@@ -57,35 +57,11 @@ namespace TweakUtility.Tweaks.Pages
         }
 
         [DisplayName("Text")]
-        [Category("Legal Notice")]
+        [Category("Login screen legal notice")]
         public string LegalNoticeText
         {
             get => RegistryHelper.GetValue(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\LegalNoticeText", "");
             set => RegistryHelper.SetValue(@"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\LegalNoticeText", value);
         }
-
-        //[DisplayName("Toggle Windows System File Checker")]
-        //[OperatingSystemSupported(OperatingSystemVersion.WindowsXP)]
-        ////[DefaultValue(WindowsSFCMode.Enabled)]
-        //public WindowsSFCMode WindowsSFC
-        //{
-        //    get => (WindowsSFCMode)RegistryHelper.GetValue<int>(@"HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SFCDisable");
-        //    set => RegistryHelper.SetValue(@"HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SFCDisable", (int)value);
-        //}
-
-        //public enum WindowsSFCMode
-        //{
-        //    [DisplayName("Disabled with prompts")]
-        //    Enabled = 0,
-
-        //    [DisplayName("Disabled with reactivation prompts")]
-        //    DisablePrompt = 1,
-
-        //    [DisplayName("Disabled without any reactivation prompts")]
-        //    DisableNoPrompt = 2,
-
-        //    [DisplayName("Enabled without prompts")]
-        //    EnabledNoPrompt = 4
-        //}
     }
 }
