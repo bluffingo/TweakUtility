@@ -97,7 +97,7 @@ namespace TweakUtility.Helpers
 
         [DllImport("Srclient.dll")]
         public static extern uint SRRemoveRestorePoint(uint index);
-        
+
         [DllImport("shell32.dll", CharSet = CharSet.Unicode)]
         public static extern int SHGetKnownFolderPath([MarshalAs(UnmanagedType.LPStruct)] Guid rfid, uint dwFlags, IntPtr hToken, out string pszPath);
 
@@ -139,7 +139,7 @@ namespace TweakUtility.Helpers
         internal static extern IntPtr LoadImage(IntPtr hInstance, int uID, uint type, int width, int height, int load);
 
         [DllImport("kernel32", SetLastError = true, CharSet = CharSet.Ansi)]
-        internal static extern IntPtr LoadLibrary([MarshalAs(UnmanagedType.LPStr)]string lpFileName);
+        internal static extern IntPtr LoadLibrary([MarshalAs(UnmanagedType.LPStr)] string lpFileName);
 
         [DllImport("kernel32.dll", SetLastError = true)]
         internal static extern IntPtr LoadLibraryEx(string lpFileName, IntPtr hReservedNull, LoadLibraryFlags dwFlags);
@@ -291,5 +291,5 @@ namespace TweakUtility.Helpers
 
         public const int LVS_EX_SUBITEMIMAGES = 0x2;
     }
-    
+
 }

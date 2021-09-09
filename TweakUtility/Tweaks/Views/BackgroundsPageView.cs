@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Windows.Forms;
-using System.IO;
-using TweakUtility.Helpers;
-using System.Drawing.Imaging;
 using System.Drawing;
-using System.Web.Management;
 using System.Drawing.Drawing2D;
-using Microsoft.VisualBasic;
-using Microsoft.Win32;
-using System.Diagnostics;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Windows.Forms;
+using TweakUtility.Helpers;
 using TweakUtility.Tweaks.Model;
 
 namespace TweakUtility.Tweaks.Views

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Drawing;
-using System.Windows.Forms;
 using System.IO;
-using System.Diagnostics;
-using System.Collections;
+using System.Windows.Forms;
 using TweakUtility.Tweaks.Model;
 
 namespace TweakUtility.Tweaks.Views

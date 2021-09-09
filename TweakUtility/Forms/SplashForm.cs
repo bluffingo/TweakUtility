@@ -53,7 +53,7 @@ namespace TweakUtility.Forms
                 {
                     MessageBox.Show("Good, Thank you.", "Garfield", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-         
+
             }
         }
     }

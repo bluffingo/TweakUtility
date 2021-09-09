@@ -2,9 +2,9 @@
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
-using System.Windows.Forms;
 using System.Management;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using TweakUtility.Enums;
 using TweakUtility.Helpers;
 using TweakUtility.Tweaks.Forms;
@@ -27,15 +27,15 @@ namespace TweakUtility.Tweaks.Views
             var instances = class_.GetInstances();
 
             var eventTypes =
-                ((RestorePointEventType[]) Enum.GetValues(typeof(RestorePointEventType))).Select(x => (uint) x)
+                ((RestorePointEventType[])Enum.GetValues(typeof(RestorePointEventType))).Select(x => (uint)x)
                 .ToArray();
             var restoreTypes =
-                ((RestorePointType[]) Enum.GetValues(typeof(RestorePointType))).Select(x => (uint) x).ToArray();
+                ((RestorePointType[])Enum.GetValues(typeof(RestorePointType))).Select(x => (uint)x).ToArray();
 
             foreach (var restore in instances)
             {
-                var eventType = (uint) restore["eventtype"];
-                var restoreType = (uint) restore["restorepointtype"];
+                var eventType = (uint)restore["eventtype"];
+                var restoreType = (uint)restore["restorepointtype"];
                 var item = new ListViewItem(new string[]
                 {
                     (string) restore["description"],
@@ -82,8 +82,8 @@ namespace TweakUtility.Tweaks.Views
                 using (var parameters = class_.GetMethodParameters("CreateRestorePoint"))
                 {
                     parameters["Description"] = diag.Description;
-                    parameters["EventType"] = (uint) diag.EventType;
-                    parameters["RestorePointType"] = (uint) diag.RestorePointType;
+                    parameters["EventType"] = (uint)diag.EventType;
+                    parameters["RestorePointType"] = (uint)diag.RestorePointType;
                     class_.InvokeMethod("CreateRestorePoint", parameters, null);
                 }
             });

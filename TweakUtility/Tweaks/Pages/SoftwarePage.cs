@@ -1,16 +1,12 @@
-﻿using TweakUtility.Attributes;
-using TweakUtility.Helpers;
-using TweakUtility.Tweaks.Views;
+﻿using TweakUtility.Helpers;
 
 namespace TweakUtility.Tweaks.Pages
 {
-    [Experimental]
     public class SoftwarePage : TweakPage
     {
-        public SoftwarePage() : base("Software", new SnippingToolPage(), new InternetExplorerPage())
+        public SoftwarePage() : base("Software", new SnippingToolPage(), new InternetExplorerPage(), new SoftwareManagerPage())
         {
             this.Icon = Icons.Software;
-            this.CustomView = new SoftwarePageView();
         }
     }
 }

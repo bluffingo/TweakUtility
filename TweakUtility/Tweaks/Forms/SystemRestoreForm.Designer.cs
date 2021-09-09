@@ -44,7 +44,8 @@ namespace TweakUtility.Tweaks.Forms
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Location = new System.Drawing.Point(13, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 23);
             this.label1.TabIndex = 0;
@@ -52,7 +53,8 @@ namespace TweakUtility.Tweaks.Forms
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(12, 42);
+            this.label2.Location = new System.Drawing.Point(13, 41);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 23);
             this.label2.TabIndex = 1;
@@ -60,7 +62,8 @@ namespace TweakUtility.Tweaks.Forms
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(12, 70);
+            this.label3.Location = new System.Drawing.Point(11, 67);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(111, 23);
             this.label3.TabIndex = 2;
@@ -68,44 +71,47 @@ namespace TweakUtility.Tweaks.Forms
             // 
             // descriptionTextBox
             // 
-            this.descriptionTextBox.Location = new System.Drawing.Point(129, 9);
+            this.descriptionTextBox.Location = new System.Drawing.Point(130, 9);
+            this.descriptionTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(285, 23);
             this.descriptionTextBox.TabIndex = 3;
             // 
             // eventTypeComboBox
             // 
+            this.eventTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.eventTypeComboBox.FormattingEnabled = true;
-            this.eventTypeComboBox.Location = new System.Drawing.Point(129, 38);
+            this.eventTypeComboBox.Location = new System.Drawing.Point(130, 38);
+            this.eventTypeComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.eventTypeComboBox.Name = "eventTypeComboBox";
             this.eventTypeComboBox.Size = new System.Drawing.Size(285, 23);
             this.eventTypeComboBox.TabIndex = 4;
-            this.eventTypeComboBox.Text = "BeginSystemChange";
-            this.eventTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             // 
             // restoreTypeComboBox
             // 
+            this.restoreTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.restoreTypeComboBox.FormattingEnabled = true;
-            this.restoreTypeComboBox.Location = new System.Drawing.Point(129, 67);
+            this.restoreTypeComboBox.Location = new System.Drawing.Point(130, 67);
+            this.restoreTypeComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.restoreTypeComboBox.Name = "restoreTypeComboBox";
             this.restoreTypeComboBox.Size = new System.Drawing.Size(285, 23);
             this.restoreTypeComboBox.TabIndex = 5;
-            this.restoreTypeComboBox.Text = "ApplicationInstall";
-            this.restoreTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(339, 107);
+            this.okButton.Location = new System.Drawing.Point(340, 107);
+            this.okButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 6;
-            this.okButton.Text = "&Ok";
+            this.okButton.Text = "&OK";
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.OkButtonClick);
             // 
             // cancelButton
             // 
             this.cancelButton.Location = new System.Drawing.Point(258, 107);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 7;
@@ -117,7 +123,7 @@ namespace TweakUtility.Tweaks.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 142);
+            this.ClientSize = new System.Drawing.Size(426, 139);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.restoreTypeComboBox);
@@ -126,11 +132,14 @@ namespace TweakUtility.Tweaks.Forms
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "SystemRestoreForm";
-            this.Text = "SystemRestoreForm";
+            this.Text = "Add Restore Point";
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

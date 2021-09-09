@@ -144,7 +144,7 @@ namespace TweakUtility
             try
             {
 #endif
-            
+
             Application.ApplicationExit += (s, e) => Properties.Settings.Default.Save();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -206,12 +206,8 @@ namespace TweakUtility
             #endregion Splash Screen Code
             using (var main = new MainForm())
             {
-#if !DEBUG
-                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(Properties.Resources.test); //this loads in the startup sound
-                    player.Play(); //it plays said sound
-#endif
                 Application.Run(main);
-                }
+            }
 
 #if !DEBUG
             }

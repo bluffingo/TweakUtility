@@ -236,13 +236,15 @@
     <Compile Include="Tweaks\Model\StartupItemType.cs" />
     <Compile Include="Tweaks\Model\StartupRegistryItem.cs" />
     <Compile Include="Tweaks\Pages\EnvironmentVariablesPage.cs" />
+    <Compile Include="Tweaks\Pages\SoftwareManagerPage.cs" />
     <Compile Include="Tweaks\Pages\SoftwarePage.cs" />
+    <Compile Include="Tweaks\Pages\SoftwarePageBase.cs" />
     <Compile Include="Tweaks\Views\EnvironmentVariablesPageView.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Tweaks\Views\EnvironmentVariablesPageView.Designer.cs">
       <DependentUpon>EnvironmentVariablesPageView.cs</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="Tweaks\Model\DiskCleanupHandler.cs" />
     <Compile Include="Tweaks\Pages\CustomizationPage.BackgroundsPage.cs" />
     <Compile Include="Tweaks\Pages\RestorePointsPage.cs" />
@@ -286,8 +288,6 @@
       <DependentUpon>HostsPageView.cs</DependentUpon>
     </Compile>
     <Compile Include="Tweaks\Pages\InternetExplorerPage.cs" />
-    <None Include="Tweaks\Pages\MsnMessengerPage.cs" />
-    <None Include="Tweaks\Pages\MsnMessengerPage.PassportPage.cs" />
     <Compile Include="Tweaks\Pages\PaintDotNetPage.cs" />
     <Compile Include="Tweaks\Pages\PreferencesPage.cs" />
     <Compile Include="Tweaks\Pages\SnippingToolPage.cs" />
@@ -352,7 +352,7 @@
     <EmbeddedResource Include="Properties\Strings.de.resx" />
     <EmbeddedResource Include="Tweaks\Views\EnvironmentVariablesPageView.resx">
       <DependentUpon>EnvironmentVariablesPageView.cs</DependentUpon>
-	</EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tweaks\Forms\SystemRestoreForm.resx">
       <DependentUpon>SystemRestoreForm.cs</DependentUpon>
     </EmbeddedResource>
