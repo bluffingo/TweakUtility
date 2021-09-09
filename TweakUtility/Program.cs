@@ -127,7 +127,7 @@ namespace TweakUtility
 
             body = HttpUtility.UrlEncode(body);
 
-            string url = $"https://github.com/PF94/TweakUtility_PF94/issues/new?labels=crash+report&title={title}&body={body}";
+            string url = $"https://github.com/Craftplacer/TweakUtility/issues/new?labels=crash+report&title={title}&body={body}";
 
             OpenURL(url);
         }
