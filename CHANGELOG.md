@@ -1,5 +1,8 @@
 # Changelogs for TweakUtility
 
+## 1.1.2 (September ?? 2021)
+Add later
+
 ## 1.1.1 (October 27th 2019)
 Internal version, never released though it was pushed out by accident.
 
