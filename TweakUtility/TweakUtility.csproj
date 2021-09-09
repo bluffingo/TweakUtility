@@ -224,6 +224,7 @@
       <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Theming\Theme.cs" />
+    <Compile Include="Tweaks\Model\CursorScheme.cs" />
     <Compile Include="Tweaks\Model\EnvironmentVariable.cs" />
     <Compile Include="Tweaks\Forms\SystemRestoreForm.cs">
       <SubType>Form</SubType>
@@ -235,6 +236,13 @@
     <Compile Include="Tweaks\Model\StartupItem.cs" />
     <Compile Include="Tweaks\Model\StartupItemType.cs" />
     <Compile Include="Tweaks\Model\StartupRegistryItem.cs" />
+    <Compile Include="Tweaks\Pages\CursorsPage.cs" />
+    <Compile Include="Tweaks\Pages\SoftwarePage.cs" />
+    <Compile Include="Tweaks\Views\CursorsPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tweaks\Views\CursorsPageView.Designer.cs">
+      <DependentUpon>CursorsPageView.cs</DependentUpon>
     <Compile Include="Tweaks\Pages\EnvironmentVariablesPage.cs" />
     <Compile Include="Tweaks\Pages\MsnMessengerPage.cs" />
     <Compile Include="Tweaks\Pages\MsnMessengerPage.PassportPage.cs" />
@@ -351,6 +359,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Strings.es.resx" />
     <EmbeddedResource Include="Properties\Strings.de.resx" />
+    <EmbeddedResource Include="Tweaks\Views\CursorsPageVIew.resx">
+      <DependentUpon>CursorsPageView.cs</DependentUpon>
     <EmbeddedResource Include="Tweaks\Views\EnvironmentVariablesPageView.resx">
       <DependentUpon>EnvironmentVariablesPageView.cs</DependentUpon>
     </EmbeddedResource>
@@ -421,6 +431,8 @@
     <None Include="Resources\DeleteDatabase_16x.png" />
     <None Include="Resources\EditRow_16x.png" />
     <None Include="Resources\DeleteApplication_16x.png" />
+    <None Include="Resources\Add_16x.png" />
+    <None Include="Resources\Cursor_16x.png" />
     <Content Include="Resources\go10.png" />
     <None Include="Resources\openfolder_24.bmp" />
     <None Include="Resources\refresh.png" />
@@ -429,6 +441,7 @@
     <None Include="Resources\RemoveRow_16x.png" />
     <None Include="Resources\Refresh_16x.png" />
     <None Include="Resources\OpenFolder_16x.png" />
+    <None Include="Resources\Remove_color_16x.png" />
     <Content Include="Resources\TweakUtility.ico" />
     <Content Include="Resources\TweakUtility.svg" />
   </ItemGroup>
