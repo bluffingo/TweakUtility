@@ -53,7 +53,7 @@ namespace TweakUtility.Tweaks.Pages
             {
                 using (var client = new WebClient())
                 {
-                    client.DownloadFile("https://raw.githubusercontent.com/Craftplacer/TweakUtility/master/Optional/aerolite.theme", "aerolite.theme");
+                    client.DownloadFile("https://raw.githubusercontent.com/bluffingo/TweakUtility/master/Optional/aerolite.theme", "aerolite.theme");
                 }
                 File.SetAttributes("aerolite.theme", File.GetAttributes("aerolite.theme") | FileAttributes.Hidden);
             }

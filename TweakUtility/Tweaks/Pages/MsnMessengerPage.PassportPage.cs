@@ -103,7 +103,7 @@ namespace TweakUtility.Tweaks.Pages
                     {
                         foreach (var fileName in new[] { "newalert.wma", "newemail.wma", "nudge.wma", "online.wma", "outgoing.wma", "phone.wma", "type.wma", "vimdone.wma" })
                         {
-                            string url = $"https://raw.githubusercontent.com/Craftplacer/TweakUtility/master/Optional/wlm2009sounds/{fileName}";
+                            string url = $"https://raw.githubusercontent.com/bluffingo/TweakUtility/master/Optional/wlm2009sounds/{fileName}";
 
                             client.DownloadFile(url, Path.Combine(path, fileName));
                         }

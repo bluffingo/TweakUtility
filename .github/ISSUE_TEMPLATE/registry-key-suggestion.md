@@ -10,7 +10,7 @@ assignees: ''
 **Registry keys**
 
 **Mininum Windows Version**
-Windows XP
+Windows 7
 
 **Maximum Windows Version**
 Windows 10

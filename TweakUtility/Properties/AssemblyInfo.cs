@@ -7,11 +7,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("TweakUtility")]
-[assembly: AssemblyDescription("Tweaking application for Microsoft Windows 7 and/or newer.")]
+[assembly: AssemblyDescription("Tweaking application for Microsoft Windows 7 and newer.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("TweakUtility")]
-[assembly: AssemblyCopyright("Copyright © Craftplacer 2019, and maybe PF94 2020?")]
+[assembly: AssemblyCopyright("Copyright © Craftplacer 2019, licensed under GNU GPLv3")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

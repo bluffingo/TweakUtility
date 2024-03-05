@@ -1,6 +1,8 @@
 # TweakUtility
 A .NET Framework application for tweaking Windows with an easy UI.
 
-> [Contributing](https://github.com/Craftplacer/TweakUtility/blob/master/CONTRIBUTING.md) | [Localizing/Translating](https://github.com/Craftplacer/TweakUtility/blob/master/LOCALIZATION.md) | [Changelogs](https://github.com/Craftplacer/TweakUtility/blob/master/CHANGELOG.md) | [Compatibility](https://github.com/Craftplacer/TweakUtility/blob/master/COMPATIBILITY.md) | [Wiki](https://github.com/Craftplacer/TweakUtility/wiki)
+The original author, Craftplacer, recently took down the original repository. I have decided to reupload it. Note that this application has not been tested on Windows 11.
 
-![alt text](https://raw.githubusercontent.com/Craftplacer/TweakUtility/master/readme.png "TweakUtility in Action")
+> [Contributing](https://github.com/bluffingo/TweakUtility/blob/master/CONTRIBUTING.md) | [Localizing/Translating](https://github.com/bluffingo/TweakUtility/blob/master/LOCALIZATION.md) | [Changelogs](https://github.com/bluffingo/TweakUtility/blob/master/CHANGELOG.md)
+
+![alt text](https://raw.githubusercontent.com/bluffingo/TweakUtility/master/readme.png "TweakUtility in Action")

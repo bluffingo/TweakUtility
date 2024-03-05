@@ -164,7 +164,7 @@ namespace TweakUtility.Tweaks.Views
             setBackgrounds();
         }
 
-        private void qualityNoticeLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => Program.OpenURL("https://github.com/Craftplacer/TweakUtility/wiki/Logon-Background-Quality");
+        private void qualityNoticeLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => Program.OpenURL("https://github.com/bluffingo/TweakUtility/wiki/Logon-Background-Quality");
 
         private void setBackgrounds()
         {

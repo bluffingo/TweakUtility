@@ -58,7 +58,7 @@ namespace TweakUtility.Tweaks.Pages
                 if (!File.Exists(x86))
                 {
                     indicator.SetProgress(1, "Downloading 32-bit deskband...");
-                    client.DownloadFile("https://raw.githubusercontent.com/Craftplacer/TweakUtility/master/Optional/wmpband/32.dll", "32.dll");
+                    client.DownloadFile("https://raw.githubusercontent.com/bluffingo/TweakUtility/master/Optional/wmpband/32.dll", "32.dll");
 
                     indicator.SetProgress(3, "Moving 32-bit deskband file...");
                     File.Move("32.dll", x86);
@@ -67,7 +67,7 @@ namespace TweakUtility.Tweaks.Pages
                 if (!File.Exists(x64))
                 {
                     indicator.SetProgress(2, "Downloading 64-bit deskband...");
-                    client.DownloadFile("https://raw.githubusercontent.com/Craftplacer/TweakUtility/master/Optional/wmpband/64.dll", "64.dll");
+                    client.DownloadFile("https://raw.githubusercontent.com/bluffingo/TweakUtility/master/Optional/wmpband/64.dll", "64.dll");
 
                     indicator.SetProgress(3, "Moving 64-bit deskband file...");
                     File.Move("64.dll", x64);
